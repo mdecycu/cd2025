@@ -55,7 +55,7 @@
 <p>Webots:</p>
 <p style="padding-left: 30px;"><a href="https://www.cyberbotics.com">https://www.cyberbotics.com</a> </p>
 <p style="padding-left: 30px;"><a href="https://github.com/cyberbotics/webots/discussions/2621">https://github.com/cyberbotics/webots/discussions/2621</a> </p>
-<p style="padding-left: 30px;"><a href="https://github.com/aidudezzz/deepbots">https://github.com/aidudezzz/deepbots</a> </p>
+<p style="padding-left: 30px;"><a href="https://github.com/aidudezzz/deepbots">https://github.com/aidudezzz/deepbots</a> (<a href="https://deepbots.readthedocs.io">https://deepbots.readthedocs.io</a>) </p>
 <p style="padding-left: 30px;"><a href="https://cad2.cycu.org/~yen/cad2023/content/PICSimLab.html">https://cad2.cycu.org/~yen/cad2023/content/PICSimLab.html</a></p>
 <h4>Pinball</h4>
 <p style="padding-left: 30px;"><a href="/downloads/pinball.7z">pinball.7z</a></p>
@@ -68,7 +68,80 @@
 <p style="padding-left: 30px;"><a href="https://pure.itu.dk/ws/portalfiles/portal/86211605/2021RIE_HoRoSim_camera_ready.pdf">HoRoSim, a Holistic Robot Simulator: Arduino Code, Electronic Circuits and Physics</a></p>
 <p style="padding-left: 30px;"><a href="https://bitbucket.org/afaina/horosim/src/master/">https://bitbucket.org/afaina/horosim/src/master/</a></p><h1>Projects</h1>
 <p>Collaborative Design Projects</p>
-<h2>Solvespace</h2>
+<h2>Webots</h2>
+<p>Stable version: <a href="http://229.cycu.org/Webots_2023b.7z">Webots_2023b.7z</a></p>
+<p><span style="background-color: #ffff00;">1.</span> 與 <a href="http://229.cycu.org/python_2025_lite.7z">python_2025_lite.7z</a> 結合使用, Webots - Tools - Preferences - Python Command 設定為 Y:\Python310\python.exe</p>
+<p><span style="background-color: #ffff00;">2.</span> start_ipv6.bat 必須設定:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">REM for Webots
+set PYTHON_PATH=%Disk%:\Python310
+
+REM for Webots
+set  path_webots=%Disk%:\Webots_2023b\msys64\mingw64\bin
+
+REM 在 path 納入 %path_webots%
+path=~~;%path_webots%;%path%;</pre>
+<p><span style="background-color: #ffff00;">3.</span> pip install opencv-python</p>
+<p>配置完成後, 測試 Python 是否設定正確: <a href="/downloads/Webots_examples.zip">Webots_examples.zip</a> (<a href="https://courses.ideate.cmu.edu/16-375/f2024">source</a>)</p>
+<p><a href="/downloads/vrml97specification.pdf">vrml97specification.pdf</a> (<a href="http://www.graphics.stanford.edu/courses/cs248-98-fall/Assignments/Assignment3/VRML2_Specification/">VRML 2.0</a>, <a href="https://zh.wikipedia.org/zh-tw/VRML">VRML</a>)</p>
+<p><a href="https://github.com/Introduction-to-Autonomous-Robots/Introduction-to-Autonomous-Robots">https://github.com/Introduction-to-Autonomous-Robots/Introduction-to-Autonomous-Robots</a></p>
+<p>Webots 原始碼: <a href="https://github.com/cyberbotics/webots">https://github.com/cyberbotics/webots</a></p>
+<p>官方網站: <a href="https://cyberbotics.com/">https://cyberbotics.com/</a></p>
+<p><a href="https://webots.cloud/">https://webots.cloud/</a></p>
+<p><a href="https://www.cyberbotics.com/doc/guide/samples-howto?version=cyberbotics:R2023b">https://www.cyberbotics.com/doc/guide/samples-howto?version=cyberbotics:R2023b</a></p>
+<p><a href="https://www.cyberbotics.com/doc/guide/index.php?version=cyberbotics:R2019a">https://www.cyberbotics.com/doc/guide/index.php?version=cyberbotics:R2019a</a></p>
+<p>License: <a href="https://cyberbotics.com/doc/guide/webots-license-agreement">https://cyberbotics.com/doc/guide/webots-license-agreement</a></p>
+<p><a href="https://cyberbotics.com/doc/guide/web-interface">https://cyberbotics.com/doc/guide/web-interface</a> (無法使用 Firefox 觀看)</p>
+<p><a href="https://cyberbotics.com/doc/guide/web-server">https://cyberbotics.com/doc/guide/web-server</a> (<a href="https://github.com/cyberbotics/webots-server">Github</a>)</p>
+<p><a href="https://cyberbotics.com/doc/guide/web-streaming">https://cyberbotics.com/doc/guide/web-streaming</a> (<a href="https://cyberbotics.com/doc/guide/starting-webots#command-line-arguments">Command Line Arguments</a>) (無法使用 Firefox 觀看)</p>
+<p style="padding-left: 30px;">webotsw --stream</p>
+<p style="padding-left: 30px;">使用 Edge 連線到 http://localhost:1234/index.html</p>
+<p><a href="https://cyberbotics.com/doc/guide/interfacing-webots-to-third-party-software-with-tcp-ip">https://cyberbotics.com/doc/guide/interfacing-webots-to-third-party-software-with-tcp-ip</a></p>
+<p><a href="https://felipenmartins.github.io/Robotics-Simulation-Labs/">https://felipenmartins.github.io/Robotics-Simulation-Labs/</a></p>
+<hr/>
+<h4>Webots_ex</h4>
+<p>Webots 最新版可直接從 <a href="https://github.com/cyberbotics/webots/releases">https://github.com/cyberbotics/webots/releases</a> 下載.</p>
+<p>Stable version: <a href="http://229.cycu.org/Webots_2023b.7z">Webots_2023b.7z</a></p>
+<p>使用授權: <a href="https://cyberbotics.com/doc/guide/webots-license-agreement">https://cyberbotics.com/doc/guide/webots-license-agreement</a></p>
+<p>Webots Source Code<br/><br/>Webots is released under the terms of the Apache 2.0 license agreement. Apache 2.0 is a industry friendly, non-contaminating, permissive open source license that grants everyone the right to use a software source code, free of charge, <span style="background-color: #ffff00;">for any purpose, including commercial applications</span>.</p>
+<p>Webots Sample Simulations</p>
+<p>Webots sample simulations include world files, robot and object models, robot controllers, plugins, libraries, etc. Generally, all the sample simulations source files distributed with Webots have a license header referring to the Apache 2.0 license, except for a few robot and object assets (proto files) which are distributed under the terms of the open source Webots Assets license agreement and a few sample simulations which were contributed by users under various license agreements, mostly open source ones. In any case, the license agreement is explicitly included in the corresponding files and/or folders.</p>
+<p>Webots 原始碼</p>
+<p>Webots 是根據 Apache 2.0 授權協議發布的。Apache 2.0 是一個對產業友善、非強制衍生性的寬鬆開源授權，讓所有人都有權利免費使用軟體原始碼，<span style="background-color: #ffff00;">可用於任何目的，包括商業應用</span>。</p>
+<p>Webots 範例模擬</p>
+<p>Webots 範例模擬包含場景檔案、機器人和物件模型、機器人控制器、外掛程式、程式庫等。一般來說，所有隨 Webots 發布的範例模擬原始檔都有引用 Apache 2.0 授權的授權標頭，但有少數機器人和物件資產（proto 檔案）是根據開源的 Webots Assets 授權協議發布，還有一些由使用者貢獻的範例模擬則是根據各種授權協議發布，大多是開源授權。無論如何，相關授權協議都明確包含在對應的檔案和/或資料夾中。</p>
+<hr/>
+<p><a href="https://github.com/cyberbotics/webots/tree/released/resources/translations">https://github.com/cyberbotics/webots/tree/released/resources/translations</a> 中並沒有繁體中文翻譯, 但建議使用英文版即可.</p>
+<p>自行編譯 Webots 導引: <a href="https://github.com/cyberbotics/webots/wiki">https://github.com/cyberbotics/webots/wiki</a></p>
+<p>自行建立網際模擬伺服器導引: <a href="https://cyberbotics.com/doc/guide/web-server">https://cyberbotics.com/doc/guide/web-server</a></p>
+<hr/>
+<p>操作教學: <a href="https://cyberbotics.com/doc/guide/tutorials">https://cyberbotics.com/doc/guide/tutorials</a></p>
+<p>導入 STL 模型: <a href="https://cyberbotics.com/doc/reference/mesh">https://cyberbotics.com/doc/reference/mesh</a></p>
+<p>使用 C 執行控制: <a href="https://cyberbotics.com/doc/guide/using-c">https://cyberbotics.com/doc/guide/using-c</a></p>
+<p>使用 Python 執行控制: <a href="https://cyberbotics.com/doc/guide/using-python">https://cyberbotics.com/doc/guide/using-python</a></p>
+<hr/>
+<p>References:</p>
+<p style="padding-left: 30px;"><a href="https://felipenmartins.github.io/Robotics-Simulation-Labs/">https://felipenmartins.github.io/Robotics-Simulation-Labs/</a>　</p>
+<p style="padding-left: 30px;"><a href="https://courses.ideate.cmu.edu/16-375/f2022/ref/text/resources/Webots.html">https://courses.ideate.cmu.edu/16-375/f2022/ref/text/resources/Webots.html</a></p>
+<p style="padding-left: 30px;"><a href="https://courses.ideate.cmu.edu/16-375/f2024/text/simulations/index.html">https://courses.ideate.cmu.edu/16-375/f2024/text/simulations/index.html</a></p>
+<p style="padding-left: 30px;"><a href="https://www.bx.psu.edu/~thanh/naoqi/software/webots/webots_index.html">https://www.bx.psu.edu/~thanh/naoqi/software/webots/webots_index.html</a></p>
+<p style="padding-left: 30px;"><a href="https://uclalemur.com/">https://uclalemur.com/</a></p>
+<p style="padding-left: 30px;"><a href="https://www.cs.csubak.edu/~wli/Wei_Li_Tch/CS_456/456_LAB/Guide.pdf">https://www.cs.csubak.edu/~wli/Wei_Li_Tch/CS_456/456_LAB/Guide.pdf</a> </p>
+<p style="padding-left: 30px;"><a href="https://www.udemy.com/course/learn-mobile-robotics-with-webots">https://www.udemy.com/course/learn-mobile-robotics-with-webots</a></p>
+<p style="padding-left: 30px;"><a href="https://robmosys.eu/">https://robmosys.eu/</a></p>
+<p style="padding-left: 30px;"><a href="https://opendr.eu/robotic-simulations-on-the-web-education-dissemination-and-competition-organization/">https://opendr.eu/robotic-simulations-on-the-web-education-dissemination-and-competition-organization/</a></p>
+<p style="padding-left: 30px;"><a href="https://www.innovationplace.eu/project/open-source-3d-robot-simulator-with-web-interface-helps-industries-to-implement-digital-twin-models/2957">https://www.innovationplace.eu/project/open-source-3d-robot-simulator-with-web-interface-helps-industries-to-implement-digital-twin-models/2957</a></p>
+<p style="padding-left: 60px;">A Swiss company developed a realistic robot simulator which can be used to simulate various digital twin scenarios involving mobile robots, robotics arms, drones, autonomous vehicles, industrial processes, etc. Sensors and actuators can be modeled, such as cameras, lidars, laser range-finder, etc. Robots are controlled by intelligent programs processing sensor data with AI algorithms. The software is fully open-source, runs on the desktop and features a cloud-based 3D web interface.</p>
+<p style="padding-left: 60px;">這家瑞士公司開發了一款逼真的機器人模擬器，可用於模擬包括移動機器人、機械手臂、無人機、自動駕駛車輛、工業製程等各種數位分身的情境。此模擬器可以模擬各種感測器和致動器，例如攝影機、光達、雷射測距儀等。機器人由智慧程式控制，透過人工智慧演算法處理感測器數據。這款軟體完全開源，可在桌面電腦上執行，並提供基於雲端的 3D 網頁介面。</p>
+<p style="padding-left: 60px;">這家中小企業開發的 Webots 軟體是一款開源且跨平台的桌面應用程式，用於模擬機器人。它提供完整的開發環境，可用於建模、程式設計和模擬機器人。該軟體專為專業用途設計，在工業、教育和研究領域被廣泛使用。自 1998 年以來，這家中小企業持續將 Webots 作為其主要產品進行維護。該軟體最初是在瑞士洛桑聯邦理工學院（EPFL）開發的。</p>
+<p style="padding-left: 60px;">Webots 可用於建立機器人原型、開發、測試和驗證人工智慧和控制演算法、教授學生機器人學等。使用者可以利用豐富的 Webots 資產庫（包含機器人、感測器、致動器、物件和材質）輕鬆設計完整的機器人模擬。軟體支援匯入現有的 CAD 模型（來自 Blender 或通用機器人描述格式 URDF）以及 OpenStreetMap 地圖。現代化的圖形使用者介面讓使用者可以編輯他們的模擬和機器人控制器，節省機器人專案開發時間。</p>
+<p style="padding-left: 60px;">使用者可以建立各種類型的模擬，包括雙輪桌面機器人、工業機械臂、雙足機器人、多足機器人、模組化機器人、汽車、飛行無人機、水下自主載具、履帶式機器人、航太載具等。他們可以設置室內或室外的互動環境。這些數位分身模型可用於建立對應實體系統的虛擬原型，並在模擬中測試各種改進。如果模擬中測試的改進顯示出效益，就可以實作到實體系統中。數位分身原型方法提供多項優勢，包括更好的系統功能溝通、更快速且更經濟的系統改進探索，以及包含持續整合的更有效率開發工作流程。</p>
+<p style="padding-left: 60px;">Webots 的核心是基於現代圖形使用者介面（基於 Qt 函式庫）、物理引擎（基於開放動力學引擎 ODE 的分支版本）和基於 OpenGL 3.3 函式庫的 3D 渲染引擎的組合。它可在 Windows、Linux 和 macOS 上執行。Webots 模擬可匯出為影片、互動式 HTML 場景或動畫，甚至可以 3D 形式串流至網頁。機器人可以使用簡單的 API 以不同程式語言進行程式設計，如 C、C++、Python、Java、MATLAB 或 ROS，涵蓋所有基本的機器人需求。Webots 提供網頁介面（展示於 https://webots.cloud），可在雲端執行模擬、播放 3D 動畫，以及展示場景和物件。</p>
+<p style="padding-left: 60px;">透過這家中小企業開發的工具，使用者可以：</p>
+<p style="padding-left: 60px;">1. 受惠於高品質的免費開源技術來模擬機器人系統。</p>
+<p style="padding-left: 60px;">2. 輕鬆將模擬、3D 動畫和 3D 模型匯出至網頁，以便與同事、合作夥伴、客戶和大眾分享。</p>
+<p style="padding-left: 60px;">3. 受惠於這家瑞士中小企業的專業知識，該企業積極支援 Webots 軟體，並為客戶提供顧問諮詢和客製化開發服務。</p>
+<p style="padding-left: 60px;">4. 善用 Webots 使用者社群的貢獻，社群會分享機器人、感測器、致動器、物件、環境、基準測試、控制器程式等模型。</p>
+<p style="padding-left: 60px;">5. 可以透過 https://webots.cloud/competition 輕鬆舉辦機器人挑戰賽和程式設計競賽。</p><h2>Solvespace</h2>
 <p>Web-based Solvespace: <a href="https://cad.apps.dgramop.xyz/">https://cad.apps.dgramop.xyz/</a> (<a href="https://solvespace.com/forum.pl?action=viewthread&amp;parent=2369&amp;tt=1718121481">source</a> and <a href="https://github.com/solvespace/solvespace/pull/1275">PR</a>)</p>
 <p><a href="https://github.com/solvespace/solvespace/pull/493">Python related PR</a></p>
 <p>在 <a href="http://229.cycu.org/python_2025_lite.7z">python_2025_lite.7z</a><span> 加入以下說明的 msys2 與 cmake 後, 可用來編譯 Solvespace v3.1 版原始碼的可攜套件 <a href="http://229.cycu.org/python_2025_lite_w_msys_cmake_solvespace.7z">python_2025_lite_w_msys_cmake_solvespace.7z</a> (Download 1.96GB, After extracted 3.7GB)</span></p>
