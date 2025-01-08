@@ -16,12 +16,130 @@
 <h1>Topics</h1>
 <p>學習使用運用 Webots 建立場景</p>
 <p><a href="https://www.cyberbotics.com/doc/guide/index">https://www.cyberbotics.com/doc/guide/index</a></p>
-<p><a href="https://robotics.stackexchange.com/questions/24227/how-to-import-a-3d-model-in-webots-r2022b">https://robotics.stackexchange.com/questions/24227/how-to-import-a-3d-model-in-webots-r2022b</a> </p>
+<p><a href="https://robotics.stackexchange.com/questions/24227/how-to-import-a-3d-model-in-webots-r2022b">https://robotics.stackexchange.com/questions/24227/how-to-import-a-3d-model-in-webots-r2022b</a></p>
 <p style="padding-left: 30px;"><a href="/downloads/vrmlman.pdf">vrmlman.pdf</a></p>
 <p>如何與 CAD 整合</p>
 <p>如何控制並建立 Pinball Machine 機電模擬系統</p>
 <p>如何與 <a href="https://lcgamboa.github.io/">https://lcgamboa.github.io/</a> (<a href="https://github.com/lcgamboa/picsimlab">PICSimLab</a>) 結合應用</p>
-<p></p><h1>Summary</h1>
+<h2>Development</h2>
+<p>原本用 C++ 寫的程式，除了硬性編譯為 Webassembly 之外，想轉為 Web based 應用，你有什麼建議？</p>
+<p>將 C++ 程式轉換為網頁應用程式有幾個主要方向可以考慮:<br/><br/>WebAssembly (Wasm) 方案:<br/><br/>使用 Emscripten 將 C++ 編譯成 WebAssembly<br/>優點是可以保留原有的 C++ 程式邏輯和效能<br/>適合運算密集或需要高效能的部分<br/>可以漸進式轉換,關鍵模組先轉換<br/><br/>完全重寫為前端應用:<br/><br/>使用 JavaScript/TypeScript 重新實作<br/>使用現代前端框架如 React、Vue、Angular<br/>優點是可以充分利用網頁原生功能和生態系<br/>適合需要較多使用者互動的部分<br/><br/>混合方案:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">// 範例:關鍵運算用 WebAssembly,界面用 JavaScript
+// main.js
+const wasmInstance = await WebAssembly.instantiateStreaming(
+  fetch('math.wasm'),
+  importObject
+);
+
+// 在 JS 中調用 Wasm 函數
+function calculate() {
+  const result = wasmInstance.exports.heavyCalculation();
+  updateUI(result);
+}</pre>
+<p>後端重構建議:<br/><br/>考慮將部分 C++ 邏輯移至後端 API<br/>使用 RESTful 或 GraphQL API<br/>前端專注於展示和互動<br/>可以用 Node.js 或其他後端技術<br/><br/>選擇方案時建議考慮:<br/><br/>程式的複雜度和規模<br/>效能需求<br/>開發團隊的技術能力<br/>維護性需求<br/>時程和資源限制</p>
+<p>對於 CAD 應用來說，這是一個相當具有挑戰性的轉換，因為 CAD 程式通常需要處理複雜的 3D 渲染和大量計算。讓我提供一些具體建議：<br/><br/>核心功能處理：<br/><br/>幾何運算等核心演算法建議使用 WebAssembly：</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">// 範例結構
+// geometry_core.cpp 編譯為 wasm 後：
+const wasmInstance = await WebAssembly.instantiateStreaming(
+  fetch('geometry_core.wasm'),
+  {
+    env: {
+      memory: new WebAssembly.Memory({ initial: 256 }),
+      // 其他必要的導入函數
+    }
+  }
+);
+
+// 在 JS 中調用
+const result = wasmInstance.exports.calculateIntersection(point1, point2);</pre>
+<p>3D 渲染：<br/><br/>使用 WebGL/Three.js 處理 3D 渲染<br/>可以考慮使用成熟的 CAD 引擎如 OpenCascade.js</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">import * as THREE from 'three';
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer();
+
+// 添加 3D 模型
+function addModel(geometryData) {
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute('position', new THREE.Float32BufferAttribute(geometryData, 3));
+  const material = new THREE.MeshStandardMaterial({ color: 0x808080 });
+  const mesh = new THREE.Mesh(geometry, material);
+  scene.add(mesh);
+}</pre>
+<p>檔案處理：<br/><br/>前端處理 DXF、STL 等 CAD 檔案格式<br/>可使用專門的解析庫</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">import * as DXFParser from 'dxf-parser';
+
+async function loadDXF(file) {
+  const parser = new DXFParser();
+  const dxfContent = await file.text();
+  const dxfData = parser.parseSync(dxfContent);
+  // 處理 dxf 數據
+}</pre>
+<p>使用者介面：</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">import React, { useState } from 'react';
+import { 
+  Pencil, 
+  Circle, 
+  Square, 
+  Move, 
+  ZoomIn, 
+  Ruler 
+} from 'lucide-react';
+
+const CADToolbar = ({ onToolSelect }) =&gt; {
+  const [activeTool, setActiveTool] = useState('select');
+  
+  const tools = [
+    { id: 'select', icon: Move, label: 'Select' },
+    { id: 'line', icon: Pencil, label: 'Line' },
+    { id: 'circle', icon: Circle, label: 'Circle' },
+    { id: 'rectangle', icon: Square, label: 'Rectangle' },
+    { id: 'measure', icon: Ruler, label: 'Measure' },
+    { id: 'zoom', icon: ZoomIn, label: 'Zoom' },
+  ];
+  
+  const handleToolClick = (toolId) =&gt; {
+    setActiveTool(toolId);
+    onToolSelect(toolId);
+  };
+
+  return (
+    &lt;div className="fixed left-4 top-20 bg-white shadow-lg rounded-lg p-2"&gt;
+      &lt;div className="flex flex-col space-y-2"&gt;
+        {tools.map((tool) =&gt; {
+          const Icon = tool.icon;
+          return (
+            &lt;button
+              key={tool.id}
+              className={`p-2 rounded-lg hover:bg-gray-100 transition-colors
+                ${activeTool === tool.id ? 'bg-blue-100 text-blue-600' : 'text-gray-600'}
+              `}
+              onClick={() =&gt; handleToolClick(tool.id)}
+              title={tool.label}
+            &gt;
+              &lt;Icon className="w-6 h-6" /&gt;
+            &lt;/button&gt;
+          );
+        })}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+};
+
+export default CADToolbar;</pre>
+<p>架構建議：<br/><br/>採用模組化設計<br/>前端框架建議使用 React 或 Vue<br/>使用 TypeScript 確保型別安全<br/>考慮使用 Web Workers 處理複雜計算</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">// 範例：使用 Web Worker 處理複雜計算
+// calculation.worker.js
+self.onmessage = function(e) {
+  const { type, data } = e.data;
+  if (type === 'calculate') {
+    // 進行複雜計算
+    const result = heavyCalculation(data);
+    self.postMessage({ type: 'result', data: result });
+  }
+};</pre>
+<p>效能優化：<br/><br/><br/>使用 WebGL 實現硬體加速<br/>實作 Level of Detail (LOD)<br/>採用 Octree 等空間分割演算法<br/>實作模型分段載入<br/><br/>資料存儲：<br/><br/>考慮使用 IndexedDB 存儲本地資料<br/>實作自動保存功能<br/>提供檔案匯出功能</p><h1>Summary</h1>
 <p><object data="/images/cd2025.svg" height="1821" type="image/svg+xml" width="1547"></object></p>
 <p><a href="https://mde.tw/mind-map/#/?fileURL=https%3A%2F%2Fmde.tw%2Fcd2025%2Fdownloads%2Fcd2025.smm">Edit cd2025.smm</a></p><h2>Product</h2>
 <p>Product Development Process (產品開發過程)</p>
@@ -199,10 +317,10 @@ path=~~;%path_webots%;%path%;</pre>
 <p>進行上述流程編譯的原始碼 <a href="http://229.cycu.org/solvespace_v3.1_src.7z">solvespace_v3.1_src.7z</a>, 以及編譯完成的 <a href="http://229.cycu.org/solvespace_v3.1_msys2.7z">solvespace_v3.1_msys2.7z</a>.</p>
 <h3>Learn_Solvs</h3>
 <p><a href="https://youtu.be/IlY1YFid8HA?si=bbryzq7P-Z_vR9Rc">https://youtu.be/IlY1YFid8HA?si=bbryzq7P-Z_vR9Rc</a></p>
-<p><a href="https://chromamine.com/2024/07/3d-cad-with-solvespace/">https://chromamine.com/2024/07/3d-cad-with-solvespace/</a> </p>
+<p><a href="https://chromamine.com/2024/07/3d-cad-with-solvespace/">https://chromamine.com/2024/07/3d-cad-with-solvespace/</a></p>
 <p><a href="https://www.youtube.com/watch?v=xAqSddiK5MQ&amp;list=PLWNz5TggYhO1mMihPAIPvozJkNN828FaI">https://thenybble.de/posts/solvespace-mini-tutorial/ </a></p>
 <p><a href="https://www.youtube.com/watch?v=xAqSddiK5MQ&amp;list=PLWNz5TggYhO1mMihPAIPvozJkNN828FaI">Solvespace Tutorial</a></p>
-<p><a href="https://www.youtube.com/watch?v=ckkGfngoSaE&amp;list=PLGAjLwYQPgaBafzQTLA84IkTOptOdIsUX">Solvespace Challenge</a></p><h2>Pyslvs-UI</h2>
+<p><a href="https://www.youtube.com/watch?v=ckkGfngoSaE&amp;list=PLGAjLwYQPgaBafzQTLA84IkTOptOdIsUX">Solvespace Challenge</a> (<a href="https://www.youtube.com/watch?v=PwBSwkW3oPo&amp;list=PLluslK6uBf4sUY_SgOZhBTb_5Vs-XMHZ6">2</a>)</p><h2>Pyslvs-UI</h2>
 <p><a href="https://github.com/KmolYuan/Pyslvs-UI">https://github.com/KmolYuan/Pyslvs-UI</a></p>
 <p><a href="https://github.com/KmolYuan/pyslvs">https://github.com/KmolYuan/pyslvs</a> (A no-GUI module of mechanism synthesis system and a 2D geometric constraint solver)</p><h2>PICSimLab</h2>
 <p><a href="https://github.com/lcgamboa/picsimlab">https://github.com/lcgamboa/picsimlab</a></p>
