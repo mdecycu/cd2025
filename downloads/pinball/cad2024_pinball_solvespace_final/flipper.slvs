@@ -1,0 +1,2213 @@
+±²³SolveSpaceREVa
+
+
+Group.h.v=00000001
+Group.type=5000
+Group.name=#references
+Group.color=ff000000
+Group.skipFirst=0
+Group.predef.swapUV=0
+Group.predef.negateU=0
+Group.predef.negateV=0
+Group.visible=1
+Group.suppress=0
+Group.relaxConstraints=0
+Group.allowRedundant=0
+Group.allDimsReference=0
+Group.scale=1.00000000000000000000
+Group.remap={
+}
+AddGroup
+
+Group.h.v=00000002
+Group.type=5001
+Group.order=1
+Group.name=sketch-in-plane
+Group.activeWorkplane.v=80020000
+Group.color=ff000000
+Group.subtype=6000
+Group.skipFirst=0
+Group.predef.q.w=1.00000000000000000000
+Group.predef.origin.v=00010001
+Group.predef.swapUV=0
+Group.predef.negateU=0
+Group.predef.negateV=0
+Group.visible=1
+Group.suppress=0
+Group.relaxConstraints=0
+Group.allowRedundant=0
+Group.allDimsReference=0
+Group.scale=1.00000000000000000000
+Group.remap={
+}
+AddGroup
+
+Group.h.v=00000003
+Group.type=5100
+Group.order=2
+Group.name=extrude
+Group.opA.v=00000002
+Group.color=00646464
+Group.subtype=7000
+Group.skipFirst=0
+Group.predef.entityB.v=80020000
+Group.predef.swapUV=0
+Group.predef.negateU=0
+Group.predef.negateV=0
+Group.visible=1
+Group.suppress=0
+Group.relaxConstraints=0
+Group.allowRedundant=0
+Group.allDimsReference=0
+Group.scale=1.00000000000000000000
+Group.remap={
+    1 000e0000 1002
+    2 000e0001 1002
+    3 000e0002 1002
+    4 000e0003 1002
+    5 000e0020 1002
+    6 000e0000 1001
+    7 000e0001 1001
+    8 000e0002 1001
+    9 000e0003 1001
+    10 000e0020 1001
+    11 000e0001 1003
+    12 000e0002 1003
+    13 000e0003 1003
+    14 000f0000 1002
+    15 000f0001 1002
+    16 000f0002 1002
+    17 000f0000 1001
+    18 000f0001 1001
+    19 000f0002 1001
+    20 000f0000 1004
+    21 000f0001 1003
+    22 000f0002 1003
+    23 00130000 1002
+    24 00130001 1002
+    25 00130002 1002
+    26 00130003 1002
+    27 00130020 1002
+    28 00130000 1001
+    29 00130001 1001
+    30 00130002 1001
+    31 00130003 1001
+    32 00130020 1001
+    33 00130001 1003
+    34 00130002 1003
+    35 00130003 1003
+    36 00140000 1002
+    37 00140001 1002
+    38 00140002 1002
+    39 00140000 1001
+    40 00140001 1001
+    41 00140002 1001
+    42 00140000 1004
+    43 00140001 1003
+    44 00140002 1003
+    45 80020000 1002
+    46 80020000 1001
+    47 80020001 1002
+    48 80020002 1002
+    49 80020001 1001
+    50 80020002 1001
+    51 80020002 1003
+    52 00000000 1001
+    53 00000000 1002
+}
+AddGroup
+
+Group.h.v=00000004
+Group.type=5001
+Group.order=3
+Group.name=sketch-in-plane
+Group.activeWorkplane.v=80040000
+Group.color=00646464
+Group.subtype=6000
+Group.skipFirst=0
+Group.predef.q.vx=1.00000000000000000000
+Group.predef.origin.v=80030002
+Group.predef.swapUV=0
+Group.predef.negateU=0
+Group.predef.negateV=0
+Group.visible=1
+Group.suppress=0
+Group.relaxConstraints=0
+Group.allowRedundant=0
+Group.allDimsReference=0
+Group.scale=1.00000000000000000000
+Group.remap={
+}
+AddGroup
+
+Group.h.v=00000005
+Group.type=5100
+Group.order=4
+Group.name=extrude
+Group.opA.v=00000004
+Group.color=00646464
+Group.subtype=7000
+Group.skipFirst=0
+Group.meshCombine=1
+Group.predef.entityB.v=80040000
+Group.predef.swapUV=0
+Group.predef.negateU=0
+Group.predef.negateV=0
+Group.visible=1
+Group.suppress=0
+Group.relaxConstraints=0
+Group.allowRedundant=0
+Group.allDimsReference=0
+Group.scale=1.00000000000000000000
+Group.remap={
+    1 00150000 1002
+    2 00150001 1002
+    3 00150020 1002
+    4 00150040 1002
+    5 00150000 1001
+    6 00150001 1001
+    7 00150020 1001
+    8 00150040 1001
+    9 00150001 1003
+    10 80040000 1002
+    11 80040000 1001
+    12 80040001 1002
+    13 80040002 1002
+    14 80040001 1001
+    15 80040002 1001
+    16 80040002 1003
+    17 00000000 1001
+    18 00000000 1002
+}
+AddGroup
+
+Group.h.v=00000006
+Group.type=5001
+Group.order=5
+Group.name=sketch-in-plane
+Group.activeWorkplane.v=80060000
+Group.color=00646464
+Group.subtype=6000
+Group.skipFirst=0
+Group.predef.q.vx=1.00000000000000000000
+Group.predef.origin.v=8005000f
+Group.predef.swapUV=0
+Group.predef.negateU=0
+Group.predef.negateV=0
+Group.visible=1
+Group.suppress=0
+Group.relaxConstraints=0
+Group.allowRedundant=0
+Group.allDimsReference=0
+Group.scale=1.00000000000000000000
+Group.remap={
+}
+AddGroup
+
+Param.h.v.=00010010
+AddParam
+
+Param.h.v.=00010011
+AddParam
+
+Param.h.v.=00010012
+AddParam
+
+Param.h.v.=00010020
+Param.val=1.00000000000000000000
+AddParam
+
+Param.h.v.=00010021
+AddParam
+
+Param.h.v.=00010022
+AddParam
+
+Param.h.v.=00010023
+AddParam
+
+Param.h.v.=00020010
+AddParam
+
+Param.h.v.=00020011
+AddParam
+
+Param.h.v.=00020012
+AddParam
+
+Param.h.v.=00020020
+Param.val=0.50000000000000000000
+AddParam
+
+Param.h.v.=00020021
+Param.val=0.50000000000000000000
+AddParam
+
+Param.h.v.=00020022
+Param.val=0.50000000000000000000
+AddParam
+
+Param.h.v.=00020023
+Param.val=0.50000000000000000000
+AddParam
+
+Param.h.v.=00030010
+AddParam
+
+Param.h.v.=00030011
+AddParam
+
+Param.h.v.=00030012
+AddParam
+
+Param.h.v.=00030020
+Param.val=0.50000000000000000000
+AddParam
+
+Param.h.v.=00030021
+Param.val=-0.50000000000000000000
+AddParam
+
+Param.h.v.=00030022
+Param.val=-0.50000000000000000000
+AddParam
+
+Param.h.v.=00030023
+Param.val=-0.50000000000000000000
+AddParam
+
+Param.h.v.=000e0010
+Param.val=-32.99261743419433656754
+AddParam
+
+Param.h.v.=000e0011
+Param.val=0.00000000000000000000
+AddParam
+
+Param.h.v.=000e0013
+Param.val=-32.18616582129111236554
+AddParam
+
+Param.h.v.=000e0014
+Param.val=9.96742874547121004980
+AddParam
+
+Param.h.v.=000e0016
+Param.val=-32.18616582129111236554
+AddParam
+
+Param.h.v.=000e0017
+Param.val=-9.96742874547121004980
+AddParam
+
+Param.h.v.=000f0010
+Param.val=-32.18616582129111236554
+AddParam
+
+Param.h.v.=000f0011
+Param.val=9.96742874547121004980
+AddParam
+
+Param.h.v.=000f0013
+Param.val=29.41060837225727908617
+AddParam
+
+Param.h.v.=000f0014
+Param.val=4.98371437273560502490
+AddParam
+
+Param.h.v.=00130010
+Param.val=29.00738256580566698517
+AddParam
+
+Param.h.v.=00130011
+Param.val=0.00000000000000000000
+AddParam
+
+Param.h.v.=00130013
+Param.val=29.41060837225727908617
+AddParam
+
+Param.h.v.=00130014
+Param.val=-4.98371437273560502490
+AddParam
+
+Param.h.v.=00130016
+Param.val=29.41060837225727908617
+AddParam
+
+Param.h.v.=00130017
+Param.val=4.98371437273560502490
+AddParam
+
+Param.h.v.=00140010
+Param.val=-32.18616582129111236554
+AddParam
+
+Param.h.v.=00140011
+Param.val=-9.96742874547121004980
+AddParam
+
+Param.h.v.=00140013
+Param.val=29.41060837225727908617
+AddParam
+
+Param.h.v.=00140014
+Param.val=-4.98371437273560502490
+AddParam
+
+Param.h.v.=00150010
+AddParam
+
+Param.h.v.=00150011
+AddParam
+
+Param.h.v.=00150040
+Param.val=5.50000000000000000000
+AddParam
+
+Param.h.v.=00160010
+Param.val=-19.93485749094242009960
+AddParam
+
+Param.h.v.=00160011
+Param.val=1.61290322580645129058
+AddParam
+
+Param.h.v.=00160013
+Param.val=19.93485749094242009960
+AddParam
+
+Param.h.v.=00160014
+Param.val=-1.61290322580645129058
+AddParam
+
+Param.h.v.=40000023
+Param.val=0.50000000000000000000
+AddParam
+
+Param.h.v.=80030000
+AddParam
+
+Param.h.v.=80030001
+AddParam
+
+Param.h.v.=80030002
+Param.val=10.50000000000000000000
+AddParam
+
+Param.h.v.=80050000
+AddParam
+
+Param.h.v.=80050001
+AddParam
+
+Param.h.v.=80050002
+Param.val=5.00000000000000000000
+AddParam
+
+Request.h.v=00000001
+Request.type=100
+Request.group.v=00000001
+Request.construction=0
+AddRequest
+
+Request.h.v=00000002
+Request.type=100
+Request.group.v=00000001
+Request.construction=0
+AddRequest
+
+Request.h.v=00000003
+Request.type=100
+Request.group.v=00000001
+Request.construction=0
+AddRequest
+
+Request.h.v=0000000e
+Request.type=500
+Request.workplane.v=80020000
+Request.group.v=00000002
+Request.construction=0
+AddRequest
+
+Request.h.v=0000000f
+Request.type=200
+Request.workplane.v=80020000
+Request.group.v=00000002
+Request.construction=0
+AddRequest
+
+Request.h.v=00000013
+Request.type=500
+Request.workplane.v=80020000
+Request.group.v=00000002
+Request.construction=0
+AddRequest
+
+Request.h.v=00000014
+Request.type=200
+Request.workplane.v=80020000
+Request.group.v=00000002
+Request.construction=0
+AddRequest
+
+Request.h.v=00000015
+Request.type=400
+Request.workplane.v=80040000
+Request.group.v=00000004
+Request.construction=0
+AddRequest
+
+Request.h.v=00000016
+Request.type=200
+Request.workplane.v=80060000
+Request.group.v=00000006
+Request.construction=1
+AddRequest
+
+Entity.h.v=00010000
+Entity.type=10000
+Entity.construction=0
+Entity.point[0].v=00010001
+Entity.normal.v=00010020
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00010001
+Entity.type=2000
+Entity.construction=1
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00010020
+Entity.type=3000
+Entity.construction=0
+Entity.point[0].v=00010001
+Entity.actNormal.w=1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00020000
+Entity.type=10000
+Entity.construction=0
+Entity.point[0].v=00020001
+Entity.normal.v=00020020
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00020001
+Entity.type=2000
+Entity.construction=1
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00020020
+Entity.type=3000
+Entity.construction=0
+Entity.point[0].v=00020001
+Entity.actNormal.w=0.50000000000000000000
+Entity.actNormal.vx=0.50000000000000000000
+Entity.actNormal.vy=0.50000000000000000000
+Entity.actNormal.vz=0.50000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00030000
+Entity.type=10000
+Entity.construction=0
+Entity.point[0].v=00030001
+Entity.normal.v=00030020
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00030001
+Entity.type=2000
+Entity.construction=1
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00030020
+Entity.type=3000
+Entity.construction=0
+Entity.point[0].v=00030001
+Entity.actNormal.w=0.50000000000000000000
+Entity.actNormal.vx=-0.50000000000000000000
+Entity.actNormal.vy=-0.50000000000000000000
+Entity.actNormal.vz=-0.50000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=000e0000
+Entity.type=14000
+Entity.construction=0
+Entity.point[0].v=000e0001
+Entity.point[1].v=000e0002
+Entity.point[2].v=000e0003
+Entity.normal.v=000e0020
+Entity.workplane.v=80020000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=000e0001
+Entity.type=2001
+Entity.construction=0
+Entity.workplane.v=80020000
+Entity.actPoint.x=-32.99261743419433656754
+Entity.actPoint.y=0.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=000e0002
+Entity.type=2001
+Entity.construction=0
+Entity.workplane.v=80020000
+Entity.actPoint.x=-32.18616582129111236554
+Entity.actPoint.y=9.96742874547121004980
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=000e0003
+Entity.type=2001
+Entity.construction=0
+Entity.workplane.v=80020000
+Entity.actPoint.x=-32.18616582129111236554
+Entity.actPoint.y=-9.96742874547121004980
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=000e0020
+Entity.type=3001
+Entity.construction=0
+Entity.point[0].v=000e0001
+Entity.workplane.v=80020000
+Entity.actNormal.w=1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=000f0000
+Entity.type=11000
+Entity.construction=0
+Entity.point[0].v=000f0001
+Entity.point[1].v=000f0002
+Entity.workplane.v=80020000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=000f0001
+Entity.type=2001
+Entity.construction=0
+Entity.workplane.v=80020000
+Entity.actPoint.x=-32.18616582129111236554
+Entity.actPoint.y=9.96742874547121004980
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=000f0002
+Entity.type=2001
+Entity.construction=0
+Entity.workplane.v=80020000
+Entity.actPoint.x=29.41060837225727908617
+Entity.actPoint.y=4.98371437273560502490
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00130000
+Entity.type=14000
+Entity.construction=0
+Entity.point[0].v=00130001
+Entity.point[1].v=00130002
+Entity.point[2].v=00130003
+Entity.normal.v=00130020
+Entity.workplane.v=80020000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00130001
+Entity.type=2001
+Entity.construction=0
+Entity.workplane.v=80020000
+Entity.actPoint.x=29.00738256580566698517
+Entity.actPoint.y=0.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00130002
+Entity.type=2001
+Entity.construction=0
+Entity.workplane.v=80020000
+Entity.actPoint.x=29.41060837225727908617
+Entity.actPoint.y=-4.98371437273560502490
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00130003
+Entity.type=2001
+Entity.construction=0
+Entity.workplane.v=80020000
+Entity.actPoint.x=29.41060837225727908617
+Entity.actPoint.y=4.98371437273560502490
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00130020
+Entity.type=3001
+Entity.construction=0
+Entity.point[0].v=00130001
+Entity.workplane.v=80020000
+Entity.actNormal.w=1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00140000
+Entity.type=11000
+Entity.construction=0
+Entity.point[0].v=00140001
+Entity.point[1].v=00140002
+Entity.workplane.v=80020000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00140001
+Entity.type=2001
+Entity.construction=0
+Entity.workplane.v=80020000
+Entity.actPoint.x=-32.18616582129111236554
+Entity.actPoint.y=-9.96742874547121004980
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00140002
+Entity.type=2001
+Entity.construction=0
+Entity.workplane.v=80020000
+Entity.actPoint.x=29.41060837225727908617
+Entity.actPoint.y=-4.98371437273560502490
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00150000
+Entity.type=13000
+Entity.construction=0
+Entity.point[0].v=00150001
+Entity.normal.v=00150020
+Entity.distance.v=00150040
+Entity.workplane.v=80040000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00150001
+Entity.type=2001
+Entity.construction=0
+Entity.workplane.v=80040000
+Entity.actPoint.x=-32.99261743419433656754
+Entity.actPoint.y=0.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00150020
+Entity.type=3001
+Entity.construction=0
+Entity.point[0].v=00150001
+Entity.workplane.v=80040000
+Entity.actNormal.vx=1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00150040
+Entity.type=4000
+Entity.construction=0
+Entity.workplane.v=80040000
+Entity.actDistance=5.50000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00160000
+Entity.type=11000
+Entity.construction=1
+Entity.point[0].v=00160001
+Entity.point[1].v=00160002
+Entity.workplane.v=80060000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00160001
+Entity.type=2001
+Entity.construction=1
+Entity.workplane.v=80060000
+Entity.actPoint.x=-52.92747492513675666714
+Entity.actPoint.y=-1.61290322580645129058
+Entity.actPoint.z=10.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=00160002
+Entity.type=2001
+Entity.construction=1
+Entity.workplane.v=80060000
+Entity.actPoint.x=-13.05775994325191646794
+Entity.actPoint.y=1.61290322580645129058
+Entity.actPoint.z=10.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80020000
+Entity.type=10000
+Entity.construction=0
+Entity.point[0].v=80020002
+Entity.normal.v=80020001
+Entity.actVisible=0
+AddEntity
+
+Entity.h.v=80020001
+Entity.type=3010
+Entity.construction=0
+Entity.point[0].v=80020002
+Entity.actNormal.w=1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80020002
+Entity.type=2012
+Entity.construction=1
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030001
+Entity.type=14000
+Entity.construction=0
+Entity.point[0].v=80030002
+Entity.point[1].v=80030003
+Entity.point[2].v=80030004
+Entity.normal.v=80030005
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030002
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=-32.99261743419433656754
+Entity.actPoint.y=0.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030003
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=-32.18616582129111236554
+Entity.actPoint.y=9.96742874547121004980
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030004
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=-32.18616582129111236554
+Entity.actPoint.y=-9.96742874547121004980
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030005
+Entity.type=3010
+Entity.construction=0
+Entity.point[0].v=80030002
+Entity.actNormal.w=1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030006
+Entity.type=14000
+Entity.construction=0
+Entity.point[0].v=80030007
+Entity.point[1].v=80030008
+Entity.point[2].v=80030009
+Entity.normal.v=8003000a
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030007
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=-32.99261743419433656754
+Entity.actPoint.y=0.00000000000000000000
+Entity.actPoint.z=21.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030008
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=-32.18616582129111236554
+Entity.actPoint.y=9.96742874547121004980
+Entity.actPoint.z=21.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030009
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=-32.18616582129111236554
+Entity.actPoint.y=-9.96742874547121004980
+Entity.actPoint.z=21.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=8003000a
+Entity.type=3010
+Entity.construction=0
+Entity.point[0].v=80030007
+Entity.actNormal.w=1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=8003000b
+Entity.type=11000
+Entity.construction=0
+Entity.point[0].v=80030007
+Entity.point[1].v=80030002
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=8003000c
+Entity.type=11000
+Entity.construction=0
+Entity.point[0].v=80030008
+Entity.point[1].v=80030003
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=8003000d
+Entity.type=11000
+Entity.construction=0
+Entity.point[0].v=80030009
+Entity.point[1].v=80030004
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=8003000e
+Entity.type=11000
+Entity.construction=0
+Entity.point[0].v=8003000f
+Entity.point[1].v=80030010
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=8003000f
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=-32.18616582129111236554
+Entity.actPoint.y=9.96742874547121004980
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030010
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=29.41060837225727908617
+Entity.actPoint.y=4.98371437273560502490
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030011
+Entity.type=11000
+Entity.construction=0
+Entity.point[0].v=80030012
+Entity.point[1].v=80030013
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030012
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=-32.18616582129111236554
+Entity.actPoint.y=9.96742874547121004980
+Entity.actPoint.z=21.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030013
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=29.41060837225727908617
+Entity.actPoint.y=4.98371437273560502490
+Entity.actPoint.z=21.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030014
+Entity.type=5001
+Entity.construction=0
+Entity.actPoint.x=-32.18616582129111236554
+Entity.actPoint.y=9.96742874547121004980
+Entity.actNormal.vx=0.08064516129032256453
+Entity.actNormal.vy=0.99674287454712107159
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030015
+Entity.type=11000
+Entity.construction=0
+Entity.point[0].v=80030012
+Entity.point[1].v=8003000f
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030016
+Entity.type=11000
+Entity.construction=0
+Entity.point[0].v=80030013
+Entity.point[1].v=80030010
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030017
+Entity.type=14000
+Entity.construction=0
+Entity.point[0].v=80030018
+Entity.point[1].v=80030019
+Entity.point[2].v=8003001a
+Entity.normal.v=8003001b
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030018
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=29.00738256580566698517
+Entity.actPoint.y=0.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030019
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=29.41060837225727908617
+Entity.actPoint.y=-4.98371437273560502490
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=8003001a
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=29.41060837225727908617
+Entity.actPoint.y=4.98371437273560502490
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=8003001b
+Entity.type=3010
+Entity.construction=0
+Entity.point[0].v=80030018
+Entity.actNormal.w=1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=8003001c
+Entity.type=14000
+Entity.construction=0
+Entity.point[0].v=8003001d
+Entity.point[1].v=8003001e
+Entity.point[2].v=8003001f
+Entity.normal.v=80030020
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=8003001d
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=29.00738256580566698517
+Entity.actPoint.y=0.00000000000000000000
+Entity.actPoint.z=21.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=8003001e
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=29.41060837225727908617
+Entity.actPoint.y=-4.98371437273560502490
+Entity.actPoint.z=21.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=8003001f
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=29.41060837225727908617
+Entity.actPoint.y=4.98371437273560502490
+Entity.actPoint.z=21.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030020
+Entity.type=3010
+Entity.construction=0
+Entity.point[0].v=8003001d
+Entity.actNormal.w=1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030021
+Entity.type=11000
+Entity.construction=0
+Entity.point[0].v=8003001d
+Entity.point[1].v=80030018
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030022
+Entity.type=11000
+Entity.construction=0
+Entity.point[0].v=8003001e
+Entity.point[1].v=80030019
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030023
+Entity.type=11000
+Entity.construction=0
+Entity.point[0].v=8003001f
+Entity.point[1].v=8003001a
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030024
+Entity.type=11000
+Entity.construction=0
+Entity.point[0].v=80030025
+Entity.point[1].v=80030026
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030025
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=-32.18616582129111236554
+Entity.actPoint.y=-9.96742874547121004980
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030026
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=29.41060837225727908617
+Entity.actPoint.y=-4.98371437273560502490
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030027
+Entity.type=11000
+Entity.construction=0
+Entity.point[0].v=80030028
+Entity.point[1].v=80030029
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030028
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=-32.18616582129111236554
+Entity.actPoint.y=-9.96742874547121004980
+Entity.actPoint.z=21.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030029
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=29.41060837225727908617
+Entity.actPoint.y=-4.98371437273560502490
+Entity.actPoint.z=21.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=8003002a
+Entity.type=5001
+Entity.construction=0
+Entity.actPoint.x=-32.18616582129111236554
+Entity.actPoint.y=-9.96742874547121004980
+Entity.actNormal.vx=-0.08064516129032256453
+Entity.actNormal.vy=0.99674287454712107159
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=8003002b
+Entity.type=11000
+Entity.construction=0
+Entity.point[0].v=80030028
+Entity.point[1].v=80030025
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=8003002c
+Entity.type=11000
+Entity.construction=0
+Entity.point[0].v=80030029
+Entity.point[1].v=80030026
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=8003002f
+Entity.type=3010
+Entity.construction=0
+Entity.point[0].v=80030030
+Entity.actNormal.w=1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030030
+Entity.type=2010
+Entity.construction=1
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030031
+Entity.type=3010
+Entity.construction=0
+Entity.point[0].v=80030032
+Entity.actNormal.w=1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030032
+Entity.type=2010
+Entity.construction=1
+Entity.actPoint.z=21.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030033
+Entity.type=11000
+Entity.construction=1
+Entity.point[0].v=80030032
+Entity.point[1].v=80030030
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030034
+Entity.type=5000
+Entity.construction=0
+Entity.point[0].v=80030032
+Entity.actPoint.z=21.00000000000000000000
+Entity.actNormal.vz=1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80030035
+Entity.type=5000
+Entity.construction=0
+Entity.point[0].v=80030030
+Entity.actNormal.vz=1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80040000
+Entity.type=10000
+Entity.construction=0
+Entity.point[0].v=80040002
+Entity.normal.v=80040001
+Entity.actVisible=0
+AddEntity
+
+Entity.h.v=80040001
+Entity.type=3010
+Entity.construction=0
+Entity.point[0].v=80040002
+Entity.actNormal.vx=1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80040002
+Entity.type=2012
+Entity.construction=1
+Entity.actPoint.x=-32.99261743419433656754
+Entity.actPoint.y=0.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80050001
+Entity.type=13000
+Entity.construction=0
+Entity.point[0].v=80050002
+Entity.normal.v=80050003
+Entity.distance.v=80050004
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80050002
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=-32.99261743419433656754
+Entity.actPoint.y=0.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80050003
+Entity.type=3010
+Entity.construction=0
+Entity.point[0].v=80050002
+Entity.actNormal.vx=1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80050004
+Entity.type=4001
+Entity.construction=0
+Entity.actDistance=5.50000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80050005
+Entity.type=13000
+Entity.construction=0
+Entity.point[0].v=80050006
+Entity.normal.v=80050007
+Entity.distance.v=80050008
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80050006
+Entity.type=2010
+Entity.construction=0
+Entity.actPoint.x=-32.99261743419433656754
+Entity.actPoint.y=0.00000000000000000000
+Entity.actPoint.z=10.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80050007
+Entity.type=3010
+Entity.construction=0
+Entity.point[0].v=80050006
+Entity.actNormal.vx=1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80050008
+Entity.type=4001
+Entity.construction=0
+Entity.actDistance=5.50000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80050009
+Entity.type=11000
+Entity.construction=0
+Entity.point[0].v=80050006
+Entity.point[1].v=80050002
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=8005000c
+Entity.type=3010
+Entity.construction=0
+Entity.point[0].v=8005000d
+Entity.actNormal.vx=1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=8005000d
+Entity.type=2010
+Entity.construction=1
+Entity.actPoint.x=-32.99261743419433656754
+Entity.actPoint.y=0.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=8005000e
+Entity.type=3010
+Entity.construction=0
+Entity.point[0].v=8005000f
+Entity.actNormal.vx=1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=8005000f
+Entity.type=2010
+Entity.construction=1
+Entity.actPoint.x=-32.99261743419433656754
+Entity.actPoint.y=0.00000000000000000000
+Entity.actPoint.z=10.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80050010
+Entity.type=11000
+Entity.construction=1
+Entity.point[0].v=8005000f
+Entity.point[1].v=8005000d
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80050011
+Entity.type=5000
+Entity.construction=0
+Entity.point[0].v=8005000f
+Entity.actPoint.x=-32.99261743419433656754
+Entity.actPoint.y=0.00000000000000000000
+Entity.actPoint.z=10.00000000000000000000
+Entity.actNormal.vz=-1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80050012
+Entity.type=5000
+Entity.construction=0
+Entity.point[0].v=8005000d
+Entity.actPoint.x=-32.99261743419433656754
+Entity.actPoint.y=0.00000000000000000000
+Entity.actNormal.vz=-1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80060000
+Entity.type=10000
+Entity.construction=0
+Entity.point[0].v=80060002
+Entity.normal.v=80060001
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80060001
+Entity.type=3010
+Entity.construction=0
+Entity.point[0].v=80060002
+Entity.actNormal.vx=1.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Entity.h.v=80060002
+Entity.type=2012
+Entity.construction=1
+Entity.actPoint.x=-32.99261743419433656754
+Entity.actPoint.y=0.00000000000000000000
+Entity.actPoint.z=10.00000000000000000000
+Entity.actVisible=1
+AddEntity
+
+Constraint.h.v=0000000c
+Constraint.type=20
+Constraint.group.v=00000002
+Constraint.workplane.v=80020000
+Constraint.ptA.v=000f0001
+Constraint.ptB.v=000e0002
+Constraint.other=0
+Constraint.other2=0
+Constraint.reference=0
+AddConstraint
+
+Constraint.h.v=0000000d
+Constraint.type=20
+Constraint.group.v=00000002
+Constraint.workplane.v=80020000
+Constraint.ptA.v=00140001
+Constraint.ptB.v=000e0003
+Constraint.other=0
+Constraint.other2=0
+Constraint.reference=0
+AddConstraint
+
+Constraint.h.v=00000014
+Constraint.type=20
+Constraint.group.v=00000002
+Constraint.workplane.v=80020000
+Constraint.ptA.v=00130003
+Constraint.ptB.v=000f0002
+Constraint.other=0
+Constraint.other2=0
+Constraint.reference=0
+AddConstraint
+
+Constraint.h.v=00000015
+Constraint.type=20
+Constraint.group.v=00000002
+Constraint.workplane.v=80020000
+Constraint.ptA.v=00130002
+Constraint.ptB.v=00140002
+Constraint.other=0
+Constraint.other2=0
+Constraint.reference=0
+AddConstraint
+
+Constraint.h.v=00000016
+Constraint.type=123
+Constraint.group.v=00000002
+Constraint.workplane.v=80020000
+Constraint.entityA.v=00130000
+Constraint.entityB.v=000f0000
+Constraint.other=1
+Constraint.other2=0
+Constraint.reference=0
+AddConstraint
+
+Constraint.h.v=00000017
+Constraint.type=123
+Constraint.group.v=00000002
+Constraint.workplane.v=80020000
+Constraint.entityA.v=00130000
+Constraint.entityB.v=00140000
+Constraint.other=0
+Constraint.other2=0
+Constraint.reference=0
+AddConstraint
+
+Constraint.h.v=00000018
+Constraint.type=123
+Constraint.group.v=00000002
+Constraint.workplane.v=80020000
+Constraint.entityA.v=000e0000
+Constraint.entityB.v=000f0000
+Constraint.other=0
+Constraint.other2=0
+Constraint.reference=0
+AddConstraint
+
+Constraint.h.v=00000019
+Constraint.type=123
+Constraint.group.v=00000002
+Constraint.workplane.v=80020000
+Constraint.entityA.v=000e0000
+Constraint.entityB.v=00140000
+Constraint.other=1
+Constraint.other2=0
+Constraint.reference=0
+AddConstraint
+
+Constraint.h.v=0000001a
+Constraint.type=41
+Constraint.group.v=00000002
+Constraint.workplane.v=80020000
+Constraint.ptA.v=00130001
+Constraint.entityA.v=00030000
+Constraint.other=0
+Constraint.other2=0
+Constraint.reference=0
+AddConstraint
+
+Constraint.h.v=0000001b
+Constraint.type=41
+Constraint.group.v=00000002
+Constraint.workplane.v=80020000
+Constraint.ptA.v=000e0001
+Constraint.entityA.v=00030000
+Constraint.other=0
+Constraint.other2=0
+Constraint.reference=0
+AddConstraint
+
+Constraint.h.v=0000001c
+Constraint.type=30
+Constraint.group.v=00000002
+Constraint.workplane.v=80020000
+Constraint.valA=62.00000000000000000000
+Constraint.ptA.v=000e0001
+Constraint.ptB.v=00130001
+Constraint.other=0
+Constraint.other2=0
+Constraint.reference=0
+Constraint.disp.offset.x=-1.50462943460235432092
+Constraint.disp.offset.y=-3.70370322363656478970
+AddConstraint
+
+Constraint.h.v=0000001d
+Constraint.type=90
+Constraint.group.v=00000002
+Constraint.workplane.v=80020000
+Constraint.valA=10.00000000000000000000
+Constraint.entityA.v=00130000
+Constraint.other=0
+Constraint.other2=0
+Constraint.reference=0
+Constraint.disp.offset.x=7.87036935022769412740
+Constraint.disp.offset.y=-7.87036935022769323922
+AddConstraint
+
+Constraint.h.v=0000001e
+Constraint.type=90
+Constraint.group.v=00000002
+Constraint.workplane.v=80020000
+Constraint.valA=20.00000000000000000000
+Constraint.entityA.v=000e0000
+Constraint.other=0
+Constraint.other2=0
+Constraint.reference=0
+Constraint.disp.offset.x=-14.46759071733032442353
+Constraint.disp.offset.y=9.60648023630733405298
+AddConstraint
+
+Constraint.h.v=0000001f
+Constraint.type=30
+Constraint.group.v=00000003
+Constraint.valA=21.00000000000000000000
+Constraint.ptA.v=80030007
+Constraint.ptB.v=80030002
+Constraint.other=0
+Constraint.other2=0
+Constraint.reference=0
+Constraint.disp.offset.x=-5.72897922693865524479
+Constraint.disp.offset.y=0.81767108520149334172
+AddConstraint
+
+Constraint.h.v=00000020
+Constraint.type=20
+Constraint.group.v=00000004
+Constraint.workplane.v=80040000
+Constraint.ptA.v=80040002
+Constraint.ptB.v=00150001
+Constraint.other=0
+Constraint.other2=0
+Constraint.reference=0
+AddConstraint
+
+Constraint.h.v=00000021
+Constraint.type=90
+Constraint.group.v=00000004
+Constraint.workplane.v=80040000
+Constraint.valA=11.00000000000000000000
+Constraint.entityA.v=00150000
+Constraint.other=0
+Constraint.other2=0
+Constraint.reference=0
+Constraint.disp.offset.x=11.97616092931153097823
+Constraint.disp.offset.y=6.00296412332599427231
+Constraint.disp.offset.z=-6.30025160255038230162
+AddConstraint
+
+Constraint.h.v=00000022
+Constraint.type=30
+Constraint.group.v=00000005
+Constraint.valA=10.00000000000000000000
+Constraint.ptA.v=80050006
+Constraint.ptB.v=80050002
+Constraint.other=0
+Constraint.other2=0
+Constraint.reference=0
+Constraint.disp.offset.x=-5.65734857359340992389
+Constraint.disp.offset.y=-1.21827587316249008609
+AddConstraint
+
+Constraint.h.v=00000023
+Constraint.type=42
+Constraint.group.v=00000006
+Constraint.workplane.v=80060000
+Constraint.valP.v=40000023
+Constraint.ptA.v=80060002
+Constraint.entityA.v=00160000
+Constraint.other=0
+Constraint.other2=0
+Constraint.reference=0
+AddConstraint
+
+Constraint.h.v=00000024
+Constraint.type=30
+Constraint.group.v=00000006
+Constraint.workplane.v=80060000
+Constraint.valA=20.00000000000000000000
+Constraint.ptA.v=80060002
+Constraint.ptB.v=00160001
+Constraint.other=0
+Constraint.other2=0
+Constraint.reference=0
+Constraint.disp.offset.x=0.00238418563413251346
+Constraint.disp.offset.y=-3.69514953509817001276
+Constraint.disp.offset.z=1.03206114001938020763
+AddConstraint
+
+Constraint.h.v=00000025
+Constraint.type=30
+Constraint.group.v=00000006
+Constraint.workplane.v=80060000
+Constraint.valA=20.00000000000000000000
+Constraint.ptA.v=80060002
+Constraint.ptB.v=00160002
+Constraint.other=0
+Constraint.other2=0
+Constraint.reference=0
+Constraint.disp.offset.x=-0.00247541104572003264
+Constraint.disp.offset.y=3.83653593672303871998
+Constraint.disp.offset.z=-0.01648776480576591430
+AddConstraint
+
+Constraint.h.v=00000026
+Constraint.type=121
+Constraint.group.v=00000006
+Constraint.workplane.v=80060000
+Constraint.entityA.v=00160000
+Constraint.entityB.v=80030024
+Constraint.other=0
+Constraint.other2=0
+Constraint.reference=0
+AddConstraint
+
+Surface 00000001 00646464 80030034 1 1
+SCtrl 0 0 -44.72615369811705932079 10.46243419310721201043 21.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 0 1 34.00738256580567053788 10.46243419310721201043 21.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 0 -44.72615369811705932079 -10.46243419310720845772 21.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 1 34.00738256580567053788 -10.46243419310720845772 21.00000000000000000000 Weight 1.00000000000000000000
+TrimBy 00000010 0 -41.51519730702188581972 -5.23121709655361044611 21.00000000000000000000  -41.51519730702187871429 5.23121709655360422886 21.00000000000000000000
+TrimBy 00000013 0 -41.51519730702187871429 5.23121709655360422886 21.00000000000000000000  -32.18616582129111236554 9.96742874547121004980 21.00000000000000000000
+TrimBy 00000001 0 -32.18616582129111236554 9.96742874547121004980 21.00000000000000000000  29.41060837225729329703 4.98371437273560324854 21.00000000000000000000
+TrimBy 00000004 0 29.41060837225729329703 4.98371437273560324854 21.00000000000000000000  34.00738256580567053788 -0.00000000000000355271 21.00000000000000000000
+TrimBy 00000007 0 34.00738256580567053788 -0.00000000000000355271 21.00000000000000000000  29.41060837225729329703 -4.98371437273561035397 21.00000000000000000000
+TrimBy 0000000a 0 29.41060837225729329703 -4.98371437273561035397 21.00000000000000000000  -32.18616582129111947097 -9.96742874547122070794 21.00000000000000000000
+TrimBy 0000000d 0 -32.18616582129111947097 -9.96742874547121893158 20.99999999999999644729  -41.51519730702188581972 -5.23121709655361044611 21.00000000000000000000
+AddSurface
+Surface 00000002 00646464 80030035 1 1
+SCtrl 0 0 34.00738256580567053788 10.46243419310721201043 0.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 0 1 -44.72615369811705932079 10.46243419310721201043 0.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 0 34.00738256580567053788 -10.46243419310720845772 0.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 1 -44.72615369811705932079 -10.46243419310720845772 0.00000000000000000000 Weight 1.00000000000000000000
+TrimBy 00000008 1 29.41060837225728263888 -4.98371437273561035397 0.00000000000000000000  34.00738256580567053788 -0.00000000000000355271 0.00000000000000000000
+TrimBy 00000005 1 34.00738256580567053788 -0.00000000000000355271 0.00000000000000000000  29.41060837225728263888 4.98371437273560413672 0.00000000000000000000
+TrimBy 00000002 1 29.41060837225728263888 4.98371437273560413672 0.00000000000000000000  -32.18616582129111947097 9.96742874547121182616 0.00000000000000000000
+TrimBy 00000014 1 -32.18616582129111947097 9.96742874547121182616 0.00000000000000000000  -41.51519730702187160887 5.23121709655360511704 0.00000000000000000000
+TrimBy 00000011 1 -41.51519730702187160887 5.23121709655360511704 0.00000000000000000000  -41.51519730702187160887 -5.23121709655361044611 0.00000000000000000000
+TrimBy 0000000e 1 -41.51519730702187160887 -5.23121709655361044611 0.00000000000000000000  -32.18616582129111947097 -9.96742874547121893158 0.00000000000000000000
+TrimBy 0000000b 1 -32.18616582129110526012 -9.96742874547121893158 0.00000000000000000000  29.41060837225728263888 -4.98371437273561035397 0.00000000000000000000
+TrimBy 00000025 0 -32.99261743419431525126 5.49999999999999822364 0.00000000000000000000  -27.49261743419434012026 -0.00000000000000355271 0.00000000000000000000
+TrimBy 00000022 0 -27.49261743419434012026 -0.00000000000000355271 0.00000000000000000000  -32.99261743419432235669 -5.50000000000000444089 0.00000000000000000000
+TrimBy 00000023 0 -32.99261743419432235669 -5.50000000000000444089 0.00000000000000000000  -38.49261743419431525126 -0.00000000000000266454 0.00000000000000000000
+TrimBy 00000024 0 -38.49261743419431525126 -0.00000000000000266454 0.00000000000000000000  -32.99261743419431525126 5.49999999999999822364 0.00000000000000000000
+AddSurface
+Surface 00000003 00646464 80030014 1 1
+SCtrl 0 0 -32.18616582129111236554 9.96742874547121004980 21.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 0 1 -32.18616582129111236554 9.96742874547121004980 0.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 0 29.41060837225727908617 4.98371437273560502490 21.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 1 29.41060837225727908617 4.98371437273560502490 0.00000000000000000000 Weight 1.00000000000000000000
+TrimBy 00000001 1 29.41060837225727908617 4.98371437273560502490 21.00000000000000000000  -32.18616582129111236554 9.96742874547121004980 21.00000000000000000000
+TrimBy 00000002 0 -32.18616582129111236554 9.96742874547121004980 0.00000000000000000000  29.41060837225727908617 4.98371437273560502490 0.00000000000000000000
+TrimBy 00000003 1 29.41060837225727908617 4.98371437273560502490 0.00000000000000000000  29.41060837225727908617 4.98371437273560502490 21.00000000000000000000
+TrimBy 00000015 0 -32.18616582129111236554 9.96742874547121004980 21.00000000000000000000  -32.18616582129111236554 9.96742874547121004980 0.00000000000000000000
+AddSurface
+Surface 00000004 00646464 00000000 2 1
+SCtrl 0 0 29.41060837225727908617 4.98371437273560502490 21.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 0 1 29.41060837225727908617 4.98371437273560502490 0.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 0 34.00738256580567053788 4.61179538969563473927 21.00000000000000000000 Weight 0.73506637839392519052
+SCtrl 1 1 34.00738256580567053788 4.61179538969563473927 0.00000000000000000000 Weight 0.73506637839392519052
+SCtrl 2 0 34.00738256580567053788 0.00000000000000000000 21.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 2 1 34.00738256580567053788 0.00000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+TrimBy 00000004 1 34.00738256580567053788 0.00000000000000000000 21.00000000000000000000  29.41060837225727908617 4.98371437273560502490 21.00000000000000000000
+TrimBy 00000005 0 29.41060837225727908617 4.98371437273560502490 0.00000000000000000000  34.00738256580567053788 0.00000000000000000000 0.00000000000000000000
+TrimBy 00000006 1 34.00738256580567053788 0.00000000000000000000 0.00000000000000000000  34.00738256580567053788 0.00000000000000000000 21.00000000000000000000
+TrimBy 00000003 0 29.41060837225727908617 4.98371437273560502490 21.00000000000000000000  29.41060837225727908617 4.98371437273560502490 0.00000000000000000000
+AddSurface
+Surface 00000005 00646464 00000000 2 1
+SCtrl 0 0 34.00738256580567053788 0.00000000000000000000 21.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 0 1 34.00738256580567053788 0.00000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 0 34.00738256580567053788 -4.61179538969563473927 21.00000000000000000000 Weight 0.73506637839392519052
+SCtrl 1 1 34.00738256580567053788 -4.61179538969563473927 0.00000000000000000000 Weight 0.73506637839392519052
+SCtrl 2 0 29.41060837225727908617 -4.98371437273560502490 21.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 2 1 29.41060837225727908617 -4.98371437273560502490 0.00000000000000000000 Weight 1.00000000000000000000
+TrimBy 00000007 1 29.41060837225727908617 -4.98371437273560502490 21.00000000000000000000  34.00738256580567053788 0.00000000000000000000 21.00000000000000000000
+TrimBy 00000008 0 34.00738256580567053788 0.00000000000000000000 0.00000000000000000000  29.41060837225727908617 -4.98371437273560502490 0.00000000000000000000
+TrimBy 00000009 1 29.41060837225727908617 -4.98371437273560502490 0.00000000000000000000  29.41060837225727908617 -4.98371437273560502490 21.00000000000000000000
+TrimBy 00000006 0 34.00738256580567053788 0.00000000000000000000 21.00000000000000000000  34.00738256580567053788 0.00000000000000000000 0.00000000000000000000
+AddSurface
+Surface 00000006 00646464 8003002a 1 1
+SCtrl 0 0 29.41060837225727908617 -4.98371437273560502490 21.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 0 1 29.41060837225727908617 -4.98371437273560502490 0.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 0 -32.18616582129111236554 -9.96742874547121004980 21.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 1 -32.18616582129111236554 -9.96742874547121004980 0.00000000000000000000 Weight 1.00000000000000000000
+TrimBy 0000000a 1 -32.18616582129111236554 -9.96742874547121004980 21.00000000000000000000  29.41060837225727908617 -4.98371437273560502490 21.00000000000000000000
+TrimBy 0000000b 0 29.41060837225727908617 -4.98371437273560502490 0.00000000000000000000  -32.18616582129111236554 -9.96742874547121004980 0.00000000000000000000
+TrimBy 0000000c 1 -32.18616582129111236554 -9.96742874547121004980 0.00000000000000000000  -32.18616582129111236554 -9.96742874547121004980 21.00000000000000000000
+TrimBy 00000009 0 29.41060837225727908617 -4.98371437273560502490 21.00000000000000000000  29.41060837225727908617 -4.98371437273560502490 0.00000000000000000000
+AddSurface
+Surface 00000007 00646464 00000000 2 1
+SCtrl 0 0 -32.18616582129111947097 -9.96742874547121004980 21.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 0 1 -32.18616582129111947097 -9.96742874547121004980 0.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 0 -38.30424091592671231865 -10.46243419310720668136 21.00000000000000000000 Weight 0.85225798728275503624
+SCtrl 1 1 -38.30424091592671231865 -10.46243419310720668136 0.00000000000000000000 Weight 0.85225798728275503624
+SCtrl 2 0 -41.51519730702188581972 -5.23121709655360422886 21.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 2 1 -41.51519730702188581972 -5.23121709655360422886 0.00000000000000000000 Weight 1.00000000000000000000
+TrimBy 0000000d 1 -41.51519730702188581972 -5.23121709655360422886 21.00000000000000000000  -32.18616582129111947097 -9.96742874547121004980 21.00000000000000000000
+TrimBy 0000000e 0 -32.18616582129111947097 -9.96742874547121004980 0.00000000000000000000  -41.51519730702188581972 -5.23121709655360422886 0.00000000000000000000
+TrimBy 0000000f 1 -41.51519730702188581972 -5.23121709655360422886 0.00000000000000000000  -41.51519730702188581972 -5.23121709655360422886 21.00000000000000000000
+TrimBy 0000000c 0 -32.18616582129111947097 -9.96742874547121004980 21.00000000000000000000  -32.18616582129111947097 -9.96742874547121004980 0.00000000000000000000
+AddSurface
+Surface 00000008 00646464 00000000 2 1
+SCtrl 0 0 -41.51519730702188581972 -5.23121709655360422886 21.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 0 1 -41.51519730702188581972 -5.23121709655360422886 0.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 0 -44.72615369811705932079 0.00000000000000355271 21.00000000000000000000 Weight 0.85225798728275503624
+SCtrl 1 1 -44.72615369811705932079 0.00000000000000355271 0.00000000000000000000 Weight 0.85225798728275503624
+SCtrl 2 0 -41.51519730702188581972 5.23121709655360689339 21.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 2 1 -41.51519730702188581972 5.23121709655360689339 0.00000000000000000000 Weight 1.00000000000000000000
+TrimBy 00000010 1 -41.51519730702188581972 5.23121709655360689339 21.00000000000000000000  -41.51519730702188581972 -5.23121709655360422886 21.00000000000000000000
+TrimBy 00000011 0 -41.51519730702188581972 -5.23121709655360422886 0.00000000000000000000  -41.51519730702188581972 5.23121709655360689339 0.00000000000000000000
+TrimBy 00000012 1 -41.51519730702188581972 5.23121709655360689339 0.00000000000000000000  -41.51519730702188581972 5.23121709655360689339 21.00000000000000000000
+TrimBy 0000000f 0 -41.51519730702188581972 -5.23121709655360422886 21.00000000000000000000  -41.51519730702188581972 -5.23121709655360422886 0.00000000000000000000
+AddSurface
+Surface 00000009 00646464 00000000 2 1
+SCtrl 0 0 -41.51519730702188581972 5.23121709655360689339 21.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 0 1 -41.51519730702188581972 5.23121709655360689339 0.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 0 -38.30424091592671231865 10.46243419310721201043 21.00000000000000000000 Weight 0.85225798728275503624
+SCtrl 1 1 -38.30424091592671231865 10.46243419310721201043 0.00000000000000000000 Weight 0.85225798728275503624
+SCtrl 2 0 -32.18616582129111236554 9.96742874547121004980 21.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 2 1 -32.18616582129111236554 9.96742874547121004980 0.00000000000000000000 Weight 1.00000000000000000000
+TrimBy 00000013 1 -32.18616582129111236554 9.96742874547121004980 21.00000000000000000000  -41.51519730702188581972 5.23121709655360689339 21.00000000000000000000
+TrimBy 00000014 0 -41.51519730702188581972 5.23121709655360689339 0.00000000000000000000  -32.18616582129111236554 9.96742874547121004980 0.00000000000000000000
+TrimBy 00000015 1 -32.18616582129111236554 9.96742874547121004980 0.00000000000000000000  -32.18616582129111236554 9.96742874547121004980 21.00000000000000000000
+TrimBy 00000012 0 -41.51519730702188581972 5.23121709655360689339 21.00000000000000000000  -41.51519730702188581972 5.23121709655360689339 0.00000000000000000000
+AddSurface
+Surface 0000000a 00646464 80050011 1 1
+SCtrl 0 0 -38.49261743419433656754 -5.49999999999999911182 10.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 0 1 -27.49261743419433656754 -5.49999999999999911182 10.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 0 -38.49261743419433656754 5.50000000000000088818 10.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 1 -27.49261743419433656754 5.50000000000000088818 10.00000000000000000000 Weight 1.00000000000000000000
+TrimBy 00000019 1 -38.49261743419433656754 -0.00000000000000133227 10.00000000000000000000  -32.99261743419433656754 -5.49999999999999911182 10.00000000000000000000
+TrimBy 00000016 1 -32.99261743419433656754 -5.49999999999999911182 10.00000000000000000000  -27.49261743419433656754 0.00000000000000044409 10.00000000000000000000
+TrimBy 0000001f 1 -27.49261743419433656754 0.00000000000000177636 10.00000000000000000000  -32.99261743419433656754 5.50000000000000088818 10.00000000000000000000
+TrimBy 0000001c 1 -32.99261743419433656754 5.50000000000000088818 10.00000000000000000000  -38.49261743419433656754 -0.00000000000000133227 10.00000000000000000000
+AddSurface
+Surface 0000000b 00646464 80050012 1 1
+SCtrl 0 0 -27.49261743419433656754 -5.49999999999999911182 0.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 0 1 -38.49261743419433656754 -5.49999999999999911182 0.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 0 -27.49261743419433656754 5.50000000000000088818 0.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 1 -38.49261743419433656754 5.50000000000000088818 0.00000000000000000000 Weight 1.00000000000000000000
+AddSurface
+Surface 0000000c 00646464 00000000 2 1
+SCtrl 0 0 -32.99261743419433656754 -5.50000000000000000000 10.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 0 1 -32.99261743419433656754 -5.50000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 0 -27.49261743419433656754 -5.50000000000000000000 10.00000000000000000000 Weight 0.70710678118654757274
+SCtrl 1 1 -27.49261743419433656754 -5.50000000000000000000 0.00000000000000000000 Weight 0.70710678118654757274
+SCtrl 2 0 -27.49261743419433656754 0.00000000000000000000 10.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 2 1 -27.49261743419433656754 0.00000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+TrimBy 00000021 1 -27.49261743419433656754 0.00000000000000000000 0.00000000000000000000  -27.49261743419433656754 0.00000000000000000000 10.00000000000000000000
+TrimBy 00000016 0 -27.49261743419433656754 0.00000000000000000000 10.00000000000000000000  -32.99261743419433656754 -5.50000000000000000000 10.00000000000000000000
+TrimBy 00000018 0 -32.99261743419433656754 -5.50000000000000000000 10.00000000000000000000  -32.99261743419433656754 -5.50000000000000000000 0.00000000000000000000
+TrimBy 00000017 1 -32.99261743419433656754 -5.50000000000000000000 0.00000000000000000000  -27.49261743419433656754 0.00000000000000000000 0.00000000000000000000
+AddSurface
+Surface 0000000d 00646464 00000000 2 1
+SCtrl 0 0 -38.49261743419433656754 -0.00000000000000067356 10.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 0 1 -38.49261743419433656754 -0.00000000000000067356 0.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 0 -38.49261743419433656754 -5.50000000000000000000 10.00000000000000000000 Weight 0.70710678118654757274
+SCtrl 1 1 -38.49261743419433656754 -5.50000000000000000000 0.00000000000000000000 Weight 0.70710678118654757274
+SCtrl 2 0 -32.99261743419433656754 -5.50000000000000000000 10.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 2 1 -32.99261743419433656754 -5.50000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+TrimBy 00000018 1 -32.99261743419433656754 -5.50000000000000000000 0.00000000000000000000  -32.99261743419433656754 -5.50000000000000000000 10.00000000000000000000
+TrimBy 00000019 0 -32.99261743419433656754 -5.50000000000000000000 10.00000000000000000000  -38.49261743419433656754 -0.00000000000000067356 10.00000000000000000000
+TrimBy 0000001b 0 -38.49261743419433656754 -0.00000000000000067356 10.00000000000000000000  -38.49261743419433656754 -0.00000000000000067356 0.00000000000000000000
+TrimBy 0000001a 1 -38.49261743419433656754 -0.00000000000000067356 0.00000000000000000000  -32.99261743419433656754 -5.50000000000000000000 0.00000000000000000000
+AddSurface
+Surface 0000000e 00646464 00000000 2 1
+SCtrl 0 0 -32.99261743419433656754 5.50000000000000000000 10.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 0 1 -32.99261743419433656754 5.50000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 0 -38.49261743419433656754 5.49999999999999911182 10.00000000000000000000 Weight 0.70710678118654757274
+SCtrl 1 1 -38.49261743419433656754 5.49999999999999911182 0.00000000000000000000 Weight 0.70710678118654757274
+SCtrl 2 0 -38.49261743419433656754 -0.00000000000000067356 10.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 2 1 -38.49261743419433656754 -0.00000000000000067356 0.00000000000000000000 Weight 1.00000000000000000000
+TrimBy 0000001b 1 -38.49261743419433656754 -0.00000000000000067356 0.00000000000000000000  -38.49261743419433656754 -0.00000000000000067356 10.00000000000000000000
+TrimBy 0000001c 0 -38.49261743419433656754 -0.00000000000000067356 10.00000000000000000000  -32.99261743419433656754 5.50000000000000000000 10.00000000000000000000
+TrimBy 0000001e 0 -32.99261743419433656754 5.50000000000000000000 10.00000000000000000000  -32.99261743419433656754 5.50000000000000000000 0.00000000000000000000
+TrimBy 0000001d 1 -32.99261743419433656754 5.50000000000000000000 0.00000000000000000000  -38.49261743419433656754 -0.00000000000000067356 0.00000000000000000000
+AddSurface
+Surface 0000000f 00646464 00000000 2 1
+SCtrl 0 0 -27.49261743419433656754 0.00000000000000134711 10.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 0 1 -27.49261743419433656754 0.00000000000000134711 0.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 1 0 -27.49261743419433656754 5.50000000000000088818 10.00000000000000000000 Weight 0.70710678118654757274
+SCtrl 1 1 -27.49261743419433656754 5.50000000000000088818 0.00000000000000000000 Weight 0.70710678118654757274
+SCtrl 2 0 -32.99261743419433656754 5.50000000000000000000 10.00000000000000000000 Weight 1.00000000000000000000
+SCtrl 2 1 -32.99261743419433656754 5.50000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+TrimBy 0000001e 1 -32.99261743419433656754 5.50000000000000000000 0.00000000000000000000  -32.99261743419433656754 5.50000000000000000000 10.00000000000000000000
+TrimBy 0000001f 0 -32.99261743419433656754 5.50000000000000000000 10.00000000000000000000  -27.49261743419433656754 0.00000000000000134711 10.00000000000000000000
+TrimBy 00000021 0 -27.49261743419433656754 0.00000000000000134711 10.00000000000000000000  -27.49261743419433656754 0.00000000000000134711 0.00000000000000000000
+TrimBy 00000020 1 -27.49261743419433656754 0.00000000000000134711 0.00000000000000000000  -32.99261743419433656754 5.50000000000000000000 0.00000000000000000000
+AddSurface
+Curve 00000001 1 1 00000001 00000003
+CCtrl 0 -32.18616582129111236554 9.96742874547121004980 21.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 29.41060837225727908617 4.98371437273560502490 21.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -32.18616582129111236554 9.96742874547121004980 21.00000000000000000000
+CurvePt 1 29.41060837225727908617 4.98371437273560502490 21.00000000000000000000
+AddCurve
+Curve 00000002 1 1 00000002 00000003
+CCtrl 0 -32.18616582129111236554 9.96742874547121004980 0.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 29.41060837225727908617 4.98371437273560502490 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -32.18616582129111236554 9.96742874547121004980 0.00000000000000000000
+CurvePt 1 29.41060837225727908617 4.98371437273560502490 0.00000000000000000000
+AddCurve
+Curve 00000003 1 1 00000003 00000004
+CCtrl 0 29.41060837225727908617 4.98371437273560502490 21.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 29.41060837225727908617 4.98371437273560502490 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 29.41060837225727908617 4.98371437273560502490 21.00000000000000000000
+CurvePt 1 29.41060837225727908617 4.98371437273560502490 0.00000000000000000000
+AddCurve
+Curve 00000004 1 2 00000001 00000004
+CCtrl 0 29.41060837225727908617 4.98371437273560502490 21.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 34.00738256580567053788 4.61179538969563473927 21.00000000000000000000 Weight 0.73506637839392519052
+CCtrl 2 34.00738256580567053788 0.00000000000000000000 21.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 29.41060837225727908617 4.98371437273560502490 21.00000000000000000000
+CurvePt 0 30.27146510511470012261 4.83757122260892913346 21.00000000000000000000
+CurvePt 0 31.13647178556588102083 4.52404455043281483739 21.00000000000000000000
+CurvePt 0 31.95715469580185441600 4.03718272822741841566 21.00000000000000000000
+CurvePt 0 32.68271445777529748966 3.38997573499737114844 21.00000000000000000000
+CurvePt 0 33.26930053260429787088 2.61458509983497489060 21.00000000000000000000
+CurvePt 0 33.68839247911235901256 1.75731220661682385753 21.00000000000000000000
+CurvePt 0 33.93113935232218381088 0.86983855239498519829 21.00000000000000000000
+CurvePt 1 34.00738256580567053788 0.00000000000000000000 21.00000000000000000000
+AddCurve
+Curve 00000005 1 2 00000002 00000004
+CCtrl 0 29.41060837225727908617 4.98371437273560502490 0.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 34.00738256580567053788 4.61179538969563473927 0.00000000000000000000 Weight 0.73506637839392519052
+CCtrl 2 34.00738256580567053788 0.00000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 29.41060837225727908617 4.98371437273560502490 0.00000000000000000000
+CurvePt 0 30.27146510511470012261 4.83757122260892913346 0.00000000000000000000
+CurvePt 0 31.13647178556588102083 4.52404455043281483739 0.00000000000000000000
+CurvePt 0 31.95715469580185441600 4.03718272822741841566 0.00000000000000000000
+CurvePt 0 32.68271445777529748966 3.38997573499737114844 0.00000000000000000000
+CurvePt 0 33.26930053260429787088 2.61458509983497489060 0.00000000000000000000
+CurvePt 0 33.68839247911235901256 1.75731220661682385753 0.00000000000000000000
+CurvePt 0 33.93113935232218381088 0.86983855239498519829 0.00000000000000000000
+CurvePt 1 34.00738256580567053788 0.00000000000000000000 0.00000000000000000000
+AddCurve
+Curve 00000006 1 1 00000004 00000005
+CCtrl 0 34.00738256580567053788 0.00000000000000000000 21.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 34.00738256580567053788 0.00000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 34.00738256580567053788 0.00000000000000000000 21.00000000000000000000
+CurvePt 1 34.00738256580567053788 0.00000000000000000000 0.00000000000000000000
+AddCurve
+Curve 00000007 1 2 00000001 00000005
+CCtrl 0 34.00738256580567053788 0.00000000000000000000 21.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 34.00738256580567053788 -4.61179538969563473927 21.00000000000000000000 Weight 0.73506637839392519052
+CCtrl 2 29.41060837225727908617 -4.98371437273560502490 21.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 34.00738256580567053788 0.00000000000000000000 21.00000000000000000000
+CurvePt 0 33.93113935232218381088 -0.86983855239498519829 21.00000000000000000000
+CurvePt 0 33.68839247911235901256 -1.75731220661682385753 21.00000000000000000000
+CurvePt 0 33.26930053260429787088 -2.61458509983497489060 21.00000000000000000000
+CurvePt 0 32.68271445777529748966 -3.38997573499737114844 21.00000000000000000000
+CurvePt 0 31.95715469580185441600 -4.03718272822741841566 21.00000000000000000000
+CurvePt 0 31.13647178556588102083 -4.52404455043281483739 21.00000000000000000000
+CurvePt 0 30.27146510511470012261 -4.83757122260892913346 21.00000000000000000000
+CurvePt 1 29.41060837225727908617 -4.98371437273560502490 21.00000000000000000000
+AddCurve
+Curve 00000008 1 2 00000002 00000005
+CCtrl 0 34.00738256580567053788 0.00000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 34.00738256580567053788 -4.61179538969563473927 0.00000000000000000000 Weight 0.73506637839392519052
+CCtrl 2 29.41060837225727908617 -4.98371437273560502490 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 34.00738256580567053788 0.00000000000000000000 0.00000000000000000000
+CurvePt 0 33.93113935232218381088 -0.86983855239498519829 0.00000000000000000000
+CurvePt 0 33.68839247911235901256 -1.75731220661682385753 0.00000000000000000000
+CurvePt 0 33.26930053260429787088 -2.61458509983497489060 0.00000000000000000000
+CurvePt 0 32.68271445777529748966 -3.38997573499737114844 0.00000000000000000000
+CurvePt 0 31.95715469580185441600 -4.03718272822741841566 0.00000000000000000000
+CurvePt 0 31.13647178556588102083 -4.52404455043281483739 0.00000000000000000000
+CurvePt 0 30.27146510511470012261 -4.83757122260892913346 0.00000000000000000000
+CurvePt 1 29.41060837225727908617 -4.98371437273560502490 0.00000000000000000000
+AddCurve
+Curve 00000009 1 1 00000005 00000006
+CCtrl 0 29.41060837225727908617 -4.98371437273560502490 21.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 29.41060837225727908617 -4.98371437273560502490 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 29.41060837225727908617 -4.98371437273560502490 21.00000000000000000000
+CurvePt 1 29.41060837225727908617 -4.98371437273560502490 0.00000000000000000000
+AddCurve
+Curve 0000000a 1 1 00000001 00000006
+CCtrl 0 29.41060837225727908617 -4.98371437273560502490 21.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -32.18616582129111236554 -9.96742874547121004980 21.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 29.41060837225727908617 -4.98371437273560502490 21.00000000000000000000
+CurvePt 1 -32.18616582129111236554 -9.96742874547121004980 21.00000000000000000000
+AddCurve
+Curve 0000000b 1 1 00000002 00000006
+CCtrl 0 29.41060837225727908617 -4.98371437273560502490 0.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -32.18616582129111236554 -9.96742874547121004980 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 29.41060837225727908617 -4.98371437273560502490 0.00000000000000000000
+CurvePt 1 -32.18616582129111236554 -9.96742874547121004980 0.00000000000000000000
+AddCurve
+Curve 0000000c 1 1 00000006 00000007
+CCtrl 0 -32.18616582129111236554 -9.96742874547121004980 21.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -32.18616582129111236554 -9.96742874547121004980 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -32.18616582129111236554 -9.96742874547121004980 21.00000000000000000000
+CurvePt 1 -32.18616582129111236554 -9.96742874547121004980 0.00000000000000000000
+AddCurve
+Curve 0000000d 1 2 00000001 00000007
+CCtrl 0 -32.18616582129111947097 -9.96742874547121004980 21.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -38.30424091592671231865 -10.46243419310720668136 21.00000000000000000000 Weight 0.85225798728275503624
+CCtrl 2 -41.51519730702188581972 -5.23121709655360422886 21.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -32.18616582129111947097 -9.96742874547121004980 21.00000000000000000000
+CurvePt 0 -33.51549548332528161154 -9.98632057094789082896 21.00000000000000000000
+CurvePt 0 -34.87343037941947443414 -9.82153463899982881458 21.00000000000000000000
+CurvePt 0 -36.22168296357590833168 -9.46430852238871622717 21.00000000000000000000
+CurvePt 0 -37.51949097193939053341 -8.91669310749582422204 21.00000000000000000000
+CurvePt 0 -38.72747728660539223711 -8.19215371396337133092 21.00000000000000000000
+CurvePt 0 -39.81153308453149719526 -7.31453275018895698878 21.00000000000000000000
+CurvePt 0 -40.74594691420998771036 -6.31552705435739003548 21.00000000000000000000
+CurvePt 1 -41.51519730702188581972 -5.23121709655360422886 21.00000000000000000000
+AddCurve
+Curve 0000000e 1 2 00000002 00000007
+CCtrl 0 -32.18616582129111947097 -9.96742874547121004980 0.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -38.30424091592671231865 -10.46243419310720668136 0.00000000000000000000 Weight 0.85225798728275503624
+CCtrl 2 -41.51519730702188581972 -5.23121709655360422886 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -32.18616582129111947097 -9.96742874547121004980 0.00000000000000000000
+CurvePt 0 -33.51549548332528161154 -9.98632057094789082896 0.00000000000000000000
+CurvePt 0 -34.87343037941947443414 -9.82153463899982881458 0.00000000000000000000
+CurvePt 0 -36.22168296357590833168 -9.46430852238871622717 0.00000000000000000000
+CurvePt 0 -37.51949097193939053341 -8.91669310749582422204 0.00000000000000000000
+CurvePt 0 -38.72747728660539223711 -8.19215371396337133092 0.00000000000000000000
+CurvePt 0 -39.81153308453149719526 -7.31453275018895698878 0.00000000000000000000
+CurvePt 0 -40.74594691420998771036 -6.31552705435739003548 0.00000000000000000000
+CurvePt 1 -41.51519730702188581972 -5.23121709655360422886 0.00000000000000000000
+AddCurve
+Curve 0000000f 1 1 00000007 00000008
+CCtrl 0 -41.51519730702188581972 -5.23121709655360422886 21.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -41.51519730702188581972 -5.23121709655360422886 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -41.51519730702188581972 -5.23121709655360422886 21.00000000000000000000
+CurvePt 1 -41.51519730702188581972 -5.23121709655360422886 0.00000000000000000000
+AddCurve
+Curve 00000010 1 2 00000001 00000008
+CCtrl 0 -41.51519730702188581972 -5.23121709655360422886 21.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -44.72615369811705932079 0.00000000000000355271 21.00000000000000000000 Weight 0.85225798728275503624
+CCtrl 2 -41.51519730702188581972 5.23121709655360689339 21.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -41.51519730702188581972 -5.23121709655360422886 21.00000000000000000000
+CurvePt 0 -42.13381329502368544127 -4.05444672353163326761 21.00000000000000000000
+CurvePt 0 -42.60159869137326893451 -2.76902134321568604847 21.00000000000000000000
+CurvePt 0 -42.89340802073429870234 -1.40511414535674816761 21.00000000000000000000
+CurvePt 0 -42.99261743419433656754 0.00000000000000239756 21.00000000000000000000
+CurvePt 0 -42.89340802073429870234 1.40511414535675283055 21.00000000000000000000
+CurvePt 0 -42.60159869137326893451 2.76902134321569048936 21.00000000000000000000
+CurvePt 0 -42.13381329502367833584 4.05444672353163859668 21.00000000000000000000
+CurvePt 1 -41.51519730702188581972 5.23121709655360689339 21.00000000000000000000
+AddCurve
+Curve 00000011 1 2 00000002 00000008
+CCtrl 0 -41.51519730702188581972 -5.23121709655360422886 0.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -44.72615369811705932079 0.00000000000000355271 0.00000000000000000000 Weight 0.85225798728275503624
+CCtrl 2 -41.51519730702188581972 5.23121709655360689339 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -41.51519730702188581972 -5.23121709655360422886 0.00000000000000000000
+CurvePt 0 -42.13381329502368544127 -4.05444672353163326761 0.00000000000000000000
+CurvePt 0 -42.60159869137326893451 -2.76902134321568604847 0.00000000000000000000
+CurvePt 0 -42.89340802073429870234 -1.40511414535674816761 0.00000000000000000000
+CurvePt 0 -42.99261743419433656754 0.00000000000000239756 0.00000000000000000000
+CurvePt 0 -42.89340802073429870234 1.40511414535675283055 0.00000000000000000000
+CurvePt 0 -42.60159869137326893451 2.76902134321569048936 0.00000000000000000000
+CurvePt 0 -42.13381329502367833584 4.05444672353163859668 0.00000000000000000000
+CurvePt 1 -41.51519730702188581972 5.23121709655360689339 0.00000000000000000000
+AddCurve
+Curve 00000012 1 1 00000008 00000009
+CCtrl 0 -41.51519730702188581972 5.23121709655360689339 21.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -41.51519730702188581972 5.23121709655360689339 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -41.51519730702188581972 5.23121709655360689339 21.00000000000000000000
+CurvePt 1 -41.51519730702188581972 5.23121709655360689339 0.00000000000000000000
+AddCurve
+Curve 00000013 1 2 00000001 00000009
+CCtrl 0 -41.51519730702188581972 5.23121709655360689339 21.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -38.30424091592671231865 10.46243419310721201043 21.00000000000000000000 Weight 0.85225798728275503624
+CCtrl 2 -32.18616582129111236554 9.96742874547121004980 21.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -41.51519730702188581972 5.23121709655360689339 21.00000000000000000000
+CurvePt 0 -40.74594691420998771036 6.31552705435739358819 21.00000000000000000000
+CurvePt 0 -39.81153308453149719526 7.31453275018896142967 21.00000000000000000000
+CurvePt 0 -38.72747728660538513168 8.19215371396337488363 21.00000000000000000000
+CurvePt 0 -37.51949097193939053341 8.91669310749582955111 21.00000000000000000000
+CurvePt 0 -36.22168296357590122625 9.46430852238871977988 21.00000000000000000000
+CurvePt 0 -34.87343037941946732872 9.82153463899983236729 21.00000000000000000000
+CurvePt 0 -33.51549548332527450611 9.98632057094789082896 21.00000000000000000000
+CurvePt 1 -32.18616582129111236554 9.96742874547121004980 21.00000000000000000000
+AddCurve
+Curve 00000014 1 2 00000002 00000009
+CCtrl 0 -41.51519730702188581972 5.23121709655360689339 0.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -38.30424091592671231865 10.46243419310721201043 0.00000000000000000000 Weight 0.85225798728275503624
+CCtrl 2 -32.18616582129111236554 9.96742874547121004980 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -41.51519730702188581972 5.23121709655360689339 0.00000000000000000000
+CurvePt 0 -40.74594691420998771036 6.31552705435739358819 0.00000000000000000000
+CurvePt 0 -39.81153308453149719526 7.31453275018896142967 0.00000000000000000000
+CurvePt 0 -38.72747728660538513168 8.19215371396337488363 0.00000000000000000000
+CurvePt 0 -37.51949097193939053341 8.91669310749582955111 0.00000000000000000000
+CurvePt 0 -36.22168296357590122625 9.46430852238871977988 0.00000000000000000000
+CurvePt 0 -34.87343037941946732872 9.82153463899983236729 0.00000000000000000000
+CurvePt 0 -33.51549548332527450611 9.98632057094789082896 0.00000000000000000000
+CurvePt 1 -32.18616582129111236554 9.96742874547121004980 0.00000000000000000000
+AddCurve
+Curve 00000015 1 1 00000009 00000003
+CCtrl 0 -32.18616582129111236554 9.96742874547121004980 21.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -32.18616582129111236554 9.96742874547121004980 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -32.18616582129111236554 9.96742874547121004980 21.00000000000000000000
+CurvePt 1 -32.18616582129111236554 9.96742874547121004980 0.00000000000000000000
+AddCurve
+Curve 00000016 1 2 0000000a 0000000c
+CCtrl 0 -27.49261743419433656754 0.00000000000000000000 10.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -27.49261743419433656754 -5.50000000000000000000 10.00000000000000000000 Weight 0.70710678118654757274
+CCtrl 2 -32.99261743419433656754 -5.50000000000000000000 10.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -27.49261743419433656754 0.00000000000000000000 10.00000000000000000000
+CurvePt 0 -27.58443790790317606820 -1.00079678826679585590 10.00000000000000000000
+CurvePt 0 -27.87878177835097304182 -2.02452090259030059727 10.00000000000000000000
+CurvePt 0 -28.38914212249175506031 -3.00965364361828369155 10.00000000000000000000
+CurvePt 0 -29.10353013766832219744 -3.88908729652601170557 10.00000000000000000000
+CurvePt 0 -29.98296379057604710283 -4.60347531170258150723 10.00000000000000000000
+CurvePt 0 -30.96809653160403996708 -5.11383565584336707843 10.00000000000000000000
+CurvePt 0 -31.99182064592753960142 -5.40817952629115872298 10.00000000000000000000
+CurvePt 1 -32.99261743419433656754 -5.50000000000000000000 10.00000000000000000000
+AddCurve
+Curve 00000017 1 2 0000000b 0000000c
+CCtrl 0 -27.49261743419433656754 0.00000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -27.49261743419433656754 -5.50000000000000000000 0.00000000000000000000 Weight 0.70710678118654757274
+CCtrl 2 -32.99261743419433656754 -5.50000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -27.49261743419433656754 0.00000000000000000000 0.00000000000000000000
+CurvePt 0 -27.58443790790317606820 -1.00079678826679585590 0.00000000000000000000
+CurvePt 0 -27.87878177835097304182 -2.02452090259030059727 0.00000000000000000000
+CurvePt 0 -28.38914212249175506031 -3.00965364361828369155 0.00000000000000000000
+CurvePt 0 -29.10353013766832219744 -3.88908729652601170557 0.00000000000000000000
+CurvePt 0 -29.98296379057604710283 -4.60347531170258150723 0.00000000000000000000
+CurvePt 0 -30.96809653160403996708 -5.11383565584336707843 0.00000000000000000000
+CurvePt 0 -31.99182064592753960142 -5.40817952629115872298 0.00000000000000000000
+CurvePt 1 -32.99261743419433656754 -5.50000000000000000000 0.00000000000000000000
+AddCurve
+Curve 00000018 1 1 0000000c 0000000d
+CCtrl 0 -32.99261743419433656754 -5.50000000000000000000 10.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -32.99261743419433656754 -5.50000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -32.99261743419433656754 -5.50000000000000000000 10.00000000000000000000
+CurvePt 1 -32.99261743419433656754 -5.50000000000000000000 0.00000000000000000000
+AddCurve
+Curve 00000019 1 2 0000000a 0000000d
+CCtrl 0 -32.99261743419433656754 -5.50000000000000000000 10.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -38.49261743419433656754 -5.50000000000000000000 10.00000000000000000000 Weight 0.70710678118654757274
+CCtrl 2 -38.49261743419433656754 -0.00000000000000067356 10.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -32.99261743419433656754 -5.50000000000000000000 10.00000000000000000000
+CurvePt 0 -33.99341422246113353367 -5.40817952629115872298 10.00000000000000000000
+CurvePt 0 -35.01713833678464027344 -5.11383565584336707843 10.00000000000000000000
+CurvePt 0 -36.00227107781261537411 -4.60347531170258150723 10.00000000000000000000
+CurvePt 0 -36.88170473072035093764 -3.88908729652601170557 10.00000000000000000000
+CurvePt 0 -37.59609274589691807478 -3.00965364361828457973 10.00000000000000000000
+CurvePt 0 -38.10645309003769654055 -2.02452090259030104136 10.00000000000000000000
+CurvePt 0 -38.40079696048549351417 -1.00079678826679652204 10.00000000000000000000
+CurvePt 1 -38.49261743419433656754 -0.00000000000000067356 10.00000000000000000000
+AddCurve
+Curve 0000001a 1 2 0000000b 0000000d
+CCtrl 0 -32.99261743419433656754 -5.50000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -38.49261743419433656754 -5.50000000000000000000 0.00000000000000000000 Weight 0.70710678118654757274
+CCtrl 2 -38.49261743419433656754 -0.00000000000000067356 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -32.99261743419433656754 -5.50000000000000000000 0.00000000000000000000
+CurvePt 0 -33.99341422246113353367 -5.40817952629115872298 0.00000000000000000000
+CurvePt 0 -35.01713833678464027344 -5.11383565584336707843 0.00000000000000000000
+CurvePt 0 -36.00227107781261537411 -4.60347531170258150723 0.00000000000000000000
+CurvePt 0 -36.88170473072035093764 -3.88908729652601170557 0.00000000000000000000
+CurvePt 0 -37.59609274589691807478 -3.00965364361828457973 0.00000000000000000000
+CurvePt 0 -38.10645309003769654055 -2.02452090259030104136 0.00000000000000000000
+CurvePt 0 -38.40079696048549351417 -1.00079678826679652204 0.00000000000000000000
+CurvePt 1 -38.49261743419433656754 -0.00000000000000067356 0.00000000000000000000
+AddCurve
+Curve 0000001b 1 1 0000000d 0000000e
+CCtrl 0 -38.49261743419433656754 -0.00000000000000067356 10.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -38.49261743419433656754 -0.00000000000000067356 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -38.49261743419433656754 -0.00000000000000067356 10.00000000000000000000
+CurvePt 1 -38.49261743419433656754 -0.00000000000000067356 0.00000000000000000000
+AddCurve
+Curve 0000001c 1 2 0000000a 0000000e
+CCtrl 0 -38.49261743419433656754 -0.00000000000000067356 10.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -38.49261743419433656754 5.49999999999999911182 10.00000000000000000000 Weight 0.70710678118654757274
+CCtrl 2 -32.99261743419433656754 5.50000000000000000000 10.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -38.49261743419433656754 -0.00000000000000067356 10.00000000000000000000
+CurvePt 0 -38.40079696048549351417 1.00079678826679518977 10.00000000000000000000
+CurvePt 0 -38.10645309003771075140 2.02452090259029970909 10.00000000000000000000
+CurvePt 0 -37.59609274589691096935 3.00965364361828324746 10.00000000000000000000
+CurvePt 0 -36.88170473072035093764 3.88908729652601126148 10.00000000000000000000
+CurvePt 0 -36.00227107781261537411 4.60347531170258150723 10.00000000000000000000
+CurvePt 0 -35.01713833678464027344 5.11383565584336707843 10.00000000000000000000
+CurvePt 0 -33.99341422246113353367 5.40817952629115872298 10.00000000000000000000
+CurvePt 1 -32.99261743419433656754 5.50000000000000000000 10.00000000000000000000
+AddCurve
+Curve 0000001d 1 2 0000000b 0000000e
+CCtrl 0 -38.49261743419433656754 -0.00000000000000067356 0.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -38.49261743419433656754 5.49999999999999911182 0.00000000000000000000 Weight 0.70710678118654757274
+CCtrl 2 -32.99261743419433656754 5.50000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -38.49261743419433656754 -0.00000000000000067356 0.00000000000000000000
+CurvePt 0 -38.40079696048549351417 1.00079678826679518977 0.00000000000000000000
+CurvePt 0 -38.10645309003771075140 2.02452090259029970909 0.00000000000000000000
+CurvePt 0 -37.59609274589691096935 3.00965364361828324746 0.00000000000000000000
+CurvePt 0 -36.88170473072035093764 3.88908729652601126148 0.00000000000000000000
+CurvePt 0 -36.00227107781261537411 4.60347531170258150723 0.00000000000000000000
+CurvePt 0 -35.01713833678464027344 5.11383565584336707843 0.00000000000000000000
+CurvePt 0 -33.99341422246113353367 5.40817952629115872298 0.00000000000000000000
+CurvePt 1 -32.99261743419433656754 5.50000000000000000000 0.00000000000000000000
+AddCurve
+Curve 0000001e 1 1 0000000e 0000000f
+CCtrl 0 -32.99261743419433656754 5.50000000000000000000 10.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -32.99261743419433656754 5.50000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -32.99261743419433656754 5.50000000000000000000 10.00000000000000000000
+CurvePt 1 -32.99261743419433656754 5.50000000000000000000 0.00000000000000000000
+AddCurve
+Curve 0000001f 1 2 0000000a 0000000f
+CCtrl 0 -32.99261743419433656754 5.50000000000000000000 10.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -27.49261743419433656754 5.50000000000000088818 10.00000000000000000000 Weight 0.70710678118654757274
+CCtrl 2 -27.49261743419433656754 0.00000000000000134711 10.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -32.99261743419433656754 5.50000000000000000000 10.00000000000000000000
+CurvePt 0 -31.99182064592753960142 5.40817952629115872298 10.00000000000000000000
+CurvePt 0 -30.96809653160403996708 5.11383565584336707843 10.00000000000000000000
+CurvePt 0 -29.98296379057605065555 4.60347531170258239541 10.00000000000000000000
+CurvePt 0 -29.10353013766832219744 3.88908729652601259374 10.00000000000000000000
+CurvePt 0 -28.38914212249175506031 3.00965364361828502382 10.00000000000000000000
+CurvePt 0 -27.87878177835097304182 2.02452090259030148545 10.00000000000000000000
+CurvePt 0 -27.58443790790317606820 1.00079678826679718817 10.00000000000000000000
+CurvePt 1 -27.49261743419433656754 0.00000000000000134711 10.00000000000000000000
+AddCurve
+Curve 00000020 1 2 0000000b 0000000f
+CCtrl 0 -32.99261743419433656754 5.50000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -27.49261743419433656754 5.50000000000000088818 0.00000000000000000000 Weight 0.70710678118654757274
+CCtrl 2 -27.49261743419433656754 0.00000000000000134711 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -32.99261743419433656754 5.50000000000000000000 0.00000000000000000000
+CurvePt 0 -31.99182064592753960142 5.40817952629115872298 0.00000000000000000000
+CurvePt 0 -30.96809653160403996708 5.11383565584336707843 0.00000000000000000000
+CurvePt 0 -29.98296379057605065555 4.60347531170258239541 0.00000000000000000000
+CurvePt 0 -29.10353013766832219744 3.88908729652601259374 0.00000000000000000000
+CurvePt 0 -28.38914212249175506031 3.00965364361828502382 0.00000000000000000000
+CurvePt 0 -27.87878177835097304182 2.02452090259030148545 0.00000000000000000000
+CurvePt 0 -27.58443790790317606820 1.00079678826679718817 0.00000000000000000000
+CurvePt 1 -27.49261743419433656754 0.00000000000000134711 0.00000000000000000000
+AddCurve
+Curve 00000021 1 1 0000000f 0000000c
+CCtrl 0 -27.49261743419433656754 0.00000000000000134711 10.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -27.49261743419433656754 0.00000000000000134711 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -27.49261743419433656754 0.00000000000000134711 10.00000000000000000000
+CurvePt 1 -27.49261743419433656754 0.00000000000000134711 0.00000000000000000000
+AddCurve
+Curve 00000022 1 2 00000002 0000000c
+CCtrl 0 -27.49261743419433656754 0.00000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -27.49261743419433656754 -5.50000000000000000000 0.00000000000000000000 Weight 0.70710678118654757274
+CCtrl 2 -32.99261743419433656754 -5.50000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -27.49261743419433656754 0.00000000000000000000 0.00000000000000000000
+CurvePt 0 -27.58443790790317606820 -1.00079678826679585590 0.00000000000000000000
+CurvePt 0 -27.87878177835097304182 -2.02452090259030059727 0.00000000000000000000
+CurvePt 0 -28.38914212249175506031 -3.00965364361828369155 0.00000000000000000000
+CurvePt 0 -29.10353013766832219744 -3.88908729652601170557 0.00000000000000000000
+CurvePt 0 -29.98296379057604710283 -4.60347531170258150723 0.00000000000000000000
+CurvePt 0 -30.96809653160403996708 -5.11383565584336707843 0.00000000000000000000
+CurvePt 0 -31.99182064592753960142 -5.40817952629115872298 0.00000000000000000000
+CurvePt 1 -32.99261743419433656754 -5.50000000000000000000 0.00000000000000000000
+AddCurve
+Curve 00000023 1 2 00000002 0000000d
+CCtrl 0 -32.99261743419433656754 -5.50000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -38.49261743419433656754 -5.50000000000000000000 0.00000000000000000000 Weight 0.70710678118654757274
+CCtrl 2 -38.49261743419433656754 -0.00000000000000067356 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -32.99261743419433656754 -5.50000000000000000000 0.00000000000000000000
+CurvePt 0 -33.99341422246113353367 -5.40817952629115872298 0.00000000000000000000
+CurvePt 0 -35.01713833678464027344 -5.11383565584336707843 0.00000000000000000000
+CurvePt 0 -36.00227107781261537411 -4.60347531170258150723 0.00000000000000000000
+CurvePt 0 -36.88170473072035093764 -3.88908729652601170557 0.00000000000000000000
+CurvePt 0 -37.59609274589691807478 -3.00965364361828457973 0.00000000000000000000
+CurvePt 0 -38.10645309003769654055 -2.02452090259030104136 0.00000000000000000000
+CurvePt 0 -38.40079696048549351417 -1.00079678826679652204 0.00000000000000000000
+CurvePt 1 -38.49261743419433656754 -0.00000000000000067356 0.00000000000000000000
+AddCurve
+Curve 00000024 1 2 00000002 0000000e
+CCtrl 0 -38.49261743419433656754 -0.00000000000000067356 0.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -38.49261743419433656754 5.49999999999999911182 0.00000000000000000000 Weight 0.70710678118654757274
+CCtrl 2 -32.99261743419433656754 5.50000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -38.49261743419433656754 -0.00000000000000067356 0.00000000000000000000
+CurvePt 0 -38.40079696048549351417 1.00079678826679518977 0.00000000000000000000
+CurvePt 0 -38.10645309003771075140 2.02452090259029970909 0.00000000000000000000
+CurvePt 0 -37.59609274589691096935 3.00965364361828324746 0.00000000000000000000
+CurvePt 0 -36.88170473072035093764 3.88908729652601126148 0.00000000000000000000
+CurvePt 0 -36.00227107781261537411 4.60347531170258150723 0.00000000000000000000
+CurvePt 0 -35.01713833678464027344 5.11383565584336707843 0.00000000000000000000
+CurvePt 0 -33.99341422246113353367 5.40817952629115872298 0.00000000000000000000
+CurvePt 1 -32.99261743419433656754 5.50000000000000000000 0.00000000000000000000
+AddCurve
+Curve 00000025 1 2 00000002 0000000f
+CCtrl 0 -32.99261743419433656754 5.50000000000000000000 0.00000000000000000000 Weight 1.00000000000000000000
+CCtrl 1 -27.49261743419433656754 5.50000000000000088818 0.00000000000000000000 Weight 0.70710678118654757274
+CCtrl 2 -27.49261743419433656754 0.00000000000000134711 0.00000000000000000000 Weight 1.00000000000000000000
+CurvePt 1 -32.99261743419433656754 5.50000000000000000000 0.00000000000000000000
+CurvePt 0 -31.99182064592753960142 5.40817952629115872298 0.00000000000000000000
+CurvePt 0 -30.96809653160403996708 5.11383565584336707843 0.00000000000000000000
+CurvePt 0 -29.98296379057605065555 4.60347531170258239541 0.00000000000000000000
+CurvePt 0 -29.10353013766832219744 3.88908729652601259374 0.00000000000000000000
+CurvePt 0 -28.38914212249175506031 3.00965364361828502382 0.00000000000000000000
+CurvePt 0 -27.87878177835097304182 2.02452090259030148545 0.00000000000000000000
+CurvePt 0 -27.58443790790317606820 1.00079678826679718817 0.00000000000000000000
+CurvePt 1 -27.49261743419433656754 0.00000000000000134711 0.00000000000000000000
+AddCurve
