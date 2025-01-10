@@ -58,16 +58,189 @@
 <p style="padding-left: 60px;">第一階段計時結束後, 如何進入前三名排名賽</p>
 <p style="padding-left: 30px;"></p><h2>Topics</h2>
 <h4>CoppeliaSim</h4>
-<p>CoppeliaSim 彈珠檯場景的 .simscene.xml 檔案格式</p>
-<p>NX2312 彈珠檯零組件與 NXOpen Python 程式</p>
-<p>若可採網頁表單調控 NX2312 彈珠檯零組件的關鍵尺寸, 能否直接透過程式方法配置對應的 <span>CoppeliaSim 彈珠檯場景</span></p>
-<p>彈珠檯的 Flipper 機構能不能用來作為六<span>方投籃機系統的投籃機構? 能否在 Solvespace 或 Pyslvs-UI 中進行合成或模擬?</span></p>
-<p><span>採 Solvespace 或 NX2312 繪製的彈珠檯零組件, 能否用來建立 Webots 的彈珠檯場景?</span></p>
-<p><span>Fossil SCM 能否用來作為 STL 零件或上列專案的分散式版次管理系統, 用來取代 Github?</span></p><h2>Arduino</h2>
+<p style="padding-left: 30px;">CoppeliaSim 彈珠檯場景的 .simscene.xml 檔案格式</p>
+<h4>NXOpen</h4>
+<p style="padding-left: 30px;">NX2312 彈珠檯零組件與 NXOpen Python 程式</p>
+<h4>Flask</h4>
+<p style="padding-left: 30px;">若可採網頁表單調控 NX2312 彈珠檯零組件的關鍵尺寸, 能否直接透過程式方法配置對應的 <span>CoppeliaSim 彈珠檯場景</span></p>
+<h4><span>Mechanism Simulation and Synthesis</span></h4>
+<p style="padding-left: 30px;">彈珠檯的 Flipper 機構能不能用來作為六<span>方投籃機系統的投籃機構? 能否在 Solvespace 或 Pyslvs-UI 中進行合成或模擬?</span></p>
+<h4><span>Webots</span></h4>
+<p style="padding-left: 30px;"><span>採 Solvespace 或 NX2312 繪製的彈珠檯零組件, 能否用來建立 Webots 的彈珠檯場景?</span></p>
+<h4><span>Fossil SCM</span></h4>
+<p style="padding-left: 30px;"><span>Fossil SCM 能否用來作為 STL 零件或上列專案的分散式版次管理系統, 用來取代 Github?</span></p><h2>Arduino</h2>
 <p><a href="https://twcn.rs-online.com/web/p/arduino/1927590?cm_mmc=TW-PLA-DS3A-_-google-_-PLA_TW_CN_PMAX_Catch+All_20240802-_--_-&amp;matchtype=&amp;&amp;gad_source=1&amp;gclid=Cj0KCQiA4fi7BhC5ARIsAEV1YiYg5kjqmIJSowb7k9aCUhskQufU52_RIvST5HMF35G5RIQLNrQfJNsaAkPdEALw_wcB&amp;gclsrc=aw.ds">Arduino Nano Every</a></p>
 <p><a href="https://shopee.tw/%E5%BD%88%E7%B0%A7-%E4%B8%8D%E9%8F%BD%E9%8B%BC%E5%A3%93%E7%B8%AE%E5%BD%88%E7%B0%A7-%E7%B7%9A%E5%BE%912.5mm-%E7%99%BD%E9%90%B5%E5%BD%88%E7%B0%A7-%E5%8F%B0%E4%B8%AD%E5%BD%88%E7%B0%A7%E5%BB%A0-AS002-i.10832548.11657695978?sp_atk=71b38018-5dce-4ff5-9bf0-67b51f122300">網購彈簧</a></p>
 <p><a href="https://shopee.tw/search?category=11040925&amp;keyword=%E5%9C%93%E7%AE%A1%E6%9D%90&amp;subcategory=11040926&amp;thirdCategory=11040941">五金圓管</a></p>
-<p><a href="https://zhenyu.shoplineapp.com/products/%E6%8C%89%E9%88%95%E9%96%8B%E9%97%9C-%E5%B9%B3%E9%A0%AD">平頭按鈕開關</a></p><h2>3D_Printer</h2>
+<p><a href="https://zhenyu.shoplineapp.com/products/%E6%8C%89%E9%88%95%E9%96%8B%E9%97%9C-%E5%B9%B3%E9%A0%AD">平頭按鈕開關</a></p>
+<h3>Arduino_prog</h3>
+<h4><span style="background-color: #ccffcc;">Arduino 控制程式格式是以 C 還是 C++ 為主?</span></h4>
+<p>Arduino 控制程式主要是基於 C++ 語言，但它的寫法簡化了許多，使得使用者可以更容易上手。雖然底層是 C++，但 Arduino 的開發環境 (IDE) 提供了一些預設的框架與函數，讓程式寫起來更接近 C 的風格。</p>
+<p>以下是一些細節：</p>
+<ol>
+<li>
+<p><strong>語法</strong>：Arduino 程式中的語法大部分基於 C++，例如使用 <code inline="">class</code> 和 <code inline="">object</code> 等概念來進行物件導向設計。然而，大多數初學者寫的程式通常不會涉及這些 C++ 的進階特性，更多是像 C 語言那樣直接操作硬體。</p>
+</li>
+<li>
+<p><strong>庫</strong>：Arduino 提供了大量的庫（libraries），這些庫通常是用 C++ 寫的，並且支援物件導向編程。然而，這些庫的使用不需要太多 C++ 的知識。</p>
+</li>
+<li>
+<p><strong>簡化寫法</strong>：Arduino 的 <code inline="">setup()</code> 和 <code inline="">loop()</code> 函數是預設的進入點，這讓程式結構上與傳統 C++ 程式有所不同，避免了對 <code inline="">main()</code> 函數的需求，使得開發者可以專注於硬體控制而不必深入了解 C++ 的複雜性。</p>
+</li>
+</ol>
+<p>總結來說，Arduino 是以 C++ 為基礎，但其開發方式偏向簡化，讓用戶主要用 C 語言風格進行編程，並能夠充分利用 C++ 的強大功能。</p>
+<h4><span style="background-color: #ccffcc;">所以一般應用比較接近 C?</span></h4>
+<p>是的，Arduino 的程式語言較接近 C。雖然底層是基於 C++，但其開發環境和標準庫的設計使得程式寫法更像 C。尤其是對於初學者來說，常見的程式結構（如 `setup()` 和 `loop()` 函數）與 C 語言的風格非常相似，並且不強制使用 C++ 的一些高階功能（如物件導向編程、類別等）。</p>
+<p>簡而言之，雖然 Arduino 是建立在 C++ 上，但它的編程方式和語法更加貼近 C，因此對於習慣 C 語言的開發者來說，學習和使用 Arduino 更容易上手。</p>
+<h4><span style="background-color: #ccffcc;">那些 Arduino 應用一定要用 C++ 編寫?</span></h4>
+<p>雖然 Arduino 程式設計大多數情況下都可以用 C 的風格來編寫，但在某些情況下，使用 C++ 的特性會帶來額外的便利或功能，特別是在較複雜的應用中。以下是一些情境，其中 C++ 特性（如物件導向編程、類別等）可能是必要的或能顯著提高程式的可維護性與可擴展性：</p>
+<h4>1. <strong>物件導向編程 (OOP)</strong></h4>
+<ul>
+<li>當你需要使用物件導向編程來組織程式時，C++ 提供了支持類別、繼承、多型等特性的能力。這對於較大或複雜的專案非常有用，尤其當有多個相似的硬體模組或設備時，你可以通過類別來封裝功能，進行抽象化，從而提高代碼重用性和可維護性。</li>
+</ul>
+<p>例如，如果你有多個不同類型的傳感器或設備，你可以為每種類型的設備創建一個類別，並用繼承和多型來處理不同設備的通用操作。</p>
+<h4>2. <strong>大型或複雜的程式</strong></h4>
+<ul>
+<li>當你的程式變得較為龐大或功能複雜時，C++ 提供的封裝和模組化設計（如使用類別來封裝特定功能）有助於管理代碼。這樣可以將不同的模組分開，使程式碼更加結構化，並便於日後維護與擴展。</li>
+</ul>
+<h4>3. <strong>使用 C++ 標準庫或第三方庫</strong></h4>
+<ul>
+<li>Arduino 提供了一些 C++ 標準庫（例如 STL，如 <code inline="">vector</code>, <code inline="">map</code>, <code inline="">queue</code> 等）和第三方庫，這些庫能夠大大簡化程式開發。這些庫通常使用 C++ 特性，所以你需要用 C++ 來使用這些庫。</li>
+<li>舉例來說，若要使用動態陣列（<code inline="">std::vector</code>）或使用 <code inline="">String</code> 類型來處理字符串等，這些功能會依賴於 C++。</li>
+</ul>
+<h4>4. <strong>記憶體管理</strong></h4>
+<ul>
+<li>在處理較複雜的數據結構或動態記憶體分配時，C++ 會提供更靈活的記憶體管理功能，例如使用 <code inline="">new</code> 和 <code inline="">delete</code> 來進行動態內存分配，這些功能是 C 語言無法提供的，並且有助於管理較大的資料集或複雜的物件。</li>
+</ul>
+<h4>5. <strong>多執行緒或多任務處理</strong></h4>
+<ul>
+<li>雖然 Arduino IDE 本身不支持多執行緒，但如果你需要在程式中使用更高級的並行處理或多任務的概念，可以使用 C++ 來設計合適的物件和類別來模擬這些行為。例如，使用回呼函數或基於狀態機的設計來實現多任務處理。</li>
+</ul>
+<h4>6. <strong>硬體抽象層 (HAL) 或複雜的硬體介面</strong></h4>
+<ul>
+<li>當你的專案需要與多個硬體模組（如多個傳感器、顯示器、馬達驅動器等）交互，並且這些硬體有著類似但又不同的控制需求時，使用 C++ 類別來封裝各個硬體模組的操作是非常有用的。例如，創建一個通用的 "Sensor" 類，並讓每個特定的傳感器（如溫度、濕度、光強度等）繼承該類，這樣可以使代碼更具擴展性和可維護性。</li>
+</ul>
+<h4><span style="background-color: #ccffcc;">請舉一個用 C++ 編寫的範例:</span></h4>
+<p>控制多個 LED</p>
+<p>目標：</p>
+<p>使用類別來封裝 LED 控制。<br/>利用物件導向的方式來控制多個 LED 的開關。</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">// 定義一個 LED 類別
+class LED {
+  private:
+    int pin;  // 用來儲存 LED 接腳編號
+
+  public:
+    // 類別的建構子，初始化接腳
+    LED(int pinNumber) {
+      pin = pinNumber;
+      pinMode(pin, OUTPUT);  // 設定接腳為輸出模式
+    }
+
+    // 開啟 LED
+    void on() {
+      digitalWrite(pin, HIGH);
+    }
+
+    // 關閉 LED
+    void off() {
+      digitalWrite(pin, LOW);
+    }
+
+    // 切換 LED 狀態（開關）
+    void toggle() {
+      digitalWrite(pin, !digitalRead(pin));
+    }
+};
+
+// 創建兩個 LED 物件，分別控制不同的接腳
+LED led1(13);  // 使用內建的 LED（接腳 13）
+LED led2(12);  // 使用另外一個 LED（接腳 12）
+
+void setup() {
+  // 這裡不需要進行額外的初始化，因為 LED 類別的建構子已經完成了初始化
+}
+
+void loop() {
+  led1.on();  // 開啟 led1
+  led2.off(); // 關閉 led2
+  delay(1000); // 等待 1 秒
+
+  led1.off(); // 關閉 led1
+  led2.on();  // 開啟 led2
+  delay(1000); // 等待 1 秒
+
+  led1.toggle();  // 切換 led1 狀態
+  led2.toggle();  // 切換 led2 狀態
+  delay(1000); // 等待 1 秒
+}
+</pre>
+<p>控制多個步進馬達</p>
+<p>假設我們使用的是 28BYJ-48 步進馬達，並且控制它的方式是通過四個控制引腳（IN1, IN2, IN3, IN4）來實現。</p>
+<p>安裝步進馬達的庫：</p>
+<p style="padding-left: 30px;">如果你沒有安裝步進馬達控制庫，可以通過 Arduino IDE 安裝 Stepper 庫。</p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;Stepper.h&gt;  // 包含步進馬達庫
+
+// 步進馬達的步數，根據馬達型號來設定
+#define STEPS_PER_REVOLUTION 2048  // 28BYJ-48 步進馬達的每圈步數
+
+// 步進馬達控制類別
+class StepperMotor {
+  private:
+    Stepper motor;  // 使用 Arduino 提供的 Stepper 類型來控制馬達
+    int motorPin1, motorPin2, motorPin3, motorPin4; // 儲存步進馬達控制腳位
+
+  public:
+    // 類別的建構子，初始化步進馬達
+    StepperMotor(int p1, int p2, int p3, int p4) 
+      : motor(STEPS_PER_REVOLUTION, p1, p2, p3, p4) {
+      motorPin1 = p1;
+      motorPin2 = p2;
+      motorPin3 = p3;
+      motorPin4 = p4;
+      motor.setSpeed(15);  // 設定馬達轉速 (步數每分鐘)
+    }
+
+    // 向前轉動步進馬達
+    void stepForward(int steps) {
+      motor.step(steps);
+    }
+
+    // 向後轉動步進馬達
+    void stepBackward(int steps) {
+      motor.step(-steps);
+    }
+
+    // 停止馬達（不需要額外操作，停止步進即可）
+    void stopMotor() {
+      motor.step(0);
+    }
+};
+
+// 創建兩個步進馬達物件，分別控制不同的步進馬達
+StepperMotor motor1(8, 9, 10, 11);  // 步進馬達 1，控制接腳 8, 9, 10, 11
+StepperMotor motor2(4, 5, 6, 7);   // 步進馬達 2，控制接腳 4, 5, 6, 7
+
+void setup() {
+  // 在 setup() 函數中不需要特別的初始化，因為我們在物件的建構子中完成了設定
+  Serial.begin(9600);  // 初始化串口監視器
+  Serial.println("Stepper Motor Control Example");
+}
+
+void loop() {
+  // 控制馬達 1 向前旋轉 512 步，馬達 2 向後旋轉 512 步
+  Serial.println("Motor 1 forward, Motor 2 backward");
+  motor1.stepForward(512);
+  motor2.stepBackward(512);
+  delay(1000); // 等待 1 秒鐘
+
+  // 控制馬達 1 向後旋轉 512 步，馬達 2 向前旋轉 512 步
+  Serial.println("Motor 1 backward, Motor 2 forward");
+  motor1.stepBackward(512);
+  motor2.stepForward(512);
+  delay(1000); // 等待 1 秒鐘
+}
+</pre>
+<p></p><h2>3D_Printer</h2>
 <p><a href="https://sites.google.com/gs.nfu.edu.tw/test/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BC%89%E5%B0%88%E5%8D%80">智慧學苑文件下載區</a></p>
 <p><a href="https://docs.google.com/document/d/16EmqicFImypGciCE19V-146NWowf0I7M/edit?pli=1">零組件列印申請</a></p>
 <h1>Summary</h1>
