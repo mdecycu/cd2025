@@ -6,17 +6,35 @@
 <p>教學要點:</p>
 <p style="padding-left: 30px;">結合電腦輔助機電協同設計、模擬與控制, 了解程式設計在機械設計工程領域上的可行應用與發展.</p>
 <p>先修課程:</p>
-<p style="padding-left: 30px;">計算機程式 (Python)、電腦輔助設計與實習 (Solvespace、NX2312 與 Webots)</p>
+<p style="padding-left: 30px;">計算機程式 (Python)、電腦輔助設計與實習 (Solvespace、NX2312 與 CopeliaSim)</p>
 <p>教學內容:</p>
 <p style="padding-left: 30px;">協同產品設計概論</p>
 <p style="padding-left: 30px;">機電系統模擬</p>
 <p style="padding-left: 30px;">網際數位串流與機電系統控制</p>
 <p style="padding-left: 30px;">協同分組專案</p>
 <p style="padding-left: 30px;">協同分組報告</p>
-<h1>Topics</h1>
+<p>課程評分:</p>
+<p style="padding-left: 30px;">出席並參與討論 (30%)</p>
+<p style="padding-left: 30px;">期中協同專案執行、簡報與報告 (六人一組) (30%)</p>
+<p style="padding-left: 60px;"><span>CoppeliaSim 與 Webots 虛實整合彈珠檯系統</span></p>
+<p style="padding-left: 30px;"><span>期末協同專案執行、簡報與報告 (六人一組) (40%)</span></p><h1>Projects</h1>
 <p>每六人一組</p>
-<p>複習 CoppeliaSim 彈珠檯機電模擬系統(Flipper, Bumper, Kicker, Score Board)</p>
+<p>協同專案:</p>
+<ol>
+<li>CoppeliaSim 虛實整合彈珠檯系統 <span>(Flipper, Bumper, Kicker, Score Board)</span></li>
+<li>Webots <span>虛實整合彈珠檯系統 </span>(Flipper, Bumper, Kicker, Score Board)</li>
+<li>CoppeliaSim 虛實整合六方投籃機系統</li>
+<li><span>Webots 虛實整合六方投籃機系統</span></li>
+</ol>
+<p><span>期中專案報告 - 彈珠檯虛實整合系統</span></p>
+<p style="padding-left: 30px;"><span>探討如何結合 Web 機電模擬場景 (CoppeliaSim 與 Webots) 以及 Arduino based 控制系統, 建置一個虛實整合彈珠檯系統</span></p>
+<p><span>期末專案報告 - 六方投籃機虛實整合系統</span></p>
+<p style="padding-left: 30px;"><span>探討如何結合 Web 機電模擬場景 (CoppeliaSim 與 Webots) 以及 Arduino based 控制系統, 建置一個虛實整合六方投籃機系統</span></p>
+<hr/>
 <p><a href="/downloads/pinball.7z">pinball.7z</a> (搖桿出口的感測器範圍過短, 若球離開球檯時未觸動感測器則無法重置至發球位置)</p>
+<p style="padding-left: 30px;">彈珠檯場景的後續延伸應用:</p>
+<p style="padding-left: 60px;">根據球與搖桿的位置, 了解能夠得最高分的左右搖桿作動時機</p>
+<p style="padding-left: 60px;">利用球檯上方的 image sensor (等同是實體球檯上方的攝影機) 辨識球的位置, 然後根據上列能夠取得最高分的出手時機驅動搖桿.</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/bQqw8GayNzM?si=VOqMP0DDyIrN_G3R" title="YouTube video player" width="560"></iframe></p>
 <p>學習使用運用 Webots 建立場景</p>
 <p><a href="https://www.cyberbotics.com/doc/guide/index">https://www.cyberbotics.com/doc/guide/index</a></p>
@@ -27,13 +45,13 @@
 <p>如何與 <a href="https://lcgamboa.github.io/">https://lcgamboa.github.io/</a> (<a href="https://github.com/lcgamboa/picsimlab">PICSimLab</a>) 結合應用</p>
 <p>建立虛實整合彈珠檯系統</p>
 <hr/>
-<p>多人對玩虛實整合投籃機</p>
-<p style="padding-left: 30px;">六個長方形球檯圍成一個圓圈, 每一個球檯前方有一個位於高處的圓形軌道, 軌道上有一個或多個按照順序或不按順序移動或旋轉的籃球框, 每個長方形球檯距離籃框一定距離處, 各有一個投籃機構, 每一位操作者可以控制該機構投擲籃球的角度與起始速度.</p>
-<p style="padding-left: 30px;">當遊戲開始計時 10 分鐘, 一個或多個籃框將在圓形軌道上旋轉或移動, 每位操作者投出球之後, 計時 5 秒後將自動在投籃處生成另一顆球, 當所投出的球其落點低於籃框高度後, 無論得分與否, 該球將自動消失.</p>
-<p style="padding-left: 30px;">各操作者一旦進入投籃場景, 其長方形球檯與綜合計分板將自動面對投射者. 計時結束後將取前三名領先者繼續下一輪排名競賽.</p>
+<p><span>虛實整合</span><span>六方投籃機系統</span></p>
+<p style="padding-left: 30px;">六個長方形球檯圍成一個圓圈, 各參與者前方各有一個可供投籃得分的籃框, 各籃框可繞順時鐘或逆時鐘不定時旋轉, 每個長方形球檯距離籃框一定距離處, 各設有一個投籃機構, 每一位操作者可以控制該機構投擲籃球的角度與起始速度將籃球投出.</p>
+<p style="padding-left: 30px;">當遊戲開始計時 10 分鐘, 籃框開始轉動, 每位操作者投出球之後, 系統將自動在投籃處產生另一顆球, 當所投出的球其落點低於籃框高度後, 無論得分與否, 各參與者所投出的球將自動消失.</p>
+<p style="padding-left: 30px;">各參與者一旦進入投籃場景, 其長方形球檯與綜合計分板將自動面對投射者. 計時結束後將取前三名領先者繼續下一輪排名競賽.</p>
 <p style="padding-left: 30px;">Tasks:</p>
-<p style="padding-left: 60px;">投籃機構合成設計</p>
-<p style="padding-left: 60px;">軌道上籃框旋轉機構設計</p>
+<p style="padding-left: 60px;">投籃機構設計</p>
+<p style="padding-left: 60px;">籃框旋轉機構設計</p>
 <p style="padding-left: 60px;">球檯與記分板面對操作者設計</p>
 <p style="padding-left: 60px;">機電虛實整合系統設計</p>
 <p style="padding-left: 60px;">第一階段計時結束後, 如何進入前三名排名賽</p>
@@ -102,9 +120,8 @@
 <h4>HoRoSim (使用 CoppeliaSim, 是否能夠轉進 Webots)</h4>
 <p style="padding-left: 30px;"><a href="https://pure.itu.dk/ws/portalfiles/portal/86211605/2021RIE_HoRoSim_camera_ready.pdf">HoRoSim, a Holistic Robot Simulator: Arduino Code, Electronic Circuits and Physics</a></p>
 <p style="padding-left: 30px;"><a href="https://bitbucket.org/afaina/horosim/src/master/">https://bitbucket.org/afaina/horosim/src/master/</a></p>
-<h1>Projects</h1>
-<p>Collaborative Design Projects (協同設計專案)</p>
-<h2>Webots</h2>
+<h1>Ref</h1>
+<p>Collaborative Design Projects (協同設計專案)</p><h2>Webots</h2>
 <p><a href="https://mde.tw/content/Webots%20Doc.html">https://mde.tw/content/Webots%20Doc.html</a></p>
 <p>Webots assets 儲存目錄 (容量約 831MB, 若包括 Webots 2025a 1GB, 整個系統約佔 2GB):</p>
 <p>在 Windows 操作系統開啟 webotsw.exe:</p>
@@ -523,7 +540,7 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console2"></textarea></div>
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div2"></div>
-<!-- editor2 結束 --><hr>
+<!-- editor2 結束 --><hr/>
 <p>
 <script src="https://unpkg.com/three@0.144.0/build/three.js" type="text/javascript"></script>
-</p></hr>
+</p>
