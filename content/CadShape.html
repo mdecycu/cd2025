@@ -1,0 +1,568 @@
+<!DOCTYPE html><html>
+        <head>
+        <title>cd2025</title>
+        <meta charset="utf-8">
+<meta property="head" content="H3">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+        
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <!-- for Wink3 客製化關閉 -->
+        <!--
+        <link rel="stylesheet" type="text/css" href="./../cmsimde/static/winkPlayer.css" />
+        <script type="text/javascript" src="./../cmsimde/static/winkPlayer.js"></script>
+        -->
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushMojo.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushRust.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
+}
+</style>
+
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container">
+                <div class="row align-items-center">
+                <h1>cd2025 協同產品設計實習</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">cd2025 協同產品設計實習</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">SMap</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='AI.html'>AI</a></li></ul><li class='has-children'><a href='Projects.html'>Projects</a><ul class='dropdown'><li><a href='Topics.html'>Topics</a><li class='has-children'><a href='Arduino.html'>Arduino</a><ul class='dropdown'><li><a href='Arduino_prog.html'>Arduino_prog</a></li></ul><li><a href='3D_Printer.html'>3D_Printer</a></li></ul><li class='has-children'><a href='Homework.html'>Homework</a><ul class='dropdown'><li><a href='HW1.html'>HW1</a><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='Tutorial_1.html'>Tutorial_1</a><li><a href='CadShape.html'>CadShape</a><li><a href='Web_server.html'>Web_server</a></li></li></ul></ul><li class='has-children'><a href='Summary.html'>Summary</a><ul class='dropdown'><li><a href='Product.html'>Product</a><li><a href='Control.html'>Control</a><li><a href='CPS.html'>CPS</a></li></ul><li class='has-children'><a href='Ref.html'>Ref</a><ul class='dropdown'><li class='has-children'><a href='Webots.html'>Webots</a><ul class='dropdown'><li><a href='Webots_ref.html'>Webots_ref</a></li></ul><li class='has-children'><a href='Solvespace.html'>Solvespace</a><ul class='dropdown'><li><a href='Learn_Solvs.html'>Learn_Solvs</a></li></ul><li><a href='Pyslvs-UI.html'>Pyslvs-UI</a><li><a href='PICSimLab.html'>PICSimLab</a><li><a href='Fossil SCM.html'>Fossil SCM</a><li><a href='Leo Editor.html'>Leo Editor</a><li><a href='Old.html'>Old</a></li></ul><li><a href='Brython.html'>Brython</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
+
+            </div>
+          </div>
+          
+        </header>
+    <div id="tipue_search_content">Tutorial_1 << <a href='Tutorial_1.html'>Previous</a> <a href='Web_server.html'>Next</a> >> Web_server<br /><h1>CadShape</h1>
+<p><a href="https://www.cyberbotics.com/doc/reference/cadshape">https://www.cyberbotics.com/doc/reference/cadshape</a></p>
+<p>Webots 可以利用 CadShape node 導入 Collada (.dae) or Wavefront (.obj) 零件, 其中 Solvespace 與 NX2312 都能輸出 .obj 零件格式, 但 Webots 並沒有如 CoppeliaSim 自動分割組立件的功能, 必須自行處理.</p>
+<p>利用 Python 分割 .stl 組立件:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># pip install numpy
+import struct
+import numpy as np
+
+class STLSplitter:
+    def __init__(self, filename):
+        self.filename = filename
+        self.is_binary = self._check_if_binary()
+        
+    def _check_if_binary(self):
+        """檢查 STL 檔案是否為二進制格式"""
+        with open(self.filename, 'rb') as f:
+            # 讀取前 5 個字節
+            header = f.read(5).decode('utf-8', errors='ignore')
+            # ASCII STL 檔案開頭為 "solid"
+            return not header.startswith('solid')
+    
+    def _read_binary_stl(self):
+        """讀取二進制 STL 檔案"""
+        with open(self.filename, 'rb') as f:
+            # 跳過標頭
+            f.seek(80)
+            # 讀取三角形數量
+            triangle_count = struct.unpack('I', f.read(4))[0]
+            
+            triangles = []
+            normals = []
+            
+            # 每個三角形佔 50 個字節
+            for _ in range(triangle_count):
+                # 讀取法向量
+                nx, ny, nz = struct.unpack('fff', f.read(12))
+                normals.append([nx, ny, nz])
+                
+                # 讀取三個頂點
+                triangle = []
+                for _ in range(3):
+                    x, y, z = struct.unpack('fff', f.read(12))
+                    triangle.append([x, y, z])
+                triangles.append(triangle)
+                
+                # 跳過屬性計數值
+                f.seek(2, 1)
+                
+        return np.array(triangles), np.array(normals)
+    
+    def _read_ascii_stl(self):
+        """讀取 ASCII STL 檔案"""
+        triangles = []
+        normals = []
+        current_triangle = []
+        
+        with open(self.filename, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                    
+                parts = line.split()
+                if not parts:
+                    continue
+                
+                if parts[0] == 'facet' and parts[1] == 'normal':
+                    # 讀取法向量
+                    normals.append([float(parts[2]), float(parts[3]), float(parts[4])])
+                elif parts[0] == 'vertex':
+                    # 讀取頂點
+                    current_triangle.append([float(parts[1]), float(parts[2]), float(parts[3])])
+                elif parts[0] == 'endfacet':
+                    # 三角形結束
+                    if current_triangle:
+                        triangles.append(current_triangle)
+                        current_triangle = []
+        
+        return np.array(triangles), np.array(normals)
+    
+    def _split_by_connected_components(self, triangles, normals):
+        """使用連通分量分割模型"""
+        # 建立頂點字典，用於查找相鄰三角形
+        vertex_to_triangle = {}
+        for i, triangle in enumerate(triangles):
+            for vertex in triangle:
+                vertex_tuple = tuple(vertex)
+                if vertex_tuple in vertex_to_triangle:
+                    vertex_to_triangle[vertex_tuple].append(i)
+                else:
+                    vertex_to_triangle[vertex_tuple] = [i]
+        
+        # 使用深度優先搜索找到連通分量
+        visited = set()
+        components = []
+        
+        def dfs(triangle_idx):
+            component = []
+            stack = [triangle_idx]
+            
+            while stack:
+                current = stack.pop()
+                if current not in visited:
+                    visited.add(current)
+                    component.append(current)
+                    
+                    # 找到所有相鄰的三角形
+                    for vertex in triangles[current]:
+                        vertex_tuple = tuple(vertex)
+                        for neighbor in vertex_to_triangle[vertex_tuple]:
+                            if neighbor not in visited:
+                                stack.append(neighbor)
+            
+            return component
+        
+        # 尋找所有連通分量
+        for i in range(len(triangles)):
+            if i not in visited:
+                component = dfs(i)
+                components.append(component)
+        
+        return components
+    
+    def _write_binary_stl(self, filename, triangles, normals):
+        """寫入二進制 STL 檔案"""
+        with open(filename, 'wb') as f:
+            # 寫入標頭（80 字節）
+            f.write(b'\x00' * 80)
+            
+            # 寫入三角形數量
+            f.write(struct.pack('I', len(triangles)))
+            
+            # 寫入每個三角形
+            for triangle, normal in zip(triangles, normals):
+                # 寫入法向量
+                f.write(struct.pack('fff', *normal))
+                
+                # 寫入三個頂點
+                for vertex in triangle:
+                    f.write(struct.pack('fff', *vertex))
+                
+                # 寫入屬性計數值（2 字節）
+                f.write(struct.pack('H', 0))
+    
+    def split(self):
+        """分割 STL 檔案"""
+        # 讀取 STL 檔案
+        if self.is_binary:
+            triangles, normals = self._read_binary_stl()
+        else:
+            triangles, normals = self._read_ascii_stl()
+        
+        # 分割模型
+        components = self._split_by_connected_components(triangles, normals)
+        
+        # 儲存每個部分
+        for i, component in enumerate(components):
+            component_triangles = triangles[component]
+            component_normals = normals[component]
+            
+            # 生成輸出檔名
+            output_filename = f"part_{i + 1}.stl"
+            
+            # 寫入檔案（使用二進制格式）
+            self._write_binary_stl(output_filename, component_triangles, component_normals)
+            print(f"已儲存零件 {i + 1} 到 {output_filename}")
+        
+        return len(components)
+
+# 使用範例
+if __name__ == "__main__":
+    splitter = STLSplitter("pinball.stl")
+    num_parts = splitter.split()
+    print(f"總共分割出 {num_parts} 個零件")</pre>
+<p>Python 分割 .stl 組立件, 同時將零件從 .stl 轉為 .obj 檔案格式:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import struct
+import numpy as np
+from pathlib import Path
+
+class STLConverter:
+    def __init__(self, filename):
+        self.filename = filename
+        self.is_binary = self._check_if_binary()
+        
+    def _check_if_binary(self):
+        """檢查 STL 檔案是否為二進制格式"""
+        with open(self.filename, 'rb') as f:
+            header = f.read(5).decode('utf-8', errors='ignore')
+            return not header.startswith('solid')
+    
+    def _read_binary_stl(self):
+        """讀取二進制 STL 檔案"""
+        with open(self.filename, 'rb') as f:
+            f.seek(80)
+            triangle_count = struct.unpack('I', f.read(4))[0]
+            
+            triangles = []
+            normals = []
+            
+            for _ in range(triangle_count):
+                nx, ny, nz = struct.unpack('fff', f.read(12))
+                normals.append([nx, ny, nz])
+                
+                triangle = []
+                for _ in range(3):
+                    x, y, z = struct.unpack('fff', f.read(12))
+                    triangle.append([x, y, z])
+                triangles.append(triangle)
+                
+                f.seek(2, 1)
+                
+        return np.array(triangles), np.array(normals)
+    
+    def _read_ascii_stl(self):
+        """讀取 ASCII STL 檔案"""
+        triangles = []
+        normals = []
+        current_triangle = []
+        
+        with open(self.filename, 'r') as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                    
+                parts = line.split()
+                if not parts:
+                    continue
+                
+                if parts[0] == 'facet' and parts[1] == 'normal':
+                    normals.append([float(parts[2]), float(parts[3]), float(parts[4])])
+                elif parts[0] == 'vertex':
+                    current_triangle.append([float(parts[1]), float(parts[2]), float(parts[3])])
+                elif parts[0] == 'endfacet':
+                    if current_triangle:
+                        triangles.append(current_triangle)
+                        current_triangle = []
+        
+        return np.array(triangles), np.array(normals)
+    
+    def _split_by_connected_components(self, triangles, normals):
+        """使用連通分量分割模型"""
+        vertex_to_triangle = {}
+        for i, triangle in enumerate(triangles):
+            for vertex in triangle:
+                vertex_tuple = tuple(vertex)
+                if vertex_tuple in vertex_to_triangle:
+                    vertex_to_triangle[vertex_tuple].append(i)
+                else:
+                    vertex_to_triangle[vertex_tuple] = [i]
+        
+        visited = set()
+        components = []
+        
+        def dfs(triangle_idx):
+            component = []
+            stack = [triangle_idx]
+            
+            while stack:
+                current = stack.pop()
+                if current not in visited:
+                    visited.add(current)
+                    component.append(current)
+                    
+                    for vertex in triangles[current]:
+                        vertex_tuple = tuple(vertex)
+                        for neighbor in vertex_to_triangle[vertex_tuple]:
+                            if neighbor not in visited:
+                                stack.append(neighbor)
+            
+            return component
+        
+        for i in range(len(triangles)):
+            if i not in visited:
+                component = dfs(i)
+                components.append(component)
+        
+        return components
+    
+    def _write_binary_stl(self, filename, triangles, normals):
+        """寫入二進制 STL 檔案"""
+        with open(filename, 'wb') as f:
+            f.write(b'\x00' * 80)
+            f.write(struct.pack('I', len(triangles)))
+            
+            for triangle, normal in zip(triangles, normals):
+                f.write(struct.pack('fff', *normal))
+                for vertex in triangle:
+                    f.write(struct.pack('fff', *vertex))
+                f.write(struct.pack('H', 0))
+
+    def _write_obj(self, filename, triangles, normals):
+        """寫入 OBJ 檔案"""
+        # 建立頂點索引對照表
+        vertex_dict = {}
+        vertex_list = []
+        normal_list = []
+        faces = []
+        
+        # 處理每個三角形
+        for triangle, normal in zip(triangles, normals):
+            face_indices = []
+            
+            # 處理三角形的每個頂點
+            for vertex in triangle:
+                vertex_tuple = tuple(vertex)
+                if vertex_tuple not in vertex_dict:
+                    vertex_dict[vertex_tuple] = len(vertex_list) + 1
+                    vertex_list.append(vertex)
+                face_indices.append(vertex_dict[vertex_tuple])
+            
+            # 加入法向量
+            normal_list.append(normal)
+            faces.append(face_indices)
+        
+        # 寫入 OBJ 檔案
+        with open(filename, 'w') as f:
+            # 寫入頂點
+            for v in vertex_list:
+                f.write(f"v {v[0]} {v[1]} {v[2]}\n")
+            
+            # 寫入法向量
+            for n in normal_list:
+                f.write(f"vn {n[0]} {n[1]} {n[2]}\n")
+            
+            # 寫入面資料
+            for i, face in enumerate(faces):
+                f.write(f"f {face[0]}//{i+1} {face[1]}//{i+1} {face[2]}//{i+1}\n")
+    
+    def split_and_convert(self):
+        """分割 STL 檔案並轉換為 OBJ 格式"""
+        # 讀取 STL 檔案
+        if self.is_binary:
+            triangles, normals = self._read_binary_stl()
+        else:
+            triangles, normals = self._read_ascii_stl()
+        
+        # 分割模型
+        components = self._split_by_connected_components(triangles, normals)
+        
+        # 建立輸出目錄
+        output_dir = Path('split_parts')
+        output_dir.mkdir(exist_ok=True)
+        
+        # 儲存每個部分
+        for i, component in enumerate(components):
+            component_triangles = triangles[component]
+            component_normals = normals[component]
+            
+            # 生成檔名
+            base_name = f"part_{i + 1}"
+            stl_filename = output_dir / f"{base_name}.stl"
+            obj_filename = output_dir / f"{base_name}.obj"
+            
+            # 儲存 STL 檔案
+            self._write_binary_stl(stl_filename, component_triangles, component_normals)
+            
+            # 儲存 OBJ 檔案
+            self._write_obj(obj_filename, component_triangles, component_normals)
+            
+            print(f"已儲存零件 {i + 1} 到:")
+            print(f"  STL: {stl_filename}")
+            print(f"  OBJ: {obj_filename}")
+        
+        return len(components)
+
+# 使用範例
+if __name__ == "__main__":
+    converter = STLConverter("pinball.stl")
+    num_parts = converter.split_and_convert()
+    print(f"\n總共處理了 {num_parts} 個零件")</pre>
+<p>從 Solvespace 或 NX2312 轉出的 stl 組立件, 利用上列程式分割出各 stl 零件時, 同時轉為 obj 零件格式, 之後將各 obj 零件拖曳至 <a href="http://229.cycu.org/Blender4.2.7z">Blender4.2.7z</a> 後進行改名, 如下圖所示.</p>
+<p><img alt="" height="255" src="./../images/pinball_stl_to_obj_rename.png" width="400"/></p>
+<p>從 <a href="http://229.cycu.org/Blender4.2.7z">Blender4.2.7z</a> 取得各 obj 格式零件名稱之後, 再利用 <a href="https://www.cyberbotics.com/doc/reference/cadshape">CadShape</a> node 將各零件導入 Webots 場景, 如下圖所示.</p>
+<p><img alt="" height="234" src="./../images/pinbll_flipper_on_webots.png" width="400"/></p><br />Tutorial_1 << <a href='Tutorial_1.html'>Previous</a> <a href='Web_server.html'>Next</a> >> Web_server</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        
