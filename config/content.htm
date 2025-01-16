@@ -356,9 +356,10 @@ void loop() {
 <p style="padding-left: 30px;"><a href="http://229.cycu.org/Webots_2023b_for_cd2025.7z">Webots_2023b_for_cd2025.7z</a> (900 MB, 解開後約 2 GB, 能使用可攜系統中的 Proto 原型節點)</p>
 <p style="padding-left: 30px;"><a href="http://229.cycu.org/Blender4.2.7z">Blender4.2.7z</a></p>
 <p><span style="background-color: #ccffcc;">作業二:</span></p>
-<p><span>使用 Solvespace 或 NX2312 零組件,建立 Webots Pinball Machine 模擬系統.</span></p>
-<p><span>從 <a href="https://cyberbotics.com/doc/guide/tutorials">Webots Tutorial</a> 入門</span></p>
-<p><span>利用 <a href="https://cyberbotics.com/doc/guide/protocol-and-quick-start">Webots Protocol</a> 建立網際伺服器</span></p>
+<p>1. 請啟動 <a href="http://229.cycu.org/Webots_2023b_for_cd2025.7z">Webots_2023b_for_cd2025.7z</a> 中的 Webots 後, 開啟 <a href="/downloads/webots_files/webots_2023b_boomer.7z">webots_2023b_boomer.7z</a>, 了解<a href="https://cyberbotics.com/doc/guide/using-c">如何編譯控制程式 boomer.c</a>, 並利用鍵盤方向鍵控制 boomer 的移動方向.</p>
+<p><span>2. 使用 Solvespace 或 NX2312 零組件,建立 Webots Pinball Machine 模擬系統.</span></p>
+<p style="padding-left: 30px;"><span>從 <a href="https://cyberbotics.com/doc/guide/tutorials">Webots Tutorial</a> 入門</span></p>
+<p style="padding-left: 30px;"><span>利用 <a href="https://cyberbotics.com/doc/guide/protocol-and-quick-start">Webots Protocol</a> 建立網際伺服器</span></p>
 <hr/>
 <p>有關 <span><a href="https://cyberbotics.com/doc/guide/tutorials">Webots Tutorial</a></span>:</p>
 <p>The aim of this chapter is to explain the fundamental concepts of Webots required to create your own simulations.</p>
@@ -471,7 +472,14 @@ while robot.step(TIME_STEP) != -1:
 <p>從 Solvespace 或 NX2312 轉出的 stl 組立件, 利用上列程式分割出各 stl 零件時, 同時轉為 obj 零件格式, 之後將各 obj 零件拖曳至 <a href="http://229.cycu.org/Blender4.2.7z">Blender4.2.7z</a> 後進行改名, 如下圖所示.</p>
 <p><img alt="" height="255" src="/images/pinball_stl_to_obj_rename.png" width="400"/></p>
 <p>從 <a href="http://229.cycu.org/Blender4.2.7z">Blender4.2.7z</a> 取得各 obj 格式零件名稱之後, 再利用 <a href="https://www.cyberbotics.com/doc/reference/cadshape">CadShape</a> node 將各零件導入 Webots 場景, 如下圖所示.</p>
-<p><img alt="" height="234" src="/images/pinbll_flipper_on_webots.png" width="400"/></p><h3>Web_server</h3>
+<p><img alt="" height="234" src="/images/pinbll_flipper_on_webots.png" width="400"/></p>
+<p>當利用 Python 程式將 stl 格式的 組立件進行分割且轉為 obj 的過程, 可以針對尺寸比例進行轉換, 例如: 將原先 mm 轉為 cm 或 m 的相關座標數據.</p>
+<p><a href="/downloads/pinball/for_webots/split_stl_to_obj_scale.py">split_stl_to_obj_scale.py</a> 將 mm 轉為 cm 的 pinball obj 導入 Webots 場景如下圖所示:</p>
+<p><img alt="" height="229" src="/images/stl_assembly_split_obj_scale.png" width="400"/></p><h3>Using_C</h3>
+<p><a href="https://cyberbotics.com/doc/guide/using-c">https://cyberbotics.com/doc/guide/using-c</a></p>
+<p>The C API (Application Programming Interface) is composed of a set of about 200 C functions that can be used in C or C++ controller code. This is the low level interface with the Webots simulator; all other APIs are built over the C API. A majority of Webots controller examples are written in C, therefore the C API is Webots de facto standard API. Although less represented in the controller examples, the other APIs offer exactly the same functionality as the C API.</p>
+<p>Windows Instructions<br/><br/>The Windows version of Webots comes with a pre-installed copy of the MinGW C/C++ compiler, so there is usually no need to install a separate compiler. The MinGW compiler is a port of the GNU Compiler Collection (gcc) on the Windows platform. The advantage of using the MinGW compiler will be the better portability of your controller code. If you develop your code with MinGW it will be straightforward to recompile it.</p>
+<p>開啟 <a href="/downloads/webots_files/webots_2023b_boomer.7z">webots_2023b_boomer.7z</a> 後, 利用 "Build the current project" 按鍵, 即可利用 Webots 內建的 Y:\Webots_2023b\msys64\mingw64\bin\gcc.exe 編譯 boomer.c 程式.</p><h3>Web_server</h3>
 <p>根據 <a href="https://cyberbotics.com/doc/guide/web-server">https://cyberbotics.com/doc/guide/web-server</a> 中的說明, 建立 Web server.</p>
 <p><a href="https://cyberbotics.com/doc/guide/protocol-and-quick-start">https://cyberbotics.com/doc/guide/protocol-and-quick-start</a></p>
 <p>This chapter describes how to setup a simulation web service similar to webots.cloud to <span style="background-color: #ffff99;">run Webots in the cloud</span>.</p>
@@ -621,6 +629,8 @@ path=~~;%path_webots%;%path%;</pre>
 <p style="padding-left: 60px;">3. 受惠於這家瑞士中小企業的專業知識，該企業積極支援 Webots 軟體，並為客戶提供顧問諮詢和客製化開發服務。</p>
 <p style="padding-left: 60px;">4. 善用 Webots 使用者社群的貢獻，社群會分享機器人、感測器、致動器、物件、環境、基準測試、控制器程式等模型。</p>
 <p style="padding-left: 60px;">5. 可以透過 https://webots.cloud/competition 輕鬆舉辦機器人挑戰賽和程式設計競賽。</p><h3>Webots_ref</h3>
+<p><a href="https://www.youtube.com/watch?v=luyg3plGujg&amp;list=PLbEU0vp_OQkUwANRMUOM00SXybYQ4TXNF">Tutorial Video 1</a></p>
+<p><a href="https://www.youtube.com/watch?v=2CWHfbuEbAY&amp;list=PLt69C9MnPchlWEV5AEhfT2HajlE2SJ55V">Tutorial Video 2</a></p>
 <p><a href="https://robotics.stackexchange.com/search?q=webots">https://robotics.stackexchange.com/search?q=webots</a></p>
 <p><a href="https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots">https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots</a></p>
 <p><a href="https://cyberbotics.com/doc/guide/sample-webots-applications">https://cyberbotics.com/doc/guide/sample-webots-applications</a></p>
@@ -633,8 +643,7 @@ path=~~;%path_webots%;%path%;</pre>
 <p><a href="https://www.cyberbotics.com/doc/discord/technical-questions?version=master">https://www.cyberbotics.com/doc/discord/technical-questions?version=master</a></p>
 <p><a href="https://www.cyberbotics.com/doc/discord/development?version=master">https://www.cyberbotics.com/doc/discord/development?version=master</a></p>
 <p><a href="https://youtu.be/gyAVOrX_IMk?si=MZQ8uQg1Ns1UxdCb">https://youtu.be/gyAVOrX_IMk?si=MZQ8uQg1Ns1UxdCb</a></p>
-<p><a href="https://www.youtube.com/watch?v=bfsJFwryga4">https://www.youtube.com/watch?v=bfsJFwryga4</a></p>
-<h2>Solvespace</h2>
+<p><a href="https://www.youtube.com/watch?v=bfsJFwryga4">https://www.youtube.com/watch?v=bfsJFwryga4</a></p><h2>Solvespace</h2>
 <p>Web-based Solvespace: <a href="https://cad.apps.dgramop.xyz/">https://cad.apps.dgramop.xyz/</a> (<a href="https://solvespace.com/forum.pl?action=viewthread&amp;parent=2369&amp;tt=1718121481">source</a> and <a href="https://github.com/solvespace/solvespace/pull/1275">PR</a>)</p>
 <p><a href="https://github.com/solvespace/solvespace/pull/493">Python related PR</a></p>
 <p>在 <a href="http://229.cycu.org/python_2025_lite.7z">python_2025_lite.7z</a><span> 加入以下說明的 msys2 與 cmake 後, 可用來編譯 Solvespace v3.1 版原始碼的可攜套件 <a href="http://229.cycu.org/python_2025_lite_w_msys_cmake_solvespace.7z">python_2025_lite_w_msys_cmake_solvespace.7z</a> (Download 1.96GB, After extracted 3.7GB)</span></p>
