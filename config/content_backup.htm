@@ -474,7 +474,8 @@ while robot.step(TIME_STEP) != -1:
 <p>從 <a href="http://229.cycu.org/Blender4.2.7z">Blender4.2.7z</a> 取得各 obj 格式零件名稱之後, 再利用 <a href="https://www.cyberbotics.com/doc/reference/cadshape">CadShape</a> node 將各零件導入 Webots 場景, 如下圖所示.</p>
 <p><img alt="" height="234" src="/images/pinbll_flipper_on_webots.png" width="400"/></p>
 <p>當利用 Python 程式將 stl 格式的 組立件進行分割且轉為 obj 的過程, 可以針對尺寸比例進行轉換, 例如: 將原先 mm 轉為 cm 或 m 的相關座標數據.</p>
-<p><a href="/downloads/pinball/for_webots/split_stl_to_obj_scale.py">split_stl_to_obj_scale.py</a></p><h3>Using_C</h3>
+<p><a href="/downloads/pinball/for_webots/split_stl_to_obj_scale.py">split_stl_to_obj_scale.py</a> 將 mm 轉為 cm 的 pinball obj 導入 Webots 場景如下圖所示:</p>
+<p><img alt="" height="229" src="/images/stl_assembly_split_obj_scale.png" width="400"/></p><h3>Using_C</h3>
 <p><a href="https://cyberbotics.com/doc/guide/using-c">https://cyberbotics.com/doc/guide/using-c</a></p>
 <p>The C API (Application Programming Interface) is composed of a set of about 200 C functions that can be used in C or C++ controller code. This is the low level interface with the Webots simulator; all other APIs are built over the C API. A majority of Webots controller examples are written in C, therefore the C API is Webots de facto standard API. Although less represented in the controller examples, the other APIs offer exactly the same functionality as the C API.</p>
 <p>Windows Instructions<br/><br/>The Windows version of Webots comes with a pre-installed copy of the MinGW C/C++ compiler, so there is usually no need to install a separate compiler. The MinGW compiler is a port of the GNU Compiler Collection (gcc) on the Windows platform. The advantage of using the MinGW compiler will be the better portability of your controller code. If you develop your code with MinGW it will be straightforward to recompile it.</p>
