@@ -123,6 +123,11 @@
 <p style="padding-left: 60px;">球檯與記分板面對操作者設計</p>
 <p style="padding-left: 60px;">機電虛實整合系統設計</p>
 <p style="padding-left: 60px;">第一階段計時結束後, 如何進入前三名排名賽</p>
+<p>參考資料:</p>
+<p style="padding-left: 30px;"><a href="/downloads/fourbar_ball_throwing_linkage.slvs">fourbar_ball_throwing_linkage.slvs</a></p>
+<p style="padding-left: 30px;"><img alt="" height="264" src="/images/fourbar_ball_throwing_linkage.gif" width="400"/></p>
+<p style="padding-left: 30px;"></p>
+<p></p>
 <p style="padding-left: 30px;"></p><h2>Topics</h2>
 <p>協同倉儲 template: <a href="https://github.com/mdecycu/2025pj">https://github.com/mdecycu/2025pj</a></p>
 <p><span>可攜系統:</span></p>
@@ -378,11 +383,9 @@ void loop() {
 <p style="padding-left: 30px;"><a href="http://229.cycu.org/Blender4.2.7z">Blender4.2.7z</a></p>
 <p><a href="https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots">https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots</a></p>
 <p>Tutorial 1: Your First Simulation in Webots (30 Minutes)</p>
+<p style="padding-left: 30px;">介紹 Webots 使用者介面以及基本概念</p>
+<p style="padding-left: 30px;">虛擬世界(場景)的檔案副檔名為 .wbt (webots), 且必須存於 worlds 目錄中, 其中的物件稱為節點 (Node), 各物件依其從屬關係, 配置在樹狀結構中, 此物件組成稱為場景樹 (scene tree).</p>
 <p>The objective of this first tutorial is to familiarize yourself with the <span style="background-color: #ccffcc;">user interface and with the basic concepts of Webots</span>. You will create your first simulation containing a simple environment: an arena with floor and walls, a few boxes, an e-puck robot and a controller program that will make the robot move.</p>
-<p>Start Webots</p>
-<p style="padding-left: 30px;">利用可攜系統啟動 Webots, 必須注意下列要點:</p>
-<p style="padding-left: 30px;">目前的 Webots (2023b) 由於官方希望降低主系統的下載容量 (請注意 CoppeliaSim 整體系統只大約 500MB, 而 Webots 瘦身之後仍有 900MB), 所有與範例場景相關的 assets cache 檔案 (容量約 850MB), 都設定為在開啟範例場景時, 才從網路資料中下載, 若網路連線並非使用 Proxy, 或者網路連線速度不佳時, 開啟範例場景的速度將大舉受到影響.</p>
-<p style="padding-left: 30px;">為了提升 Webots 開啟範例場景的速度, 可攜系統中的 Webots 已經事先將 assets cache 檔案放入 Y:\home_ipv6\AppData\Local\Cyberbotics\Webots\cache\assets 目錄中, 使用者只要將 Webots 的 Python 所在環境變數 python_path 指向 python 目錄, 並將 Webots_2023b\msys64\mingw64\bin 納入可熙系統的命令搜尋路徑 (即 Path 環境變數), 可攜系統啟動後, 只要在命令列輸入 webotsw 即可開啟 Webots.</p>
 <p>Create a New World</p>
 <p style="padding-left: 30px;">A World is a file containing information like where the objects are, what they look like, how they interact with each other, what is the color of the sky, and the definitions of gravity, friction, masses of the objects, etc.</p>
 <p style="padding-left: 30px;">It defines the initial state of a simulation. <span style="background-color: #ccffcc;">The different objects are called Nodes</span> and are organized hierarchically in a Scene Tree. Therefore, a node may contain sub-nodes. <span style="background-color: #ccffcc;">A world is stored in a file having the .wbt extension</span>. The file format is derived from the VRML97 language, and is human readable. <span style="background-color: #ccffcc;">The world files must be stored directly in a directory called worlds</span>.</p>
@@ -453,7 +456,6 @@ while robot.step(TIME_STEP) != -1:
 <p>Conclusion</p>
 <p style="padding-left: 30px;">We hope you enjoyed creating your first Webots simulation. You have been able to set up a world, add a robot and program it. The important thing is that you learned the fundamental concepts summarized below:</p>
 <p style="padding-left: 60px;">A world is made up of nodes organized in a tree structure.<br/>A world is saved in a .wbt file stored in a Webots project.<br/>The project also contains the robot controller programs which define the behavior of the robots.<br/>Controllers may be written in C or other languages.<br/>C, C++ and Java controllers have to be explicitly compiled before they can be executed.<br/>Controllers are associated with robots via the controller fields of the Robot node.</p>
-<p></p>
 <p></p><h3>CadShape</h3>
 <p><span>可攜系統:</span></p>
 <p style="padding-left: 30px;"><span>下載 <a href="http://229.cycu.org/python_2025_lite.7z">python_2025_lite.7z</a> (428 MB, 解開壓縮後約 1.5 GB)</span></p>
@@ -497,7 +499,21 @@ while robot.step(TIME_STEP) != -1:
 <p><span style="background-color: #ccffcc;">Overview</span><br/><br/>In order to run Webots in the cloud, you need to run at least one session server and one or more simulation servers. The simulation servers should run on different machines while the session server may run on a machine where a simulation server is running. Both servers are Python scripts named <a href="https://github.com/cyberbotics/webots-server/blob/main/simulation_server.py">simulation_server.py</a> and <a href="https://github.com/cyberbotics/webots-server/blob/main/session_server.py">session_server.py</a> and located in "<a href="https://github.com/cyberbotics/webots-server">https://github.com/cyberbotics/webots-server</a>".<br/><br/>Either Docker or Webots has to be installed on all the machines where a simulation server is running.</p>
 <p><span style="background-color: #ccffcc;">Protocol</span></p>
 <p>When a web client needs to know whether it may start a simulation, it will open a WebSocket connection to the session server to monitor the availability of simulation servers. The session server will answer '1' if some simulation server is available and '0' if none is available. Whenever this situation changes, the session server will notify the web clients. Note that the session server will never send twice the same value, it sends only changes in the availability of simulation servers.<br/><br/>When a web client wants to start a simulation, it will send an AJAX request to the session server. The session server will then send the WebSocket URL of an available simulation server or an error if none are available. The web client will then contact directly the simulation server to start-up the simulation.</p>
-<p>The projects files requested by the client should be stored on some GitHub repository, which will be checked out on the simulation server machine. The simulation server will start Webots with the simulation requested by the client. Then, the simulation server will send the WebSocket URL of Webots, so that the client can communicate directly with Webots. If the WebSocket connection to the simulation server is closed or broken, the simulation server will close Webots. If Webots quits, the simulation server will notify the web client and close the connection with it.<br/><br/>The session server regularly queries the simulation servers to monitor their load. If a simulation server becomes overloaded, then, the session server will consider it is not available any more and will not offer it to web clients.</p><h1>Summary</h1>
+<p>The projects files requested by the client should be stored on some GitHub repository, which will be checked out on the simulation server machine. The simulation server will start Webots with the simulation requested by the client. Then, the simulation server will send the WebSocket URL of Webots, so that the client can communicate directly with Webots. If the WebSocket connection to the simulation server is closed or broken, the simulation server will close Webots. If Webots quits, the simulation server will notify the web client and close the connection with it.<br/><br/>The session server regularly queries the simulation servers to monitor their load. If a simulation server becomes overloaded, then, the session server will consider it is not available any more and will not offer it to web clients.</p><h2>HW3</h2>
+<p>請各組(最多六人) 組員, 在各自完成 <a href="https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots">Webots Tutorial 1</a> 後, 採協同方式完成<a href="https://cyberbotics.com/doc/guide/tutorials">下列 Tutorials</a>:</p>
+<p>Webots Tutorial 2 - Tutorial 8</p>
+<p></p>
+<ul>
+<li><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots">Tutorial 1: Your First Simulation in Webots (30 minutes)</a></li>
+<li><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/tutorial-2-modification-of-the-environment">Tutorial 2: Modification of the Environment (30 minutes)</a></li>
+<li><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/tutorial-3-appearance">Tutorial 3: Appearance (20 minutes)</a></li>
+<li><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/tutorial-4-more-about-controllers">Tutorial 4: More about Controllers (30 minutes)</a></li>
+<li><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/tutorial-5-compound-solid-and-physics-attributes">Tutorial 5: Compound Solid and Physics Attributes (15 minutes)</a></li>
+<li><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot">Tutorial 6: 4-Wheels Robot (60 minutes)</a></li>
+<li><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/tutorial-7-your-first-proto">Tutorial 7: Your First PROTO (20 minutes)</a></li>
+<li><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/tutorial-8-the-supervisor">Tutorial 8: The Supervisor (30 minutes)</a></li>
+</ul>
+<p></p><h1>Summary</h1>
 <p><object data="/images/cd2025.svg" height="1821" type="image/svg+xml" width="1547"></object></p>
 <p><a href="https://mde.tw/mind-map/#/?fileURL=https%3A%2F%2Fmde.tw%2Fcd2025%2Fdownloads%2Fcd2025.smm">Edit cd2025.smm</a></p><h2>Product</h2>
 <p>Product Development Process (產品開發過程)</p>
@@ -612,7 +628,7 @@ path=~~;%path_webots%;%path%;</pre>
 <p>導入 STL 模型: <a href="https://cyberbotics.com/doc/reference/mesh">https://cyberbotics.com/doc/reference/mesh</a></p>
 <p>使用 C 執行控制: <a href="https://cyberbotics.com/doc/guide/using-c">https://cyberbotics.com/doc/guide/using-c</a></p>
 <p>使用 Python 執行控制: <a href="https://cyberbotics.com/doc/guide/using-python">https://cyberbotics.com/doc/guide/using-python</a></p>
-<hr/>
+<hr>
 <p>References:</p>
 <p style="padding-left: 30px;"><a href="https://felipenmartins.github.io/Robotics-Simulation-Labs/">https://felipenmartins.github.io/Robotics-Simulation-Labs/</a>　</p>
 <p style="padding-left: 30px;"><a href="https://courses.ideate.cmu.edu/16-375/f2022/ref/text/resources/Webots.html">https://courses.ideate.cmu.edu/16-375/f2022/ref/text/resources/Webots.html</a></p>
@@ -654,7 +670,7 @@ path=~~;%path_webots%;%path%;</pre>
 <p>Web-based Solvespace: <a href="https://cad.apps.dgramop.xyz/">https://cad.apps.dgramop.xyz/</a> (<a href="https://solvespace.com/forum.pl?action=viewthread&amp;parent=2369&amp;tt=1718121481">source</a> and <a href="https://github.com/solvespace/solvespace/pull/1275">PR</a>)</p>
 <p><a href="https://github.com/solvespace/solvespace/pull/493">Python related PR</a></p>
 <p>在 <a href="http://229.cycu.org/python_2025_lite.7z">python_2025_lite.7z</a><span> 加入以下說明的 msys2 與 cmake 後, 可用來編譯 Solvespace v3.1 版原始碼的可攜套件 <a href="http://229.cycu.org/python_2025_lite_w_msys_cmake_solvespace.7z">python_2025_lite_w_msys_cmake_solvespace.7z</a> (Download 1.96GB, After extracted 3.7GB)</span></p>
-<hr/>
+<hr>
 <p>Solvespace 採 C++ 編寫, 原始碼位於 <a href="https://github.com/solvespace/solvespace">https://github.com/solvespace/solvespace</a>, 以下將採用可攜程式系統 python_2025 中的 msys2 (<a href="http://229.cycu.org/python_2025/data/msys64_20240507.7z">msys64_20240507.7z</a>) 以及 cmake 3.20.1 進行編譯 (若採用目前最新版的 cmake 3.30.2, 必須對 Solvespace v3.1 中的 CMakeLists.txt 進行修改).</p>
 <p>舊版的 cmake 3.21.0 可以利用下列連結取得:</p>
 <p><a href="https://github.com/Kitware/CMake/releases/download/v3.21.0/cmake-3.21.0-windows-x86_64.zip">https://github.com/Kitware/CMake/releases/download/v3.21.0/cmake-3.21.0-windows-x86_64.zip</a> </p>
@@ -696,7 +712,8 @@ c.recursiveImport(
     theTypes = ['.py']
 )</pre>
 <p>相關 AI 套件: <a href="https://github.com/mdecycu/LInK">https://github.com/mdecycu/LInK</a></p>
-<p style="padding-left: 30px;"><a href="https://arxiv.org/pdf/2405.20592">https://arxiv.org/pdf/2405.20592</a> (LInK: Learning Joint Representations of Design and Performance Spaces through Contrastive Learning for Mechanism Synthesis)</p><h2>PICSimLab</h2>
+<p style="padding-left: 30px;"><a href="https://arxiv.org/pdf/2405.20592">https://arxiv.org/pdf/2405.20592</a> (LInK: Learning Joint Representations of Design and Performance Spaces through Contrastive Learning for Mechanism Synthesis)</p>
+<p style="padding-left: 30px;"><a href="/downloads/pytorch_ex1.py">pytorch_ex1.py</a></p><h2>PICSimLab</h2>
 <p><a href="https://github.com/lcgamboa/picsimlab">https://github.com/lcgamboa/picsimlab</a></p>
 <h2>Fossil SCM</h2>
 <p><a href="https://fossil-scm.org">https://fossil-scm.org</a></p>
@@ -997,4 +1014,4 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <!-- editor2 結束 --><hr/>
 <p>
 <script src="https://unpkg.com/three@0.144.0/build/three.js" type="text/javascript"></script>
-</p>
+</p></hr></hr>
