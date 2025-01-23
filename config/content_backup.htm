@@ -602,7 +602,9 @@ while robot.step(TIME_STEP) != -1:
 <li>模擬的起始條件</li>
 <li>其他有關模擬的設定等</li>
 </ol>
-<p>場景中的物件稱為節點, 各節點配置於場景樹中, 各節點可以再包含子節點, 場景的檔案格式源自 VRML97 程式語法 (<a href="/downloads/vrmlman.pdf">VRML Primer and Tutorial</a>), 場景的檔案副檔名為 .wbt, 且依定要存入名稱為 worlds 的目錄中.</p>
+<p>場景中的物件稱為節點, 各節點配置於場景樹中, 各節點可以再包含子節點, 場景的檔案格式源自 VRML97 程式語法 (<a href="/downloads/vrmlman.pdf">VRML Primer and Tutorial</a>), 場景的檔案副檔名為 .wbt, 且一定要存入名稱為 worlds 的目錄中.</p>
+<p>Webots 模擬選單功能說明: <a href="https://cyberbotics.com/doc/guide/the-user-interface#simulation-menu">https://cyberbotics.com/doc/guide/the-user-interface#simulation-menu</a> 其中著色選單可以關閉場景中的畫面, 主要配合基因演算、視覺辨識或機器學習流程中的快速模擬流程.</p>
+<h2>onelink</h2>
 <p></p><h1>Reference</h1>
 <p>Collaborative Design Projects (協同設計專案)</p><h2>Webots</h2>
 <p><a href="https://mde.tw/content/Webots%20Doc.html">https://mde.tw/content/Webots%20Doc.html</a></p>
@@ -662,7 +664,7 @@ path=~~;%path_webots%;%path%;</pre>
 <p>導入 STL 模型: <a href="https://cyberbotics.com/doc/reference/mesh">https://cyberbotics.com/doc/reference/mesh</a></p>
 <p>使用 C 執行控制: <a href="https://cyberbotics.com/doc/guide/using-c">https://cyberbotics.com/doc/guide/using-c</a></p>
 <p>使用 Python 執行控制: <a href="https://cyberbotics.com/doc/guide/using-python">https://cyberbotics.com/doc/guide/using-python</a></p>
-<hr>
+<hr/>
 <p>References:</p>
 <p style="padding-left: 30px;"><a href="https://felipenmartins.github.io/Robotics-Simulation-Labs/">https://felipenmartins.github.io/Robotics-Simulation-Labs/</a>　</p>
 <p style="padding-left: 30px;"><a href="https://courses.ideate.cmu.edu/16-375/f2022/ref/text/resources/Webots.html">https://courses.ideate.cmu.edu/16-375/f2022/ref/text/resources/Webots.html</a></p>
@@ -1048,4 +1050,4 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <!-- editor2 結束 --><hr/>
 <p>
 <script src="https://unpkg.com/three@0.144.0/build/three.js" type="text/javascript"></script>
-</p></hr>
+</p>
