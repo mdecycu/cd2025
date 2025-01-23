@@ -2,7 +2,7 @@
         <head>
         <title>cd2025</title>
         <meta charset="utf-8">
-<meta property="head" content="H3">
+<meta property="head" content="H1">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,28 +141,40 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Tutorial_1 << <a href='Tutorial_1.html'>Previous</a> <a href='Using_C.html'>Next</a> >> Using_C<br /><h1>CadShape</h1>
-<p><span>可攜系統:</span></p>
-<p style="padding-left: 30px;"><span>下載 <a href="http://229.cycu.org/python_2025_lite.7z">python_2025_lite.7z</a> (428 MB, 解開壓縮後約 1.5 GB)</span></p>
-<p style="padding-left: 30px;"><a href="http://229.cycu.org/NX2312_CAD.7z">下載</a> NX2312 可攜 CAD 壓縮檔案 (1.85 GB, 解開後約 9 GB)</p>
-<p style="padding-left: 60px;"><a href="http://229.cycu.org/nx2312_Drafting.7z">nx2312_Drafting.7z</a></p>
-<p style="padding-left: 60px;"><a href="http://229.cycu.org/nx2312_nxplot.7z">nx2312_nxplot.7z</a></p>
+    <div id="tipue_search_content">CPS << <a href='CPS.html'>Previous</a> <a href='Reference.html'>Next</a> >> Reference<br /><h1>Tutorial</h1>
+<p>第一個 Webots 導引: <a href="https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots">https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots</a></p>
+<p>登入 Github, 在 <a href="https://github.com/copilot">https://github.com/copilot</a> 的協助下執行此一教學練習.</p>
+<p>導引目的: You will create your first simulation containing a simple environment: an arena with floor and walls, a few boxes, an e-puck robot and a controller program that will make the robot move.</p>
+<p>建立一個簡單的模擬環境, 意即一個競技場中, 包括一個帶有地板、圍牆、幾個盒子、一個 e-puck 機器人, 以及能讓機器人移動的控制程式.</p>
+<p><img alt="" height="310" src="./../images/tutorial_e-puck.thumbnail.jpg" width="400"/></p>
+<p>開啟 Webots 前, 請下載以下兩者之一:</p>
 <p style="padding-left: 30px;"><a href="http://229.cycu.org/Webots_2023b.7z">Webots_2023b.7z</a> (168 MB, 解該後約 900 MB, 部分 Proto 原型節點取用官方網路檔案)</p>
 <p style="padding-left: 30px;"><a href="http://229.cycu.org/Webots_2023b_for_cd2025.7z">Webots_2023b_for_cd2025.7z</a> (900 MB, 解開後約 2 GB, 能使用可攜系統中的 Proto 原型節點)</p>
-<p style="padding-left: 30px;"><a href="http://229.cycu.org/Blender4.2.7z">Blender4.2.7z</a></p>
-<p><a href="https://www.cyberbotics.com/doc/reference/cadshape">https://www.cyberbotics.com/doc/reference/cadshape</a></p>
-<p>Webots 可以利用 CadShape node 導入 Collada (.dae) or Wavefront (.obj) 零件, 其中 Solvespace 與 NX2312 都能輸出 .obj 零件格式, 但 Webots 並沒有如 CoppeliaSim 自動分割組立件的功能, 必須自行處理.</p>
-<p>利用 Python 分割 .stl 組立件:</p>
-<p><a href="./../downloads/pinball/for_webots/split_stl.py">split_stl.py</a></p>
-<p>Python 分割 .stl 組立件, 同時將零件從 .stl 轉為 .obj 檔案格式:</p>
-<p><a href="./../downloads/pinball/for_webots/split_stl_and_obj.py">split_stl_and_obj.py</a></p>
-<p>從 Solvespace 或 NX2312 轉出的 stl 組立件, 利用上列程式分割出各 stl 零件時, 同時轉為 obj 零件格式, 之後將各 obj 零件拖曳至 <a href="http://229.cycu.org/Blender4.2.7z">Blender4.2.7z</a> 後進行改名, 如下圖所示.</p>
-<p><img alt="" height="255" src="./../images/pinball_stl_to_obj_rename.png" width="400"/></p>
-<p>從 <a href="http://229.cycu.org/Blender4.2.7z">Blender4.2.7z</a> 取得各 obj 格式零件名稱之後, 再利用 <a href="https://www.cyberbotics.com/doc/reference/cadshape">CadShape</a> node 將各零件導入 Webots 場景, 如下圖所示.</p>
-<p><img alt="" height="234" src="./../images/pinbll_flipper_on_webots.png" width="400"/></p>
-<p>當利用 Python 程式將 stl 格式的 組立件進行分割且轉為 obj 的過程, 可以針對尺寸比例進行轉換, 例如: 將原先 mm 轉為 cm 或 m 的相關座標數據.</p>
-<p><a href="./../downloads/pinball/for_webots/split_stl_to_obj_scale.py">split_stl_to_obj_scale.py</a> 將 mm 轉為 cm 的 pinball obj 導入 Webots 場景如下圖所示:</p>
-<p><img alt="" height="229" src="./../images/stl_assembly_split_obj_scale.png" width="400"/></p><br />Tutorial_1 << <a href='Tutorial_1.html'>Previous</a> <a href='Using_C.html'>Next</a> >> Using_C</div>
+<p>第一個 Webots 是官方釋出的版本, 其中使用官方網站上的許多原型節點, 因此<span style="background-color: #ccffcc;">使用時必須全時上網</span>, 而第二個 Webots 系統則是預先將官方放在 <a href="https://github.com/cyberbotics/webots">https://github.com/cyberbotics/webots</a> 中的所有原型節點資料下載後製成, <span style="background-color: #ccffcc;">使用時無需上網</span>.</p>
+<p>Webots 的可執行檔案位於 Y:\Webots_2023b\msys64\mingw64\bin\Webotsw.exe, 當與 <a href="http://229.cycu.org/python_2025_lite.7z">python_2025_lite.7z</a> 配置時, 若希望在不上網的情況下執行官方範例, 則必須再預先下載 <a href="https://github.com/cyberbotics/webots/releases/tag/R2023b">https://github.com/cyberbotics/webots/releases/tag/R2023b</a> 中的 <a class="Truncate" data-turbo="false" data-view-component="true" href="https://github.com/cyberbotics/webots/releases/download/R2023b/assets-R2023b.zip" rel="nofollow"> <span class="Truncate-text text-bold" data-view-component="true">assets-R2023b.zip</span></a>, 存入 Y:\home_ipv6\AppData\Local\Cyberbotics\Webots\cache\assets 目錄, 否則啟動官方範例時, 必須從官方網站下載各範例中所導入的原型節點資料.</p>
+<p>若 Webotsw.exe 並非是在可攜程式的環境中啟動, 則 Webots 啟動後所下載的原型節點資料, 將會存入操作系統中的 C:\Users\%USERNAME%\AppData\Local\Cyberbotics\Webots\cache\assets 目錄中.</p>
+<p>在可攜程式環境中啟動 Webots 的設定:</p>
+<p style="padding-left: 30px;">start_ipv6.bat 中納入:</p>
+<p style="padding-left: 30px;">REM for webots<br/>set  path_webots=%Disk%:\Webots_2023b\msys64\mingw64\bin;%Disk%:\Webots_2023b\msys64\usr\bin</p>
+<p style="padding-left: 30px;">並將 %path_webots% 放入 PATH 環境變數設定中.</p>
+<p style="padding-left: 30px;">若希望在執行 start_ipv6.bat 時開啟 Webots, 可以在啟動可攜程式的批次檔案中加入 start webotsw.exe</p>
+<hr/>
+<p>在可攜程式環境中 (USB 固態硬碟、一般隨身碟、筆電或個人電腦) 啟動 Webots 後, 開始建立模擬世界(即場景), 而在 Webots 中所謂場景:</p>
+<p>A <strong>World</strong> is a file containing information like where the objects are, what they look like, how they interact with each other, what is the color of the sky, and the definitions of gravity, friction, masses of the objects, etc. It defines the initial state of a simulation. The different objects are called <strong>Nodes</strong> and are organized hierarchically in a <strong>Scene Tree</strong>. Therefore, a node may contain sub-nodes. A world is stored in a file having the <code>.wbt</code> extension. The file format is derived from the <a href="./../downloads/vrml97specification.pdf">VRML97</a> language, and is human readable. The world files must be stored directly in a directory called <code>worlds</code>.</p>
+<p>Webots 場景中包含以下定義:</p>
+<ol>
+<li>物件所在位置</li>
+<li>物件的外形</li>
+<li>物件如何互動</li>
+<li>天空的顏色</li>
+<li>地心引力的定義</li>
+<li>摩擦力</li>
+<li>物件的質量</li>
+<li>模擬的起始條件</li>
+<li>其他有關模擬的設定等</li>
+</ol>
+<p>場景中的物件稱為節點, 各節點配置於場景樹中, 各節點可以再包含子節點, 場景的檔案格式源自 VRML97 程式語法 (<a href="./../downloads/vrmlman.pdf">VRML Primer and Tutorial</a>), 場景的檔案副檔名為 .wbt, 且一定要存入名稱為 worlds 的目錄中.</p>
+<p></p><br />CPS << <a href='CPS.html'>Previous</a> <a href='Reference.html'>Next</a> >> Reference</div>
         
     <!-- footer -->
       <div class="container">

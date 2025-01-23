@@ -125,6 +125,7 @@
 <p style="padding-left: 60px;">第一階段計時結束後, 如何進入前三名排名賽</p>
 <p>參考資料:</p>
 <p style="padding-left: 30px;"><a href="/downloads/fourbar_ball_throwing_linkage.slvs">fourbar_ball_throwing_linkage.slvs</a></p>
+<p style="padding-left: 30px;"><a href="/downloads/sixbar_ball_throwing_linkage.slvs">sixbar_ball_throwing_linkage.slvs</a></p>
 <p style="padding-left: 30px;"><img alt="" height="264" src="/images/fourbar_ball_throwing_linkage.gif" width="400"/></p>
 <p style="padding-left: 30px;"></p>
 <p></p>
@@ -569,7 +570,40 @@ while robot.step(TIME_STEP) != -1:
 <h4>HoRoSim (使用 CoppeliaSim, 是否能夠轉進 Webots)</h4>
 <p style="padding-left: 30px;"><a href="https://pure.itu.dk/ws/portalfiles/portal/86211605/2021RIE_HoRoSim_camera_ready.pdf">HoRoSim, a Holistic Robot Simulator: Arduino Code, Electronic Circuits and Physics</a></p>
 <p style="padding-left: 30px;"><a href="https://bitbucket.org/afaina/horosim/src/master/">https://bitbucket.org/afaina/horosim/src/master/</a></p>
-<h1>Ref</h1>
+<h1>Tutorial</h1>
+<p>第一個 Webots 導引: <a href="https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots">https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots</a></p>
+<p>登入 Github, 在 <a href="https://github.com/copilot">https://github.com/copilot</a> 的協助下執行此一教學練習.</p>
+<p>導引目的: You will create your first simulation containing a simple environment: an arena with floor and walls, a few boxes, an e-puck robot and a controller program that will make the robot move.</p>
+<p>建立一個簡單的模擬環境, 意即一個競技場中, 包括一個帶有地板、圍牆、幾個盒子、一個 e-puck 機器人, 以及能讓機器人移動的控制程式.</p>
+<p><img alt="" height="310" src="/images/tutorial_e-puck.thumbnail.jpg" width="400"/></p>
+<p>開啟 Webots 前, 請下載以下兩者之一:</p>
+<p style="padding-left: 30px;"><a href="http://229.cycu.org/Webots_2023b.7z">Webots_2023b.7z</a> (168 MB, 解該後約 900 MB, 部分 Proto 原型節點取用官方網路檔案)</p>
+<p style="padding-left: 30px;"><a href="http://229.cycu.org/Webots_2023b_for_cd2025.7z">Webots_2023b_for_cd2025.7z</a> (900 MB, 解開後約 2 GB, 能使用可攜系統中的 Proto 原型節點)</p>
+<p>第一個 Webots 是官方釋出的版本, 其中使用官方網站上的許多原型節點, 因此<span style="background-color: #ccffcc;">使用時必須全時上網</span>, 而第二個 Webots 系統則是預先將官方放在 <a href="https://github.com/cyberbotics/webots">https://github.com/cyberbotics/webots</a> 中的所有原型節點資料下載後製成, <span style="background-color: #ccffcc;">使用時無需上網</span>.</p>
+<p>Webots 的可執行檔案位於 Y:\Webots_2023b\msys64\mingw64\bin\Webotsw.exe, 當與 <a href="http://229.cycu.org/python_2025_lite.7z">python_2025_lite.7z</a> 配置時, 若希望在不上網的情況下執行官方範例, 則必須再預先下載 <a href="https://github.com/cyberbotics/webots/releases/tag/R2023b">https://github.com/cyberbotics/webots/releases/tag/R2023b</a> 中的 <a class="Truncate" data-turbo="false" data-view-component="true" href="https://github.com/cyberbotics/webots/releases/download/R2023b/assets-R2023b.zip" rel="nofollow"> <span class="Truncate-text text-bold" data-view-component="true">assets-R2023b.zip</span></a>, 存入 Y:\home_ipv6\AppData\Local\Cyberbotics\Webots\cache\assets 目錄, 否則啟動官方範例時, 必須從官方網站下載各範例中所導入的原型節點資料.</p>
+<p>若 Webotsw.exe 並非是在可攜程式的環境中啟動, 則 Webots 啟動後所下載的原型節點資料, 將會存入操作系統中的 C:\Users\%USERNAME%\AppData\Local\Cyberbotics\Webots\cache\assets 目錄中.</p>
+<p>在可攜程式環境中啟動 Webots 的設定:</p>
+<p style="padding-left: 30px;">start_ipv6.bat 中納入:</p>
+<p style="padding-left: 30px;">REM for webots<br/>set  path_webots=%Disk%:\Webots_2023b\msys64\mingw64\bin;%Disk%:\Webots_2023b\msys64\usr\bin</p>
+<p style="padding-left: 30px;">並將 %path_webots% 放入 PATH 環境變數設定中.</p>
+<p style="padding-left: 30px;">若希望在執行 start_ipv6.bat 時開啟 Webots, 可以在啟動可攜程式的批次檔案中加入 start webotsw.exe</p>
+<hr/>
+<p>在可攜程式環境中 (USB 固態硬碟、一般隨身碟、筆電或個人電腦) 啟動 Webots 後, 開始建立模擬世界(即場景), 而在 Webots 中所謂場景:</p>
+<p>A <strong>World</strong> is a file containing information like where the objects are, what they look like, how they interact with each other, what is the color of the sky, and the definitions of gravity, friction, masses of the objects, etc. It defines the initial state of a simulation. The different objects are called <strong>Nodes</strong> and are organized hierarchically in a <strong>Scene Tree</strong>. Therefore, a node may contain sub-nodes. A world is stored in a file having the <code>.wbt</code> extension. The file format is derived from the <a href="/downloads/vrml97specification.pdf">VRML97</a> language, and is human readable. The world files must be stored directly in a directory called <code>worlds</code>.</p>
+<p>Webots 場景中包含以下定義:</p>
+<ol>
+<li>物件所在位置</li>
+<li>物件的外形</li>
+<li>物件如何互動</li>
+<li>天空的顏色</li>
+<li>地心引力的定義</li>
+<li>摩擦力</li>
+<li>物件的質量</li>
+<li>模擬的起始條件</li>
+<li>其他有關模擬的設定等</li>
+</ol>
+<p>場景中的物件稱為節點, 各節點配置於場景樹中, 各節點可以再包含子節點, 場景的檔案格式源自 VRML97 程式語法 (<a href="/downloads/vrmlman.pdf">VRML Primer and Tutorial</a>), 場景的檔案副檔名為 .wbt, 且依定要存入名稱為 worlds 的目錄中.</p>
+<p></p><h1>Reference</h1>
 <p>Collaborative Design Projects (協同設計專案)</p><h2>Webots</h2>
 <p><a href="https://mde.tw/content/Webots%20Doc.html">https://mde.tw/content/Webots%20Doc.html</a></p>
 <p>Webots assets 儲存目錄 (容量約 831MB, 若包括 Webots 2025a 1GB, 整個系統約佔 2GB):</p>
@@ -670,7 +704,7 @@ path=~~;%path_webots%;%path%;</pre>
 <p>Web-based Solvespace: <a href="https://cad.apps.dgramop.xyz/">https://cad.apps.dgramop.xyz/</a> (<a href="https://solvespace.com/forum.pl?action=viewthread&amp;parent=2369&amp;tt=1718121481">source</a> and <a href="https://github.com/solvespace/solvespace/pull/1275">PR</a>)</p>
 <p><a href="https://github.com/solvespace/solvespace/pull/493">Python related PR</a></p>
 <p>在 <a href="http://229.cycu.org/python_2025_lite.7z">python_2025_lite.7z</a><span> 加入以下說明的 msys2 與 cmake 後, 可用來編譯 Solvespace v3.1 版原始碼的可攜套件 <a href="http://229.cycu.org/python_2025_lite_w_msys_cmake_solvespace.7z">python_2025_lite_w_msys_cmake_solvespace.7z</a> (Download 1.96GB, After extracted 3.7GB)</span></p>
-<hr>
+<hr/>
 <p>Solvespace 採 C++ 編寫, 原始碼位於 <a href="https://github.com/solvespace/solvespace">https://github.com/solvespace/solvespace</a>, 以下將採用可攜程式系統 python_2025 中的 msys2 (<a href="http://229.cycu.org/python_2025/data/msys64_20240507.7z">msys64_20240507.7z</a>) 以及 cmake 3.20.1 進行編譯 (若採用目前最新版的 cmake 3.30.2, 必須對 Solvespace v3.1 中的 CMakeLists.txt 進行修改).</p>
 <p>舊版的 cmake 3.21.0 可以利用下列連結取得:</p>
 <p><a href="https://github.com/Kitware/CMake/releases/download/v3.21.0/cmake-3.21.0-windows-x86_64.zip">https://github.com/Kitware/CMake/releases/download/v3.21.0/cmake-3.21.0-windows-x86_64.zip</a> </p>
@@ -1014,4 +1048,4 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <!-- editor2 結束 --><hr/>
 <p>
 <script src="https://unpkg.com/three@0.144.0/build/three.js" type="text/javascript"></script>
-</p></hr></hr>
+</p></hr>
