@@ -1,0 +1,60 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "../protos/TexturedBackground.proto"
+EXTERNPROTO "../protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "../protos/RectangleArena.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.17911760145636924 0.20303955404969007 0.9626483388755317 1.7931226479511868
+  position 0.7495096875887461 -3.1141998018989674 1.7796380905257032
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+}
+Robot {
+  children [
+    Solid {
+      children [
+        CadShape {
+          url [
+            "../split_parts/base.obj"
+          ]
+        }
+        HingeJoint {
+          jointParameters HingeJointParameters {
+            axis 0 0 1
+          }
+          device [
+            RotationalMotor {
+              name "joint_motor"
+            }
+          ]
+          endPoint Solid {
+            children [
+              CadShape {
+                url [
+                  "../split_parts/joint.obj"
+                ]
+              }
+              Solid {
+                children [
+                  CadShape {
+                    url [
+                      "../split_parts/link.obj"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+  controller "joint_controller"
+}

@@ -1,0 +1,45 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "../protos/TexturedBackground.proto"
+EXTERNPROTO "../protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "../protos/RectangleArena.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.2058690862665244 0.16832665467988062 0.9639938052934087 1.8066010109414674
+  position 1.1967467993762977 -6.336723355074098 2.8517223493430137
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+}
+Solid {
+  children [
+    CadShape {
+      url [
+        "../split_parts/base.obj"
+      ]
+    }
+    Solid {
+      children [
+        CadShape {
+          url [
+            "../split_parts/joint.obj"
+          ]
+        }
+        Solid {
+          children [
+            CadShape {
+              url [
+                "../split_parts/link.obj"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
