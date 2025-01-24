@@ -1,8 +1,11 @@
 #VRML_SIM R2023b utf8
-# Use subnode setup
+
 EXTERNPROTO "../protos/TexturedBackground.proto"
 EXTERNPROTO "../protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "../protos/RectangleArena.proto"
+EXTERNPROTO "../protos/BaseSolid.proto"
+EXTERNPROTO "../protos/JointSolid.proto"
+EXTERNPROTO "../protos/LinkSolid.proto"
 
 WorldInfo {
 }
@@ -16,15 +19,12 @@ TexturedBackgroundLight {
 }
 RectangleArena {
 }
+
 Robot {
   children [
     Solid {
       children [
-        CadShape {
-          url [
-            "../split_parts/base.obj"
-          ]
-        }
+        BaseSolid { }  # Instantiate the BaseSolid PROTO
         HingeJoint {
           jointParameters HingeJointParameters {
             axis 0 0 1
@@ -36,18 +36,10 @@ Robot {
           ]
           endPoint Solid {
             children [
-              CadShape {
-                url [
-                  "../split_parts/joint.obj"
-                ]
-              }
+              JointSolid { }  # Instantiate the JointSolid PROTO
               Solid {
                 children [
-                  CadShape {
-                    url [
-                      "../split_parts/link.obj"
-                    ]
-                  }
+                  LinkSolid { }  # Instantiate the LinkSolid PROTO
                 ]
               }
             ]

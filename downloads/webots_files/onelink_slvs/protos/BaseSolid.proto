@@ -1,0 +1,14 @@
+#VRML_SIM R2023b utf8
+PROTO BaseSolid [
+] {
+  Solid {
+    children [
+      CadShape {
+        url [
+          "../split_parts/base.obj"
+        ]
+      }
+    ]
+    name "base"
+  }
+}

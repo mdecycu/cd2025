@@ -2,7 +2,7 @@
         <head>
         <title>cd2025</title>
         <meta charset="utf-8">
-<meta property="head" content="H3">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,28 +141,12 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Tutorial_1 << <a href='Tutorial_1.html'>Previous</a> <a href='Using_C.html'>Next</a> >> Using_C<br /><h1>CadShape</h1>
-<p><span>可攜系統:</span></p>
-<p style="padding-left: 30px;"><span>下載 <a href="http://229.cycu.org/python_2025_lite.7z">python_2025_lite.7z</a> (428 MB, 解開壓縮後約 1.5 GB)</span></p>
-<p style="padding-left: 30px;"><a href="http://229.cycu.org/NX2312_CAD.7z">下載</a> NX2312 可攜 CAD 壓縮檔案 (1.85 GB, 解開後約 9 GB)</p>
-<p style="padding-left: 60px;"><a href="http://229.cycu.org/nx2312_Drafting.7z">nx2312_Drafting.7z</a></p>
-<p style="padding-left: 60px;"><a href="http://229.cycu.org/nx2312_nxplot.7z">nx2312_nxplot.7z</a></p>
-<p style="padding-left: 30px;"><a href="http://229.cycu.org/Webots_2023b.7z">Webots_2023b.7z</a> (168 MB, 解該後約 900 MB, 部分 Proto 原型節點取用官方網路檔案)</p>
-<p style="padding-left: 30px;"><a href="http://229.cycu.org/Webots_2023b_for_cd2025.7z">Webots_2023b_for_cd2025.7z</a> (900 MB, 解開後約 2 GB, 能使用可攜系統中的 Proto 原型節點)</p>
-<p style="padding-left: 30px;"><a href="http://229.cycu.org/Blender4.2.7z">Blender4.2.7z</a></p>
-<p><a href="https://www.cyberbotics.com/doc/reference/cadshape">https://www.cyberbotics.com/doc/reference/cadshape</a></p>
-<p>Webots 可以利用 CadShape node 導入 Collada (.dae) or Wavefront (.obj) 零件, 其中 Solvespace 與 NX2312 都能輸出 .obj 零件格式, 但 Webots 並沒有如 CoppeliaSim 自動分割組立件的功能, 必須自行處理.</p>
-<p>利用 Python 分割 .stl 組立件:</p>
-<p><a href="./../downloads/pinball/for_webots/split_stl.py">split_stl.py</a></p>
-<p>Python 分割 .stl 組立件, 同時將零件從 .stl 轉為 .obj 檔案格式:</p>
-<p><a href="./../downloads/pinball/for_webots/split_stl_and_obj.py">split_stl_and_obj.py</a></p>
-<p>從 Solvespace 或 NX2312 轉出的 stl 組立件, 利用上列程式分割出各 stl 零件時, 同時轉為 obj 零件格式, 之後將各 obj 零件拖曳至 <a href="http://229.cycu.org/Blender4.2.7z">Blender4.2.7z</a> 後進行改名, 如下圖所示.</p>
-<p><img alt="" height="255" src="./../images/pinball_stl_to_obj_rename.png" width="400"/></p>
-<p>從 <a href="http://229.cycu.org/Blender4.2.7z">Blender4.2.7z</a> 取得各 obj 格式零件名稱之後, 再利用 <a href="https://www.cyberbotics.com/doc/reference/cadshape">CadShape</a> node 將各零件導入 Webots 場景, 如下圖所示.</p>
-<p><img alt="" height="234" src="./../images/pinbll_flipper_on_webots.png" width="400"/></p>
-<p>當利用 Python 程式將 stl 格式的 組立件進行分割且轉為 obj 的過程, 可以針對尺寸比例進行轉換, 例如: 將原先 mm 轉為 cm 或 m 的相關座標數據.</p>
-<p><a href="./../downloads/pinball/for_webots/split_stl_to_obj_scale.py">split_stl_to_obj_scale.py</a> 將 mm 轉為 cm 的 pinball obj 導入 Webots 場景如下圖所示:</p>
-<p><img alt="" height="229" src="./../images/stl_assembly_split_obj_scale.png" width="400"/></p><br />Tutorial_1 << <a href='Tutorial_1.html'>Previous</a> <a href='Using_C.html'>Next</a> >> Using_C</div>
+    <div id="tipue_search_content">onelink << <a href='onelink.html'>Previous</a> <a href='Reference.html'>Next</a> >> Reference<br /><h1>DEF</h1>
+<p><a href="https://cyberbotics.com/doc/reference/def-and-use">https://cyberbotics.com/doc/reference/def-and-use</a></p>
+<p>Although it is permitted to name any node using the DEF keyword, there are some exceptions where USE nodes are not valid. A USE node is an exact copy of the corresponding DEF node, and thus no property of a USE node can change independently from the DEF node.</p>
+<p>For this reason it is not allowed to insert USE nodes of <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/solid">Solid</a>, <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/joint">Joint</a>, <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/jointparameters">JointParameters</a>, <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/trackwheel">TrackWheel</a>, and <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/balljointparameters">BallJointParameters</a> nodes and their derived nodes. Indeed, the ability for identical solids or joints to occupy the same position is useless, if not hazardous, in a physics simulation. To safely duplicate one of these nodes, you can design a <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/proto">PROTO</a> model for this node and then add different PROTO instances to your world.</p>
+<p>The same principle applies to <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/material">Material</a> and <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/light">Light</a> nodes located in the first child of <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/charger">Charger</a> and <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/led">LED</a> nodes whose emissive color changes automatically based on the <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/charger">Charger</a> energy and <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/led">LED</a> setup.</p>
+<p>Also the <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/texturetransform">TextureTransform</a> of the first <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/shape">Shape</a> in the <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/track">Track</a> device with enabled texture animation cannot be a USE node given that the translation values will be automatically updated by Webots while the <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/track">Track</a> device is moving.</p><br />onelink << <a href='onelink.html'>Previous</a> <a href='Reference.html'>Next</a> >> Reference</div>
         
     <!-- footer -->
       <div class="container">

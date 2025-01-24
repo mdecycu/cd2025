@@ -1,0 +1,14 @@
+#VRML_SIM R2023b utf8
+PROTO JointSolid [
+] {
+  Solid {
+    children [
+      CadShape {
+        url [
+          "../split_parts/joint.obj"
+        ]
+      }
+    ]
+    name "joint"
+  }
+}

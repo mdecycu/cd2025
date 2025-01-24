@@ -27,9 +27,9 @@
 <p style="padding-left: 30px;">Teams 團隊代碼: <span>p5z4eku</span></p>
 <p>課程評分:</p>
 <p style="padding-left: 30px;">出席並參與討論 (30%)</p>
-<p style="padding-left: 30px;">期中協同專案執行、簡報與報告 (六人一組) (30%)</p>
+<p style="padding-left: 30px;">期中協同專案執行、簡報與 PDF 報告檔案 (六人一組) (30%)</p>
 <p style="padding-left: 60px;"><span>CoppeliaSim 與 Webots 虛實整合彈珠檯系統</span></p>
-<p style="padding-left: 30px;"><span>期末協同專案執行、簡報與報告 (六人一組) (40%)</span></p>
+<p style="padding-left: 30px;"><span>期末協同專案執行、簡報與 PDf 報告檔案 (六人一組) (40%)</span></p>
 <p style="padding-left: 60px;"><span>CoppeliaSim 與 Webots 虛實整合六方投籃機系統</span></p>
 <hr/>
 <p>行事曆</p>
@@ -77,7 +77,19 @@
 <li><span style="background-color: #ffff99;">勇於嘗試新事物</span></li>
 <li>正向面對挑戰</li>
 <li>培養創業家精神</li>
-</ol><h1>Projects</h1>
+</ol><h2>SciTE</h2>
+<p>SciTE 如何設定在 Open File 時內定為 Open *.*?</p>
+<p>在 SciTE（Scintilla based Text Editor）中，您可以通過修改 SciTEGlobal.properties 文件來設定在打開文件時的默認文件過濾器（如 *.* 搜索所有文件）。以下是具體的步驟：</p>
+<ol>
+<li>找到 SciTEGlobal.properties 文件：</li>
+<li>這個文件位於 Y:\wscite 目錄中.</li>
+<li>打開 SciTEGlobal.properties 文件：</li>
+<li>使用 SciTE 或任何文本編輯器打開 SciTEGlobal.properties 文件.</li>
+<li>設定 open.filter：<span class="hljs-meta">open.filter</span>=<span class="hljs-string">All Files (*.*)|*.*|</span></li>
+</ol>
+<div class="CodeBlock-module__codeContainer--dAEis">
+<pre class="CodeBlock-module__code--KUcqT" tabindex="0"></pre>
+</div><h1>Projects</h1>
 <p>每六人一組</p>
 <p>協同專案:</p>
 <ol>
@@ -606,8 +618,12 @@ while robot.step(TIME_STEP) != -1:
 <p>Webots 模擬選單功能說明: <a href="https://cyberbotics.com/doc/guide/the-user-interface#simulation-menu">https://cyberbotics.com/doc/guide/the-user-interface#simulation-menu</a> 其中著色選單可以關閉場景中的畫面, 主要配合基因演算、視覺辨識或機器學習流程中的快速模擬流程.</p>
 <h2>onelink</h2>
 <p><a href="/downloads/onelink_webots.7z">onelink_webots.7z</a> (直接採 Shape 建模)</p>
-<p><a href="/downloads/onelink_slvs.7z">onelink_slvs.7z</a> (利用 Solvespace 建組立檔案, 轉為 STL 後再分割為 STL 零件與 OBJ 零件後, 利用 Blender 確認零件名稱, 最後加入 hinge 旋轉軸與 Python 控制程式)</p>
-<p></p><h1>Reference</h1>
+<p><a href="/downloads/onelink_slvs.7z">onelink_slvs.7z</a> (利用 Solvespace 繪製組立檔案, 轉為 STL 後, 再分割為 STL 零件與 OBJ 零件後, 將 OBJ 零件 import 進 Blender 確認零件名稱, 各 OBJ 零件分別利用 Solid 與 CadShape 節點建立從屬關係, 最後加入 hinge 旋轉軸與 Python 控制程式, 讓單一機械臂以 30deg/s 速度轉動)</p>
+<p style="padding-left: 30px;">onelink_w_hinge.wbt 直接在場景樹狀結構中定義 Solid (可用於較簡單的零組件系統)</p>
+<p style="padding-left: 30px;">onelink_w_hinge2.wbt 則將各零件以 PROTO 定義為原型節點, 之後在場景中導入後引用 (適合較複雜的零組件系統)</p>
+<p></p><h2>DEF</h2>
+<p><a href="https://cyberbotics.com/doc/reference/def-and-use">https://cyberbotics.com/doc/reference/def-and-use</a> </p>
+<h1>Reference</h1>
 <p>Collaborative Design Projects (協同設計專案)</p><h2>Webots</h2>
 <p><a href="https://mde.tw/content/Webots%20Doc.html">https://mde.tw/content/Webots%20Doc.html</a></p>
 <p>Webots assets 儲存目錄 (容量約 831MB, 若包括 Webots 2025a 1GB, 整個系統約佔 2GB):</p>
@@ -760,6 +776,22 @@ c.recursiveImport(
 <h2>Old</h2>
 <p>以下連結僅能在系統主幹的網路 IPv6 協定下擷取:</p>
 <p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/cd2019/content/sitemap.html">cd2019</a></p>
+<p style="padding-left: 60px;"><a href="http://wcm.cycu.org:88/github/cd2019/downloads/vrml97specification.pdf">vrml97specification.pdf</a> (1997)</p>
+<p style="padding-left: 60px;"><a href="http://wcm.cycu.org:88/github/cd2019/downloads/vrml_primer_tutorial.pdf">vrml_primer_tutorial.pdf</a> (1998)</p>
+<p style="padding-left: 60px;"><a href="http://wcm.cycu.org:88/github/cd2019/downloads/WeBots_2002_guide.pdf">WeBots_2002_guide.pdf</a></p>
+<p style="padding-left: 60px;"><a href="http://wcm.cycu.org:88/github/cd2019/downloads/Aibo and Webots_Simulation, wireless remote control and controller transfer.pdf">Aibo and Webots_Simulation, wireless remote control and controller transfer.pdf</a> (2006)</p>
+<p style="padding-left: 60px;"><a href="http://wcm.cycu.org:88/github/cd2019/downloads/Design and Assessment of a Robot Curriculum based on the E-puck Robot and Webots.pdf">Design and Assessment of a Robot Curriculum based on the E-puck Robot and Webots.pdf</a> (2009)</p>
+<p style="padding-left: 60px;"><a href="http://wcm.cycu.org:88/github/cd2019/downloads/Cyberbotics Robot Curriculum.pdf">Cyberbotics Robot Curriculum.pdf</a> (2010)</p>
+<p style="padding-left: 60px;"><a href="http://wcm.cycu.org:88/github/cd2019/downloads/webots_2010_ex1.pdf">webots_2010_ex1.pdf</a></p>
+<p style="padding-left: 60px;"><a href="http://wcm.cycu.org:88/github/cd2019/downloads/WeBots_2011_guide.pdf">Webots_2011_guide.pdf</a></p>
+<p style="padding-left: 60px;"><a href="http://wcm.cycu.org:88/github/cd2019/downloads/WeBots_2012_guide.pdf">Webots_2012_guide.pdf</a></p>
+<p style="padding-left: 60px;"><a href="http://wcm.cycu.org:88/github/cd2019/downloads/Improving support for e-puck robot in Webots mobile robots simulation software.pdf">Improving support for e-puck robot in Webots mobile robots simulation software.pdf </a>(2012)</p>
+<p style="padding-left: 60px;"><a href="http://wcm.cycu.org:88/github/cd2019/downloads/Development of Microphone and Speaker models in Webots using OpenAL.pdf">Development of Microphone and Speaker models in Webots using OpenAL.pdf</a> (2012)</p>
+<p style="padding-left: 60px;"><a href="http://wcm.cycu.org:88/github/cd2019/downloads/Interfacing an Android-based phone-robot with Webots.pdf">Interfacing an Android-based phone-robot with Webots.pdf</a> (2012)</p>
+<p style="padding-left: 60px;"><a href="http://wcm.cycu.org:88/github/cd2019/downloads/Mobile Robot modeling, Simulation and Programming.pdf">Mobile Robot modeling, Simulation and Programming.pdf</a> (2013)</p>
+<p style="padding-left: 60px;"><a href="http://wcm.cycu.org:88/github/cd2019/downloads/Mobile Robot modeling Simulating and Programming_New ASIMO.pdf">Mobile Robot modeling Simulating and Programming_New ASIMO.pdf</a> (2014)</p>
+<p style="padding-left: 60px;"><a href="http://wcm.cycu.org:88/github/cd2019/downloads/ROS interface and URDF parser for Webots.pdf">ROS interface and URDF parser for Webots.pdf</a> (2014)</p>
+<p style="padding-left: 60px;"><a href="http://wcm.cycu.org:88/github/cd2019/downloads/WeBots_2014_guide.pdf">Webots_2014_guide.pdf</a></p>
 <p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/cd2020/content/sitemap.html">cd2020</a></p>
 <p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/cd2021/">cd2021</a></p>
 <p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/cd2022_guide/content/sitemap.html">cd2022</a></p>

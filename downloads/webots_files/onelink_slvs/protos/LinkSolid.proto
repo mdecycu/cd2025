@@ -1,0 +1,14 @@
+#VRML_SIM R2023b utf8
+PROTO LinkSolid [
+] {
+  Solid {
+    children [
+      CadShape {
+        url [
+          "../split_parts/link.obj"
+        ]
+      }
+    ]
+    name "link"
+  }
+}
