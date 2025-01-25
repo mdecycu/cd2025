@@ -14,7 +14,7 @@ motor.setPosition(float('inf'))
 timestep = int(robot.getBasicTimeStep())
 
 # Rotation speed (30 degrees per second)
-speed = math.pi / 6  # 30 degrees = π/6 radians per second
+speed = 10*math.pi / 6  # 30 degrees = π/6 radians per second
 
 # Main control loop
 while robot.step(timestep) != -1:

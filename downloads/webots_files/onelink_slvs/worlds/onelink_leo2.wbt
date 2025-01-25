@@ -1,0 +1,77 @@
+#VRML_SIM R2023b utf8
+EXTERNPROTO "../protos/TexturedBackground.proto"
+EXTERNPROTO "../protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "../protos/RectangleArena.proto"
+EXTERNPROTO "../protos/BaseSolid.proto"
+EXTERNPROTO "../protos/JointSolid.proto"
+EXTERNPROTO "../protos/LinkSolid.proto"
+WorldInfo {}
+Viewpoint {
+    orientation -0.17911760145636924 0.20303955404969007 0.9626483388755317 1.7931226479511868
+    position 0.7495096875887461 -3.1141998018989674 1.7796380905257032
+}
+TexturedBackground {}
+TexturedBackgroundLight {}
+RectangleArena {}
+Robot {
+    children [
+        Solid {
+            children [
+                BaseSolid { }  # 基座
+                HingeJoint {
+                    jointParameters HingeJointParameters {
+                        axis 0 0 1
+                        springConstant 0
+                        dampingConstant 0
+                    }
+                    device [
+                        RotationalMotor {
+                            name "joint_motor"
+                        }
+                    ]
+                    endPoint Solid {
+                        children [
+                            JointSolid { }  # 第一個關節
+                            Solid {
+                                translation 0 0 0
+                                children [
+                                    LinkSolid { }  # 第一個連桿
+                                    Solid {
+                                        #translation 1-0.125 0 0.15
+                                        translation 0.875 0 0.15
+                                        children [
+                                            HingeJoint {
+                                                jointParameters HingeJointParameters {
+                                                    axis 0 0 1
+                                                    springConstant 0 
+                                                    dampingConstant 0
+                                                }
+                                                device [
+                                                    RotationalMotor {
+                                                        name "joint_motor2"
+                                                        maxVelocity 100.0  # 添加最大速度限制
+                                                    }
+                                                ]
+                                                endPoint Solid {
+                                                    children [
+                                                        JointSolid { }  # 第二個關節
+                                                        Solid {
+                                                            children [
+                                                                LinkSolid { }  # 第二個連桿
+                                                            ]
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+    controller "joint_controller2"
+}

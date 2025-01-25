@@ -5,5 +5,5 @@ sceneTreePerspectives: 000000ff00000001000000030000001d0000030e000000fa010000000
 maximizedDockId: -1
 centralWidgetVisible: 1
 orthographicViewHeight: 1
-textFiles: 0 "C:/Users/pj2022/Downloads/onelink_slvs/controllers/joint_controller/joint_controller.py"
+textFiles: 0 "controllers/joint_controller/joint_controller.py"
 consoles: Console:All:All
