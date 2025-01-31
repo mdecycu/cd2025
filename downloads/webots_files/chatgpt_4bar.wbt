@@ -1,0 +1,140 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "../protos/TexturedBackground.proto"
+EXTERNPROTO "../protos/TexturedBackgroundLight.proto"
+
+WorldInfo {
+  info [
+    "onelink mechanism"
+  ]
+}
+Viewpoint {
+  orientation -0.4975769539784069 0.5341062674660296 0.683482018726957 1.9987429693479375
+  position 1.1957394989455306 -0.6302341245069099 15.076357960090856
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+# 以下為 Robot
+Robot {
+  children [
+    Solid {
+    # 以下所定義的 solid 在 z 方向向上移動 0.5 m
+      translation 0 0 0.5
+      children [
+        DEF BASE Shape {
+          appearance PBRAppearance {
+            baseColor 0.8 0.8 0.8
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 5 0.1 0.1
+          }
+        }
+      ]
+      name "base"
+      boundingObject USE BASE
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        # 旋轉軸為 z, 且旋轉中心位於 -2.5, 0, 0 
+        axis 0 0 1
+        anchor -2.5 0 0
+      }
+      device [
+        RotationalMotor {
+          # 此旋轉軸配置一個馬達, 名稱為 motor
+          name "motor"
+        }
+      ]
+      # 旋轉軸的端點接以下定義的 solid, 也就是 LINK1
+      endPoint Solid {
+        # link1 中心原先位於 0, 0, 0, 若 x 方向移動 -2.5m, 則 link1 中心可以位於 base 起點, 
+        # 再移動 1m 則可以將 link1 起點接在 base 最左端
+        # 因此最終移動 x 方向為 -2.5+1=-1.5
+        translation -1.5 0 0.5
+        children [
+          DEF LINK1 Shape {
+            appearance PBRAppearance {
+              # link1 為紅色
+              baseColor 1 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Box {
+              # link1 長度為 2m
+              size 2 0.1 0.1
+            }
+          }
+          # link1 也有一個 hingejoint
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0 0 1
+              # 旋轉中心應該原先位於 link1 中心, 必須在 x 方向移動 1, 才可以位於 link1 端點
+              anchor 1 0 0
+            }
+            # 旋轉軸的端點接以下定義的 solid, 也就是 LINK2
+            endPoint Solid {
+            # link2 中心原先位於 link1 0, 0, 0, 若 x 方向移動 1m, 則 link2 中心可以位於 link1 端點, 
+            # 再移動 1.5m 則可以將 link2 起點接在 link1 末端
+            # 因此最終移動 x 方向為 -2.5+2+1.5=1
+              translation 2.5 0 0
+              children [
+                DEF LINK2 Shape {
+                  appearance PBRAppearance {
+                    baseColor 0 1 0
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry Box {
+                    size 3 0.1 0.1
+                  }
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0 0 1
+                    anchor 3 0 0
+                  }
+                  endPoint Solid {
+                    translation 3 0 0.5
+                    children [
+                      DEF LINK3 Shape {
+                        appearance PBRAppearance {
+                          baseColor 0 0 1
+                          roughness 1
+                          metalness 0
+                        }
+                        geometry Box {
+                          size 4 0.1 0.1
+                        }
+                      }
+                      HingeJoint {
+                        jointParameters HingeJointParameters {
+                          axis 0 0 1
+                          anchor 4 0 0
+                        }
+                        endPoint SolidReference {
+                          solidName "base"
+                        }
+                      }
+                    ]
+                    name "link3"
+                    boundingObject USE LINK3
+                  }
+                }
+              ]
+              name "link2"
+              boundingObject USE LINK2
+            }
+          }
+        ]
+        name "link1"
+        boundingObject USE LINK1
+      }
+    }
+  ]
+  name "four_bar_linkage"
+  controller "fourbar_controller"
+}
