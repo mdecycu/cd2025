@@ -50,24 +50,30 @@ Robot {
         }
       ]
       # 旋轉軸的端點接以下定義的 solid, 也就是 LINK1
-      endPoint Solid {
-        # link1 中心原先位於 0, 0, 0, 若 x 方向移動 -2.5m, 則 link1 中心可以位於 base 起點, 
-        # 再移動 1m 則可以將 link1 起點接在 base 最左端
-        # 因此最終移動 x 方向為 -2.5+1=-1.5
-        translation -1.5 0 0.5
-        children [
-          DEF LINK1 Shape {
-            appearance PBRAppearance {
-              # link1 為紅色
-              baseColor 1 0 0
-              roughness 1
-              metalness 0
+        endPoint Solid {
+          # 先將 link1 中心移動到 base 的最左邊點
+          translation -2.5 0 0.5
+          # 然後旋轉 90 度
+          rotation 0 0 1 1.57
+          children [
+            # Shift link1 so that its left end is at the origin
+            # 以下的平移 transform 僅對 link1, 對其 children 沒有任何影響
+            Transform {
+              # 因為 link1 是對其中心旋轉, 此時 x 軸已經是向上為正, 因此向上移動 link1 長度一半的距離, 也就是 1m
+              translation 1 0 0
+              children [
+                DEF LINK1 Shape {
+                  appearance PBRAppearance {
+                    baseColor 1 0 0  # Red color
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry Box {
+                    size 2 0.1 0.1  # Length 2m, width 0.1m, height 0.1m
+                  }
+                }
+              ]
             }
-            geometry Box {
-              # link1 長度為 2m
-              size 2 0.1 0.1
-            }
-          }
           # link1 也有一個 hingejoint
           HingeJoint {
             jointParameters HingeJointParameters {
@@ -77,11 +83,12 @@ Robot {
             }
             # 旋轉軸的端點接以下定義的 solid, 也就是 LINK2
             endPoint Solid {
-            # link2 中心原先位於 link1 0, 0, 0, 若 x 方向移動 1m, 則 link2 中心可以位於 link1 端點, 
-            # 再移動 1.5m 則可以將 link2 起點接在 link1 末端
-            # 因此最終移動 x 方向為 -2.5+2+1.5=1
-              translation 2.5 0 0
+              translation 2 0 0
+              rotation 0 0 1 2.012
               children [
+              Transform {
+                translation -1.5 0 0 
+                children[
                 DEF LINK2 Shape {
                   appearance PBRAppearance {
                     baseColor 0 1 0
@@ -92,14 +99,20 @@ Robot {
                     size 3 0.1 0.1
                   }
                 }
+              ]
+                }
                 HingeJoint {
                   jointParameters HingeJointParameters {
                     axis 0 0 1
                     anchor 3 0 0
                   }
                   endPoint Solid {
-                    translation 3 0 0.5
-                    children [
+                    translation -3 0 0
+                    rotation 0 0 1 1.738
+                    children[
+                    Transform {
+                      translation 2 0 0 
+                      children[
                       DEF LINK3 Shape {
                         appearance PBRAppearance {
                           baseColor 0 0 1
@@ -109,6 +122,8 @@ Robot {
                         geometry Box {
                           size 4 0.1 0.1
                         }
+                      }
+                      ]
                       }
                       HingeJoint {
                         jointParameters HingeJointParameters {
