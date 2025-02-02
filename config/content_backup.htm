@@ -153,7 +153,8 @@
 <h2>Replit</h2>
 <p>Replit 目前僅允許免費帳號使用三個公開的專案, 想要使用全瀏覽器維護 cmsimde 網站仍是選擇之一.</p>
 <p>第一次登入時可以選擇使用 Gmail 登入, 隨後確定所使用的帳號後, 再利用 <a href="https://replit.com/forgot">https://replit.com/forgot</a> 轉換為使用帳號與密碼登入.</p>
-<p>希望編輯 cmsimde 網站, 可以在確認已經配置 Python 基本模組後, 在 Shell 中以 ./init_replit 安裝啟動 cmsimde 編輯網頁所需的 Python 模組, 然後再透過 python main.py&amp; 執行動態網站.</p><h1>Projects</h1>
+<p>希望編輯 cmsimde 網站, 可以在確認已經配置 Python 基本模組後, 在 Shell 中以 ./init_replit 安裝啟動 cmsimde 編輯網頁所需的 Python 模組, 然後再透過 python main.py&amp; 執行動態網站.</p>
+<p>由於 2025 年的 Replit 免費帳號僅支援內部 8080 port 跳轉, 因此 main.py 與 main2.py 必須共用 port 8080, 意即同一時間僅能選擇啟動 python main.py&amp; 或 python main2.py&amp;</p><h1>Projects</h1>
 <p>每六人一組</p>
 <p>協同專案:</p>
 <ol>
@@ -730,6 +731,7 @@ path=~~;%path_webots%;%path%;</pre>
 <p style="padding-left: 60px;">4. 善用 Webots 使用者社群的貢獻，社群會分享機器人、感測器、致動器、物件、環境、基準測試、控制器程式等模型。</p>
 <p style="padding-left: 60px;">5. 可以透過 https://webots.cloud/competition 輕鬆舉辦機器人挑戰賽和程式設計競賽。</p>
 <h3>Webots_ref</h3>
+<p><a href="https://www.cyberbotics.com/doc/reference/node-chart?version=cyberbotics:R2023b">https://www.cyberbotics.com/doc/reference/node-chart?version=cyberbotics:R2023b</a> </p>
 <p><a href="https://www.youtube.com/watch?v=luyg3plGujg&amp;list=PLbEU0vp_OQkUwANRMUOM00SXybYQ4TXNF">Tutorial Video 1</a></p>
 <p><a href="https://www.youtube.com/watch?v=2CWHfbuEbAY&amp;list=PLt69C9MnPchlWEV5AEhfT2HajlE2SJ55V">Tutorial Video 2</a></p>
 <p><a href="https://robotics.stackexchange.com/search?q=webots">https://robotics.stackexchange.com/search?q=webots</a></p>
@@ -744,8 +746,20 @@ path=~~;%path_webots%;%path%;</pre>
 <p><a href="https://www.cyberbotics.com/doc/discord/technical-questions?version=master">https://www.cyberbotics.com/doc/discord/technical-questions?version=master</a></p>
 <p><a href="https://www.cyberbotics.com/doc/discord/development?version=master">https://www.cyberbotics.com/doc/discord/development?version=master</a></p>
 <p><a href="https://youtu.be/gyAVOrX_IMk?si=MZQ8uQg1Ns1UxdCb">https://youtu.be/gyAVOrX_IMk?si=MZQ8uQg1Ns1UxdCb</a></p>
-<p><a href="https://www.youtube.com/watch?v=bfsJFwryga4">https://www.youtube.com/watch?v=bfsJFwryga4</a></p>
-<h2>Solvespace</h2>
+<p><a href="https://www.youtube.com/watch?v=bfsJFwryga4">https://www.youtube.com/watch?v=bfsJFwryga4</a></p><h3>Webots_doc</h3>
+<p>Examples: <a href="https://courses.ideate.cmu.edu/16-375/f2024/text/simulations/index.html">https://courses.ideate.cmu.edu/16-375/f2024/text/simulations/index.html</a></p>
+<p style="padding-left: 30px;"><a href="/downloads/Webots_examples.7z">Webots_examples.7z</a></p>
+<p style="padding-left: 30px;"><a href="https://www.youtube.com/@roboticsforcreativepractic9459/videos">Video</a></p>
+<p><a href="https://www.cyberbotics.com/doc/guide/samples-howto">Samples</a></p>
+<p><a href="https://cyberbotics.com/doc/reference/group">Group</a></p>
+<p style="padding-left: 30px;"><a href="https://cyberbotics.com/doc/reference/pose">Pose</a> (translation and rotation)</p>
+<p style="padding-left: 30px;"><a href="https://cyberbotics.com/doc/reference/transform">Transform</a> (scale)</p>
+<p style="padding-left: 30px;"><a href="https://cyberbotics.com/doc/reference/shape">Shape</a></p>
+<p style="padding-left: 30px;"><a href="https://cyberbotics.com/doc/reference/cadshape">CadShape</a> (url of obj)</p>
+<p style="padding-left: 30px;"><a href="https://cyberbotics.com/doc/reference/solid">Solid</a></p>
+<p style="padding-left: 60px;"><a href="https://cyberbotics.com/doc/reference/robot">Robot</a> (controller, <a href="https://cyberbotics.com/doc/guide/controller-programming">controller programming</a>)</p>
+<p style="padding-left: 30px;"></p>
+<p></p><h2>Solvespace</h2>
 <p>Web-based Solvespace: <a href="https://cad.apps.dgramop.xyz/">https://cad.apps.dgramop.xyz/</a> (<a href="https://solvespace.com/forum.pl?action=viewthread&amp;parent=2369&amp;tt=1718121481">source</a> and <a href="https://github.com/solvespace/solvespace/pull/1275">PR</a>)</p>
 <p><a href="https://github.com/solvespace/solvespace/pull/493">Python related PR</a></p>
 <p>在 <a href="http://229.cycu.org/python_2025_lite.7z">python_2025_lite.7z</a><span> 加入以下說明的 msys2 與 cmake 後, 可用來編譯 Solvespace v3.1 版原始碼的可攜套件 <a href="http://229.cycu.org/python_2025_lite_w_msys_cmake_solvespace.7z">python_2025_lite_w_msys_cmake_solvespace.7z</a> (Download 1.96GB, After extracted 3.7GB)</span></p>
@@ -769,8 +783,7 @@ path=~~;%path_webots%;%path%;</pre>
 <p>cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release</p>
 <p>mingw32-make</p>
 <p>完成編譯後, solvespace.exe 即位於 build\bin 目錄中, 執行時則需要 libwinpthread-1.dll 動態連結程式庫.</p>
-<p>進行上述流程編譯的原始碼 <a href="http://229.cycu.org/solvespace_v3.1_src.7z">solvespace_v3.1_src.7z</a>, 以及編譯完成的 <a href="http://229.cycu.org/solvespace_v3.1_msys2.7z">solvespace_v3.1_msys2.7z</a>.</p>
-<h3>Learn_Solvs</h3>
+<p>進行上述流程編譯的原始碼 <a href="http://229.cycu.org/solvespace_v3.1_src.7z">solvespace_v3.1_src.7z</a>, 以及編譯完成的 <a href="http://229.cycu.org/solvespace_v3.1_msys2.7z">solvespace_v3.1_msys2.7z</a>.</p><h3>Learn_Solvs</h3>
 <p><a href="https://youtu.be/IlY1YFid8HA?si=bbryzq7P-Z_vR9Rc">https://youtu.be/IlY1YFid8HA?si=bbryzq7P-Z_vR9Rc</a></p>
 <p><a href="https://chromamine.com/2024/07/3d-cad-with-solvespace/">https://chromamine.com/2024/07/3d-cad-with-solvespace/</a></p>
 <p><a href="https://www.youtube.com/watch?v=xAqSddiK5MQ&amp;list=PLWNz5TggYhO1mMihPAIPvozJkNN828FaI">https://thenybble.de/posts/solvespace-mini-tutorial/ </a></p>
