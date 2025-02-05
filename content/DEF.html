@@ -69,6 +69,7 @@
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPowerShell.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushMojo.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushWbt.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
@@ -146,7 +147,62 @@ img.add_border {
 <p>Although it is permitted to name any node using the DEF keyword, there are some exceptions where USE nodes are not valid. A USE node is an exact copy of the corresponding DEF node, and thus no property of a USE node can change independently from the DEF node.</p>
 <p>For this reason it is not allowed to insert USE nodes of <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/solid">Solid</a>, <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/joint">Joint</a>, <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/jointparameters">JointParameters</a>, <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/trackwheel">TrackWheel</a>, and <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/balljointparameters">BallJointParameters</a> nodes and their derived nodes. Indeed, the ability for identical solids or joints to occupy the same position is useless, if not hazardous, in a physics simulation. To safely duplicate one of these nodes, you can design a <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/proto">PROTO</a> model for this node and then add different PROTO instances to your world.</p>
 <p>The same principle applies to <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/material">Material</a> and <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/light">Light</a> nodes located in the first child of <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/charger">Charger</a> and <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/led">LED</a> nodes whose emissive color changes automatically based on the <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/charger">Charger</a> energy and <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/led">LED</a> setup.</p>
-<p>Also the <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/texturetransform">TextureTransform</a> of the first <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/shape">Shape</a> in the <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/track">Track</a> device with enabled texture animation cannot be a USE node given that the translation values will be automatically updated by Webots while the <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/track">Track</a> device is moving.</p><br />fourbar << <a href='fourbar.html'>Previous</a> <a href='Reference.html'>Next</a> >> Reference</div>
+<p>Also the <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/texturetransform">TextureTransform</a> of the first <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/shape">Shape</a> in the <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/track">Track</a> device with enabled texture animation cannot be a USE node given that the translation values will be automatically updated by Webots while the <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/track">Track</a> device is moving.</p>
+<p>Forbar Linkage the first link:</p>
+<pre class="brush:wbt;auto-links:false;toolbar:false" contenteditable="false">#VRML_SIM R2023b utf8
+
+EXTERNPROTO "../protos/TexturedBackground.proto"
+EXTERNPROTO "../protos/TexturedBackgroundLight.proto"
+
+WorldInfo {
+  info [
+    "fourbar linkage"
+  ]
+}
+Viewpoint {
+  orientation -0.17524366601960317 0.20799757991102616 0.9623027924053665 1.7913508311753839
+  position 1.0571588458938594 -2.502126861220829 1.490364369030099
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DEF FOURBAR Robot {
+  children [
+    DEF BASE Solid {
+      children [
+        CadShape {
+          url [
+            "../split_parts/base.obj"
+          ]
+        }
+      ]
+      name "BASE"
+    }
+    DEF JOINT1 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+      }
+      device [
+        RotationalMotor {
+          name "joint_motor1"
+        }
+      ]
+      endPoint DEF LINK1 Solid {
+        children [
+          CadShape {
+            url [
+              "../split_parts/link1.obj"
+            ]
+          }
+        ]
+        name "LINK1"
+      }
+    }
+  ]
+}
+</pre>
+<p></p><br />fourbar << <a href='fourbar.html'>Previous</a> <a href='Reference.html'>Next</a> >> Reference</div>
         
     <!-- footer -->
       <div class="container">
