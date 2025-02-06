@@ -1,0 +1,160 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "../protos/TexturedBackground.proto"
+EXTERNPROTO "../protos/TexturedBackgroundLight.proto"
+
+WorldInfo {
+  info [
+    "fourbar linkage mechanism"
+  ]
+}
+Viewpoint {
+  orientation -0.4975769539784069 0.5341062674660296 0.683482018726957 1.9987429693479375
+  position 0.5777519356626547 -0.34125651873021023 3.5574117263147897
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Robot {
+  children [
+    DEF BASE Solid {
+      translation 0.5 0 0.5 #可以這樣說明?
+      children [
+        DEF BASE Shape {
+          appearance PBRAppearance {
+            baseColor 0.8 0.8 0.8
+            roughness 1
+            metalness 0
+          }
+          geometry Box {
+            size 1 0.1 0.1
+          }
+        }
+      ]
+      name "base"
+      boundingObject USE BASE
+      physics Physics {
+      }
+    }
+    DEF JOINT1 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+      }
+      device [
+        RotationalMotor {
+          name "motor"
+          maxVelocity 1
+          maxTorque 100
+        }
+        PositionSensor {
+          name "motor_sensor"
+        }
+      ]
+      endPoint DEF LINK1 Solid {
+        translation 0 0 0.5
+        rotation 0 0 1 1.5708
+        children [
+          Pose {
+            translation 0.2 0 0
+            children [
+              DEF LINK1_SHAPE Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.4 0.1 0.1
+                }
+              }
+            ]
+          }
+          DEF JOINT2 HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0 0 1
+              anchor 0.4 0 0
+            }
+            endPoint DEF LINK2 Solid {
+              translation 0.4 0 0
+              rotation 0 0 -1 0.9630726812504711
+              children [
+                Pose {
+                  translation 0.3 0 0
+                  children [
+                    DEF LINK2_SHAPE Shape {
+                      appearance PBRAppearance {
+                        baseColor 0 1 0
+                        roughness 1
+                        metalness 0
+                      }
+                      geometry Box {
+                        size 0.6 0.1 0.1
+                      }
+                    }
+                  ]
+                }
+                DEF JOINT3 HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0 0 1
+                    anchor 0.6 0 0
+                  }
+                  endPoint DEF LINK3 Solid {
+                    translation 0.6 0 0
+                    rotation 0 0 -1 1.579522973054868
+                    children [
+                      Pose {
+                        translation 0.4 0 0
+                        children [
+                          DEF LINK3_SHAPE Shape {
+                            appearance PBRAppearance {
+                              baseColor 0 0 1
+                              roughness 1
+                              metalness 0
+                            }
+                            geometry Box {
+                              size 0.9 0.1 0.1
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                    name "link3"
+                    boundingObject USE LINK3_SHAPE
+                    physics Physics {
+                      density -1
+                      mass 0.1
+                    }
+                  }
+                }
+              ]
+              name "link2"
+              boundingObject USE LINK2_SHAPE
+              physics Physics {
+                density -1
+                mass 0.1
+              }
+            }
+          }
+        ]
+        name "link1"
+        boundingObject USE LINK1_SHAPE
+        physics Physics {
+          density -1
+          mass 0.1
+        }
+      }
+    }
+    DEF JOINT4 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+        anchor 1 0 0
+      }
+      endPoint SolidReference {
+        solidName "link3"
+      }
+    }
+  ]
+  name "four_bar_linkage"
+  controller "fourbar_controller"
+}

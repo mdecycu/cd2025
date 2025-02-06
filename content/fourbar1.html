@@ -131,7 +131,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li class='has-children'><a href='Summary.html'>Summary</a><ul class='dropdown'><li><a href='Product.html'>Product</a><li><a href='Control.html'>Control</a><li><a href='CPS.html'>CPS</a></li></ul><li><a href='AI.html'>AI</a><li><a href='SciTE.html'>SciTE</a><li><a href='Replit.html'>Replit</a></li></ul><li class='has-children'><a href='Projects.html'>Projects</a><ul class='dropdown'><li><a href='Topics.html'>Topics</a><li class='has-children'><a href='Arduino.html'>Arduino</a><ul class='dropdown'><li><a href='Arduino_prog.html'>Arduino_prog</a></li></ul><li><a href='3D_Printer.html'>3D_Printer</a></li></ul><li class='has-children'><a href='Homework.html'>Homework</a><ul class='dropdown'><li><a href='HW1.html'>HW1</a><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='Tutorial_1.html'>Tutorial_1</a><li><a href='CadShape.html'>CadShape</a><li><a href='Using_C.html'>Using_C</a><li><a href='Closed_loop.html'>Closed_loop</a><li><a href='Web_server.html'>Web_server</a></li></ul><li><a href='HW3.html'>HW3</a></li></ul><li class='has-children'><a href='Tutorial.html'>Tutorial</a><ul class='dropdown'><li><a href='onelink.html'>onelink</a><li><a href='fourbar.html'>fourbar</a><li><a href='DEF.html'>DEF</a></li></ul><li class='has-children'><a href='Reference.html'>Reference</a><ul class='dropdown'><li class='has-children'><a href='Webots.html'>Webots</a><ul class='dropdown'><li><a href='Webots_ref.html'>Webots_ref</a><li><a href='Webots_doc.html'>Webots_doc</a></li></ul><li class='has-children'><a href='Solvespace.html'>Solvespace</a><ul class='dropdown'><li><a href='Learn_Solvs.html'>Learn_Solvs</a></li></ul><li><a href='Pyslvs-UI.html'>Pyslvs-UI</a><li><a href='PICSimLab.html'>PICSimLab</a><li><a href='Fossil SCM.html'>Fossil SCM</a><li><a href='Leo Editor.html'>Leo Editor</a><li><a href='Old.html'>Old</a></li></ul><li><a href='Brython.html'>Brython</a></li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li class='has-children'><a href='Summary.html'>Summary</a><ul class='dropdown'><li><a href='Product.html'>Product</a><li><a href='Control.html'>Control</a><li><a href='CPS.html'>CPS</a></li></ul><li><a href='AI.html'>AI</a><li><a href='SciTE.html'>SciTE</a><li><a href='Replit.html'>Replit</a></li></ul><li class='has-children'><a href='Projects.html'>Projects</a><ul class='dropdown'><li><a href='Topics.html'>Topics</a><li class='has-children'><a href='Arduino.html'>Arduino</a><ul class='dropdown'><li><a href='Arduino_prog.html'>Arduino_prog</a></li></ul><li><a href='3D_Printer.html'>3D_Printer</a></li></ul><li class='has-children'><a href='Homework.html'>Homework</a><ul class='dropdown'><li><a href='HW1.html'>HW1</a><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='Tutorial_1.html'>Tutorial_1</a><li><a href='CadShape.html'>CadShape</a><li><a href='Using_C.html'>Using_C</a><li><a href='Closed_loop.html'>Closed_loop</a><li><a href='Web_server.html'>Web_server</a></li></ul><li><a href='HW3.html'>HW3</a></li></ul><li class='has-children'><a href='Tutorial.html'>Tutorial</a><ul class='dropdown'><li><a href='onelink.html'>onelink</a><li><a href='fourbar1.html'>fourbar1</a><li><a href='fourbar2.html'>fourbar2</a><li><a href='DEF.html'>DEF</a></li></ul><li class='has-children'><a href='Reference.html'>Reference</a><ul class='dropdown'><li class='has-children'><a href='Webots.html'>Webots</a><ul class='dropdown'><li><a href='Webots_ref.html'>Webots_ref</a><li><a href='Webots_doc.html'>Webots_doc</a></li></ul><li class='has-children'><a href='Solvespace.html'>Solvespace</a><ul class='dropdown'><li><a href='Learn_Solvs.html'>Learn_Solvs</a></li></ul><li><a href='Pyslvs-UI.html'>Pyslvs-UI</a><li><a href='PICSimLab.html'>PICSimLab</a><li><a href='Fossil SCM.html'>Fossil SCM</a><li><a href='Leo Editor.html'>Leo Editor</a><li><a href='Old.html'>Old</a></li></ul><li><a href='Brython.html'>Brython</a></li>
                       </ul>
                 </nav>
               </div>
@@ -142,81 +142,24 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">onelink << <a href='onelink.html'>Previous</a> <a href='DEF.html'>Next</a> >> DEF<br /><h1>fourbar</h1>
-<p>Webots 中平面四連桿機構的設置方式：</p>
-<p>四連桿結構應該是：</p>
-<ol>
-<li>
-<p><strong>第一條運動鏈</strong>：</p>
-<ul>
-<li>從 BASE 出發的 JOINT1</li>
-<li>JOINT1 連接 LINK1</li>
-<li>LINK1 上的 JOINT2 連接 LINK2</li>
-<li>LINK2 上的 JOINT3 連接 LINK3</li>
-</ul>
-</li>
-<li>
-<p><strong>第二條運動鏈（closed chain）</strong>：</p>
-<ul>
-<li>從 BASE 出發的 JOINT4</li>
-<li>JOINT4 的 endPoint 設為 SolidReference</li>
-<li>SolidReference 的 solidName 設為 "LINK3"</li>
-</ul>
-</li>
-</ol>
-<p>這樣的結構是正確的，因為：</p>
-<ol>
-<li>主要運動鏈（JOINT1 → LINK1 → LINK2 → LINK3）形成一個序列結構</li>
-<li>閉鎖鏈（JOINT4 → LINK3）通過 SolidReference 連接回主鏈的末端</li>
-<li>這樣可以形成一個完整的閉環運動結構</li>
-</ol>
-<p>基本結構示意：</p>
-<p>BASE<br/>├── JOINT1 → LINK1 → JOINT2 → LINK2 → JOINT3 → LINK3<br/>└── JOINT4 ------(SolidReference: "LINK3")--------┘</p>
-<p>PROTO 結構：</p>
-<pre class="brush:wbt;auto-links:false;toolbar:false" contenteditable="false">Robot {
-  children [
-    BASE {
-      ...
-    }
-    HingeJoint {  # JOINT1
-      endPoint Solid {  # LINK1
-        children [
-          ...
-          HingeJoint {  # JOINT2
-            endPoint Solid {  # LINK2
-              children [
-                ...
-                HingeJoint {  # JOINT3
-                  endPoint Solid {  # LINK3
-                    ...
-                  }
-                }
-              ]
-            }
-          }
-        ]
-      }
-    }
-    HingeJoint {  # JOINT4
-      endPoint SolidReference {
-        solidName "LINK3"
-      }
-    }
-  ]
-}</pre>
-<p>上列設置確保：</p>
-<ol>
-<li>機構能夠正確形成閉環</li>
-<li>運動學約束能夠正確傳遞</li>
-<li>物理模擬能夠正常進行</li>
-</ol>
-<p>此外，為了使機構運作正常，還需要：</p>
-<ol>
-<li>正確設置各個 joint 的旋轉軸（axis）</li>
-<li>準確定義各個 joint 的錨點（anchor）</li>
-<li>確保所有連桿的物理屬性正確設置</li>
-</ol>
-<p><a href="./../downloads/fourbar_slvs.7z">fourbar_slvs.7z</a></p><br />onelink << <a href='onelink.html'>Previous</a> <a href='DEF.html'>Next</a> >> DEF</div>
+    <div id="tipue_search_content">onelink << <a href='onelink.html'>Previous</a> <a href='fourbar2.html'>Next</a> >> fourbar2<br /><h1>fourbar1</h1>
+<p>以下利用 box 建立 Webots 平面四連桿場景:</p>
+<p>層次結構：</p>
+<p style="padding-left: 30px;">Robot → BASE</p>
+<p style="padding-left: 30px;">Robot → JOINT1 → LINK1 → JOINT2 → LINK2 → JOINT3 → LINK3</p>
+<p style="padding-left: 30px;">Robot → JOINT4 (closed chain 約束)</p>
+<p>幾何關係：</p>
+<p style="padding-left: 30px;">所有關節都繞 z 軸旋轉</p>
+<p style="padding-left: 30px;">連桿長度分別為 0.4m、0.6m、0.9m</p>
+<p style="padding-left: 30px;">基座長度為 1m</p>
+<p>物理特性：</p>
+<p style="padding-left: 30px;">所有連桿質量為 0.1kg</p>
+<p style="padding-left: 30px;">使用密度為 -1 表示質量優先於密度</p>
+<p style="padding-left: 30px;">馬達最大速度 1rad/s，最大扭矩 100N⋅m</p>
+<p>控制系統：</p>
+<p style="padding-left: 30px;">使用 "fourbar_controller" 控制器</p>
+<p style="padding-left: 30px;">包含位置感測器和馬達裝置</p>
+<p><a href="./../downloads/fourbar_box.7z">fourbar_box.7z</a></p><br />onelink << <a href='onelink.html'>Previous</a> <a href='fourbar2.html'>Next</a> >> fourbar2</div>
         
     <!-- footer -->
       <div class="container">

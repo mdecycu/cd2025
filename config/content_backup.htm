@@ -661,7 +661,221 @@ while robot.step(TIME_STEP) != -1:
 <p style="padding-left: 30px;">onelink_w_hinge.wbt 直接在場景樹狀結構中定義 Solid (可用於較簡單的零組件系統)</p>
 <p style="padding-left: 30px;">onelink_w_hinge2.wbt 則將各零件以 PROTO 定義為原型節點, 之後在場景中導入後引用 (適合較複雜的零組件系統)</p>
 <p></p>
-<h2>fourbar</h2>
+<h2>fourbar1</h2>
+<p>以下利用 box 建立 Webots 平面四連桿場景:</p>
+<p>層次結構：</p>
+<p style="padding-left: 30px;">Robot → BASE</p>
+<p style="padding-left: 30px;">Robot → JOINT1 → LINK1 → JOINT2 → LINK2 → JOINT3 → LINK3</p>
+<p style="padding-left: 30px;">Robot → JOINT4 (closed chain 約束)</p>
+<p>幾何關係：</p>
+<p style="padding-left: 30px;">所有關節都繞 z 軸旋轉</p>
+<p style="padding-left: 30px;">連桿長度分別為 0.4m、0.6m、0.9m</p>
+<p style="padding-left: 30px;">基座長度為 1m</p>
+<p>物理特性：</p>
+<p style="padding-left: 30px;">所有連桿質量為 0.1kg</p>
+<p style="padding-left: 30px;">使用密度為 -1 表示質量優先於密度</p>
+<p style="padding-left: 30px;">馬達最大速度 1rad/s，最大扭矩 100N⋅m</p>
+<p>控制系統：</p>
+<p style="padding-left: 30px;">使用 "fourbar_controller" 控制器</p>
+<p style="padding-left: 30px;">包含位置感測器和馬達裝置</p>
+<pre class="brush:wbt;auto-links:false;toolbar:false" contenteditable="false">#VRML_SIM R2023b utf8
+
+# 導入外部原型定義
+EXTERNPROTO "../protos/TexturedBackground.proto"
+EXTERNPROTO "../protos/TexturedBackgroundLight.proto"
+
+# 場景資訊設定
+WorldInfo {
+  info [
+    "fourbar linkage mechanism"
+    "Created by: mdecycu"
+    "Date: 2025-02-06 14:52:38 UTC"
+  ]
+}
+
+# 攝影機視角設定
+Viewpoint {
+  # 使用四元數定義攝影機方向
+  orientation -0.4975769539784069 0.5341062674660296 0.683482018726957 1.9987429693479375
+  # 攝影機位置 (x, y, z)
+  position 0.5777519356626547 -0.34125651873021023 3.5574117263147897
+}
+
+# 場景背景設定
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+
+# 主要機器人節點
+Robot {
+  children [
+    # 基座定義
+    DEF BASE Solid {
+      # 基座位置，x=0.5 置中，z=0.5 抬高
+      translation 0.5 0 0.5
+      children [
+        # 基座形狀定義
+        DEF BASE Shape {
+          # 基座外觀：使用 PBR 材質
+          appearance PBRAppearance {
+            baseColor 0.8 0.8 0.8  # 灰色
+            roughness 1
+            metalness 0
+          }
+          # 基座幾何形狀：1m 長，0.1m 寬高的長方體
+          geometry Box {
+            size 1 0.1 0.1
+          }
+        }
+      ]
+      name "base"
+      boundingObject USE BASE
+      physics Physics {
+      }
+    }
+
+    # 第一個鉸鏈關節（驅動關節）
+    DEF JOINT1 HingeJoint {
+      # 關節參數設定
+      jointParameters HingeJointParameters {
+        axis 0 0 1  # 繞 z 軸旋轉
+      }
+      # 關節裝置：馬達和感測器
+      device [
+        # 馬達設定
+        RotationalMotor {
+          name "motor"
+          maxVelocity 1    # 最大速度 1 rad/s
+          maxTorque 100    # 最大扭矩 100 N⋅m
+        }
+        # 位置感測器
+        PositionSensor {
+          name "motor_sensor"
+        }
+      ]
+      # 連接的第一根連桿（紅色）
+      endPoint DEF LINK1 Solid {
+        translation 0 0 0.5
+        rotation 0 0 1 1.5708  # 90度，垂直向上
+        children [
+          # 連桿1的位置和形狀
+          Pose {
+            translation 0.2 0 0  # 移到連桿中心
+            children [
+              # 連桿1形狀定義
+              DEF LINK1_SHAPE Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0 0  # 紅色
+                  roughness 1
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.4 0.1 0.1  # 長 0.4m
+                }
+              }
+            ]
+          }
+          # 第二個關節
+          DEF JOINT2 HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0 0 1
+              anchor 0.4 0 0  # 位於連桿1末端
+            }
+            # 連接的第二根連桿（綠色）
+            endPoint DEF LINK2 Solid {
+              translation 0.4 0 0
+              rotation 0 0 -1 0.9630726812504711  # 初始角度
+              children [
+                # 連桿2的位置和形狀
+                Pose {
+                  translation 0.3 0 0
+                  children [
+                    # 連桿2形狀定義
+                    DEF LINK2_SHAPE Shape {
+                      appearance PBRAppearance {
+                        baseColor 0 1 0  # 綠色
+                        roughness 1
+                        metalness 0
+                      }
+                      geometry Box {
+                        size 0.6 0.1 0.1  # 長 0.6m
+                      }
+                    }
+                  ]
+                }
+                # 第三個關節
+                DEF JOINT3 HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0 0 1
+                    anchor 0.6 0 0  # 位於連桿2末端
+                  }
+                  # 連接的第三根連桿（藍色）
+                  endPoint DEF LINK3 Solid {
+                    translation 0.6 0 0
+                    rotation 0 0 -1 1.579522973054868  # 初始角度
+                    children [
+                      # 連桿3的位置和形狀
+                      Pose {
+                        translation 0.4 0 0
+                        children [
+                          # 連桿3形狀定義
+                          DEF LINK3_SHAPE Shape {
+                            appearance PBRAppearance {
+                              baseColor 0 0 1  # 藍色
+                              roughness 1
+                              metalness 0
+                            }
+                            geometry Box {
+                              size 0.9 0.1 0.1  # 長 0.9m
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                    name "link3"
+                    boundingObject USE LINK3_SHAPE
+                    physics Physics {
+                      density -1
+                      mass 0.1
+                    }
+                  }
+                }
+              ]
+              name "link2"
+              boundingObject USE LINK2_SHAPE
+              physics Physics {
+                density -1
+                mass 0.1
+              }
+            }
+          }
+        ]
+        name "link1"
+        boundingObject USE LINK1_SHAPE
+        physics Physics {
+          density -1
+          mass 0.1
+        }
+      }
+    }
+
+    # 第四個關節（closed chain 約束）
+    DEF JOINT4 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+        anchor 1 0 0  # 位於基座右端
+      }
+      # 連接回第三根連桿
+      endPoint SolidReference {
+        solidName "link3"
+      }
+    }
+  ]
+  name "four_bar_linkage"
+  controller "fourbar_controller"
+}</pre>
+<p><a href="/downloads/fourbar_box.7z">fourbar_box.7z</a></p><h2>fourbar2</h2>
 <p>Webots 中平面四連桿機構的設置方式：</p>
 <p>四連桿結構應該是：</p>
 <ol>
@@ -735,7 +949,6 @@ while robot.step(TIME_STEP) != -1:
 <li>準確定義各個 joint 的錨點（anchor）</li>
 <li>確保所有連桿的物理屬性正確設置</li>
 </ol>
-<p><a href="/downloads/fourbar_slvs.7z">fourbar_slvs.7z</a></p>
 <p><a href="/downloads/fourbar_slvs.7z">fourbar_slvs.7z</a></p><h2>DEF</h2>
 <p><a href="https://cyberbotics.com/doc/reference/def-and-use">https://cyberbotics.com/doc/reference/def-and-use</a></p>
 <p>Although it is permitted to name any node using the DEF keyword, there are some exceptions where USE nodes are not valid. A USE node is an exact copy of the corresponding DEF node, and thus no property of a USE node can change independently from the DEF node.</p>

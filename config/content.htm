@@ -661,7 +661,24 @@ while robot.step(TIME_STEP) != -1:
 <p style="padding-left: 30px;">onelink_w_hinge.wbt 直接在場景樹狀結構中定義 Solid (可用於較簡單的零組件系統)</p>
 <p style="padding-left: 30px;">onelink_w_hinge2.wbt 則將各零件以 PROTO 定義為原型節點, 之後在場景中導入後引用 (適合較複雜的零組件系統)</p>
 <p></p>
-<h2>fourbar</h2>
+<h2>fourbar1</h2>
+<p>以下利用 box 建立 Webots 平面四連桿場景:</p>
+<p>層次結構：</p>
+<p style="padding-left: 30px;">Robot → BASE</p>
+<p style="padding-left: 30px;">Robot → JOINT1 → LINK1 → JOINT2 → LINK2 → JOINT3 → LINK3</p>
+<p style="padding-left: 30px;">Robot → JOINT4 (closed chain 約束)</p>
+<p>幾何關係：</p>
+<p style="padding-left: 30px;">所有關節都繞 z 軸旋轉</p>
+<p style="padding-left: 30px;">連桿長度分別為 0.4m、0.6m、0.9m</p>
+<p style="padding-left: 30px;">基座長度為 1m</p>
+<p>物理特性：</p>
+<p style="padding-left: 30px;">所有連桿質量為 0.1kg</p>
+<p style="padding-left: 30px;">使用密度為 -1 表示質量優先於密度</p>
+<p style="padding-left: 30px;">馬達最大速度 1rad/s，最大扭矩 100N⋅m</p>
+<p>控制系統：</p>
+<p style="padding-left: 30px;">使用 "fourbar_controller" 控制器</p>
+<p style="padding-left: 30px;">包含位置感測器和馬達裝置</p>
+<p><a href="/downloads/fourbar_box.7z">fourbar_box.7z</a></p><h2>fourbar2</h2>
 <p>Webots 中平面四連桿機構的設置方式：</p>
 <p>四連桿結構應該是：</p>
 <ol>
