@@ -662,8 +662,80 @@ while robot.step(TIME_STEP) != -1:
 <p style="padding-left: 30px;">onelink_w_hinge2.wbt 則將各零件以 PROTO 定義為原型節點, 之後在場景中導入後引用 (適合較複雜的零組件系統)</p>
 <p></p>
 <h2>fourbar</h2>
-<p><a href="/downloads/fourbar_slvs.7z">fourbar_slvs.7z</a></p>
-<h2>DEF</h2>
+<p>Webots 中平面四連桿機構的設置方式：</p>
+<p>四連桿結構應該是：</p>
+<ol>
+<li>
+<p><strong>第一條運動鏈</strong>：</p>
+<ul>
+<li>從 BASE 出發的 JOINT1</li>
+<li>JOINT1 連接 LINK1</li>
+<li>LINK1 上的 JOINT2 連接 LINK2</li>
+<li>LINK2 上的 JOINT3 連接 LINK3</li>
+</ul>
+</li>
+<li>
+<p><strong>第二條運動鏈（closed chain）</strong>：</p>
+<ul>
+<li>從 BASE 出發的 JOINT4</li>
+<li>JOINT4 的 endPoint 設為 SolidReference</li>
+<li>SolidReference 的 solidName 設為 "LINK3"</li>
+</ul>
+</li>
+</ol>
+<p>這樣的結構是正確的，因為：</p>
+<ol>
+<li>主要運動鏈（JOINT1 → LINK1 → LINK2 → LINK3）形成一個序列結構</li>
+<li>閉鎖鏈（JOINT4 → LINK3）通過 SolidReference 連接回主鏈的末端</li>
+<li>這樣可以形成一個完整的閉環運動結構</li>
+</ol>
+<p>基本結構示意：</p>
+<p>BASE<br/>├── JOINT1 → LINK1 → JOINT2 → LINK2 → JOINT3 → LINK3<br/>└── JOINT4 ------(SolidReference: "LINK3")--------┘</p>
+<p>PROTO 結構：</p>
+<pre class="brush:wbt;auto-links:false;toolbar:false" contenteditable="false">Robot {
+  children [
+    BASE {
+      ...
+    }
+    HingeJoint {  # JOINT1
+      endPoint Solid {  # LINK1
+        children [
+          ...
+          HingeJoint {  # JOINT2
+            endPoint Solid {  # LINK2
+              children [
+                ...
+                HingeJoint {  # JOINT3
+                  endPoint Solid {  # LINK3
+                    ...
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+    HingeJoint {  # JOINT4
+      endPoint SolidReference {
+        solidName "LINK3"
+      }
+    }
+  ]
+}</pre>
+<p>上列設置確保：</p>
+<ol>
+<li>機構能夠正確形成閉環</li>
+<li>運動學約束能夠正確傳遞</li>
+<li>物理模擬能夠正常進行</li>
+</ol>
+<p>此外，為了使機構運作正常，還需要：</p>
+<ol>
+<li>正確設置各個 joint 的旋轉軸（axis）</li>
+<li>準確定義各個 joint 的錨點（anchor）</li>
+<li>確保所有連桿的物理屬性正確設置</li>
+</ol>
+<p><a href="/downloads/fourbar_slvs.7z">fourbar_slvs.7z</a></p><h2>DEF</h2>
 <p><a href="https://cyberbotics.com/doc/reference/def-and-use">https://cyberbotics.com/doc/reference/def-and-use</a></p>
 <p>Although it is permitted to name any node using the DEF keyword, there are some exceptions where USE nodes are not valid. A USE node is an exact copy of the corresponding DEF node, and thus no property of a USE node can change independently from the DEF node.</p>
 <p>For this reason it is not allowed to insert USE nodes of <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/solid">Solid</a>, <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/joint">Joint</a>, <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/jointparameters">JointParameters</a>, <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/trackwheel">TrackWheel</a>, and <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/balljointparameters">BallJointParameters</a> nodes and their derived nodes. Indeed, the ability for identical solids or joints to occupy the same position is useless, if not hazardous, in a physics simulation. To safely duplicate one of these nodes, you can design a <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/proto">PROTO</a> model for this node and then add different PROTO instances to your world.</p>
@@ -723,7 +795,80 @@ DEF FOURBAR Robot {
   ]
 }
 </pre>
-<p></p><h1>Reference</h1>
+<p>Webots 中平面四連桿機構的設置方式：</p>
+<p>四連桿結構應該是：</p>
+<ol>
+<li>
+<p><strong>第一條運動鏈</strong>：</p>
+<ul>
+<li>從 BASE 出發的 JOINT1</li>
+<li>JOINT1 連接 LINK1</li>
+<li>LINK1 上的 JOINT2 連接 LINK2</li>
+<li>LINK2 上的 JOINT3 連接 LINK3</li>
+</ul>
+</li>
+<li>
+<p><strong>第二條運動鏈（closed chain）</strong>：</p>
+<ul>
+<li>從 BASE 出發的 JOINT4</li>
+<li>JOINT4 的 endPoint 設為 SolidReference</li>
+<li>SolidReference 的 solidName 設為 "LINK3"</li>
+</ul>
+</li>
+</ol>
+<p>這樣的結構是正確的，因為：</p>
+<ol>
+<li>主要運動鏈（JOINT1 → LINK1 → LINK2 → LINK3）形成一個序列結構</li>
+<li>閉鎖鏈（JOINT4 → LINK3）通過 SolidReference 連接回主鏈的末端</li>
+<li>這樣可以形成一個完整的閉環運動結構</li>
+</ol>
+<p>基本結構示意：</p>
+<p>BASE<br/>├── JOINT1 → LINK1 → JOINT2 → LINK2 → JOINT3 → LINK3<br/>└── JOINT4 ------(SolidReference: "LINK3")--------┘</p>
+<p>PROTO 結構：</p>
+<pre class="brush:wbt;auto-links:false;toolbar:false" contenteditable="false">Robot {
+  children [
+    BASE {
+      ...
+    }
+    HingeJoint {  # JOINT1
+      endPoint Solid {  # LINK1
+        children [
+          ...
+          HingeJoint {  # JOINT2
+            endPoint Solid {  # LINK2
+              children [
+                ...
+                HingeJoint {  # JOINT3
+                  endPoint Solid {  # LINK3
+                    ...
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+    HingeJoint {  # JOINT4
+      endPoint SolidReference {
+        solidName "LINK3"
+      }
+    }
+  ]
+}</pre>
+<p>上列設置確保：</p>
+<ol>
+<li>機構能夠正確形成閉環</li>
+<li>運動學約束能夠正確傳遞</li>
+<li>物理模擬能夠正常進行</li>
+</ol>
+<p>此外，為了使機構運作正常，還需要：</p>
+<ol>
+<li>正確設置各個 joint 的旋轉軸（axis）</li>
+<li>準確定義各個 joint 的錨點（anchor）</li>
+<li>確保所有連桿的物理屬性正確設置</li>
+</ol>
+<p><a href="/downloads/fourbar_slvs.7z">fourbar_slvs.7z</a></p><h1>Reference</h1>
 <p>Collaborative Design Projects (協同設計專案)</p>
 <h2>Webots</h2>
 <p><a href="https://mde.tw/content/Webots%20Doc.html">https://mde.tw/content/Webots%20Doc.html</a></p>
