@@ -104,6 +104,8 @@ DEF planar_fourbar_linkage Robot {
                       }
                     ]
                     name "link3"
+                    physics Physics {
+                    }
                   }
                 }
               ]
