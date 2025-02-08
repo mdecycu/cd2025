@@ -157,7 +157,8 @@ img.add_border {
 <p><img alt="" height="200" src="./../images/webots_robot_coord.png" width="400"/></p>
 <p>上列做法在一開始就先移動 base 物件, 讓隨後的 Joint1 定位中心可直接位於 base 左端. 若 base 物件不希望移動 (當 base 連桿與其他機構有特定對應位置時), 則隨後的 Joint1 就必須以 base 物件的中心點座標為基準, 然後在此基準建立 link1 物件之後, 先將 link1 移動至 base 最左端後旋轉 90 度, 這時的 x 軸將向上為正, 只要再沿著 x 軸移動 link1 長度的一半, 就可以完成 link1 的定位.</p>
 <p>至於採用此方法的 Joint1 參考座標原點是位於 base 的中心點, 因此 link1 以 Joint1 旋轉的 anchor 中心點座標必須設為 -0.5 0 0.</p>
-<p>之後的 link2 與 Joint2 的相關設置, 也可以採用先移動物件中心再旋轉至該連桿的起始方位後, 再對機構進行 x 軸方向的移動, 且對應旋轉的 Joint2 anchor 也必須配合設置當下的連桿參考座標系統.</p><br />fourbar1 << <a href='fourbar1.html'>Previous</a> <a href='fourbar2.html'>Next</a> >> fourbar2</div>
+<p>之後的 link2 與 Joint2 的相關設置, 也可以採用先移動物件中心再旋轉至該連桿的起始方位後, 再對機構進行 x 軸方向的移動, 且對應旋轉的 Joint2 anchor 也必須配合設置當下的連桿參考座標系統.</p>
+<br />fourbar1 << <a href='fourbar1.html'>Previous</a> <a href='fourbar2.html'>Next</a> >> fourbar2</div>
         
     <!-- footer -->
       <div class="container">

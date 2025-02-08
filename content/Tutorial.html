@@ -170,16 +170,13 @@ img.add_border {
 <p>導引目的: You will create your first simulation containing a simple environment: an arena with floor and walls, a few boxes, an e-puck robot and a controller program that will make the robot move.</p>
 <p>建立一個簡單的模擬環境, 意即一個競技場中, 包括一個帶有地板、圍牆、幾個盒子、一個 e-puck 機器人, 以及能讓機器人移動的控制程式.</p>
 <p><img alt="" height="310" src="./../images/tutorial_e-puck.thumbnail.jpg" width="400"/></p>
-<p>開啟 Webots 前, 請下載以下兩者之一:</p>
-<p style="padding-left: 30px;"><a href="http://229.cycu.org/Webots_2023b.7z">Webots_2023b.7z</a> (168 MB, 解該後約 900 MB, 部分 Proto 原型節點取用官方網路檔案)</p>
-<p style="padding-left: 30px;"><a href="http://229.cycu.org/Webots_2023b_for_cd2025.7z">Webots_2023b_for_cd2025.7z</a> (900 MB, 解開後約 2 GB, 能使用可攜系統中的 Proto 原型節點)</p>
-<p>上列第一個 Webots 套件是官方釋出的版本, 其中使用官方網站上的許多原型節點, 因此<span style="background-color: #ccffcc;">使用時必須全時上網</span>, 而第二個 Webots 系統則是預先將官方放在 <a href="https://github.com/cyberbotics/webots">https://github.com/cyberbotics/webots</a> 中的所有原型節點資料下載後製成, <span style="background-color: #ccffcc;">使用時無需上網</span>.</p>
+<p>開啟 Webots 前, 請下載 <a href="http://229.cycu.org/Webots_2025a.7z">Webots_2025a.7z</a> (1.5 GB, 解開後約為 2.9GB).</p>
 <p>有關 Webots 在 Windows 操作系統啟動, 請參考<a href="https://cyberbotics.com/doc/guide/starting-webots#windows">說明</a>. 有關 Web streaming 也請參考<a href="https://cyberbotics.com/doc/guide/web-streaming">說明</a>.</p>
-<p>Webots 的可執行檔案位於 Y:\Webots_2023b\msys64\mingw64\bin\Webotsw.exe, 當與 <a href="http://229.cycu.org/python_2025_lite.7z">python_2025_lite.7z</a> 配置時, 若希望在不上網的情況下執行官方範例, 則必須再預先下載 <a href="https://github.com/cyberbotics/webots/releases/tag/R2023b">https://github.com/cyberbotics/webots/releases/tag/R2023b</a> 中的 <a class="Truncate" data-turbo="false" data-view-component="true" href="https://github.com/cyberbotics/webots/releases/download/R2023b/assets-R2023b.zip" rel="nofollow"> <span class="Truncate-text text-bold" data-view-component="true">assets-R2023b.zip</span></a>, 存入 Y:\home_ipv6\AppData\Local\Cyberbotics\Webots\cache\assets 目錄, 否則啟動官方範例時, 必須從官方網站下載各範例中所導入的原型節點資料.</p>
+<p>Webots 的可執行檔案位於 Y:\Webots_2025a\msys64\mingw64\bin\Webotsw.exe, 當與 <a href="http://229.cycu.org/python_2025_lite.7z">python_2025_lite.7z</a> 配置時, 若希望在不上網的情況下執行官方範例, 則必須再預先下載 <a href="https://github.com/cyberbotics/webots/releases/tag/R2025a">https://github.com/cyberbotics/webots/releases/tag/R2025a</a> 中的 <a href="https://github.com/cyberbotics/webots/releases/download/R2025a/assets-R2025a.zip">assets-2025a.zip</a>, 存入 Y:\home_ipv6\AppData\Local\Cyberbotics\Webots\cache\assets 目錄, 否則啟動官方範例時, 必須從官方網站下載各範例中所導入的原型節點資料.</p>
 <p>若 Webotsw.exe 並非是在可攜程式的環境中啟動, 則 Webots 啟動後所下載的原型節點資料, 將會存入操作系統中的 C:\Users\%USERNAME%\AppData\Local\Cyberbotics\Webots\cache\assets 目錄中.</p>
 <p>在可攜程式環境中啟動 Webots 的設定:</p>
 <p style="padding-left: 30px;">start_ipv6.bat 中納入:</p>
-<p style="padding-left: 30px;">REM for webots<br/>set  path_webots=%Disk%:\Webots_2023b\msys64\mingw64\bin;%Disk%:\Webots_2023b\msys64\usr\bin</p>
+<p style="padding-left: 30px;">REM for webots<br/>set  path_webots=%Disk%:\Webots_2025a\msys64\mingw64\bin;%Disk%:\Webots_2025a\msys64\usr\bin</p>
 <p style="padding-left: 30px;">並將 %path_webots% 放入 PATH 環境變數設定中.</p>
 <p style="padding-left: 30px;">若希望在執行 start_ipv6.bat 時開啟 Webots, 可以在啟動可攜程式的批次檔案中加入 start webotsw.exe</p>
 <p>在可攜程式環境中 (USB 固態硬碟、一般隨身碟、筆電或個人電腦) 啟動 Webots 後, 開始建立模擬世界(即場景), 而在 Webots 中所謂場景:</p>
