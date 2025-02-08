@@ -1,0 +1,132 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "../protos/TexturedBackground.proto"
+EXTERNPROTO "../protos/TexturedBackgroundLight.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.35740086823899575 0.3906428144738582 0.848329423562542 1.7975112472472459
+  position 0.12399170612402835 -1.2863268486799468 1.8334566348115733
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DEF planar_fourbar_linkage Robot {
+  children [
+    DEF base Solid {
+      children [
+        Shape {
+          geometry Box {
+            size 1 0.1 0.1
+          }
+        }
+      ]
+      name "base"
+    }
+    DEF joint1 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+        anchor -0.5 0 0
+      }
+      device [
+        RotationalMotor {
+          name "motor"
+        }
+      ]
+      endPoint DEF link1 Solid {
+        translation -0.5 0 0.1
+        rotation 0 0 1 1.57
+        children [
+          Pose {
+            translation 0.2 0 0
+            children [
+              DEF link1_shape Shape {
+                appearance Appearance {
+                  material Material {
+                    diffuseColor 1 0 0
+                  }
+                }
+                geometry Box {
+                  size 0.4 0.1 0.1
+                }
+              }
+            ]
+          }
+          DEF joint2 HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0 0 1
+              anchor 0.4 0 0
+            }
+            endPoint DEF link2 Solid {
+              translation 0.4 0 0.1
+              rotation 0 0 -1 0.9623750000000001
+              children [
+                Pose {
+                  translation 0.3 0 0
+                  children [
+                    DEF link2_shape Shape {
+                      appearance Appearance {
+                        material Material {
+                          diffuseColor 0 0.8 0
+                        }
+                      }
+                      geometry Box {
+                        size 0.6 0.1 0.1
+                      }
+                    }
+                  ]
+                }
+                DEF joint3 HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0 0 1
+                    anchor 0.6 0 0
+                  }
+                  endPoint DEF link3 Solid {
+                    translation 0.6001512646508623 -2.8069060471128483e-05 -0.09999528964500687
+                    rotation -1.0395670532862341e-05 -5.8212423083262364e-06 -0.9999999999290214 1.5795229731469067
+                    children [
+                      Pose {
+                        translation 0.45 0 0
+                        children [
+                          DEF link3_shape Shape {
+                            appearance Appearance {
+                              material Material {
+                                diffuseColor 0 0 1
+                              }
+                            }
+                            geometry DEF link3_box Box {
+                              size 0.9 0.1 0.1
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                    name "link3"
+                  }
+                }
+              ]
+              name "link2"
+              physics Physics {
+              }
+            }
+          }
+        ]
+        name "link1"
+        physics Physics {
+        }
+      }
+    }
+    DEF joint4 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+        anchor 0.5 0 0
+      }
+      endPoint SolidReference {
+        solidName "link3"
+      }
+    }
+  ]
+  controller "fourbar_controller"
+}
