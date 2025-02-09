@@ -143,22 +143,44 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">fourbar1 << <a href='fourbar1.html'>Previous</a> <a href='fourbar2.html'>Next</a> >> fourbar2<br /><h1>handon1</h1>
-<p>啟動可攜程式系統後, 可以在 cmd 命令視窗中執行 webotsw, 就可以啟動一個 Webots.</p>
-<p>建立模擬場景可以在既有的 WorldInfo、ViewPoint、TextureBackground 以及 TextureBackgroundLight, 建立一個 Robot 節點.</p>
-<p>之後的物件節點都可以在 Robot 節點中的 children 數列節點中建立, Robot 與 Solid 節點中都包含 children 數列節點, 表示這樣的節點可以透過 children 放入更多的子節點, 其中更包括將其他 Robot 與 Solid 節點納入作為子節點.</p>
-<p>至於 Shape 節點中, 就沒有 children 數列節點的設置, 只能根據其既有的節點屬性進行配置. 相較於 Solid 節點 Shape 節點的功能較為單一.</p>
-<p>而 Robot 與 Solid 節點, 除了本身具備座標轉換的平移及旋轉術性外, 還能利用其中的 children 數列節點, 加入 Pose 節點進行子節點內的座標轉換, 還可利用 Transform 節點調整物件的 scale.</p>
-<p>本頁面的目的是利用 Webots 的 box 建立一個平面四連桿機構的模擬場景, 機構的尺寸設計必須從 Solvespace 的繪圖開始, 除了選擇各桿件的尺寸外, 還需提供各連桿的初始位置以及連桿方位, 才能透過 HingeJoint 以及 SolidReference 等兩個節點的配置, 完成平面四連桿的封閉機構約束設置.</p>
-<p>在 Webots 中建立模擬場景, 很重要的一項工作就是確認每一個物件場景的座標系統, 尤其是在某一物件節點中配置各種 Joint 之後, 各子節點的座標系統都將依照 parent 的座標系統進行配置.</p>
-<p>此外 Webots 在配置 Joint 時的樹狀結構與 CoppeliaSim 有很大的差別, CoppeliaSim 的 Joint 物件位階是設定為 parent 物件的子物件, 而 Weobts 場景中的 Joint 節點則必須配置成與其 parent 節點相同位階.</p>
-<p>以下的配置圖是希望平面四連桿的固定桿件長度為 1m, 且透過 Top view 視圖觀測時, 會水平置放. 在 Robot 節點中的 children 建立 Solid 時使用 DEF 命名為 base, 隨後若要使用此 Solid, 就可以透過 USE solid 引用. 為了之後在此固定節點的左側建立 join1, 因此將 base 平移 0.5m, 以便讓隨後配置的 HingeJoint 可以採用此座標系統進行配置. 但利用滑鼠點選 DEF base Solid 時, 可以發現物件的座標系統仍位於其物件中心:</p>
+<p>啟動 Webots 2025a:</p>
+<p style="padding-left: 30px;">啟動可攜程式系統後, 可以在 cmd 命令視窗中執行 webotsw, 就可以啟動 Webots.</p>
+<p>建立 Robot 模擬場景:</p>
+<p style="padding-left: 30px;">建立模擬場景可以在既有的 WorldInfo、ViewPoint、TextureBackground 以及 TextureBackgroundLight, 建立一個 Robot 節點.</p>
+<p>利用 children 數列節點, 納入子節點:</p>
+<p style="padding-left: 30px;">之後的物件節點都可以在 Robot 節點中的 children 數列節點中建立, Robot 與 Solid 節點中都包含 children 數列節點, 表示這樣的節點可以透過 children 放入更多的子節點, 其中更包括將其他 Robot 與 Solid 節點納入作為子節點.</p>
+<p>在 Shape 節點中建立標準物件:</p>
+<p style="padding-left: 30px;">至於 Shape 節點中, 就沒有 children 數列節點的設置, 只能根據其既有的節點屬性進行配置. 相較於 Solid 節點 Shape 節點的功能只能放入對應的標準物件, 例如: 目前這個範例會用到的 Box.</p>
+<p>物件的移動與旋轉:</p>
+<p style="padding-left: 30px;">而 Robot 與 Solid 節點, 除了本身具備座標轉換的平移及旋轉術性外, 還能利用其中的 children 數列節點, 加入 Pose 節點進行子節點內的座標轉換, 還可利用 Transform 節點調整物件的 scale.</p>
+<p>利用 CAD 繪圖 (Solvespace 或 Siemens NX) 協助機構定位:</p>
+<p style="padding-left: 30px;">本頁面的目的是利用 Webots 的 box 建立一個平面四連桿機構的模擬場景, 機構的尺寸設計必須從 Solvespace 的繪圖開始, 除了選擇各桿件的尺寸外, 還需提供各連桿的初始位置以及連桿方位, 才能透過 HingeJoint 以及 SolidReference 等兩個節點的配置, 完成平面四連桿的封閉機構約束設置.</p>
+<p>物件的座標系統:</p>
+<p style="padding-left: 30px;">在 Webots 中建立模擬場景, 很重要的一項工作就是確認每一個物件場景的座標系統, 尤其是在某一物件節點中配置各種 Joint 之後, 隨後接在此 Joint 上的物件都將依據其 parent 座標系統定位.</p>
+<p>連接軸樹狀架構與 CoppeliaSim 的差異:</p>
+<p style="padding-left: 30px;">此外 Webots 在配置 Joint 時的樹狀結構與 CoppeliaSim 有很大的差別, CoppeliaSim 的 Joint 物件位階是設定為 parent 物件的子物件, 而 Weobts 場景中的 Joint 節點則必須配置成與其 parent 節點相同位階.</p>
+<p>利用 Box 建立平面四連桿模擬場景:</p>
+<p style="padding-left: 30px;">以下的配置圖是希望平面四連桿的固定桿件長度為 1m, 且透過 Top view 視圖觀測時, 會水平置放. 在 Robot 節點中的 children 建立 Solid 時使用 DEF 命名為 base, 隨後若要使用此 Solid, 就可以透過 USE base 引用.</p>
+<p style="padding-left: 30px;">但若此 DEF 命名物件之後, 內部的 Solid 物件自行移動 (例如: 透過 Pose), 則利用 USE base 作為 boundingObject 時, 也必須配合 Pose 移動至 Solid 所在位置. 如此才可在物件的碰撞檢測中, 正確配置物件的實體範圍.</p>
+<p>起始座標定位方法一:</p>
+<p>為了之後在此固定節點的左側建立 join1, 因此將 base 平移 0.5m, 以便讓隨後配置的 HingeJoint 可以採用此座標系統進行配置. 但利用滑鼠點選 DEF base Solid 時, 可以發現物件的座標系統仍位於其物件中心:</p>
 <p><img caption="false" height="201" src="./../images/webots_obj_coord.png" width="400"/></p>
 <p>但若將滑鼠停到 Robot 的節點上, 目前的廣域座標系統已經因為 translation 0.5 0 0 而移動到 base 的最左側, 因此隨後配置的 HingeJoint 將會依照此廣域座標系統進行後續配置:</p>
 <p><img alt="" height="200" src="./../images/webots_robot_coord.png" width="400"/></p>
+<p>起始座標定位方法二:</p>
 <p>上列做法在一開始就先移動 base 物件, 讓隨後的 Joint1 定位中心可直接位於 base 左端. 若 base 物件不希望移動 (當 base 連桿與其他機構有特定對應位置時), 則隨後的 Joint1 就必須以 base 物件的中心點座標為基準, 然後在此基準建立 link1 物件之後, 先將 link1 移動至 base 最左端後旋轉 90 度, 這時的 x 軸將向上為正, 只要再沿著 x 軸移動 link1 長度的一半, 就可以完成 link1 的定位.</p>
 <p>至於採用此方法的 Joint1 參考座標原點是位於 base 的中心點, 因此 link1 以 Joint1 旋轉的 anchor 中心點座標必須設為 -0.5 0 0.</p>
 <p>之後的 link2 與 Joint2 的相關設置, 也可以採用先移動物件中心再旋轉至該連桿的起始方位後, 再對機構進行 x 軸方向的移動, 且對應旋轉的 Joint2 anchor 也必須配合設置當下的連桿參考座標系統.</p>
-<br />fourbar1 << <a href='fourbar1.html'>Previous</a> <a href='fourbar2.html'>Next</a> >> fourbar2</div>
+<p>box 平面四連桿的 Robot 節點架構:</p>
+<p style="padding-left: 30px;">在 BASE 物件上設置兩個旋轉軸 (JOINT1 與 JOINT4):</p>
+<p style="padding-left: 30px;">其中的 JOINT1 上將接 link1, link1 上接 JOINT2, JOINT2 上接 link2, link2 上接 JOINT3, JOINT3 上接 link3, 意即從 BASE 上接了三個 joints, 以及三個 links, 形成一個 open chain 機構.</p>
+<p style="padding-left: 30px;">然後在 JOINT4 連接 link3 的設置時, 透過 SolidReference 節點, 指定 link3 作為 solidName 後, 將此條件作為 closed chain 的約束運算.</p>
+<p style="padding-left: 30px;">再加上從 CAD 繪圖中取得的各連桿起始位置, 就可以結合連桿的 physics 與 boundingObject 屬性設置, 完成 Webots 上的平面四連桿場景.</p>
+<p><img alt="" height="163" src="./../images/Webots_box_fourbar1.png" width="200"/></p>
+<p>在 BASE 上配置 JOINT1, JOINT1 末端配置 LINK1, LINK1 上再配置 JOINT2 的樹狀架構圖如下:</p>
+<p><img caption="false" height="313" src="./../images/Webots_box_fourbar2.png" width="250"/></p>
+<p>將 Robot 命名為 four_bar_linkage, 並利用名稱為 fourbar_controller 的控制器進行控制:</p>
+<p><img caption="false" height="304" src="./../images/Webots_box_fourbar3.png" width="400"/></p><br />fourbar1 << <a href='fourbar1.html'>Previous</a> <a href='fourbar2.html'>Next</a> >> fourbar2</div>
         
     <!-- footer -->
       <div class="container">
