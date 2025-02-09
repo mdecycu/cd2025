@@ -1,42 +1,20 @@
-#VRML_SIM R2023b utf8
+#VRML_SIM R2025a utf8
 
-EXTERNPROTO "../protos/TexturedBackground.proto"
-EXTERNPROTO "../protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 
 WorldInfo {
-  info [
-    "fourbar linkage"
-  ]
 }
 Viewpoint {
-  orientation -0.17524366601960317 0.20799757991102616 0.9623027924053665 1.7913508311753839
-  position 1.0571588458938594 -2.502126861220829 1.490364369030099
+  orientation -0.41865429427443057 0.42308138544506857 0.8035737198138451 1.7969524903377165
+  position 0.45864362383207746 -1.0804098470041215 2.050385315315202
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
-DEF FOURBAR Robot {
+Robot {
   children [
-    DEF shaft1 Solid {
-      children [
-        CadShape {
-          url [
-            "../split_parts/shaft1.obj"
-          ]
-        }
-      ]
-    }
-    DEF shaft2 Solid {
-      children [
-        CadShape {
-          url [
-            "../split_parts/shaft2.obj"
-          ]
-        }
-      ]
-      name "shaft2"
-    }
     DEF BASE Solid {
       children [
         CadShape {
@@ -46,10 +24,25 @@ DEF FOURBAR Robot {
         }
       ]
       name "BASE"
-      boundingObject Box {
-        size 0.1 0.1 0.1
+      boundingObject Mesh {
+        url [
+          "../split_parts/base.obj"
+        ]
       }
-      physics Physics {
+    }
+    DEF BASE2 Solid {
+      children [
+        CadShape {
+          url [
+            "../split_parts/base2.obj"
+          ]
+        }
+      ]
+      name "BASE2"
+      boundingObject Mesh {
+        url [
+          "../split_parts/base2.obj"
+        ]
       }
     }
     DEF JOINT1 HingeJoint {
@@ -83,7 +76,7 @@ DEF FOURBAR Robot {
                 DEF JOINT3 HingeJoint {
                   jointParameters HingeJointParameters {
                     axis 0 0 1
-                    anchor 0.542494 0.656320 0
+                    anchor 0.4963 0.7608 0
                   }
                   endPoint DEF LINK3 Solid {
                     children [
@@ -92,59 +85,43 @@ DEF FOURBAR Robot {
                           "../split_parts/link3.obj"
                         ]
                       }
-                      DEF BASE2 Solid {
-                        translation 1 0 0
-                        children [
-                          CadShape {
-                            url [
-                              "../split_parts/base.obj"
-                            ]
-                          }
-                        ]
-                        name "BASE2"
-                        boundingObject Box {
-                          size 0.1 0.1 0.1
-                        }
-                        physics Physics {
-                        }
-                      }
                     ]
                     name "LINK3"
-                    boundingObject Box {
-                      size 0.1 0.1 0.1
+                    boundingObject Mesh {
+                      url [
+                        "../split_parts/link3.obj"
+                      ]
                     }
                     physics Physics {
-                      density -1
-                      mass 0.1
                     }
                   }
                 }
               ]
               name "LINK2"
-              boundingObject Box {
-                size 0.1 0.1 0.1
+              boundingObject Mesh {
+                url [
+                  "../split_parts/link2.obj"
+                ]
               }
               physics Physics {
-                density -1
-                mass 0.1
               }
             }
           }
         ]
         name "LINK1"
-        boundingObject Box {
-          size 0.1 0.1 0.1
+        boundingObject Mesh {
+          url [
+            "../split_parts/link1.obj"
+          ]
         }
         physics Physics {
-          density -1
-          mass 0.1
         }
       }
     }
     DEF JOINT4 HingeJoint {
       jointParameters HingeJointParameters {
         axis 0 0 1
-        anchor 1 0.000039 0
+        anchor 1 0 0
       }
       endPoint SolidReference {
         solidName "LINK3"
