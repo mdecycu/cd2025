@@ -26,11 +26,16 @@
 <p style="padding-left: 30px;">以 "學號@nfu.edu.tw" 登入<span> </span><a href="https://login.microsoftonline.com/">https://login.microsoftonline.com/</a><span> </span>Office 365</p>
 <p style="padding-left: 30px;">Teams 團隊代碼: <span>p5z4eku</span></p>
 <p>課程評分:</p>
-<p style="padding-left: 30px;">作業 (30%)</p>
-<p style="padding-left: 30px;">期中協同專案執行過程影片、簡報與 PDF 報告檔案 (六人一組) (30%)</p>
-<p style="padding-left: 60px;"><span>CoppeliaSim 與 Webots 虛實整合彈珠檯系統</span></p>
-<p style="padding-left: 30px;"><span>期末協同專案執行過程影片、簡報與 PDf 報告檔案 (六人一組) (40%)</span></p>
-<p style="padding-left: 60px;"><span>CoppeliaSim 與 Webots 虛實整合六方投籃機系統</span></p>
+<p style="padding-left: 30px;">Homework (30%) - 每週至少提交兩次與課程進度有關的內容</p>
+<p style="padding-left: 60px;">HW1 (5%): 建立由 Box 組成的平面四連桿機構 Webots 模擬場景</p>
+<p style="padding-left: 60px;">HW2 (5%): 建立由 CAD 繪製零件組成的平面四連桿機構 Webots 模擬場景</p>
+<p style="padding-left: 60px;">HW3 (20%): 建立 Webots 桌上籃球遊戲機模擬系統</p>
+<p style="padding-left: 30px;">Exam (40%) - 建立包含操作流程影片、心得以及提供檔案下載的網頁後填回自評表單</p>
+<p style="padding-left: 60px;">Exam1 (10%): 建立 Webots 基本物件模擬場景</p>
+<p style="padding-left: 60px;">Exam2 (10%: 利用 CAD 零組件建立模擬場景</p>
+<p style="padding-left: 60px;">Exam3 (20%): Webots 機電模擬場景的協同設計</p>
+<p style="padding-left: 30px;">Final Report (30%) - 利用網頁內容進行簡報並提交 pdf 格式書面報告</p>
+<p></p>
 <hr/>
 <p>行事曆</p>
 <p><a href="https://calendar.google.com/calendar/embed?src=mde.nfu.edu.tw_3439313938333136353439%40resource.calendar.google.com&amp;ctz=Asia%2FTaipei&amp;mode=week&amp;src=mde.nfu.edu.tw_35303530373431313438%40resource.calendar.google.com&amp;ctz=Asia%2FTaipei&amp;src=yen%40gm.nfu.edu.tw&amp;ctz=Asia%2FTaipei"> 全頁檢視 </a></p>
@@ -436,7 +441,7 @@ void loop() {
 <p><span>請每六人一組從 Week 1 開始執行期中"彈珠檯虛實整合系統"專案, 其內容為探討如何結合 Web 機電模擬場景 (CoppeliaSim 與 Webots) 以及 Arduino based 控制系統, 建置一個虛實整合彈珠檯系統.</span></p>
 <p><span>首先請各組利用 Solvespace 或 NX2312 所建置的彈珠檯零組件, 透過 <a href="https://sites.google.com/gs.nfu.edu.tw/test/%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BC%89%E5%B0%88%E5%8D%80">3D 列印零件</a>, 組合成一台可以<span style="background-color: #ffff99;">實際發球</span>並以左右兩側<span style="background-color: #ffff99;">搖桿推動彈珠的實體彈珠檯</span>. 其中包括 Flipper, Bumper, Kicker, Score Board 等零組件.</span></p>
 <p><span>Week 3 上課時段, 請各組進行作業一的分組報告.</span></p>
-<hr/>
+<hr>
 <p>該列印那些零組件? 組成可以運作的實體彈珠台, 或是其他規劃?</p>
 <h2>HW2</h2>
 <p><span>可攜系統:</span></p>
@@ -623,7 +628,7 @@ while robot.step(TIME_STEP) != -1:
 <p style="padding-left: 30px;"><a href="https://cyberbotics.com/doc/guide/introduction-to-webots#what-is-a-world">What is a world?</a></p>
 <p style="padding-left: 30px;"><a href="https://cyberbotics.com/doc/guide/introduction-to-webots#what-is-a-controller">What is a controller?</a></p>
 <p style="padding-left: 30px;"><a href="https://cyberbotics.com/doc/guide/introduction-to-webots#what-is-a-supervisor-controller">What is a supervisor controller?</a></p>
-<hr/>
+<hr>
 <p>第一個 Webots 導引: <a href="https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots">https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots</a></p>
 <p>登入 Github, 在 <a href="https://github.com/copilot">https://github.com/copilot</a> 的協助下執行此一教學練習.</p>
 <p>導引目的: You will create your first simulation containing a simple environment: an arena with floor and walls, a few boxes, an e-puck robot and a controller program that will make the robot move.</p>
@@ -927,9 +932,9 @@ DEF FOURBAR Robot {
 <li>準確定義各個 joint 的錨點（anchor）</li>
 <li>確保所有連桿的物理屬性正確設置</li>
 </ol>
-<p><a href="/downloads/fourbar_slvs.7z">fourbar_slvs.7z</a></p><h1>Reference</h1>
-<p>Collaborative Design Projects (協同設計專案)</p>
-<h2>Webots</h2>
+<p><a href="/downloads/fourbar_slvs.7z">fourbar_slvs.7z</a></p><h1>Exam</h1>
+<h1>Reference</h1>
+<p>Collaborative Design Projects (協同設計專案)</p><h2>Webots</h2>
 <p><a href="https://mde.tw/content/Webots%20Doc.html">https://mde.tw/content/Webots%20Doc.html</a></p>
 <p>Webots assets 儲存目錄 (容量約 831MB, 若包括 Webots 2025a 1GB, 整個系統約佔 2GB):</p>
 <p>在 Windows 操作系統開啟 webotsw.exe:</p>
@@ -986,7 +991,7 @@ path=~~;%path_webots%;%path%;</pre>
 <p>導入 STL 模型: <a href="https://cyberbotics.com/doc/reference/mesh">https://cyberbotics.com/doc/reference/mesh</a></p>
 <p>使用 C 執行控制: <a href="https://cyberbotics.com/doc/guide/using-c">https://cyberbotics.com/doc/guide/using-c</a></p>
 <p>使用 Python 執行控制: <a href="https://cyberbotics.com/doc/guide/using-python">https://cyberbotics.com/doc/guide/using-python</a></p>
-<hr/>
+<hr>
 <p>References:</p>
 <p style="padding-left: 30px;"><a href="https://felipenmartins.github.io/Robotics-Simulation-Labs/">https://felipenmartins.github.io/Robotics-Simulation-Labs/</a>　</p>
 <p style="padding-left: 30px;"><a href="https://courses.ideate.cmu.edu/16-375/f2022/ref/text/resources/Webots.html">https://courses.ideate.cmu.edu/16-375/f2022/ref/text/resources/Webots.html</a></p>
@@ -1425,4 +1430,4 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <!-- editor2 結束 --><hr/>
 <p>
 <script src="https://unpkg.com/three@0.144.0/build/three.js" type="text/javascript"></script>
-</p>
+</p></hr></hr></hr>
