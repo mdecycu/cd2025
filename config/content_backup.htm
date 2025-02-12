@@ -154,6 +154,7 @@
 <p style="padding-left: 30px;"><a href="https://cyberbotics.com/doc/guide/introduction-to-webots#what-is-a-world">What is a world?</a></p>
 <p style="padding-left: 30px;"><a href="https://cyberbotics.com/doc/guide/introduction-to-webots#what-is-a-controller">What is a controller?</a></p>
 <p style="padding-left: 30px;"><a href="https://cyberbotics.com/doc/guide/introduction-to-webots#what-is-a-supervisor-controller">What is a supervisor controller?</a></p>
+<p><a href="https://www.youtube.com/playlist?list=PLt69C9MnPchkLuNNc4q9SeMFA96_v4THJ">Webots Crash Course</a> (速成班教學影片)</p>
 <hr/>
 <p>第一個 Webots 導引: <a href="https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots">https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots</a></p>
 <p>登入 Github, 在 <a href="https://github.com/copilot">https://github.com/copilot</a> 的協助下執行此一教學練習.</p>
@@ -184,8 +185,7 @@
 <li>其他有關模擬的設定等</li>
 </ol>
 <p>場景中的物件稱為節點, 各節點配置於場景樹中, 各節點可以再包含子節點, 場景的檔案格式源自 VRML97 程式語法 (<a href="/downloads/vrmlman.pdf">VRML Primer and Tutorial</a>), 場景的檔案副檔名為 .wbt, 且一定要存入名稱為 worlds 的目錄中.</p>
-<p>Webots 模擬選單功能說明: <a href="https://cyberbotics.com/doc/guide/the-user-interface#simulation-menu">https://cyberbotics.com/doc/guide/the-user-interface#simulation-menu</a> 其中著色選單可以關閉場景中的畫面, 主要配合基因演算、視覺辨識或機器學習流程中的快速模擬流程.</p>
-<h2>onelink</h2>
+<p>Webots 模擬選單功能說明: <a href="https://cyberbotics.com/doc/guide/the-user-interface#simulation-menu">https://cyberbotics.com/doc/guide/the-user-interface#simulation-menu</a> 其中著色選單可以關閉場景中的畫面, 主要配合基因演算、視覺辨識或機器學習流程中的快速模擬流程.</p><h2>onelink</h2>
 <p><a href="/downloads/onelink_webots.7z">onelink_webots.7z</a> (直接採 Shape 建模)</p>
 <p><a href="/downloads/onelink_slvs.7z">onelink_slvs.7z</a> (利用 Solvespace 繪製組立檔案, 轉為 STL 後, 再分割為 STL 零件與 OBJ 零件後, 將 OBJ 零件 import 進 Blender 確認零件名稱, 各 OBJ 零件分別利用 Solid 與 CadShape 節點建立從屬關係, 最後加入 hinge 旋轉軸與 Python 控制程式, 讓單一機械臂以 30deg/s 速度轉動)</p>
 <p style="padding-left: 30px;">onelink_w_hinge.wbt 直接在場景樹狀結構中定義 Solid (可用於較簡單的零組件系統)</p>
@@ -531,10 +531,18 @@ DEF FOURBAR Robot {
 <p>以下相關參考資料, 部分網站連結只能從系上 IPv6 網段中擷取:</p>
 <p></p><h2>Webots</h2>
 <p><img alt="" height="350" src="/images/webots_apis_overview.png" width="400"/></p>
-<p><a href="https://www.theconstruct.ai/webots-robot-simulator-ros-olivier-michel/">https://www.theconstruct.ai/webots-robot-simulator-ros-olivier-michel/</a> (Talk)</p>
-<p>由外部 Python 程式的執行控制 Webots 場景:</p>
-<p>場景 Robot 的 Controller 欄位設為 extern</p>
+<p><a href="https://www.theconstruct.ai/webots-robot-simulator-ros-olivier-michel/">https://www.theconstruct.ai/webots-robot-simulator-ros-olivier-michel/</a> (<a href="https://lis2.epfl.ch/resources/podcast/2007/01/olivier-michel-robot-simulation-as.html">Old talk</a>, <a href="https://www.youtube.com/watch?v=kb85OrR0NFk">Video1</a>, <a href="https://www.youtube.com/watch?v=nxGPXK30EW8">Video2</a>)</p>
 <p></p>
+<p>由外部 Python 程式的執行控制 Webots 場景:</p>
+<ol>
+<li>場景 Robot 的 Controller 欄位設為 extern</li>
+<li>可攜程式環境的 PYTHONPATH 環境變數必須納入 Webots 中的 Python 程式庫: set PYTHONPATH=%Disk%:\Python313\DLLs;%Disk%:\Python313\Lib;%Disk%:\Python313\Lib\site-packages;%Disk%:\Webots_2025a\msys64\mingw64\bin;%Disk%:\Webots_2025a\lib\controller\python;</li>
+<li>可攜系統的 PYTHON_PATH 必須指向所使用的 Python 版本目錄: set PYTHON_PATH=%Disk%:\Python313</li>
+<li>可攜系統的 WEBOTS_HOME 必須指令 Webots 所在目錄: set WEBOTS_HOME=%Disk%:\Webots_2025a</li>
+</ol>
+<p><a href="https://cyberbotics.com/doc/guide/running-extern-robot-controllers">extern 相關說明</a></p>
+<p><a href="https://cyberbotics.com/doc/guide/controller-programming?tab-language=python">Python controller programming</a></p>
+<p><a href="https://cyberbotics.com/doc/guide/tutorial-8-the-supervisor?tab-language=python">supervisor</a></p>
 <hr/>
 <p><a href="https://mde.tw/content/Webots%20Doc.html">https://mde.tw/content/Webots%20Doc.html</a></p>
 <p>Webots assets 儲存目錄 (容量約 831MB, 若包括 Webots 2025a 1GB, 整個系統約佔 2GB):</p>
