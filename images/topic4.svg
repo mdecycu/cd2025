@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="545.5" height="190.5" style="background-color: rgb(241, 241, 241);"><title>topic4</title><g class="smm-container" transform="matrix(1,0,0,1,-947,-403.5)"><g class="smm-line-container"><path d="M 1304,539.5L 1336.4,539.5L 1336.4,517Q 1336.4,512 1341.4,512L 1358,512" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none" opacity="1" style=""></path><path d="M 1304,539.5L 1336.4,539.5L 1336.4,562Q 1336.4,567 1341.4,567L 1358,567" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none" opacity="1" style=""></path><path d="M 1089,499.5L 1151.4,499.5L 1151.4,439.5Q 1151.4,434.5 1156.4,434.5L 1193,434.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path><path d="M 1089,499.5L 1151.4,499.5L 1151.4,534.5Q 1151.4,539.5 1156.4,539.5L 1193,539.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path></g><g class="smm-outer-frame-container"></g><g class="smm-node-container"><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,960,477.5)"><path d="
+      M10,0
+      L117,0
+      C117,0 127,0 127,10
+      L127,32
+      C127,32 127,42 117,42
+      L10,42
+      C10,42 0,42 0,32
+      L0,10
+      C0,10 0,0 10,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,1,1)" fill="#1e3556" stroke-dasharray="none" stroke-width="2" stroke="#bdc5c9"></path><g transform="matrix(1,0,0,1,16,6)"><g data-width="97" data-height="32" data-offsetx="0" opacity="1"><foreignObject width="97" height="32" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><strong style="color: rgb(255, 255, 255);font-family: 微软雅黑, Microsoft YaHei;font-size: 24px;">協同設計</strong></p></div><style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  </style></foreignObject></g></g><rect width="133" height="48" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node active" style="cursor: default;" transform="matrix(1,0,0,1,1193,416.5)" opacity="1"><path d="
+      M10,0
+      L129,0
+      C129,0 139,0 139,10
+      L139,24
+      C139,24 139,34 129,34
+      L10,34
+      C10,34 0,34 0,24
+      L0,10
+      C0,10 0,0 10,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,1,1)" fill="#a9dada" stroke-dasharray="none" stroke-width="2" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,16,6)"><g data-width="109" data-height="24" data-offsetx="0" opacity="1"><foreignObject width="109" height="24" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(255, 255, 255); font-family: 微软雅黑, Microsoft YaHei; font-size: 18px; font-weight: normal; font-style: normal; text-decoration: none;">維護分組網站</span></p></div></foreignObject></g></g><rect width="145" height="40" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect><rect width="4" height="36" fill="transparent" style="cursor: ew-resize;"></rect><rect width="4" height="36" fill="transparent" style="cursor: ew-resize;" x="137"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1193,521.5)" opacity="1"><path d="
+      M10,0
+      L99,0
+      C99,0 109,0 109,10
+      L109,24
+      C109,24 109,34 99,34
+      L10,34
+      C10,34 0,34 0,24
+      L0,10
+      C0,10 0,0 10,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,1,1)" fill="#a9dada" stroke-dasharray="none" stroke-width="2" stroke="#1e3556"></path><rect fill="transparent" width="20" height="36" x="111" y="0"></rect><g transform="matrix(1,0,0,1,15,6)"><g data-width="59" data-height="24" data-offsetx="0" opacity="1"><foreignObject width="59" height="24" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(255, 255, 255); font-family: 微软雅黑, Microsoft YaHei; font-size: 18px; font-weight: normal; font-style: normal; text-decoration: none;">ODOO</span></p></div></foreignObject></g><svg width="20" height="20" x="61" y="2"><title>ODOO 雲端平台</title><a xlink:href="https://www.odoo.com/zh_TW" target="_blank"><rect width="20" height="20" fill="transparent"></rect><svg t="1624174958075" class="icon" viewBox="0 0 1024 1024" p-id="7982" width="20" height="20" fill="#ffffff"><path d="M435.484444 251.733333v68.892445L295.822222 320.682667a168.504889 168.504889 0 0 0-2.844444 336.952889h142.506666v68.892444H295.822222a237.397333 237.397333 0 0 1 0-474.794667h139.662222z m248.945778 0a237.397333 237.397333 0 0 1 0 474.851556H544.654222v-69.006222l139.776 0.056889a168.504889 168.504889 0 0 0 2.844445-336.952889H544.597333V251.676444h139.776z m-25.827555 203.946667a34.474667 34.474667 0 0 1 0 68.892444H321.649778a34.474667 34.474667 0 0 1 0-68.892444h336.952889z" p-id="7983"></path></svg></a></svg></g><rect width="115" height="40" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1358,496.5)" opacity="1"><path d="
+      M5,0
+      L76,0
+      C76,0 81,0 81,5
+      L81,25
+      C81,25 81,30 76,30
+      L5,30
+      C5,30 0,30 0,25
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0.5,0.5)" fill="transparent" stroke-dasharray="none" stroke-width="1" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,14.5,5.5)"><g data-width="31" data-height="19" data-offsetx="0" opacity="1"><foreignObject width="31" height="19" x="0" y="0.5"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(30, 53, 86);font-family: 微软雅黑, Microsoft YaHei;font-size: 14px;">PLM</span></p></div></foreignObject></g><svg width="20" height="20" x="33" y="0"><title>單一程式免費計畫</title><a xlink:href="https://www.odoo.com/zh_TW/pricing" target="_blank"><rect width="20" height="20" fill="transparent"></rect><svg t="1624174958075" class="icon" viewBox="0 0 1024 1024" p-id="7982" width="20" height="20" fill="#1e3556"><path d="M435.484444 251.733333v68.892445L295.822222 320.682667a168.504889 168.504889 0 0 0-2.844444 336.952889h142.506666v68.892444H295.822222a237.397333 237.397333 0 0 1 0-474.794667h139.662222z m248.945778 0a237.397333 237.397333 0 0 1 0 474.851556H544.654222v-69.006222l139.776 0.056889a168.504889 168.504889 0 0 0 2.844445-336.952889H544.597333V251.676444h139.776z m-25.827555 203.946667a34.474667 34.474667 0 0 1 0 68.892444H321.649778a34.474667 34.474667 0 0 1 0-68.892444h336.952889z" p-id="7983"></path></svg></a></svg></g><rect width="86" height="35" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1358,551.5)" opacity="1"><path d="
+      M5,0
+      L88,0
+      C88,0 93,0 93,5
+      L93,25
+      C93,25 93,30 88,30
+      L5,30
+      C5,30 0,30 0,25
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0.5,0.5)" fill="transparent" stroke-dasharray="none" stroke-width="1" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,14.5,5.5)"><g data-width="43" data-height="19" data-offsetx="0" opacity="1"><foreignObject width="43" height="19" x="0" y="0.5"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(30, 53, 86);font-family: 微软雅黑, Microsoft YaHei;font-size: 14px;">原始碼</span></p></div></foreignObject></g><svg width="20" height="20" x="45" y="0"><title>ODOO 原始碼</title><a xlink:href="https://github.com/odoo/odoo" target="_blank"><rect width="20" height="20" fill="transparent"></rect><svg t="1624174958075" class="icon" viewBox="0 0 1024 1024" p-id="7982" width="20" height="20" fill="#1e3556"><path d="M435.484444 251.733333v68.892445L295.822222 320.682667a168.504889 168.504889 0 0 0-2.844444 336.952889h142.506666v68.892444H295.822222a237.397333 237.397333 0 0 1 0-474.794667h139.662222z m248.945778 0a237.397333 237.397333 0 0 1 0 474.851556H544.654222v-69.006222l139.776 0.056889a168.504889 168.504889 0 0 0 2.844445-336.952889H544.597333V251.676444h139.776z m-25.827555 203.946667a34.474667 34.474667 0 0 1 0 68.892444H321.649778a34.474667 34.474667 0 0 1 0-68.892444h336.952889z" p-id="7983"></path></svg></a></svg></g><rect width="98" height="35" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g></g><g class="smm-associative-line-container"></g><g class="smm-other-container"></g></g><style>
+  /* 鼠标hover和激活时渲染的矩形 */
+  .smm-hover-node{
+    display: none;
+    opacity: 0.6;
+    stroke-width: 1;
+  }
+
+  .smm-node:not(.smm-node-dragging):hover .smm-hover-node{
+    display: block;
+  }
+
+  .smm-node.active .smm-hover-node, .smm-node-highlight .smm-hover-node{
+    display: block;
+    opacity: 1;
+    stroke-width: 2;
+  }
+
+  .smm-text-node-wrap {
+    user-select: none;
+  }
+
+      .smm-richtext-node-wrap {
+        word-break: break-all;
+        user-select: none;
+      }
+
+      .smm-richtext-node-wrap p {
+        font-family: auto;
+      }
+      </style></svg>
