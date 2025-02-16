@@ -189,7 +189,7 @@ if PLAT_MAC
 <p>mingw32-make</p>
 <p>完成編譯後, solvespace.exe 即位於 build\bin 目錄中, 執行時則需要 libwinpthread-1.dll 動態連結程式庫.</p>
 <p>進行上述流程編譯的原始碼 <a href="http://229.cycu.org/solvespace_v3.1_src.7z">solvespace_v3.1_src.7z</a>, 以及編譯完成的 <a href="http://229.cycu.org/solvespace_v3.1_msys2.7z">solvespace_v3.1_msys2.7z</a>.</p>
-<p>註: <a href="http://229.cycu.org/portable_wcm2025.7z">portable_wcm2025.7z</a> 中所配置的 solvespace.exe 是採用 Visual Studio C++ 編譯, 執行時所需的動態連結程式庫已經配置在 Windows 操作系統中, 因此檔案較小, 而採上述流程, 使用 <a href="https://www.msys2.org/">MSYS2</a> 可攜方式編譯所得到的 solvespace.exe 因此自帶執行所需的程式庫, 因此檔案較大.</p>
+<p>註: <a href="http://229.cycu.org/portable_wcm2025.7z">portable_wcm2025.7z</a> 中所配置的 solvespace.exe 是採用 Visual Studio C++ 編譯, 檔案只有約 7MB, 因為其執行時所需的動態連結程式庫已經配置在 Windows 操作系統中, 因此檔案較小, 而採上述流程, 使用 <a href="https://www.msys2.org/">MSYS2</a> 可攜方式編譯所得到的 solvespace.exe, 檔案約 15MB, 還需要 62KB 的 libwinpthread-1.dll 才能執行, 這是因為採 <a href="https://www.msys2.org/">MSYS2</a> 編譯的 solvespace.exe 必須自帶執行所需的程式庫, 因此檔案較大.</p>
 <p></p><h3>Onshape</h3>
 <p><a href="https://www.onshape.com/en/education/sign-up">註冊 Onshape 教育帳號</a>, 登入後畫面如下:</p>
 <p><img alt="" height="336" src="/images/onshape_starter.png" width="800"/></p>
