@@ -175,7 +175,27 @@ if PLAT_MAC
 <p>說明如何取得個人作業倉儲並透過 TOKEN 修改內容之一:</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/y2lp77yB1V8?si=3f1KwLAbkKA81Yxz" title="YouTube video player" width="560"></iframe></p>
 <p><span>說明如何取得個人作業倉儲並透過 TOKEN 修改內容之二:</span></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/4DVSjC5LRlQ?si=gJn6AFxBm1sVTAs1" title="YouTube video player" width="560"></iframe></p><h2>Topic2</h2>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/4DVSjC5LRlQ?si=gJn6AFxBm1sVTAs1" title="YouTube video player" width="560"></iframe></p><h3>list</h3>
+<p>以下過程將各班學員的倉儲與網站連結列出:</p>
+<p>讀出 list 倉儲資料:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+url = "https://mde.tw/list/2b.txt"
+data = open(url).readlines()
+#print(data)
+all_stud = data[1:]
+print("總共有 " + str(len(all_stud)) + "名學員")</pre>
+<p>建立 anchor 與 break 標註:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">from browser import html, document
+url = "https://mde.tw/list/2b.txt"
+data = open(url).readlines()
+#print(data)
+all_stud = data[1:]
+print("總共有 " + str(len(all_stud)) + "名學員")
+brython_div1 = document["brython_div1"]
+brython_div1 &lt;= "1. " + html.A("scrum-1", href="https://mdecd2025.github.io/hw-scrum-1")
+brython_div1 &lt;= html.BR()
+brython_div1 &lt;= "2. " + html.A("github.com", href="https://github.com")</pre>
+<p></p><h2>Topic2</h2>
 <p>零組件繪圖</p>
 <p><object data="/images/topic2.svg" height="671" type="image/svg+xml" width="1016"></object></p>
 <p><a href="https://mde.tw/mind-map/#/?fileURL=https%3A%2F%2Fmde.tw%2Fcd2025%2Fdownloads%2Ftopic2.smm">Edit topic2.smm</a></p><h3>Compile</h3>
