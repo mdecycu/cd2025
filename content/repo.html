@@ -2,7 +2,7 @@
         <head>
         <title>cd2025</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -142,82 +142,11 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">handon1 << <a href='handon1.html'>Previous</a> <a href='DEF.html'>Next</a> >> DEF<br /><h1>fourbar2</h1>
-<p>Webots 中平面四連桿機構的設置方式：</p>
-<p>四連桿結構應該是：</p>
-<ol>
-<li>
-<p><strong>第一條運動鏈</strong>：</p>
-<ul>
-<li>從 BASE 出發的 JOINT1</li>
-<li>JOINT1 連接 LINK1</li>
-<li>LINK1 上的 JOINT2 連接 LINK2</li>
-<li>LINK2 上的 JOINT3 連接 LINK3</li>
-</ul>
-</li>
-<li>
-<p><strong>第二條運動鏈（closed chain）</strong>：</p>
-<ul>
-<li>從 BASE 出發的 JOINT4</li>
-<li>JOINT4 的 endPoint 設為 SolidReference</li>
-<li>SolidReference 的 solidName 設為 "LINK3"</li>
-</ul>
-</li>
-</ol>
-<p>這樣的結構是正確的，因為：</p>
-<ol>
-<li>主要運動鏈（JOINT1 → LINK1 → LINK2 → LINK3）形成一個序列結構</li>
-<li>閉鎖鏈（JOINT4 → LINK3）通過 SolidReference 連接回主鏈的末端</li>
-<li>這樣可以形成一個完整的閉環運動結構</li>
-</ol>
-<p>基本結構示意：</p>
-<p>BASE<br/>├── JOINT1 → LINK1 → JOINT2 → LINK2 → JOINT3 → LINK3<br/>└── JOINT4 ------(SolidReference: "LINK3")--------┘</p>
-<p>PROTO 結構：</p>
-<pre class="brush:wbt;auto-links:false;toolbar:false" contenteditable="false">Robot {
-  children [
-    BASE {
-      ...
-    }
-    HingeJoint {  # JOINT1
-      endPoint Solid {  # LINK1
-        children [
-          ...
-          HingeJoint {  # JOINT2
-            endPoint Solid {  # LINK2
-              children [
-                ...
-                HingeJoint {  # JOINT3
-                  endPoint Solid {  # LINK3
-                    ...
-                  }
-                }
-              ]
-            }
-          }
-        ]
-      }
-    }
-    HingeJoint {  # JOINT4
-      endPoint SolidReference {
-        solidName "LINK3"
-      }
-    }
-  ]
-}</pre>
-<p>上列設置確保：</p>
-<ol>
-<li>機構能夠正確形成閉環</li>
-<li>運動學約束能夠正確傳遞</li>
-<li>物理模擬能夠正常進行</li>
-</ol>
-<p>此外，為了使機構運作正常，還需要：</p>
-<ol>
-<li>正確設置各個 joint 的旋轉軸（axis）</li>
-<li>準確定義各個 joint 的錨點（anchor）</li>
-<li>確保所有連桿的物理屬性正確設置</li>
-</ol>
-<p><a href="./../downloads/fourbar_slvs.7z">fourbar_slvs.7z</a></p>
-<br />handon1 << <a href='handon1.html'>Previous</a> <a href='DEF.html'>Next</a> >> DEF</div>
+    <div id="tipue_search_content">Portable << <a href='Portable.html'>Previous</a> <a href='Topic2.html'>Next</a> >> Topic2<br /><h1>repo</h1>
+<p>說明如何取得個人作業倉儲並透過 TOKEN 修改內容之一:</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/y2lp77yB1V8?si=3f1KwLAbkKA81Yxz" title="YouTube video player" width="560"></iframe></p>
+<p><span>說明如何取得個人作業倉儲並透過 TOKEN 修改內容之二:</span></p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/4DVSjC5LRlQ?si=gJn6AFxBm1sVTAs1" title="YouTube video player" width="560"></iframe></p><br />Portable << <a href='Portable.html'>Previous</a> <a href='Topic2.html'>Next</a> >> Topic2</div>
         
     <!-- footer -->
       <div class="container">
