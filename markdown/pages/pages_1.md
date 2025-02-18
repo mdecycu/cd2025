@@ -1,14 +1,14 @@
 Title: About
 
-## CMSimfly 內容管理網誌
+## CD2025 協同產品設計實習
 
-課程倉儲: <a href="https://github.com/chiamingyen/cmsimfly">https://github.com/chiamingyen/cmsimfly</a>
+課程倉儲: <a href="https://github.com/mdecycu/cd2025">https://github.com/mdecycu/cd2025</a>
 
-內容管理: <a href="https://chiamingyen.github.io/cmsimfly/">https://chiamingyen.github.io/cmsimfly/</a>
+內容管理: <a href="https://mdecycu.github.io/cd2025/">https://mdecycu.github.io/cd2025/</a>
 
-課程投影片: <a href="https://chiamingyen.github.io/cmsimfly/reveal">https://chiamingyen.github.io/cmsimfly/reveal</a>
+課程投影片: <a href="https://mdecycu.github.io/cd2025/reveal">https://mdecycu.github.io/cd2025/reveal</a>
 
-課程網誌: <a href="https://chiamingyen.github.io/cmsimfly/blog">https://chiamingyen.github.io/cmsimfly/blog</a>
+課程網誌: <a href="https://mdecycu.github.io/cd2025/blog">https://mdecycu.github.io/cd2025/blog</a>
 
 
 
