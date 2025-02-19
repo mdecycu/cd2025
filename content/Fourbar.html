@@ -2,7 +2,7 @@
         <head>
         <title>cd2025</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -142,32 +142,41 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Webots_doc << <a href='Webots_doc.html'>Previous</a> <a href='Learn_Solvs.html'>Next</a> >> Learn_Solvs<br /><h1>Solvespace</h1>
-<p>Web-based Solvespace: <a href="https://cad.apps.dgramop.xyz/">https://cad.apps.dgramop.xyz/</a> (<a href="https://solvespace.com/forum.pl?action=viewthread&amp;parent=2369&amp;tt=1718121481">source</a> and <a href="https://github.com/solvespace/solvespace/pull/1275">PR</a>)</p>
-<p><a href="https://github.com/solvespace/solvespace/pull/493">Python related PR</a></p>
-<p>在 <a href="http://229.cycu.org/python_2025_lite.7z">python_2025_lite.7z</a><span> 加入以下說明的 msys2 與 cmake 後, 可用來編譯 Solvespace v3.1 版原始碼的可攜套件 <a href="http://229.cycu.org/python_2025_lite_w_msys_cmake_solvespace.7z">python_2025_lite_w_msys_cmake_solvespace.7z</a> (Download 1.96GB, After extracted 3.7GB)</span></p>
+    <div id="tipue_search_content">Topic3 << <a href='Topic3.html'>Previous</a> <a href='Topic4.html'>Next</a> >> Topic4<br /><h1>Fourbar</h1>
+<p>請將<a href="https://www.softintegration.com/chhtml/toolkit/mechanism/fourbar/fourbaraccel.html">四連桿機構分析</a>內容改用 Brython 程式進行運算並繪列出結果.</p>
+<p>請將<a href="https://www.softintegration.com/chhtml/toolkit/mechanism/fourbar/fourbaraccel.html">四連桿機構分析</a>內容改用 Flask 網際程式進行運算並繪列出結果.</p>
+<p><a href="https://docs.sympy.org/latest/modules/physics/mechanics/examples/four_bar_linkage_example.html">Sympy</a> (<a href="https://gist.github.com/mdecycu/c6401d697ddbb33fcd0eaed5b4da8d09">Gist</a>) 能不能幫得上忙? </p>
+<p><img caption="false" height="331" src="./../images/fourbaraccel_trans.gif" width="400"/></p>
+<p>Acceleration analysis begins with formulating the loop-closure equation for the fourbar mechanism shown below.</p>
+<center>
+<pre><b>r2</b>+<b>r3</b>=<b>r1</b>+<b>r4</b>	    (1)
+</pre>
+</center>
+<p>Taking two derivatives of the above relation, we obtain the acceleration relation</p>
+<center>
+<pre>i*alpha3*r3*exp(i*theta3)-omega3^2*r3*exp(i*theta3)-i*alpha4*r4*exp(i*theta4)
+
++omega4^2*r4*exp(i*theta4) = i*alpha2*r2*exp(i*theta2)+omega2^2*r2*exp(i*theta2)	(2)
+</pre>
+</center>
+<p>To derive analytical solutions for alpha3 and alpha4 we will assume the link lengths (r1,r2,r3,r4), the angular positions (theta1, theta2, theta3, theta4), the angular velocities (omega1, omega2, omega3, omega4) and at least one angular acceleration is known.</p>
+<p>After multiplying (2) by exp(-i*theta4), taking the real part and simplifying, we get</p>
+<center>
+<pre>alpha3=(-r2*alpha2*sin(theta4-theta2)+r2*omega2^2*cos(theta4-theta2)
+
++r3*omega3^2*cos(theta4-theta3)-r4*omega4^2)/r3*sin(theta4-theta3)      (3)
+</pre>
+</center>
+<p>Similarly the following formula for alpha4 can be derived by multiplying (2) by exp(-i*theta3),</p>
+<center>
+<pre>alpha4=(r2*alpha2*sin(theta3-theta2)-r2*omega2^2*cos(theta3-theta2)
+
++r4*omega4^2*cos(theta3-theta4)-r3*omega3^2)/r4*sin(theta3-theta4)      (4)    
+</pre>
+</center>
+<p>Please note the same methodology can be used to derive formulas for alpha2 and alpha4 given alpha3, and formulas for alpha2 and alpha3 given alpha4.</p>
 <hr/>
-<p>Solvespace 採 C++ 編寫, 原始碼位於 <a href="https://github.com/solvespace/solvespace">https://github.com/solvespace/solvespace</a>, 以下將採用可攜程式系統 python_2025 中的 msys2 (<a href="http://229.cycu.org/python_2025/data/msys64_20240507.7z">msys64_20240507.7z</a>) 以及 cmake 3.20.1 進行編譯 (若採用目前最新版的 cmake 3.30.2, 必須對 Solvespace v3.1 中的 CMakeLists.txt 進行修改).</p>
-<p>舊版的 cmake 3.21.0 可以利用下列連結取得:</p>
-<p><a href="https://github.com/Kitware/CMake/releases/download/v3.21.0/cmake-3.21.0-windows-x86_64.zip">https://github.com/Kitware/CMake/releases/download/v3.21.0/cmake-3.21.0-windows-x86_64.zip</a> </p>
-<p><a href="http://229.cycu.org/python_2025/data/msys64_20240507.7z">msys64_20240507.7z</a> (下載到 data 目錄下後, 目錄名稱必須改為 msys64) 則必須安裝 mingw32-make:</p>
-<p>(安裝以下 make 套件前, 必須先執行 msys64 中的 mingw64.exe)</p>
-<p>pacman -S mingw-w64-ucrt-x86_64-make</p>
-<p>最新版的 python_2025 可攜程式環境架構位於: <a href="https://github.com/mdecycu/pyhton_2025">https://github.com/mdecycu/pyhton_2025</a>, 各目錄套件可自行根據 <a href="https://mde.tw/cad2024/content/Python.html">https://mde.tw/cad2024/content/Python.html</a> 中的說明下載, 或者自行配置.</p>
-<p>機械設計工程師採用可攜程式套件的原因, 是希望能彈性配置 Python 版本, 因為大多數主流 CAD/E/M 套件都非開源軟體, 各版本的 API 相關的動態連結程式庫, 都採用特定的 Python 版本程式碼編譯而成. 例如: Siemens NX12 採用 Python 3.6.5, NX1872 採用 Python 3.7.1, NX1980 採用 Python 3.8.8, NX2312 使用 Python 3.10.12. 假如採用可攜程式套件, 除了可以如虛擬 Python 環境一樣, 將能配合 NXOpen 程式開發, 將所需的 Python 版本與相關模組放在同一目錄, 且能夠在不同的 64 位元 Windows 操作系統中執行.</p>
-<p>接著取得 Solvespace v3.1 的原始碼, 可以直接從 <a href="https://github.com/solvespace/solvespace/releases">https://github.com/solvespace/solvespace/releases</a> 取得, 或以 以 git clone --recurse-submodules <a href="https://github.com/solvespace/solvespace.git">https://github.com/solvespace/solvespace.git</a> 之後,</p>
-<p>cd solvespace</p>
-<p>git checkout v3.1</p>
-<p>接下來則必須修改 solvespace\extlib\angle\src\libANGLE\HandleAllocator.cpp 加入標頭檔案:</p>
-<p>#include &lt;limits&gt;</p>
-<p>接著就可以進行程式碼的編譯與連結:</p>
-<p>mkdir build</p>
-<p>cd build</p>
-<p>cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release</p>
-<p>mingw32-make</p>
-<p>完成編譯後, solvespace.exe 即位於 build\bin 目錄中, 執行時則需要 libwinpthread-1.dll 動態連結程式庫.</p>
-<p>進行上述流程編譯的原始碼 <a href="http://229.cycu.org/solvespace_v3.1_src.7z">solvespace_v3.1_src.7z</a>, 以及編譯完成的 <a href="http://229.cycu.org/solvespace_v3.1_msys2.7z">solvespace_v3.1_msys2.7z</a>.</p>
-<br />Webots_doc << <a href='Webots_doc.html'>Previous</a> <a href='Learn_Solvs.html'>Next</a> >> Learn_Solvs</div>
+<p>The interface below allows the user to find the two unknown angular accelerations given the link lengths, theta1, one additional position, one angular velocity, and one angular acceleration.</p><br />Topic3 << <a href='Topic3.html'>Previous</a> <a href='Topic4.html'>Next</a> >> Topic4</div>
         
     <!-- footer -->
       <div class="container">
