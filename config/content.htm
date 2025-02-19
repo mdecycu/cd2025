@@ -178,22 +178,40 @@ if PLAT_MAC
 <p><span>說明如何取得個人作業倉儲並透過 TOKEN 修改內容之二:</span></p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/4DVSjC5LRlQ?si=gJn6AFxBm1sVTAs1" title="YouTube video player" width="560"></iframe></p><h3>list</h3>
 <p>以下過程將各班學員的倉儲與網站連結列出:</p>
-<p>讀出 list 倉儲資料:</p>
-<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">from browser import html
+<p>讀出 list 倉儲資料 (<a href="https://mde.tw/cd2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9f3df9d865a7ceca8e799ee9b1a31602/raw/2793a8a65bd810e9837e0d00ca3e2105d3d5da9c/list_stage_1.py">執行結果</a>):</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false"># 從  Brython 程式庫中的 browser 導入 html, 可用來輸出超文件內容
+from browser import html
+# 建立 url 變數與網站中 2b 學員的學號與帳號資料 URL 網誌字串對應
 url = "https://mde.tw/list/2b.txt"
+# 利用 open() 物件中的 readlines() 方法, 取出網站中的資料並逐行放入數列中, 因此 data 的資料型別為數列
 data = open(url).readlines()
+# 進行資料查驗時, 印出 data 數列內容
 #print(data)
+# 因為學員資料中的第一列為標題, 因此有效資料從索引值 1 開始
 all_stud = data[1:]
+# 利用 len() 函式查驗 all_stud 數列有幾筆資料, 因為要與前後的字串併接, 因此利用 str() 將整數轉為字串
 print("總共有 " + str(len(all_stud)) + "名學員")</pre>
-<p>建立 anchor 與 break 標註:</p>
-<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">from browser import html, document
+<p>建立 anchor 與 break 標註 (<a href="https://mde.tw/cd2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9f3df9d865a7ceca8e799ee9b1a31602/raw/2793a8a65bd810e9837e0d00ca3e2105d3d5da9c/list_stage_2.py">執行結果</a>):</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false"># 從  Brython 程式庫中的 browser 導入 html, 可用來輸出超文件內容
+# 而所導入的 document 可以指向網頁中的特定 id 內容
+from browser import html, document
+# 建立 url 變數與網站中 2b 學員的學號與帳號資料 URL 網誌字串對應
 url = "https://mde.tw/list/2b.txt"
+# 利用 open() 物件中的 readlines() 方法, 取出網站中的資料並逐行放入數列中, 因此 data 的資料型別為數列
 data = open(url).readlines()
+# 進行資料查驗時, 印出 data 數列內容
 #print(data)
+# 因為學員資料中的第一列為標題, 因此有效資料從索引值 1 開始
 all_stud = data[1:]
+# 利用 len() 函式查驗 all_stud 數列有幾筆資料, 因為要與前後的字串併接, 因此利用 str() 將整數轉為字串
 print("總共有 " + str(len(all_stud)) + "名學員")
+# 
+# 利用 document[] 取得 id 為 "brython_div1" 的位置, 然後與 brython_div1 變數對應
 brython_div1 = document["brython_div1"]
+# 利用 Brython 的 "&lt;=" 特殊符號, 將右值帶有字串與超文件內容物件插入 brython_div1 變數所指定的位置
+# 其中利用 html.A 建立 anchor 標註物件, 第一個變數為 anchor 字串, 第二個變數則為 hyper text reference
 brython_div1 &lt;= "1. " + html.A("scrum-1", href="https://mdecd2025.github.io/hw-scrum-1")
+# 利用 html.BR() 插入 break 標註
 brython_div1 &lt;= html.BR()
 brython_div1 &lt;= "2. " + html.A("github.com", href="https://github.com")</pre>
 <p></p><h2>Topic2</h2>
@@ -239,7 +257,11 @@ brython_div1 &lt;= "2. " + html.A("github.com", href="https://github.com")</pre>
 <p><object data="/images/topic3.svg" height="269" type="image/svg+xml" width="937"></object></p>
 <p><a href="https://mde.tw/mind-map/#/?fileURL=https%3A%2F%2Fmde.tw%2Fcd2025%2Fdownloads%2Ftopic3.smm">Edit topic3.smm</a></p>
 <p>平面四連桿機構參考資料:</p>
-<p><a href="https://carleton.ca/johnhayes/wp-content/uploads/MAAE-3004-RRRP-DSP-RevF.pdf">https://carleton.ca/johnhayes/wp-content/uploads/MAAE-3004-RRRP-DSP-RevF.pdf</a> </p><h2>Topic4</h2>
+<p><a href="https://www.softintegration.com/chhtml/toolkit/mechanism/fourbar/fourbaraccel.html">fourbar acceleration analysis</a> (<a href="https://www.youtube.com/watch?v=ICEBe15IP_I">video</a>)</p>
+<p><a href="https://github.com/alejo1630/4bar_mechanism">fourbar mechanism</a></p>
+<p><a href="https://www.reddit.com/r/MechanicalEngineering/comments/10niok2/four_bar_chain_catapult/?rdt=45176">fourbar chain catapult</a></p>
+<p><a href="https://carleton.ca/johnhayes/wp-content/uploads/MAAE-3004-RRRP-DSP-RevF.pdf">RRRP fourbar linkage</a></p>
+<p><a href="https://github.com/cyberbotics/webots/discussions/2621">Research papers using Webots</a></p><h2>Topic4</h2>
 <p>協同設計</p>
 <p><object data="/images/topic4.svg" height="191" type="image/svg+xml" width="546"></object></p>
 <p><a href="https://mde.tw/mind-map/#/?fileURL=https%3A%2F%2Fmde.tw%2Fcd2025%2Fdownloads%2Ftopic4.smm">Edit topic4.smm</a></p>
