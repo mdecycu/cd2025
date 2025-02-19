@@ -263,40 +263,9 @@ brython_div1 &lt;= "2. " + html.A("github.com", href="https://github.com")</pre>
 <p><a href="https://carleton.ca/johnhayes/wp-content/uploads/MAAE-3004-RRRP-DSP-RevF.pdf">RRRP fourbar linkage</a></p>
 <p><a href="https://github.com/cyberbotics/webots/discussions/2621">Research papers using Webots</a></p>
 <h3>Fourbar</h3>
-<p>請將<a href="https://www.softintegration.com/chhtml/toolkit/mechanism/fourbar/fourbaraccel.html">四連桿機構分析</a>內容改用 Brython 程式進行運算並繪列出結果.</p>
-<p>請將<a href="https://www.softintegration.com/chhtml/toolkit/mechanism/fourbar/fourbaraccel.html">四連桿機構分析</a>內容改用 Flask 網際程式進行運算並繪列出結果.</p>
-<p><a href="https://docs.sympy.org/latest/modules/physics/mechanics/examples/four_bar_linkage_example.html">Sympy</a> (<a href="https://gist.github.com/mdecycu/c6401d697ddbb33fcd0eaed5b4da8d09">Gist</a>) 能不能幫得上忙? </p>
-<p><img caption="false" height="331" src="/images/fourbaraccel_trans.gif" width="400"/></p>
-<p>Acceleration analysis begins with formulating the loop-closure equation for the fourbar mechanism shown below.</p>
-<center>
-<pre><b>r2</b>+<b>r3</b>=<b>r1</b>+<b>r4</b>	    (1)
-</pre>
-</center>
-<p>Taking two derivatives of the above relation, we obtain the acceleration relation</p>
-<center>
-<pre>i*alpha3*r3*exp(i*theta3)-omega3^2*r3*exp(i*theta3)-i*alpha4*r4*exp(i*theta4)
-
-+omega4^2*r4*exp(i*theta4) = i*alpha2*r2*exp(i*theta2)+omega2^2*r2*exp(i*theta2)	(2)
-</pre>
-</center>
-<p>To derive analytical solutions for alpha3 and alpha4 we will assume the link lengths (r1,r2,r3,r4), the angular positions (theta1, theta2, theta3, theta4), the angular velocities (omega1, omega2, omega3, omega4) and at least one angular acceleration is known.</p>
-<p>After multiplying (2) by exp(-i*theta4), taking the real part and simplifying, we get</p>
-<center>
-<pre>alpha3=(-r2*alpha2*sin(theta4-theta2)+r2*omega2^2*cos(theta4-theta2)
-
-+r3*omega3^2*cos(theta4-theta3)-r4*omega4^2)/r3*sin(theta4-theta3)      (3)
-</pre>
-</center>
-<p>Similarly the following formula for alpha4 can be derived by multiplying (2) by exp(-i*theta3),</p>
-<center>
-<pre>alpha4=(r2*alpha2*sin(theta3-theta2)-r2*omega2^2*cos(theta3-theta2)
-
-+r4*omega4^2*cos(theta3-theta4)-r3*omega3^2)/r4*sin(theta3-theta4)      (4)    
-</pre>
-</center>
-<p>Please note the same methodology can be used to derive formulas for alpha2 and alpha4 given alpha3, and formulas for alpha2 and alpha3 given alpha4.</p>
-<hr/>
-<p>The interface below allows the user to find the two unknown angular accelerations given the link lengths, theta1, one additional position, one angular velocity, and one angular acceleration.</p><h2>Topic4</h2>
+<p>平面四連桿機構運動分析</p>
+<p>Reference: <a href="https://docs.sympy.org/latest/modules/physics/mechanics/examples/four_bar_linkage_example.html">1</a>, <a href="https://gist.github.com/mdecycu/c6401d697ddbb33fcd0eaed5b4da8d09">2</a>, <a href="https://homepages.math.uic.edu/~jan/phcpy_doc_html/fourbartut.html">3</a></p>
+<p></p><h2>Topic4</h2>
 <p>協同設計</p>
 <p><object data="/images/topic4.svg" height="191" type="image/svg+xml" width="546"></object></p>
 <p><a href="https://mde.tw/mind-map/#/?fileURL=https%3A%2F%2Fmde.tw%2Fcd2025%2Fdownloads%2Ftopic4.smm">Edit topic4.smm</a></p>
