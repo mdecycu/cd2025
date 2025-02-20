@@ -2,6 +2,7 @@
         <head>
         <title>cd2025</title>
         <meta charset="utf-8">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -95,6 +96,7 @@ img.add_border {
 </head>
 <body>
 <div class='container'><nav>
+        
     <div class="site-wrap">
 
     <div class="site-mobile-menu">
@@ -140,4 +142,77 @@ img.add_border {
           </div>
           
         </header>
-    </nav><section><h1>SMap</h1><div id="tipue_search_content"></div><ul><li><a href='About.html'>About</a><ul><li><a href='Summary.html'>Summary</a><li><a href='Product.html'>Product</a><li><a href='Control.html'>Control</a><li><a href='CPS.html'>CPS</a><li><a href='AI.html'>AI</a></li></ul><li><a href='Topics.html'>Topics</a><ul><li><a href='Topic1.html'>Topic1</a><ul><li><a href='w1.html'>w1</a><li><a href='Portable.html'>Portable</a><li><a href='repo.html'>repo</a><li><a href='list.html'>list</a></li></ul><li><a href='Topic2.html'>Topic2</a><ul><li><a href='Compile.html'>Compile</a><li><a href='Onshape.html'>Onshape</a></li></ul><li><a href='Topic3.html'>Topic3</a><ul><li><a href='Fourbar.html'>Fourbar</a></li></ul><li><a href='Topic4.html'>Topic4</a></li></ul><li><a href='Tutorial.html'>Tutorial</a><ul><li><a href='onelink.html'>onelink</a><li><a href='fourbar1.html'>fourbar1</a><ul><li><a href='handon1.html'>handon1</a></li></ul><li><a href='fourbar2.html'>fourbar2</a><li><a href='DEF.html'>DEF</a></li></ul><li><a href='Homework.html'>Homework</a><ul><li><a href='HW1.html'>HW1</a><li><a href='HW2.html'>HW2</a><li><a href='HW3.html'>HW3</a></li></ul><li><a href='Exam.html'>Exam</a><ul><li><a href='Exam1.html'>Exam1</a><li><a href='Exam2.html'>Exam2</a><li><a href='Exam3.html'>Exam3</a></li></ul><li><a href='Reference.html'>Reference</a><ul><li><a href='Webots.html'>Webots</a><ul><li><a href='Webots_ref.html'>Webots_ref</a><li><a href='Webots_doc.html'>Webots_doc</a></li></ul><li><a href='Solvespace.html'>Solvespace</a><ul><li><a href='Learn_Solvs.html'>Learn_Solvs</a></li></ul><li><a href='Pyslvs-UI.html'>Pyslvs-UI</a><li><a href='PICSimLab.html'>PICSimLab</a><li><a href='Fossil SCM.html'>Fossil SCM</a><li><a href='Leo Editor.html'>Leo Editor</a><li><a href='Old.html'>Old</a></li></ul><li><a href='Brython.html'>Brython</a></li></ul></section></div></body></html>
+    <div id="tipue_search_content">Topic1 << <a href='Topic1.html'>Previous</a> <a href='Portable.html'>Next</a> >> Portable<br /><h1>w1</h1>
+<p><span style="background-color: #ffff00;">如何利用 C: 中舊的可攜程式環境建立 Portable_wcm2025?</span></p>
+<p style="padding-left: 30px;">啟動舊版的可攜程式套件後, 在 SciTE 中執行下列程式:</p>
+<p style="padding-left: 30px;"><a href="./../downloads/gen_3.13.2_portable.py">gen_3.13.2_portable.py</a></p>
+<p><span style="background-color: #ffff00;">如何利用 Github 帳號與 Portable_wcm2025 建立 SSH 與認證用的 .reg 檔案?</span></p>
+<p style="padding-left: 30px;">確認 start 批次檔案中 GIT_SSH 環境變數已經指向 Putty</p>
+<p style="padding-left: 30px;">利用可攜程式中的 puttygen.exe 建立 OpenSSH 格式的公鑰(鎖頭)與 Putty 格式的私鑰(開門鑰匙)</p>
+<p style="padding-left: 30px;">利用 putty.exe 建立 SSH 遠端登入所需要的 session, 並將電腦組態登錄內容, 以 .reg 匯出存入隨身碟</p>
+<p style="padding-left: 30px;">必須注意 .ppk 格式的私鑰存放位置是否能與可攜程式中所建立的 session 互相對應</p>
+<p style="padding-left: 30px;">最後利用 session 設定, 以 git clone 將作業倉儲取下準備進行維護</p>
+<p><span style="background-color: #ffff00;">如何領取作業倉儲並利用 Portable_wcm2025 進行個人作業內容維護?</span></p>
+<p style="padding-left: 30px;">登入 Github 後, 利用 Github Classroom 作業連結取得個人倉儲</p>
+<p style="padding-left: 30px;">在個人作業倉儲設定中的 Pages 以主分支作為作業網站的根目錄</p>
+<p style="padding-left: 30px;">利用 cms 啟動編輯網站, 編輯結束後以 Convert 轉為靜態網頁</p>
+<p style="padding-left: 30px;">利用 SStatic 啟近端的靜態網站檢視伺服器, 啟動後利用其右邊的按鈕檢視</p>
+<p style="padding-left: 30px;">確認階段性編輯無誤後, 利用 acp 加上具體的提交訊息後採 SSH 協定推送</p>
+<p><span style="background-color: #ffff00;">分組組長如何利用 Github Classroom 協同作業連結建立團隊 (Team)? 學員如何 Join?</span></p>
+<p style="padding-left: 30px;">cd2025 課程中的 Github Classroom 帳號為 <a href="https://github.com/mdecd2025/">https://github.com/mdecd2025/</a> </p>
+<p style="padding-left: 30px;">各學員的作業倉儲 (Repository) 位於: <a href="https://github.com/orgs/mdecd2025/repositories">https://github.com/orgs/mdecd2025/repositories</a> </p>
+<p style="padding-left: 30px;">各班的協同倉儲 (Teams) 位於: <a href="https://github.com/orgs/mdecd2025/teams">https://github.com/orgs/mdecd2025/teams</a> </p>
+<p style="padding-left: 30px;">2b 各組的 Teams 名稱為 g<a href="https://github.com/orgs/mdecd2025/teams/g1">1</a>, <a href="https://github.com/orgs/mdecd2025/teams/g2">g2</a> ..., 而 2a 各組的 Teams 名稱必須設定為 ag1, ag2 ...</p>
+<p><span style="background-color: #ccffcc;">w1 任務</span>: 分組團隊 (Teams) 建立後, 請參考<a href="https://mde.tw/cd2025/content/list.html">說明</a>後, 將各班各學員與各團隊的倉儲與網站連結, 分別放入標題為 list (使用第一階標題) 的網頁中.</p>
+<p style="padding-left: 30px;"></p>
+<p></p><br />Topic1 << <a href='Topic1.html'>Previous</a> <a href='Portable.html'>Next</a> >> Portable</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        

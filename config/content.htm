@@ -91,7 +91,17 @@
 <p style="padding-left: 30px;"><a href="https://bitbucket.org/afaina/horosim/src/master/">https://bitbucket.org/afaina/horosim/src/master/</a></p>
 <h2>AI</h2>
 <p>以下為利用 AI 解題的相關參考資料:</p>
-<p>利用 Gmail 帳號在 <a href="https://x.com/">https://x.com/</a> 註冊帳號後, 在個人手機上安裝 Grok3 App. 利用 Grok3 進行輔助學習.</p>
+<p>利用 Gmail 帳號在 <a href="https://x.com/">https://x.com/</a> 註冊帳號後, 登入後直接點選左側的 Grok 進行對話.</p>
+<p>另外可在個人手機或平板上安裝 X 與 Grok 3 App, 利用  X 帳號登入Grok 3 進行輔助學習.</p>
+<p>使用範例:</p>
+<p style="padding-left: 30px;"><span style="background-color: #ccffcc;">提問 1</span>: 請用繁體中文詳細說明 <a href="https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots">https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots</a> 中的操作方法與重點</p>
+<p style="padding-left: 30px;">隨後的對話可以直接輸入:</p>
+<p style="padding-left: 30px;"><span style="background-color: #ccffcc;">提問 2</span>: <a href="https://cyberbotics.com/doc/guide/tutorial-2-modification-of-the-environment?tab-language=python">https://cyberbotics.com/doc/guide/tutorial-2-modification-of-the-environment?tab-language=python</a></p>
+<p style="padding-left: 30px;">要求 AI 列出操作方法與重點.</p>
+<p style="padding-left: 30px;"><span style="background-color: #ccffcc;">提問 3</span>: 請幫我整理出這兩個 Tutorial 中所牽涉的英文單字與相關用法說明</p>
+<p style="padding-left: 30px;">儘管 AI 對話過程可以快速協助列出相關 Tutorial 內容的重點與操作方法, 一旦完成操作後, 應該要再針對原文中的英文專有名詞或敘述句的用法進行研讀, 最終目的是<span style="background-color: #ffff99;">能夠在 AI 的協助下培養原文內容的快速閱讀與理解能力</span>.</p>
+<p>除了 Grok 3, 也可透過 <a href="https://claude.ai">https://claude.ai</a>、<a href="https://chatgpt.com/g/g-QpmQGPwkp-fan-ti-zhong-wen-gpt">GPT</a> 或 <a href="https://gemini.google.com/app?hl=zh-TW">Gemini</a> 等系統進行輔助學習.</p>
+<hr/>
 <p>如何因應 AI 時代的挑戰：</p>
 <p>培養難以被AI取代的核心能力：</p>
 <ol>
@@ -151,7 +161,30 @@
 <p>可攜環境與 Github</p>
 <p><object data="/images/topic1.svg" height="885" type="image/svg+xml" width="1357"></object></p>
 <p><a href="https://mde.tw/mind-map/#/?fileURL=https%3A%2F%2Fmde.tw%2Fcd2025%2Fdownloads%2Ftopic1.smm">Edit topic1.smm</a></p>
-<h3>Portable</h3>
+<h3>w1</h3>
+<p><span style="background-color: #ffff00;">如何利用 C: 中舊的可攜程式環境建立 Portable_wcm2025?</span></p>
+<p style="padding-left: 30px;">啟動舊版的可攜程式套件後, 在 SciTE 中執行下列程式:</p>
+<p style="padding-left: 30px;"><a href="/downloads/gen_3.13.2_portable.py">gen_3.13.2_portable.py</a></p>
+<p><span style="background-color: #ffff00;">如何利用 Github 帳號與 Portable_wcm2025 建立 SSH 與認證用的 .reg 檔案?</span></p>
+<p style="padding-left: 30px;">確認 start 批次檔案中 GIT_SSH 環境變數已經指向 Putty</p>
+<p style="padding-left: 30px;">利用可攜程式中的 puttygen.exe 建立 OpenSSH 格式的公鑰(鎖頭)與 Putty 格式的私鑰(開門鑰匙)</p>
+<p style="padding-left: 30px;">利用 putty.exe 建立 SSH 遠端登入所需要的 session, 並將電腦組態登錄內容, 以 .reg 匯出存入隨身碟</p>
+<p style="padding-left: 30px;">必須注意 .ppk 格式的私鑰存放位置是否能與可攜程式中所建立的 session 互相對應</p>
+<p style="padding-left: 30px;">最後利用 session 設定, 以 git clone 將作業倉儲取下準備進行維護</p>
+<p><span style="background-color: #ffff00;">如何領取作業倉儲並利用 Portable_wcm2025 進行個人作業內容維護?</span></p>
+<p style="padding-left: 30px;">登入 Github 後, 利用 Github Classroom 作業連結取得個人倉儲</p>
+<p style="padding-left: 30px;">在個人作業倉儲設定中的 Pages 以主分支作為作業網站的根目錄</p>
+<p style="padding-left: 30px;">利用 cms 啟動編輯網站, 編輯結束後以 Convert 轉為靜態網頁</p>
+<p style="padding-left: 30px;">利用 SStatic 啟近端的靜態網站檢視伺服器, 啟動後利用其右邊的按鈕檢視</p>
+<p style="padding-left: 30px;">確認階段性編輯無誤後, 利用 acp 加上具體的提交訊息後採 SSH 協定推送</p>
+<p><span style="background-color: #ffff00;">分組組長如何利用 Github Classroom 協同作業連結建立團隊 (Team)? 學員如何 Join?</span></p>
+<p style="padding-left: 30px;">cd2025 課程中的 Github Classroom 帳號為 <a href="https://github.com/mdecd2025/">https://github.com/mdecd2025/</a> </p>
+<p style="padding-left: 30px;">各學員的作業倉儲 (Repository) 位於: <a href="https://github.com/orgs/mdecd2025/repositories">https://github.com/orgs/mdecd2025/repositories</a> </p>
+<p style="padding-left: 30px;">各班的協同倉儲 (Teams) 位於: <a href="https://github.com/orgs/mdecd2025/teams">https://github.com/orgs/mdecd2025/teams</a> </p>
+<p style="padding-left: 30px;">2b 各組的 Teams 名稱為 g<a href="https://github.com/orgs/mdecd2025/teams/g1">1</a>, <a href="https://github.com/orgs/mdecd2025/teams/g2">g2</a> ..., 而 2a 各組的 Teams 名稱必須設定為 ag1, ag2 ...</p>
+<p><span style="background-color: #ccffcc;">w1 任務</span>: 分組團隊 (Teams) 建立後, 請參考<a href="https://mde.tw/cd2025/content/list.html">說明</a>後, 將各班各學員與各團隊的倉儲與網站連結, 分別放入標題為 list (使用第一階標題) 的網頁中.</p>
+<p style="padding-left: 30px;"></p>
+<p></p><h3>Portable</h3>
 <p>以下將說明如何自行在 Windows 操作系統中建立可攜 Python 程式系統.</p>
 <p><a href="/downloads/gen_portable_python_and_get_pip.7z">gen_portable_python_and_get_pip.7z</a></p>
 <p>目前最新的 Python 版本為 3.13.2, 可以利用舊版的 Python310 (為了配合 Siemens NX2312), 以下列程式碼建立一套基本的 Python313 可攜程式套件:</p>
