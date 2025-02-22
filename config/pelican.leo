@@ -59,7 +59,7 @@
 <v t="leo.20180423103656.1"><vh>@clean 20250218.md</vh>
 <v t="leo.20250218215357.1"><vh>introduction</vh></v>
 </v>
-<v t="leo.20250222164142.1"><vh>@clean 202502_w1.md</vh>
+<v t="leo.20250222164142.1"><vh>@clean 202502_task1.md</vh>
 <v t="leo.20250222164220.1"><vh>w1 assignment</vh></v>
 </v>
 </v>
@@ -378,26 +378,26 @@ Webots 的創建是學術追求和社群合作力量的見證。Olivier Michel �
 </t>
 <t tx="leo.20250222164142.1">@language md
 ---
-Title: 協同產品設計第一週任務
+Title: 協同產品設計實習任務一
 Date: 2025-02-21 11:00
 Category: cd2025
 Tags: w1, cd2025
-Slug: 2025_cd_w1_assignment
+Slug: 2025_cd_assignment1
 Author: mdecycu
 ---
 
-2025 年協同產品設計實習第一個禮拜的學員指定任務.
+2025 年協同產品設計實習的學員指定任務一.
 
 &lt;!-- PELICAN_END_SUMMARY --&gt;
 
 @others</t>
-<t tx="leo.20250222164220.1">#  w1 任務一
+<t tx="leo.20250222164220.1"># 任務一
 
 執行以下任務請在作業網站中使用 H1 &lt;span style="background-color: #ffff00;"&gt;Tasks&lt;/span&gt; 標題, 然後在此第一階頁面中摘要說明各週任務的目的以及操作心得.
 
 ## 自行製作可攜程式系統
 
-製作可攜程式的任務內容請放入 Tasks 頁面下, 標題為 H2 &lt;span style="background-color: #ffff00;"&gt;w1&lt;/span&gt; 的頁面中, 其中必須包括帶有說明字幕的詳細操作影片以及所完成相關檔案下載連結 (請放置在 個人 10GB 容量的 Office 365 OneDrive 系統中後, 在網頁中提供下載連結).
+製作可攜程式的任務內容請放入 Tasks 頁面下, 標題為 H2 &lt;span style="background-color: #ffff00;"&gt;task1&lt;/span&gt; 的頁面中, 其中必須包括帶有說明字幕的詳細操作影片以及所完成相關檔案下載連結 (請放置在 個人 10GB 容量的 Office 365 OneDrive 系統中後, 在網頁中提供下載連結).
 
 利用 C 槽的舊可攜程式系統打造課程所使用的程式系統: 
 首先在 C 槽建立 tmp 目錄, 將以下兩個檔案下載至 C:\tmp.
@@ -417,6 +417,36 @@ Author: mdecycu
 1. 接下來在新系統的命令列視窗中執行 pip install flask flask_cors bs4 lxml pelican markdown, 安裝執行動態網頁編輯所需的 Python 模組, 即完成新系統的 Python313 系統配置.
 1. 接著請自行配置 home_ipv6、portablegit、PUTTY、sharex、tmp
 vscode、Webots_2025a、wink3 以及 wscite 等目錄. 並自行下載 Process Explorer、Zoomit 以及 solvespace.exe 至新系統的 data 目錄中, 之後利用新系統的 start.bat 啟動可攜, 利用 stop.bat 關閉可攜系統.
+
+# 任務二
+
+## 使用 SSH 協定執行作業倉儲的推送
+
+任務二內容請放入 Tasks 頁面下, 標題為 H2 &lt;span style="background-color: #ffff00;"&gt;task2&lt;/span&gt; 的頁面中, 其中必須包括帶有說明字幕的詳細操作影片以及所完成相關檔案下載連結 (請放置在 個人 10GB 容量的 Office 365 OneDrive 系統中後, 在網頁中提供下載連結).
+
+# 任務三
+
+## 使用 Solvespace 建立平面四連桿系統零組件
+
+請參考 &lt;https://mde.tw/cd2025/downloads/fourbar_slvs.7z&gt; 中的零組件尺寸, 自行利用 Solvespace 建立一個可以透過 Trace Point 儲存 link2 中心點的機構組立檔後, 將此中心檔的座標輸出後以 Excel 繪出運動路徑圖.
+
+之後請利用 Python 結合 matplotlib 模組, 編寫一個能夠讀取上述 link2 中心點的運動路徑點座標, 並繪出路徑圖.
+
+# 任務四
+
+## 使用 Onshape 建立平面四連桿系統零組件
+
+請參考 &lt;https://mde.tw/cd2025/downloads/fourbar_slvs.7z&gt; 中的零組件尺寸, 自行利用 Onshape 建立組成此四連桿所需的零組件.
+
+# 任務五
+
+## Webots Tutorial 1 ~3
+
+# 任務六
+
+## Webots Tutorial 4 ~6
+
+
 
 </t>
 <t tx="yen.20170108171605.1"></t>
