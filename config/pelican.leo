@@ -59,6 +59,9 @@
 <v t="leo.20180423103656.1"><vh>@clean 20250218.md</vh>
 <v t="leo.20250218215357.1"><vh>introduction</vh></v>
 </v>
+<v t="leo.20250222164142.1"><vh>@clean 202502_w1.md</vh>
+<v t="leo.20250222164220.1"><vh>w1 assignment</vh></v>
+</v>
 </v>
 </v>
 </v>
@@ -372,6 +375,49 @@ Webots 被用於許多學術研究項目、工業應用和教育計劃。它對�
 Webots 的創建是學術追求和社群合作力量的見證。Olivier Michel 對全面且易於使用的機器人模擬平台的願景對機器人領域產生了深遠的影響。通過提供一個強大且用戶友好的工具，Webots 賦予了研究者、教育者和開發者推進機器人技術前沿的能力。
 
 在這個技術快速發展的世界中，Webots 突顯出創新和合作如何推動進步。其遺產繼續激發並推動機器人研究、教育和開發領域的突破。
+</t>
+<t tx="leo.20250222164142.1">@language md
+---
+Title: 協同產品設計第一週任務
+Date: 2025-02-21 11:00
+Category: cd2025
+Tags: w1, cd2025
+Slug: 2025_cd_w1_assignment
+Author: mdecycu
+---
+
+2025 年協同產品設計實習第一個禮拜的學員指定任務.
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+@others</t>
+<t tx="leo.20250222164220.1">#  w1 任務一
+
+執行以下任務請在作業網站中使用 H1 &lt;span style="background-color: #ffff00;"&gt;Tasks&lt;/span&gt; 標題, 然後在此第一階頁面中摘要說明各週任務的目的以及操作心得.
+
+## 自行製作可攜程式系統
+
+製作可攜程式的任務內容請放入 Tasks 頁面下, 標題為 H2 &lt;span style="background-color: #ffff00;"&gt;w1&lt;/span&gt; 的頁面中, 其中必須包括帶有說明字幕的詳細操作影片以及所完成相關檔案下載連結 (請放置在 個人 10GB 容量的 Office 365 OneDrive 系統中後, 在網頁中提供下載連結).
+
+利用 C 槽的舊可攜程式系統打造課程所使用的程式系統: 
+首先在 C 槽建立 tmp 目錄, 將以下兩個檔案下載至 C:\tmp.
+
+&lt;https://mde.tw/cd2025/downloads/gen_portable_python_and_get_pip.7z&gt;
+&lt;https://mde.tw/cd2025/downloads/start.bat&gt;
+
+利用 7zip 解開第一個壓縮檔案, 可以得到 gen_3.13.2_portable.py 與 get-pip.py 等兩個檔案. 第一個檔案執行後可以 generate Python 3.13.2 portable 基本的程式檔案. 而第二個檔案以 python.exe 執行後, 可以在基本的 Python 檔案中的 Scripts 目錄配置 pip.exe.
+
+操作步驟:
+
+1. 將 gen_3.13.2_portable.py 與 get-pip.py 複製到 C:\Portable_2023_fall\data 目錄中.
+1. start.bat 則複製到 C:\Portable_2023_fall 目錄中.
+1. 接下來設法以舊版的 python.exe 或 pythonw.exe 執行 gen_3.13.2_portable.py.
+1. 取得 Python313 基本程式目錄後, 以 Python313 取代舊版的 Python 後, 關閉舊版的可攜程式, 使用新版的 start.bat 啟動可攜程式, 查驗是否命令列中的 Python 版本為 3.13.2.
+1. 確認 Python 已經為 3.13.2 之後, 在使用新版啟動的可攜程式命令列中執行 python get-pip.py 後, 利用 pip list 確認 pip 工具已經配置完成, 且目前僅有 pip 一項模組工具.
+1. 接下來在新系統的命令列視窗中執行 pip install flask flask_cors bs4 lxml pelican markdown, 安裝執行動態網頁編輯所需的 Python 模組, 即完成新系統的 Python313 系統配置.
+1. 接著請自行配置 home_ipv6、portablegit、PUTTY、sharex、tmp
+vscode、Webots_2025a、wink3 以及 wscite 等目錄. 並自行下載 Process Explorer、Zoomit 以及 solvespace.exe 至新系統的 data 目錄中, 之後利用新系統的 start.bat 啟動可攜, 利用 stop.bat 關閉可攜系統.
+
 </t>
 <t tx="yen.20170108171605.1"></t>
 <t tx="yen.20170108171605.2">QTreeWidget {
