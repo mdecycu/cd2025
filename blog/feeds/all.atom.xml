@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>CD2025 協同產品設計實習</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2025-02-22T17:53:32+08:00</updated><entry><title>協同產品設計實習任務一</title><link href="./2025_cd_assignment1.html" rel="alternate"></link><published>2025-02-21T11:00:00+08:00</published><updated>2025-02-22T17:53:32+08:00</updated><author><name>mdecycu</name></author><id>tag:None,2025-02-21:./2025_cd_assignment1.html</id><summary type="html">&lt;p&gt;2025 年協同產品設計實習的學員指定任務一.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;2025 年協同產品設計實習的學員指定任務一.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>CD2025 協同產品設計實習</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2025-02-24T15:56:57+08:00</updated><entry><title>協同產品設計實習任務</title><link href="./2025_cd_assignment1.html" rel="alternate"></link><published>2025-02-21T11:00:00+08:00</published><updated>2025-02-24T15:56:57+08:00</updated><author><name>mdecycu</name></author><id>tag:None,2025-02-21:./2025_cd_assignment1.html</id><summary type="html">&lt;p&gt;2025 年協同產品設計實習的學員指定任務.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;2025 年協同產品設計實習的學員指定任務.&lt;/p&gt;
 
 
 &lt;h1&gt;任務一&lt;/h1&gt;
@@ -36,8 +36,8 @@ vscode、Webots_2025a、wink3 以及 wscite 等目錄. 並自行下載 Process E
 &lt;h1&gt;任務五&lt;/h1&gt;
 &lt;h2&gt;Webots Tutorial 1 ~3&lt;/h2&gt;
 &lt;h1&gt;任務六&lt;/h1&gt;
-&lt;h2&gt;Webots Tutorial 4 ~6&lt;/h2&gt;</content><category term="cd2025"></category><category term="w1"></category><category term="cd2025"></category></entry><entry><title>協同產品設計第一週</title><link href="./2025_cd_w1.html" rel="alternate"></link><published>2025-02-18T11:00:00+08:00</published><updated>2025-02-18T21:54:08+08:00</updated><author><name>mdecycu</name></author><id>tag:None,2025-02-18:./2025_cd_w1.html</id><summary type="html">&lt;p&gt;2025 年協同產品設計實習第一個禮拜, 這個課程並不使用 SolidWorks, 但故事還是得從這個與 Windows 95 一同推出的 MCAD 套件說起......&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;2025 年協同產品設計實習第一個禮拜, 這個課程並不使用 SolidWorks, 但故事還是得從這個與 Windows 95 一同推出的 MCAD 套件說起......&lt;/p&gt;
+&lt;h2&gt;Webots Tutorial 4 ~6&lt;/h2&gt;</content><category term="cd2025"></category><category term="task1"></category><category term="cd2025"></category></entry><entry><title>協同產品設計實習</title><link href="./2025_cd_w1.html" rel="alternate"></link><published>2025-02-18T11:00:00+08:00</published><updated>2025-02-24T11:35:50+08:00</updated><author><name>mdecycu</name></author><id>tag:None,2025-02-18:./2025_cd_w1.html</id><summary type="html">&lt;p&gt;2025 年協同產品設計實習課程並不使用 SolidWorks, 但故事還是得從這個與 Windows 95 一同推出的 MCAD 套件說起......&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;2025 年協同產品設計實習課程並不使用 SolidWorks, 但故事還是得從這個與 Windows 95 一同推出的 MCAD 套件說起......&lt;/p&gt;
 
 
 &lt;h2&gt;The Tale of DesignView and SolidWorks&lt;/h2&gt;
