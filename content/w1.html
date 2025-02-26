@@ -144,10 +144,15 @@ img.add_border {
         </header>
     <div id="tipue_search_content">Topic1 << <a href='Topic1.html'>Previous</a> <a href='Portable.html'>Next</a> >> Portable<br /><h1>w1</h1>
 <p><span style="background-color: #ffff00;">如何利用 C: 中舊的可攜程式環境建立 Portable_wcm2025?</span></p>
-<p style="padding-left: 30px;">啟動舊版的可攜程式套件後, 在 SciTE 中執行下列程式:</p>
-<p style="padding-left: 30px;"><a href="./../downloads/gen_3.13.2_portable.py">gen_3.13.2_portable.py</a></p>
-<p style="padding-left: 30px;"><a href="./../downloads/start.bat">start.bat</a></p>
-<p style="padding-left: 30px;"><a href="./../downloads/stop.bat">stop.bat</a></p>
+<ol>
+<li>下載 <a href="http://229.cycu.org/portable_python311.7z">portable_python311.7z</a>, 展開後是一套尚未安裝 pip 的 Python 3.11 可攜程式環境.</li>
+<li>雙點擊 portable_python311 目錄中的 start_ipv6.bat 啟動可攜系統, 在 SciTE 中開啟 Y:\<a href="./../downloads/gen_python313.py">gen_python313.py</a>, 以下拉式功能表 Tools - Go 執行, 便可在 Y:\ 建立 Python313 目錄.</li>
+<li>接著修改 start_ipv6.bat, 利用 Search - Replace, Find 欄位填上 Python311, Replace 欄位填上 Python313 後, 按下 Replace All, 便可將啟動檔中所有 Python311 設定改為 Python313, 另存修改後的檔案為 start_python313.bat.</li>
+<li>接下來以 stop.bat 關閉 start_ipv6.bat 開啟的可攜系統, 改以心建立的 start_python313.bat 開啟可攜環境, 之後在命令列輸入 python, 確認目前的 Python 版本為 3.13.2 後, 利用 Ctrl + z 退出 Python 後, 利用 pip list 確認目前的 Python 3.13.2 系統尚未配置 pip 模組管理工具.</li>
+<li>在命令列中, 以 python get-pip.py 安裝 pip 工具, 完成後, 以 pip list 確認 pip.exe 已經配置完成.</li>
+<li>最後在命令列中, 以 pip install flask flask_cors bs4 lxml pelican markdown 安裝 cmsimde 網際內容管理系統啟動所需的 Python 模組後, 此可攜系統中的 Python 3.13.2 套件已經可以用來維護個人作業倉儲與分組倉儲.</li>
+<li>之後利用新版的 <a href="https://www.scintilla.org/SciTEDownload.html">SciTE</a>, <a href="https://git-scm.com/downloads/win">Portablegit</a>, <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PUTTY</a>, <a href="https://github.com/ShareX/ShareX/releases">ShareX</a>, <a href="https://www.debugmode.com/wink.html">Wink</a>, <a href="https://solvespace.com/download.pl">Solvespace</a>, <a href="https://learn.microsoft.com/zh-tw/sysinternals/downloads/zoomit">Zoomit</a>, <a href="https://learn.microsoft.com/zh-tw/sysinternals/downloads/process-explorer#download">ProcessExplorer</a> 以及原有的 tmp 及 home_ipv6, 以新的 start_python313 啟動.</li>
+</ol>
 <p><span style="background-color: #ffff00;">如何利用 Github 帳號與 Portable_wcm2025 建立 SSH 與認證用的 .reg 檔案?</span></p>
 <p style="padding-left: 30px;">確認 start 批次檔案中 GIT_SSH 環境變數已經指向 Putty</p>
 <p style="padding-left: 30px;">利用可攜程式中的 puttygen.exe 建立 OpenSSH 格式的公鑰(鎖頭)與 Putty 格式的私鑰(開門鑰匙)</p>
