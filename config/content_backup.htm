@@ -328,7 +328,9 @@ brython_div1 &lt;= "2. " + html.A("github.com", href="https://github.com")</pre>
 <p><a href="https://mde.tw/cd2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9f3df9d865a7ceca8e799ee9b1a31602/raw/113a3d7e19b36a7672a136f3731ef07b095adeef/list_2a.py">列出 2a 學員作業網站與倉儲連結</a></p>
 <p><a href="https://mde.tw/cd2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9f3df9d865a7ceca8e799ee9b1a31602/raw/29173e8b73ad422fd7c44bcd93658a3579d63633/list_stage_3.py">列出 2b 學員作業網站與倉儲連結</a></p>
 <p><a href="https://mde.tw/cd2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9f3df9d865a7ceca8e799ee9b1a31602/raw/a4414e311503fac8d57d4f5e44999147c54cf7fa/list_2a_group.py">列出 2a 分組網站與倉儲連結</a></p>
-<p><a href="https://mde.tw/cd2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9f3df9d865a7ceca8e799ee9b1a31602/raw/a4414e311503fac8d57d4f5e44999147c54cf7fa/list_2b_group.py">列出 2b 分組網站與倉儲連結</a></p><h2>Topic2</h2>
+<p><a href="https://mde.tw/cd2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9f3df9d865a7ceca8e799ee9b1a31602/raw/a4414e311503fac8d57d4f5e44999147c54cf7fa/list_2b_group.py">列出 2b 分組網站與倉儲連結</a></p>
+<hr/>
+<p>請列出各班目前尚未納入分組的學員名單</p><h2>Topic2</h2>
 <p>零組件繪圖</p>
 <p><object data="/images/topic2.svg" height="671" type="image/svg+xml" width="1016"></object></p>
 <p><a href="https://mde.tw/mind-map/#/?fileURL=https%3A%2F%2Fmde.tw%2Fcd2025%2Fdownloads%2Ftopic2.smm">Edit topic2.smm</a></p>
@@ -1148,11 +1150,15 @@ def clear_bd2(ev):
     bd = doc["brython_div2"]
     bd.clear()
 Ace3 = ace.Editor(editor_id="kw_editor2", console_id="kw_console2", container_id="kw__container2", storage_id="kw_py_src2" )
+def get_url_parameter(name):
+    search = window.location.search[1:]  # Remove the leading '?'
+    params = dict(param.split('=') for param in search.split('&') if '=' in param)
+    return params.get(name, None)
 # 從 gist 取出程式碼後, 放入 editor 作為 default 程式
 def run2():
     # 利用 get 取下 src 變數值
     try:
-        url = doc.query["src2"]
+        url = get_url_parameter("src")
     except:
         url = "https://gist.githubusercontent.com/mdecourse/0229a8a017091476a79700b8a190f185/raw/c3a6deaf717f8f2739a4b1392a5ab10936e9693a/from_1_add_to_10_1.py"
     prog = open(url).read()
