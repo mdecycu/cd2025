@@ -1143,22 +1143,18 @@ doc["add1to100"].bind('click', add)
 <p><!-- 請注意, 這裡使用 Javascript 將 localStorage["kw_py_src2"] 中存在近端瀏覽器的程式碼, 由使用者決定存檔名稱--></p>
 <p>
 <script type="text/python3">
-from browser import document as doc, window
+from browser import document as doc
 import ace
 # 清除畫布
 def clear_bd2(ev):
     bd = doc["brython_div2"]
     bd.clear()
 Ace3 = ace.Editor(editor_id="kw_editor2", console_id="kw_console2", container_id="kw__container2", storage_id="kw_py_src2" )
-def get_url_parameter(name):
-    search = window.location.search[1:]  # Remove the leading '?'
-    params = dict(param.split('=') for param in search.split('&') if '=' in param)
-    return params.get(name, None)
 # 從 gist 取出程式碼後, 放入 editor 作為 default 程式
 def run2():
     # 利用 get 取下 src 變數值
     try:
-        url = get_url_parameter('src')
+        url = doc.query["src2"]
     except:
         url = "https://gist.githubusercontent.com/mdecourse/0229a8a017091476a79700b8a190f185/raw/c3a6deaf717f8f2739a4b1392a5ab10936e9693a/from_1_add_to_10_1.py"
     prog = open(url).read()
