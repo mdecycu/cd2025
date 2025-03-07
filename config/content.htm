@@ -330,7 +330,77 @@ brython_div1 &lt;= "2. " + html.A("github.com", href="https://github.com")</pre>
 <p><a href="https://mde.tw/cd2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9f3df9d865a7ceca8e799ee9b1a31602/raw/a4414e311503fac8d57d4f5e44999147c54cf7fa/list_2a_group.py">列出 2a 分組網站與倉儲連結</a></p>
 <p><a href="https://mde.tw/cd2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9f3df9d865a7ceca8e799ee9b1a31602/raw/a4414e311503fac8d57d4f5e44999147c54cf7fa/list_2b_group.py">列出 2b 分組網站與倉儲連結</a></p>
 <hr/>
-<p>請列出各班目前尚未納入分組的學員名單</p><h2>Topic2</h2>
+<p>請列出各班目前尚未納入分組的學員名單</p>
+<p>透過下列程式:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import os
+# pip install pygithub
+from github import Github
+# the following is under IPv6
+# Replace these variables with your own details
+GITHUB_TOKEN = 'your_token'
+ORG_NAME = 'mdecd2025'
+PROXY = 'http://p4.cycu.org:3128'
+
+def get_all_team_members_starting_with_a(org_name, token, proxy):
+    # Set proxy environment variables
+    os.environ['http_proxy'] = proxy
+    os.environ['https_proxy'] = proxy
+
+    # Initialize Github object
+    g = Github(token)
+    all_members = []
+
+    try:
+        # Get organization
+        org = g.get_organization(org_name)
+        
+        # Get all teams
+        teams = org.get_teams()
+        
+        for team in teams:
+            if team.name.lower().startswith('g'):
+                print(f"Processing team: {team.name}")
+                # List members
+                members = team.get_members()
+                for member in members:
+                    all_members.append(member.login)
+                    print(f"Login: {member.login}, ID: {member.id}, URL: {member.html_url}")
+                    
+        print("\nAll members:", all_members)
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+if __name__ == "__main__":
+    get_all_team_members_starting_with_a(ORG_NAME, GITHUB_TOKEN, PROXY)</pre>
+<p>已知各班已經參與分組的學員 Github 帳號分別如下:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">a_all_members = ['41223154', '41271125', '41271158', '41271146', '41271131', 'CYG41223103', '41223102', '41023128', '41023137', '41223137', '41223157', '41223156', 'otakuyoyo', '41223141', '41223113', 'kim41223114', 'joeisme1208', '41223116', '41223144', '41223140', '41223143', '41223138', '41223134', '41223136', 'zhe41223118', 'Spirit0224', 'yuhao-08', '41223158', 'Ren911308', '41223150', 'Manto8', 'CYA41223106', 'yan21ed', 'Lin41223107', '41223133', 'hong41223129', '41223110', '41223147', 'Linjiahong41223125', 'CHN41223132', 'Yu-Fang-Hong', '41023111', 'yckaooooo', 'kolas911205', '41023105', '40932134', '41223104', 'yan41223101', '41223105', '41223153', '41223120', '41223152', 'G8People', 'WSE41223112', '41223146', '41223119']
+b_all_members = ['41223251', '41223211', '41223245', '41223243', 'jjjay41223212', 'leeshaowei0716', '41223234', '41223209', '41223205', '41223201', '41223202', '41223208-hw', '41223216', '41223217', '41223248', 'emma0312', '41223242', '41223203', '41223144', '41223235', 'RAY41223215', 'hyy41223228', '41223227', '41223206', '41223226-0', 'Cloud41223237', 'Yujenchuang', '41223225', 'ljg41223220', 'supowen', 'jacky93111', '41223246', 'Liu41223244', '41223236', '41223219', '41271237', '41223249', '41223229', '41223224', '41223222', '41223231', 'linryan23', '41023114', '41223230', 'timluo123', 'CYC41223247', '41223218', 'ych0227', '41023215', '41023216', '41023213', '41071203', '41071204', '41071202', 'c-ching', 'YUN4', 'tseYU000', 'snowfall-killer', 'junpig10']</pre>
+<p>請接著列出目前各班尚未納組的學員學號.</p>
+<p>首先看能否從 list\2a.txt <a href="https://mdecd2025.github.io/hw-scrum-1/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9f3df9d865a7ceca8e799ee9b1a31602/raw/8443979d03961d3f66e99e65f4ab3639b3567891/list_2a_stud_num_and_github.py">讀出學員的學號與 github 帳號</a>:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 建立 url 變數與網站中 2a 學員的學號與帳號資料 URL 網誌字串對應
+url = "https://mde.tw/list/2a.txt"
+# 利用 open() 物件中的 readlines() 方法, 取出網站中的資料並逐行放入數列中, 因此 data 的資料型別為數列
+data = open(url).readlines()
+# 進行資料查驗時, 印出 data 數列內容
+#print(data)
+# 因為學員資料中的第一列為標題, 因此有效資料從索引值 1 開始
+all_stud = data[1:]
+# 確定已經取得 2a.txt 中的學號與 github 帳號資料
+#print(all_stud)
+# 利用 for 迴圈逐一列出各學員的單行資料
+# 已知各行資料是以 \n 跳行, 可以設法先刪除每一筆資料最後的跳行符號
+for i in all_stud:
+    #print(i)
+    drop_n = i.rstrip("\n")
+    # 確定每一行最後的跳行符號已經移除
+    #print(drop_n, end="")
+    # 設法利用學號與帳號間的 "\t" 將資料隔開
+    stud = drop_n.split("\t")
+    #print(stud)
+    stud_num = stud[0]
+    stud_github = stud[1]
+    print("學號為 ", stud_num, " 的學員, 其 Github 帳號為 ", stud[1])</pre>
+<p><span>因為隨後可以透過比對取得尚未納組的學員 Github 帳號, 且必須設法從其 Github 帳號, 取得其對應學號, 因此若能從上列程式設法建立一個 Dict, 支援輸入 Github  帳號可以回覆其對應學號, 就可以順利找出目前尚未納組的學員學號. 另外是否也必須查驗是否有學員加入錯誤的班級組別?</span></p><h2>Topic2</h2>
 <p>零組件繪圖</p>
 <p><object data="/images/topic2.svg" height="671" type="image/svg+xml" width="1016"></object></p>
 <p><a href="https://mde.tw/mind-map/#/?fileURL=https%3A%2F%2Fmde.tw%2Fcd2025%2Fdownloads%2Ftopic2.smm">Edit topic2.smm</a></p>
