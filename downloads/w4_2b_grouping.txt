@@ -1,0 +1,74 @@
+Processing team: g1
+Login: 41223251, ID: 144990130, URL: https://github.com/41223251
+Login: 41223211, ID: 144990816, URL: https://github.com/41223211
+Login: 41223245, ID: 144990933, URL: https://github.com/41223245
+Login: 41223243, ID: 144991202, URL: https://github.com/41223243
+Login: jjjay41223212, ID: 144991701, URL: https://github.com/jjjay41223212
+Login: leeshaowei0716, ID: 144992123, URL: https://github.com/leeshaowei0716
+Processing team: g10
+Login: 41223234, ID: 144989696, URL: https://github.com/41223234
+Login: 41223209, ID: 144990001, URL: https://github.com/41223209
+Login: 41223205, ID: 144991637, URL: https://github.com/41223205
+Login: 41223201, ID: 144991783, URL: https://github.com/41223201
+Login: 41223202, ID: 144992303, URL: https://github.com/41223202
+Login: 41223208-hw, ID: 183057631, URL: https://github.com/41223208-hw
+Processing team: g11
+Login: www000123, ID: 91449769, URL: https://github.com/www000123
+Processing team: g2
+Login: 41223216, ID: 144990706, URL: https://github.com/41223216
+Login: 41223217, ID: 144991632, URL: https://github.com/41223217
+Login: 41223248, ID: 144991633, URL: https://github.com/41223248
+Login: emma0312, ID: 144991740, URL: https://github.com/emma0312
+Login: 41223242, ID: 144992436, URL: https://github.com/41223242
+Login: 41223203, ID: 145648966, URL: https://github.com/41223203
+Processing team: g3
+Login: 41223235, ID: 144989421, URL: https://github.com/41223235
+Login: RAY41223215, ID: 144989534, URL: https://github.com/RAY41223215
+Login: hyy41223228, ID: 144990198, URL: https://github.com/hyy41223228
+Login: 41223227, ID: 144991323, URL: https://github.com/41223227
+Login: 41223206, ID: 144991408, URL: https://github.com/41223206
+Login: 41223226-0, ID: 181443813, URL: https://github.com/41223226-0
+Processing team: g4
+Login: Cloud41223237, ID: 50543840, URL: https://github.com/Cloud41223237
+Login: Yujenchuang, ID: 144986550, URL: https://github.com/Yujenchuang
+Login: 41223225, ID: 144990301, URL: https://github.com/41223225
+Login: ljg41223220, ID: 144991560, URL: https://github.com/ljg41223220
+Login: supowen, ID: 147696959, URL: https://github.com/supowen
+Login: jacky93111, ID: 150820836, URL: https://github.com/jacky93111
+Processing team: g5
+Login: 41223246, ID: 144995820, URL: https://github.com/41223246
+Login: Liu41223244, ID: 144997024, URL: https://github.com/Liu41223244
+Login: 41223236, ID: 147693746, URL: https://github.com/41223236
+Login: 41223219, ID: 181446577, URL: https://github.com/41223219
+Login: 41271237, ID: 181446630, URL: https://github.com/41271237
+Processing team: g6
+Login: 41223249, ID: 144989816, URL: https://github.com/41223249
+Login: 41223229, ID: 144990125, URL: https://github.com/41223229
+Login: 41223224, ID: 144990214, URL: https://github.com/41223224
+Login: 41223222, ID: 144990294, URL: https://github.com/41223222
+Login: 41223231, ID: 144991761, URL: https://github.com/41223231
+Login: linryan23, ID: 144992449, URL: https://github.com/linryan23
+Processing team: g7
+Login: 41023114, ID: 91240719, URL: https://github.com/41023114
+Login: 41223230, ID: 144989760, URL: https://github.com/41223230
+Login: timluo123, ID: 145647459, URL: https://github.com/timluo123
+Login: CYC41223247, ID: 147689510, URL: https://github.com/CYC41223247
+Login: 41223218, ID: 147692426, URL: https://github.com/41223218
+Login: ych0227, ID: 148432568, URL: https://github.com/ych0227
+Processing team: g8
+Login: 41023215, ID: 91449828, URL: https://github.com/41023215
+Login: 41023216, ID: 91451266, URL: https://github.com/41023216
+Login: 41023213, ID: 92711125, URL: https://github.com/41023213
+Login: 41071203, ID: 145730744, URL: https://github.com/41071203
+Login: 41071204, ID: 199685762, URL: https://github.com/41071204
+Login: 41071202, ID: 199685836, URL: https://github.com/41071202
+Processing team: g9
+Login: c-ching, ID: 91449272, URL: https://github.com/c-ching
+Login: YUN4, ID: 91450641, URL: https://github.com/YUN4
+Login: tseYU000, ID: 91451240, URL: https://github.com/tseYU000
+Login: snowfall-killer, ID: 91452593, URL: https://github.com/snowfall-killer
+Login: junpig10, ID: 91455505, URL: https://github.com/junpig10
+Processing team: g99
+Login: scrum-1, ID: 11391334, URL: https://github.com/scrum-1
+
+All members: ['41223251', '41223211', '41223245', '41223243', 'jjjay41223212', 'leeshaowei0716', '41223234', '41223209', '41223205', '41223201', '41223202', '41223208-hw', 'www000123', '41223216', '41223217', '41223248', 'emma0312', '41223242', '41223203', '41223235', 'RAY41223215', 'hyy41223228', '41223227', '41223206', '41223226-0', 'Cloud41223237', 'Yujenchuang', '41223225', 'ljg41223220', 'supowen', 'jacky93111', '41223246', 'Liu41223244', '41223236', '41223219', '41271237', '41223249', '41223229', '41223224', '41223222', '41223231', 'linryan23', '41023114', '41223230', 'timluo123', 'CYC41223247', '41223218', 'ych0227', '41023215', '41023216', '41023213', '41071203', '41071204', '41071202', 'c-ching', 'YUN4', 'tseYU000', 'snowfall-killer', 'junpig10', 'scrum-1']
