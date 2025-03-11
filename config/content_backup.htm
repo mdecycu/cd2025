@@ -419,10 +419,22 @@ if stud_github not in a_all_members:
 <p></p><h3>IPv6</h3>
 <p>IPv6 設定:</p>
 <p style="padding-left: 30px;">2a 各學員固定 IPv6 分配: 2001:288:6004:17:fff1:cd25:0000:a001<br/>2b 各學員固定 IPv6 分配: 2001:288:6004:17:fff1:cd25:0000:b001<br/>gateway: 2001:288:6004:17::254<br/>dns server: <br/>2001:288:6004:17::3<br/>2001:b000:168::1</p>
-<p>2b 以<a href="/downloads/w4_2b_index.txt">w4_2b_index.txt</a> 中的序號為準, 例如: 序號為 1 的學員其固定 IPv6 位址為:</p>
+<p>2a 以 <a href="/downloads/w4_2a_index.txt">w4_2a_index.txt</a> 中的序號為準, 例如: 序號為 1 的學員其固定 IPv6 位址為:</p>
+<p style="padding-left: 30px;"><span>2001:288:6004:17:fff1:cd25:0000:a001</span></p>
+<p style="padding-left: 30px;"><span>若序號為 60 其 IPv6 位址為 2001:288:6004:17:fff1:cd25:0000:a060</span></p>
+<p>2b 以 <a href="/downloads/w4_2b_index.txt">w4_2b_index.txt</a> 中的序號為準, 例如: 序號為 1 的學員其固定 IPv6 位址為:</p>
 <p style="padding-left: 30px;"><span>2001:288:6004:17:fff1:cd25:0000:b001</span></p>
 <p style="padding-left: 30px;"><span>若序號為 66 其 IPv6 位址為 2001:288:6004:17:fff1:cd25:0000:b066</span></p>
-<p></p><h2>Topic2</h2>
+<hr/>
+<p>各組員將電腦設為所份配的固定 IPv6 後, 可以利用 python -m http.server, 在作業倉儲中啟動 port 8000 的 http 靜態網頁伺服器, 以下為各班的近端學員靜態網站連結:</p>
+<p><a href="https://mde.tw/cd2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9f3df9d865a7ceca8e799ee9b1a31602/raw/a4414e311503fac8d57d4f5e44999147c54cf7fa/list_2a_group.py">列出 2a 分組網站與倉儲連結</a></p>
+<p><a href="https://mde.tw/cd2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9f3df9d865a7ceca8e799ee9b1a31602/raw/a4414e311503fac8d57d4f5e44999147c54cf7fa/list_2b_group.py">列出 2b 分組網站與倉儲連結</a></p>
+<p>2a IPv6 port 8000 連線列表</p>
+<p>2b IPv6 port 8000 連線列表</p>
+<hr/>
+<p>以下為與 AI 系統的對話:</p>
+<p>請用 Brython 寫出在 id="brython_div1" 嵌入 html 連結的程式. 希望各連結能透過 http 協定連結到班上有 66 位學員的靜態網頁. 其中各學員的固定 IPv6 分別為 2001:288:6004:17:fff1:cd25:0000:b001 到 2001:288:6004:17:fff1:cd25:0000:b066, 且使用 port 8000 進行連結. 請寫出此一 Brython 程式.</p>
+<p>取得下列程式: <a href="https://mde.tw/cd2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9f3df9d865a7ceca8e799ee9b1a31602/raw/5674eb19769159d503b2263726279dc4e7f26c1f/w4_2b_ipv6.py">透過 2b 學員序號列出其 IPv6 靜態網站</a></p><h2>Topic2</h2>
 <p>零組件繪圖</p>
 <p><object data="/images/topic2.svg" height="671" type="image/svg+xml" width="1016"></object></p>
 <p><a href="https://mde.tw/mind-map/#/?fileURL=https%3A%2F%2Fmde.tw%2Fcd2025%2Fdownloads%2Ftopic2.smm">Edit topic2.smm</a></p><h3>Compile</h3>
@@ -1228,7 +1240,7 @@ doc["add1to100"].bind('click', add)
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console1"></textarea></div>
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div1"></div>
-<!-- editor1 結束 --><hr/><!-- ########################################## -->
+<!-- editor1 結束 --><hr><!-- ########################################## -->
 <p>從 1 累加到 100 part2:</p>
 <p><button id="add1to100part2">1 add to 100</button><button id="cango_three_gears">cango_three_gears</button><button id="bsnake">BSnake</button><button id="aitetris">AI Tetris</button></p>
 <p><!-- 請注意, 這裡使用 Javascript 將 localStorage["kw_py_src2"] 中存在近端瀏覽器的程式碼, 由使用者決定存檔名稱--></p>
@@ -1343,4 +1355,4 @@ doc["aitetris"].bind("click", aitetris.do)
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div2"></div>
 <!-- editor2 結束 --><hr/>
-<p></p>
+<p></p></hr>
