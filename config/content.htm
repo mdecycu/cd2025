@@ -400,7 +400,17 @@ for i in all_stud:
     stud_num = stud[0]
     stud_github = stud[1]
     print("學號為 ", stud_num, " 的學員, 其 Github 帳號為 ", stud[1])</pre>
-<p><span>因為隨後可以透過比對取得尚未納組的學員 Github 帳號, 且必須設法從其 Github 帳號, 取得其對應學號, 因此若能從上列程式設法建立一個 Dict, 支援輸入 Github  帳號可以回覆其對應學號, 就可以順利找出目前尚未納組的學員學號. 另外是否也必須查驗是否有學員加入錯誤的班級組別?</span></p><h2>Topic2</h2>
+<p>只要在迴圈中加入下列判斷式:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">#print("學號為 ", stud_num, " 的學員, 其 Github 帳號為 ", stud[1])
+if stud_github not in a_all_members:
+    print(stud_num)</pre>
+<p>即可取得下列尚未納組的學員學號:</p>
+<p><a href="https://mde.tw/cd2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9f3df9d865a7ceca8e799ee9b1a31602/raw/1ef87e0d43210f34d48ea6559a6a74d075d6a253/2a_not_in_group.py">2a</a>:</p>
+<p>41023220<br/>41223111<br/>41223119<br/>41223124<br/>41223148</p>
+<p><a href="https://mde.tw/cd2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9f3df9d865a7ceca8e799ee9b1a31602/raw/addb4810bed04a15b77e94720cf7de231f380591/2b_not_in_group.py">2b</a>:</p>
+<p>40923137<br/>41023237<br/>41223210<br/>41223214<br/>41223223<br/>41223232<br/>41223233<br/>41223239<br/>41223245<br/>41271217<br/>41271236</p>
+<p></p>
+<p></p><h2>Topic2</h2>
 <p>零組件繪圖</p>
 <p><object data="/images/topic2.svg" height="671" type="image/svg+xml" width="1016"></object></p>
 <p><a href="https://mde.tw/mind-map/#/?fileURL=https%3A%2F%2Fmde.tw%2Fcd2025%2Fdownloads%2Ftopic2.smm">Edit topic2.smm</a></p>
