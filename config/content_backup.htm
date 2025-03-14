@@ -220,14 +220,16 @@
 <p></p>
 <h3>Portable</h3>
 <p>以下將說明如何自行在 Windows 操作系統中建立可攜 Python 程式系統.</p>
-<p><a href="/downloads/gen_portable_python_and_get_pip.7z">gen_portable_python_and_get_pip.7z</a></p>
-<p>目前最新的 Python 版本為 3.13.2, 可以利用舊版的 Python310 (為了配合 Siemens NX2312), 以下列程式碼建立一套基本的 Python313 可攜程式套件:</p>
+<p>此作業的目的在展示如何利用既有的 Python 可攜系統建立各版本的 Python 可攜環境.</p>
+<p>以下為操作步驟:</p>
 <ol>
-<li>利用舊版的 Python310 可攜套件執行 <a href="/downloads/gen_3.13.2_portable.py">gen_3.13.2_portable.py</a>, 就可以建立最基本的 Python 3.13.2 系統目錄, 在此命名為 Python313.</li>
-<li>接著將此 Python313 目錄放入舊可攜 Python 程式系統的 Y:\ 之後, 以此目錄名稱取代舊有 start.bat 檔案中的 Python 目錄名稱, 建立一個新的 start_python313.bat, 然後用此批次檔案啟動可攜系統.</li>
-<li>啟動基本的 Python 3.13.2 可攜套件後, 在命令列中以 python get-pip.py 安裝 pip 工具.</li>
-<li>為了能夠執行 cmsimde 動態網站, 在命令列執行 pip install flask flask_cors bs4 lxml pelican markdown, 安裝啟動 cmsimde 所需的 Python 模組.</li>
-<li>至此所得到的 Python313 目錄容量約為 170MB, 壓縮為 <a href="/downloads/Python313.7z.001">Python313.7z.001</a>, <a href="/downloads/Python313.7z.002">Python313.7z.002</a>, <a href="/downloads/Python313.7z.003">Python313.7z.003</a> 與 <a href="/downloads/Python313.7z.004">Python313.7z.004</a> 等四個檔案.</li>
+<li>下載 <a href="http://229.cycu.org/portable_python311.7z">portable_python311.7z</a>, 展開後是一套尚未安裝 pip 的 Python 3.11 可攜程式環境.</li>
+<li>雙點擊 portable_python311 目錄中的 start_ipv6.bat 啟動可攜系統, 在 SciTE 中開啟 Y:\<a href="https://mdewcm2025.github.io/hw-scrum-1/downloads/gen_python313.py">gen_python313.py</a>, 以下拉式功能表 Tools - Go 執行, 便可在 Y:\ 建立 Python313 目錄.</li>
+<li>接著修改 start_ipv6.bat, 利用 Search - Replace, Find 欄位填上 Python311, Replace 欄位填上 Python313 後, 按下 Replace All, 便可將啟動檔中所有 Python311 設定改為 Python313, 另存修改後的檔案為 start_python313.bat.</li>
+<li>接下來以 stop.bat 關閉 start_ipv6.bat 開啟的可攜系統, 改以心建立的 start_python313.bat 開啟可攜環境, 之後在命令列輸入 python, 確認目前的 Python 版本為 3.13.2 後, 利用 Ctrl + z 退出 Python 後, 利用 pip list 確認目前的 Python 3.13.2 系統尚未配置 pip 模組管理工具.</li>
+<li>在命令列中, 以 python get-pip.py 安裝 pip 工具, 完成後, 以 pip list 確認 pip.exe 已經配置完成.</li>
+<li>最後在命令列中, 以 pip install flask flask_cors bs4 lxml pelican markdown 安裝 cmsimde 網際內容管理系統啟動所需的 Python 模組後, 此可攜系統中的 Python 3.13.2 套件已經可以用來維護個人作業倉儲與分組倉儲.</li>
+<li>之後利用新版的 <a href="https://www.scintilla.org/SciTEDownload.html">SciTE</a>, <a href="https://git-scm.com/downloads/win">Portablegit</a>, <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PUTTY</a>, <a href="https://github.com/ShareX/ShareX/releases">ShareX</a>, <a href="https://www.debugmode.com/wink.html">Wink</a>, <a href="https://solvespace.com/download.pl">Solvespace</a>, <a href="https://learn.microsoft.com/zh-tw/sysinternals/downloads/zoomit">Zoomit</a>, <a href="https://learn.microsoft.com/zh-tw/sysinternals/downloads/process-explorer#download">ProcessExplorer</a> 以及原有的 tmp 及 home_ipv6, 以新的 start_python313 啟動.</li>
 </ol>
 <p>在此有一點必須特別注意, SciTE 中有關使用 Pythonw.exe 解譯程式設定的檔案必須使用:</p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">if PLAT_WIN
@@ -240,8 +242,7 @@ if PLAT_MAC
 <hr/>
 <p>自行製作可攜 Python, 以及配置 pip 的過程如下:</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/t8lpTRLP3Ic?si=XdqorGOTaokrPrQx" title="YouTube video player" width="560"></iframe></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/XqTiDBusTb0?si=MKZ1C_Mjf7mEDUBC" title="YouTube video player" width="560"></iframe></p>
-<h3>repo</h3>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/XqTiDBusTb0?si=MKZ1C_Mjf7mEDUBC" title="YouTube video player" width="560"></iframe></p><h3>repo</h3>
 <p>此作業的目的在展示如何利用既有的 Python 可攜系統建立各版本的 Python 可攜環境.</p>
 <p>以下為操作步驟:</p>
 <ol>
@@ -417,6 +418,7 @@ if stud_github not in a_all_members:
 <hr/>
 <p>w4: <a href="/downloads/w4_2b_grouping.txt">w4_2b_grouping.txt</a></p>
 <p></p><h3>IPv6</h3>
+<p>已知 w4 之前的學員作業倉儲版本, 無法在 IPv6 位址設定時正確運作, 各學員必須下載 <a href="http://229.cycu.org/cmsimde_w4.7z">cmsimde_w4.7z</a>, 解開壓縮檔案後, 替換倉儲中的 cmsimde 目錄.</p>
 <p>IPv6 設定:</p>
 <p style="padding-left: 30px;">2a 各學員固定 IPv6 分配: 2001:288:6004:17:fff1:cd25:0000:a001<br/>2b 各學員固定 IPv6 分配: 2001:288:6004:17:fff1:cd25:0000:b001<br/>gateway: 2001:288:6004:17::254<br/>dns server: <br/>2001:288:6004:17::3<br/>2001:b000:168::1</p>
 <p>2a 以 <a href="/downloads/w4_2a_index.txt">w4_2a_index.txt</a> 中的序號為準, 例如: 序號為 1 的學員其固定 IPv6 位址為:</p>
@@ -1095,7 +1097,28 @@ c.recursiveImport(
     theTypes = None,        # Same as ['.py']
 )</pre>
 <p></p>
-<h2>Old</h2>
+<h2>uv</h2>
+<p>uv 是一個由 <a href="https://astral.sh/">Astral</a> 團隊開發的現代 Python 工具，旨在提供更快、更簡單的工作流程，取代傳統的 pip、virtualenv 和 poetry 等工具。以下將全面介紹其核心功能、高級用法及使用場景。</p>
+<p>使用 uv python list 可以列出能夠下載使用的 Python 版本:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">Y:\&gt;uv python list
+cpython-3.14.0a5+freethreaded-windows-x86_64-none    &lt;download available&gt;
+cpython-3.14.0a5-windows-x86_64-none                 &lt;download available&gt;
+cpython-3.13.2+freethreaded-windows-x86_64-none      &lt;download available&gt;
+cpython-3.13.2-windows-x86_64-none                   y:\Python313\python.exe
+cpython-3.13.2-windows-x86_64-none                   &lt;download available&gt;
+cpython-3.12.9-windows-x86_64-none                   &lt;download available&gt;
+cpython-3.11.11-windows-x86_64-none                  &lt;download available&gt;
+cpython-3.10.16-windows-x86_64-none                  &lt;download available&gt;
+cpython-3.9.21-windows-x86_64-none                   &lt;download available&gt;
+cpython-3.8.20-windows-x86_64-none                   &lt;download available&gt;
+cpython-3.7.9-windows-x86_64-none                    &lt;download available&gt;
+pypy-3.11.11-windows-x86_64-none                     &lt;download available&gt;
+pypy-3.10.16-windows-x86_64-none                     &lt;download available&gt;
+pypy-3.9.19-windows-x86_64-none                      &lt;download available&gt;
+pypy-3.8.16-windows-x86_64-none                      &lt;download available&gt;
+pypy-3.7.13-windows-x86_64-none                      &lt;download available&gt;</pre>
+<p>確認可用的 Python 版本後, 可以透過 <a href="https://mde.tw/cd2025/content/Portable.html">Portable</a> 頁面中的流程自行建立可攜 Python 程式套件.</p>
+<p>接下來應該要探討 uv 在可攜程式環境中的應用.</p><h2>Old</h2>
 <p>以下連結僅能在系統主幹的網路 IPv6 協定下擷取:</p>
 <p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/cd2019/content/sitemap.html">cd2019</a></p>
 <p style="padding-left: 60px;"><a href="http://wcm.cycu.org:88/github/cd2019/downloads/vrml97specification.pdf">vrml97specification.pdf</a> (1997)</p>
@@ -1119,8 +1142,7 @@ c.recursiveImport(
 <p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/cd2022_guide/content/sitemap.html">cd2022</a></p>
 <p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/cd2023/content/sitemap.html">cd2023</a></p>
 <p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/cd2024/content/sitemap.html">cd2024</a></p>
-<p></p>
-<h1>Brython</h1>
+<p></p><h1>Brython</h1>
 <p><button id="add1to100">1 add to 100</button></p>
 <!-- 導入 brython 程式庫 -->
 <p>
