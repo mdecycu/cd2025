@@ -142,25 +142,8 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Topic2 << <a href='Topic2.html'>Previous</a> <a href='Onshape.html'>Next</a> >> Onshape<br /><h1>Compile</h1>
-<p>以下要說明如何利用可攜程式套件編譯 Solvepace:</p>
-<p>下載 <a href="http://229.cycu.org/cmake_msys64.7z">cmake_and_msys64.7z</a>, 將 cmake-3.21.0-windows-x86_64、msys64 與 libwinpthread-1.dll 等資料放入 <a href="http://229.cycu.org/portable_wcm2025.7z">portable_wcm2025.7z</a> 解開壓縮後的 data 目錄中, 啟動可攜程式檔案就可以使用 <a href="https://www.msys2.org/">MSYS2</a> 編譯 Solvespace 3.1 版的原始碼. 取得的 solvespace.exe 只要與 libwinpthread-1.dll 處於同一個目錄, 就可以執行編譯完成的 solvespace.exe 執行參數化零組件的繪圖.</p>
-<p>備註: <span>請更新上列 portable_wcm2025.7z 中的 wscite 為 5.5.5 版 (</span><a href="http://229.cycu.org/wscite_5.5.5.7z">wscite_5.5.5.7z</a><span>, 解開壓縮檔案後取代 5.5.4 版的 wscite 目錄)</span></p>
-<p>編譯 Solvespace 的詳細步驟如下:</p>
-<p>配置好 <a href="http://229.cycu.org/cmake_msys64.7z">cmake_and_msys64.7z</a> 後, 啟動可攜程式</p>
-<p>在命令列中 cd tmp, 然後利用 git clone --recurse-submodules <a href="https://github.com/solvespace/solvespace.git">https://github.com/solvespace/solvespace.git</a> 取下 solvespace 的原始碼</p>
-<p>cd solvespace 後, 利用 git checkout v3.1 將版本切換到 v3.1 的原始碼內容</p>
-<p>接下來則必須修改 solvespace\extlib\angle\src\libANGLE\HandleAllocator.cpp 加入標頭檔案:</p>
-<p>#include &lt;limits&gt;</p>
-<p>接著就可以進行程式碼的編譯與連結:</p>
-<p>mkdir build</p>
-<p>cd build</p>
-<p>cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release</p>
-<p>mingw32-make</p>
-<p>完成編譯後, solvespace.exe 即位於 build\bin 目錄中, 執行時則需要 libwinpthread-1.dll 動態連結程式庫.</p>
-<p>進行上述流程編譯的原始碼 <a href="http://229.cycu.org/solvespace_v3.1_src.7z">solvespace_v3.1_src.7z</a>, 以及編譯完成的 <a href="http://229.cycu.org/solvespace_v3.1_msys2.7z">solvespace_v3.1_msys2.7z</a>.</p>
-<p>註: <a href="http://229.cycu.org/portable_wcm2025.7z">portable_wcm2025.7z</a> 中所配置的 solvespace.exe 是採用 Visual Studio C++ 編譯, 檔案只有約 7MB, 因為其執行時所需的動態連結程式庫已經配置在 Windows 操作系統中, 因此檔案較小, 而採上述流程, 使用 <a href="https://www.msys2.org/">MSYS2</a> 可攜方式編譯所得到的 solvespace.exe, 檔案約 15MB, 還需要 62KB 的 libwinpthread-1.dll 才能執行, 這是因為採 <a href="https://www.msys2.org/">MSYS2</a> 編譯的 solvespace.exe 必須自帶執行所需的程式庫, 因此檔案較大.</p>
-<p></p><br />Topic2 << <a href='Topic2.html'>Previous</a> <a href='Onshape.html'>Next</a> >> Onshape</div>
+    <div id="tipue_search_content">Fourbar << <a href='Fourbar.html'>Previous</a> <a href='Topic4.html'>Next</a> >> Topic4<br /><h1>boomer</h1>
+<p><a href="./../downloads/w5_boomer.7z">w5_boomer.7z</a></p><br />Fourbar << <a href='Fourbar.html'>Previous</a> <a href='Topic4.html'>Next</a> >> Topic4</div>
         
     <!-- footer -->
       <div class="container">
