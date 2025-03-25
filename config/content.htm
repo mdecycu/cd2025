@@ -501,6 +501,25 @@ if stud_github not in a_all_members:
 <p><a href="/downloads/cd2025_box_fourbar_w5.7z">cd2025_box_fourbar_w5.7z</a></p>
 <p><a href="/downloads/fourbar_box_w5.7z">fourbar_box_w5.7z</a></p>
 <p><a href="/downloads/basket_ball_shooter.7z">basket_ball_shooter.7z</a></p>
+<p><a href="/downloads/basket_ball_shooter.7z">basket_ball_shooter.7z</a></p>
+<p><span style="background-color: #ffff00;">請注意, 所有 world 的存檔必須要將模擬時間轉為 0</span>, 否則所存的變數狀態將為該時間的模擬結果.</p>
+<p><a href="https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots?tab-language=python">Tutorial 1</a> 重點摘要:</p>
+<p>將 <a href="http://229.cycu.org/Webots_2025a_web.7z">Webots_2025a_web.7z</a> 解開壓縮後放入可攜套件 (<a href="http://229.cycu.org/portable_wcm2025.7z">portable_wcm2025.7z</a>) 的 data 目錄中.</p>
+<p>因為 start.bat 中已經宣告 Python 所在位置, 並將執行 webotsw.exe 所在的目錄放入 Windows 的命令搜尋路徑變數中 (path).</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">REM for Webots
+set PYTHON_PATH=%Disk%:\Python313
+
+REM for webots
+set  path_webots=%Disk%:\Webots_2025a\msys64\mingw64\bin;%Disk%:\Webots_2025a\msys64\usr\bin</pre>
+<p>當起始一個 Webots project, 需要至少建立 worlds、controllers、protos 等三個目錄, 而且 Robot 的<span style="background-color: #ffff00;">控制器程式必須放入 controllers 目錄, 且控制程式檔名必須與子目錄相同</span>.</p>
+<p><a href="https://cyberbotics.com/doc/guide/tutorial-2-modification-of-the-environment?tab-language=python">Tutorial 2</a> 重點摘要:</p>
+<p><img alt="" height="329" src="/images/simplest_rigit_body_object.png" width="400"/></p>
+<p>根據上圖, 在 <span style="background-color: #ffff00;">Webots 建立剛體物件, 必須使用 Solid 節點, 並從節點中的 children 建立 Shape 後宣告其 geometry 外形用於系統的運動方程式, 而其碰撞檢測的外形依據, 則從 Solid 節點的 boundingObject 中的 geometry 進行確認</span>.</p>
+<p>另外可從 View - Optional Rendering - Show coordinate system 選項, 要求系統列出目前視圖所依據的座標系統.</p>
+<p>當在 base 物件建立旋轉軸時, HingeJoint 物件的位階必須與 base 相同, 而且 link1 的 solid 物件必須接在 HingeJoint 的 endPoint 節點上, 且因為 link1 的最後位置並非位於其旋轉中心, 因此在建立 link1 solid 物件下的 shape 之前必須先使用 pose 物件, 以便在 solid 的 parent 座標系統之下, 建立一個屬於 shape 的局部座標轉換系統.</p>
+<p>另外 HingeJoint 的旋轉中心位置是由 jointParameters 物件下的 anchor 欄位決定, 而其旋轉軸則由 axis 欄位決定.</p>
+<p>由於 link1 最後需要透過碰撞檢測來與籃球互動, 因此除了 dynamic simulation 之外, 還需要設定 boundingObject, 才能界定 link1 的碰撞幾何外形, 但由於前面的 link1 並非在其 parent 座標系統的物件中心旋轉, 而是透過其局部座標轉換 (利用 pose 物件達成), 往局部 x 方向移動 0.2m, 因此 boundingObject 在引用其 shape 時, 也必須透過 pose 轉換到 link1 最終所在位置.</p>
+<p>上列流程所完成的 Webots 專案檔: <a href="/downloads/w6_demo_project.7z">w6_demo_project.7z</a></p>
 <p></p><h3>boomer</h3>
 <p><a href="/downloads/w5_boomer.7z">w5_boomer.7z</a></p><h2>Topic4</h2>
 <p>協同設計</p>
