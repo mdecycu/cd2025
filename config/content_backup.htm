@@ -519,6 +519,7 @@ set  path_webots=%Disk%:\Webots_2025a\msys64\mingw64\bin;%Disk%:\Webots_2025a\ms
 <p>當在 base 物件建立旋轉軸時, HingeJoint 物件的位階必須與 base 相同, 而且 link1 的 solid 物件必須接在 HingeJoint 的 endPoint 節點上, 且因為 link1 的最後位置並非位於其旋轉中心, 因此在建立 link1 solid 物件下的 shape 之前必須先使用 pose 物件, 以便在 solid 的 parent 座標系統之下, 建立一個屬於 shape 的局部座標轉換系統.</p>
 <p>另外 HingeJoint 的旋轉中心位置是由 jointParameters 物件下的 anchor 欄位決定, 而其旋轉軸則由 axis 欄位決定.</p>
 <p>由於 link1 最後需要透過碰撞檢測來與籃球互動, 因此除了 dynamic simulation 之外, 還需要設定 boundingObject, 才能界定 link1 的碰撞幾何外形, 但由於前面的 link1 並非在其 parent 座標系統的物件中心旋轉, 而是透過其局部座標轉換 (利用 pose 物件達成), 往局部 x 方向移動 0.2m, 因此 boundingObject 在引用其 shape 時, 也必須透過 pose 轉換到 link1 最終所在位置.</p>
+<p>上列流程所完成的 Webots 專案檔: <a href="/downloads/w6_demo_project.7z">w6_demo_project.7z</a></p>
 <p></p><h3>boomer</h3>
 <p><a href="/downloads/w5_boomer.7z">w5_boomer.7z</a></p><h2>Topic4</h2>
 <p>協同設計</p>
