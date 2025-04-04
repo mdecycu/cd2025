@@ -5,5 +5,5 @@ sceneTreePerspectives: 000000ff0000000100000003000001f1000000cb00000000010000000
 maximizedDockId: -1
 centralWidgetVisible: 1
 orthographicViewHeight: 1
-textFiles: 0 "../fourbar_box/controllers/fourbar_controller/fourbar_controller.py"
+textFiles: 0 "Y:/tmp/cd2025/downloads/webots_files/fourbar_box/controllers/fourbar_controller/fourbar_controller.py"
 consoles: Console:All:All
