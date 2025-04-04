@@ -871,36 +871,67 @@ DEF FOURBAR Robot {
 </ol>
 <p><a href="/downloads/fourbar_slvs.7z">fourbar_slvs.7z</a></p>
 <h2>Tutorial1</h2>
-<p>教程<br/><br/>本章的目的是解釋 Webots 的基本概念，這些概念是創建您自己的模擬所需的。學習重點在於機器人及其環境的模型建構，以及機器人控制器的程式設計。您還將學習如何尋找進一步的文檔。<br/><br/>本章適合 Webots 的絕對初學者。不過，仍然需要有程式設計的背景。範例是用 Python 語言編寫的。如果您不熟悉 Python 語言，您仍然應該能夠理解本章，因為下面的 Python 程式非常簡單。除了程式設計，您不需要任何特定的知識即可完成本章中的教程。然而，基本的機器人學、數學、模型建構和樹狀表示法的背景知識可能會有所幫助。有經驗的 Webots 使用者可以跳過最初的教程。不過，我們建議他們至少閱讀這些教程的介紹和結論。<br/><br/>本章的每個部分（除了第一和最後一部分）都是一個教程。每個教程都有一個明確的教育目標，並在第一段中進行解釋。獲得的概念隨後會在結論子部分中總結。一個教程被設計成一系列互動步驟。要繼續進行下一個教程，通常需要掌握前一個教程中獲得的知識。因此，我們強烈建議您按照它們的自然順序進行。此外，我們建議您在繼續進一步之前，確保您已經理解了教程中的所有概念。<br/><br/>最後一部分將為您提供一些解決本章未涉及問題的提示。<br/><br/>教程的解決方案位於 Webots 安裝目錄的 "WEBOTS_HOME/projects/samples/tutorials" 子目錄中。<br/><br/>我們希望您能享受使用 Webots 的第一步。同時，我們非常希望能收到您對本章的反饋。</p>
-<p>教程 1：在 Webots 中進行您的第一次模擬<br/><br/>目標<br/><br/>本教程的目標是讓您熟悉用戶界面和 Webots 的基本概念。您將創建一個包含簡單環境的首次模擬：一個帶有地板和牆壁的競技場、幾個箱子、一個 e-puck 機器人和一個使機器人移動的控制程式。<br/><br/>步驟<br/><br/>1. 啟動 Webots：在您的電腦上打開 Webots。</p>
-<p style="padding-left: 30px;">實作 #1：通過雙擊 Webots 圖標（或在終端中從命令行調用）來啟動 Webots。如果您是第一次在此計算機上運行 Webots，可能會提示您選擇圖形主題。您也可能被邀請參加 Webots 指導遊覽，請關閉指導遊覽。</p>
+<p>導引課程<br/><br/>本章的目的是解說 Webots 的基本概念，這些概念是自行創建模擬場景 (.wbt) 時必須用到的。學習重點在於機器人及其環境的模型建構，以及機器人控制器 (controllers) 的程式設計。您還將學習如何尋找進一步的教學資料。<br/><br/>本章適合 Webots 的初學者。不過，仍然需要有程式設計 (Programming) 的背景。範例是用 Python 語言編寫的。如果您不熟悉 Python 語言，您仍然應該能夠理解本章，因為下面的 Python 程式非常簡單。除了程式設計，您不需要任何特定的知識即可完成本章中的教程。然而，基本的機器人學 (Robotcs)、數學 (Mathematics)、模型建構 (Modeling) 和樹狀表示法 (Tree representation) 的背景知識可能會有所幫助。有經驗的 Webots 使用者可以跳過最初的教程。不過，我們建議他們至少閱讀這些教程的介紹和結論。<br/><br/>本章的每個部分（除了第一和最後一部分）都是一個導引課程。每個導引課程都有一個明確的教育目標，並在第一段中進行解釋。獲得的概念隨後會在結論子部分中總結。每一個導引課程都被設計成一系列互動步驟。要繼續進行下一個教程，通常需要掌握前一個教學中獲得的知識。因此，我們強烈建議您按照它們的自然順序進行。此外，我們建議您在繼續進一步之前，確保您已經理解了導引課程中的所有概念。<br/><br/>最後一部分將為您提供一些解決本章未涉及問題的提示。<br/><br/>導引課程的解決方案位於 Webots 安裝目錄的 "WEBOTS_HOME/projects/samples/tutorials" 子目錄中。</p>
+<p>導引課程 1：在 Webots 中進行您的第一次模擬<br/><br/>目標<br/><br/>本導引課程的目標是讓您熟悉用戶界面和 Webots 的基本概念。您將創建一個包含簡單環境的首次模擬：一個帶有地板和牆壁的競技場、幾個箱子、一個 e-puck 機器人和一個使機器人移動的控制程式。<br/><br/>步驟<br/><br/>1. 啟動 Webots：在您的電腦上打開 Webots (假如使用協同產品設計課程的可攜套件，啟動後在命令列中輸入 webotsw 即可開啟 Webots)。</p>
+<p style="padding-left: 30px;"><span style="background-color: #ccffcc;">實作 #1：通過雙擊 Webots 圖標（或在終端中從命令行調用）來啟動 Webots。如果您是第一次在此電腦上運行 Webots，可能會提示您選擇圖形主題。您也可能被邀請參加 Webots 指導遊覽，請關閉指導遊覽。</span></p>
 <p>2. 創建新世界：<br/>    - 轉到 File -&gt; New World。<br/>    - 使用適當的名稱保存新世界文件，例如 my_first_simulation.wbt。</p>
 <p>3. 添加競技場：<br/>    - 在場景樹中，右鍵點擊 root 並選擇 Add New -&gt; Solid。<br/>    - 將新固體重命名為 arena 並為其添加 Shape。<br/>    - 將其幾何形狀設置為 Box，並設置適當的尺寸（例如，1m x 1m x 0.01m）來表示地板。<br/>    - 為形狀添加 Material 並設置其顏色。</p>
-<p style="padding-left: 30px;">實作 #2：通過點擊 3D 視圖的暫停按鈕來暫停當前模擬（請參閱用戶界面描述以找到按鈕）。如果主工具欄上的虛擬時間計數器停止，則模擬被暫停。從 File / New / New Project Directory... 菜單項創建一個新項目並按照說明進行：<br/><br/>1. 將項目目錄命名為 my_first_simulation，而不是建議的 my_project。<br/>2. 將世界文件命名為 my_first_simulation.wbt，而不是建議的 empty.wbt。<br/>3. 點擊所有選框，包括默認未選中的 "Add a rectangle arena"。</p>
+<p style="padding-left: 30px;"><span style="background-color: #ccffcc;">實作 #2：通過點擊 3D 視圖的暫停按鈕來暫停當前模擬（請參閱用戶界面描述以找到按鈕）。如果主工具欄上的虛擬時間計數器停止，則模擬被暫停。從 File / New / New Project Directory... 菜單項創建一個新項目並按照說明進行：</span><br/><br/><span style="background-color: #ccffcc;">1. 將項目目錄命名為 my_first_simulation，而不是建議的 my_project。</span><br/><span style="background-color: #ccffcc;">2. 將世界文件命名為 my_first_simulation.wbt，而不是建議的 empty.wbt。</span><br/><span style="background-color: #ccffcc;">3. 點擊所有選框，包括默認未選中的 "Add a rectangle arena"。</span></p>
 <p>4. 添加牆壁：<br/>    - 重複該過程以在競技場周圍添加四面牆壁。<br/>    - 調整它們的位置和尺寸以適合地板周圍。</p>
-<p style="padding-left: 30px;">實作 #3：在場景樹中雙擊 RectangleArena 節點。這應該會打開該節點並顯示其字段。<br/><br/>1. 選擇 floorTileSize 字段並將其值設置為 0.25 0.25 而不是 0.5 0.5。您應該立即在 3D 視圖中看到效果。<br/>2. 選擇 wallHeight 字段並將其值更改為 0.05 而不是 0.1。競技場的牆壁現在應該變得更低。</p>
+<p style="padding-left: 30px;"><span style="background-color: #ccffcc;">實作 #3：在場景樹中雙擊 RectangleArena 節點。這應該會打開該節點並顯示其字段。</span><br/><br/><span style="background-color: #ccffcc;">1. 選擇 floorTileSize 字段並將其值設置為 0.25 0.25 而不是 0.5 0.5。您應該立即在 3D 視圖中看到效果。</span><br/><span style="background-color: #ccffcc;">2. 選擇 wallHeight 字段並將其值更改為 0.05 而不是 0.1。競技場的牆壁現在應該變得更低。</span></p>
 <p>5. 添加箱子：<br/>    - 在競技場內添加幾個箱子作為障礙物。<br/>    - 根據您的喜好設置它們的位置和尺寸。</p>
-<p style="padding-left: 30px;">實作 #4：在場景樹中雙擊 RectangleArena 以將其關閉並選中它。點擊場景樹頂部的添加按鈕。在打開的對話框中，選擇 PROTO nodes (Webots Projects) / objects / factory / containers / WoodenBox (Solid)。一個大箱子應該會出現在競技場的中央。在場景樹中雙擊它以打開其字段。<br/><br/>1. 將其尺寸更改為 0.1 0.1 0.1 而不是 0.6 0.6 0.6。<br/>2. 將其平移更改為 0 0 0.05 而不是 0 0 0.3。或者，您可以使用 3D 視圖中出現的藍色箭頭來調整其 translation.z 字段。<br/>3. 現在按住 Shift 鍵並在 3D 視圖中拖動箱子，將其移動到競技場的某個角落。<br/>4. 選擇箱子並按 ctrl-C，ctrl-V（Windows，Linux）或 ⌘ command-C，⌘ command-V（macOS）來複製和粘貼它。按住 Shift 鍵並拖動新箱子將其移動到某個不同的位置。以這種方式創建第三個箱子。<br/>5. 移動箱子，使競技場中央沒有箱子。您也可以使用藍色旋轉箭頭沿垂直軸旋轉箱子。這也可以通過按住 Shift 鍵並用右鍵拖動來完成。或者，您可以更改場景樹中 WoodenBox 節點的旋轉字段的角度。<br/>6. 一旦您對結果滿意，請使用保存按鈕保存世界。</p>
+<p style="padding-left: 30px;"><span style="background-color: #ccffcc;">實作 #4：在場景樹中雙擊 RectangleArena 以將其關閉並選中它。點擊場景樹頂部的添加按鈕。在打開的對話框中，選擇 PROTO nodes (Webots Projects) / objects / factory / containers / WoodenBox (Solid)。一個大箱子應該會出現在競技場的中央。在場景樹中雙擊它以打開其字段。</span><br/><br/><span style="background-color: #ccffcc;">1. 將其尺寸更改為 0.1 0.1 0.1 而不是 0.6 0.6 0.6。</span><br/><span style="background-color: #ccffcc;">2. 將其平移更改為 0 0 0.05 而不是 0 0 0.3。或者，您可以使用 3D 視圖中出現的藍色箭頭來調整其 translation.z 字段。</span><br/><span style="background-color: #ccffcc;">3. 現在按住 Shift 鍵並在 3D 視圖中拖動箱子，將其移動到競技場的某個角落。</span><br/><span style="background-color: #ccffcc;">4. 選擇箱子並按 ctrl-C，ctrl-V（Windows，Linux）或 ⌘ command-C，⌘ command-V（macOS）來複製和粘貼它。按住 Shift 鍵並拖動新箱子將其移動到某個不同的位置。以這種方式創建第三個箱子。</span><br/><span style="background-color: #ccffcc;">5. 移動箱子，使競技場中央沒有箱子。您也可以使用藍色旋轉箭頭沿垂直軸旋轉箱子。這也可以通過按住 Shift 鍵並用右鍵拖動來完成。或者，您可以更改場景樹中 WoodenBox 節點的旋轉字段的角度。</span><br/><span style="background-color: #ccffcc;">6. 一旦您對結果滿意，請使用保存按鈕保存世界。</span></p>
 <p>6. 添加 e-puck 機器人：<br/>    - 在場景樹中，右鍵點擊 root 並選擇 Add New -&gt; Robot。<br/>    - 從可用機器人列表中選擇 e-puck 機器人。</p>
-<p style="padding-left: 30px;">實作 #5：選擇場景樹視圖中的最後一個節點 WoodenBox。點擊場景樹視圖頂部的添加按鈕。在對話框中，選擇 PROTO nodes (Webots Projects) / robots / gctronic / e-puck / E-puck (Robot)。一個 e-puck 機器人應該會出現在競技場的中央。像移動和旋轉箱子一樣移動和旋轉這個機器人。保存模擬並按下實時運行按鈕。</p>
+<p style="padding-left: 30px;"><span style="background-color: #ccffcc;">實作 #5：選擇場景樹視圖中的最後一個節點 WoodenBox。點擊場景樹視圖頂部的添加按鈕。在對話框中，選擇 PROTO nodes (Webots Projects) / robots / gctronic / e-puck / E-puck (Robot)。一個 e-puck 機器人應該會出現在競技場的中央。像移動和旋轉箱子一樣移動和旋轉這個機器人。保存模擬並按下實時運行按鈕。</span></p>
 <p>7. 創建控制程式：<br/>    - 在場景樹中右鍵點擊 e-puck 並選擇 Add New -&gt; Controller。<br/>    - 創建一個新的控制器文件（例如，epuck_controller.c）並編寫一個簡單的程式來使機器人移動。例如：</p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Robot, Motor
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Robot, Motor  # 從 controller 模組導入 Robot 和 Motor 類別
 
-TIME_STEP = 64
+TIME_STEP = 64  # 設置時間步長為 64 毫秒
 
-# create the Robot instance.
+# 創建 Robot 實例
 robot = Robot()
 
-# get the motor devices
-leftMotor = robot.getDevice('left wheel motor')
-rightMotor = robot.getDevice('right wheel motor')
-# set the target position of the motors
-leftMotor.setPosition(10.0)
-rightMotor.setPosition(10.0)
+# 擷取電機設備
+leftMotor = robot.getDevice('left wheel motor')  # 獲取左側輪子電機設備
+rightMotor = robot.getDevice('right wheel motor')  # 獲取右側輪子電機設備
 
-while robot.step(TIME_STEP) != -1:
-   pass</pre>
-<p>8. 保存並運行模擬：<br/>    - 保存您的世界文件。<br/>    - 點擊 Play 按鈕運行模擬並觀察機器人移動。<br/><br/>結論<br/><br/>在本教程中，您已經學習了如何在 Webots 中創建一個簡單的模擬，包括添加競技場、牆壁、障礙物和 e-puck 機器人。您還創建了一個基本的控制程式來使機器人移動。本教程為您探索 Webots 的更高級功能和功能提供了堅實的基礎。</p><h1>Homework</h1>
+# 設置電機的目標位置
+leftMotor.setPosition(10.0)  # 設置左側輪子電機的目標位置為 10.0
+rightMotor.setPosition(10.0)  # 設置右側輪子電機的目標位置為 10.0
+
+while robot.step(TIME_STEP) != -1:  # 當機器人步進時間步長不等於 -1 時（模擬仍在運行）
+    pass  # 什麼也不做，保持循環運行</pre>
+<p>8. 保存並運行模擬：<br/>    - 保存您的世界文件。<br/>    - 點擊 Play 按鈕運行模擬並觀察機器人移動。<br/><br/>結論<br/><br/>在本導引課程中，您已經學習了如何在 Webots 中創建一個簡單的模擬，包括添加競技場、牆壁、障礙物和 e-puck 機器人。您還創建了一個基本的控制程式來使機器人移動。本導引課程已經為您探索 Webots 更進階功能提供了充實的基礎。</p><h2>Tutorial2</h2>
+<p>導引課程 2：修改環境<br/><br/>在本導引課程中，我們將教您如何在環境中創建簡單的物件。第一步將是創建一個與環境互動的球。我們將處理與節點相關的幾個概念：它們的含義是什麼，如何創建它們，它們如何必須隸屬等等。此外，我們還將看到如何設置物理效果。<br/><br/>將介紹幾種節點類型。它們的詳細定義可以在<a href="https://cyberbotics.com/doc/reference/nodes-and-api-functions">參考手冊</a>中找到。將<a href="https://cyberbotics.com/doc/reference/node-chart">節點圖表</a>放在您面前，將有助於理解節點的繼承關係。</p>
+<p>一個新的模擬<br/><br/>首先，我們基於教程 1 中創建的模擬來創建一個新的模擬。</p>
+<p style="padding-left: 30px;"><span style="background-color: #ccffcc;">實作 #1：確保 my_first_simulation.wbt 世界文件已打開，並且模擬已暫停且虛擬時間為 0。使用 File / Save World As... 菜單將模擬保存為 obstacles.wbt。</span></p>
+<p>修改地板<br/><br/>內定的 RectangleArena PROTO 定義了一個簡單的地板，固定在靜態環境中，沒有物理節點，四周則被牆壁包圍。Webots 物件庫中還有其他預製的地板。我們現在將刪除 RectangleArena 節點，並添加一個簡單的地板，稍後在本教程中我們將手動用牆壁圍繞它。</p>
+<p style="padding-left: 30px;"><span style="background-color: #ccffcc;">實作 #2：要刪除 RectangleArena，請在 3D 視圖或場景樹視圖中選中它，然後按鍵盤上的 del 鍵。或者，您可以在 3D 視圖中右鍵單擊它，然後在上下文菜單中選擇 Delete（您也可以直接在場景樹視圖中使用上下文表單）。選擇 TexturedBackgroundLight 節點並點擊添加按鈕。在打開的對話框中，選擇 PROTO nodes (Webots Projects) / objects / floors / Floor (Solid)。</span></p>
+<p>新添加的 Floor PROTO 默認大小為 10 米 x 10 米，但可以通過更改相應的字段來調整其大小、位置和紋理。</p>
+<p style="padding-left: 30px;"><span style="background-color: #ccffcc;">實作 #3：在場景樹視圖中選擇並展開 Floor。修改 size 字段並將其設置為 {1, 1} 以將其調整為 1 米 x 1 米。</span></p>
+<p><a href="https://cyberbotics.com/doc/reference/solid">Solid</a> 節點<br/><br/>本小節介紹了 Webots 中最重要的基礎節點：<a href="https://cyberbotics.com/doc/reference/solid">Solid</a> 節點，許多其他節點都從它衍生而來。<br/><br/><a href="https://cyberbotics.com/doc/reference/solid">Solid</a> 節點代表剛體，即可以忽略變形的物體。剛體中任意兩點之間的距離無論外力如何作用，都保持恆定。例如桌子、機器人手指骨節或輪子都是剛體。軟體和關節物體不是剛體。例如繩子、輪胎、海綿或關節機器人手臂都不是剛體。然而，一個關節實體可以被分解成若干剛體。<br/><br/>Webots 的物理引擎設計用於模擬剛體。設計模擬時，一個重要的步驟是將各種實體分解為單獨的剛體。<br/><br/>要定義剛體，您需要創建一個 <a href="https://cyberbotics.com/doc/reference/solid">Solid</a> 節點。在此節點內，您將設置對應於剛體特性的不同子節點。下圖描述了一個剛體及其子節點。<a href="https://cyberbotics.com/doc/reference/solid">Solid</a> 節點的圖形表示由填充其子級列表的形狀節點定義。碰撞範圍在其 boundingObject 字段中定義。圖形表示和碰撞形狀通常但不必然相同。最後，physics 字段定義物體屬於動態環境還是靜態環境。所有這些子節點都是可選的，但 physics 字段需要定義 boundingObject。</p>
+<p><img caption="false" height="248" src="/images/simplest_rigit_body_object.png" width="300"/></p>
+<p>在 Webots 中，最簡單的剛體模型具有<span style="background-color: #ffff99;">幾何外形圖示</span> (以 Shape 中的 Geometry 標示其<span style="background-color: #ccffcc;">視覺外形</span>)、<span style="background-color: #ffff99;">物理邊界形體</span> (以 boundingObject 中的 Geometry 標示其<span style="background-color: #ccffcc;">碰撞檢測外形</span>) 並處於<span style="background-color: #ffff99;">動態環境</span> (以 physics 中的 Physics 標示其<span style="background-color: #ccffcc;">物理特性參數</span>) 中。<br/><br/>圖中的幾何框代表任何類型的幾何原始體。事實上，它可以被替換為球體、盒子、圓柱體等。</p>
+<p>創建一個球<br/><br/>我們現在將在模擬中添加一個球。該球將被建模為剛體，如下圖所示。我們將使用 <a href="https://cyberbotics.com/doc/reference/sphere">Sphere</a> 節點來定義我們球的幾何形狀。</p>
+<p style="padding-left: 30px;"><span style="background-color: #ccffcc;">實作 #4：在場景樹視圖中，選擇最後一個節點並按「Add」按鈕。在對話框中，打開「Bases nodes」部分並選擇「<a href="https://cyberbotics.com/doc/reference/solid">Solid</a>」節點。在場景樹視圖中，展開「<a href="https://cyberbotics.com/doc/reference/solid">Solid</a>」節點並選擇其「children」字段。使用「Add」按鈕向其添加一個「<a href="https://cyberbotics.com/doc/reference/shape">Shape</a>」節點。選擇「<a href="https://cyberbotics.com/doc/reference/shape">Shape</a>」節點的「appearance」字段，並使用「Add」按鈕添加一個「PBRAppearance」節點。</span><br/><br/><span style="background-color: #ccffcc;">    添加一個「Sphere」節點作為新創建的「<a href="https://cyberbotics.com/doc/reference/shape">Shape</a>」節點的幾何字段。</span><br/><span style="background-color: #ccffcc;">    展開「PBRAppearance」節點，將其「metalness」字段更改為 0，並將其「roughness」字段更改為 1。</span><br/><span style="background-color: #ccffcc;">    向「<a href="https://cyberbotics.com/doc/reference/solid">Solid</a>」的「boundingObject」字段添加另一個「<a href="https://cyberbotics.com/doc/reference/sphere">Sphere</a>」節點。</span><br/><span style="background-color: #ccffcc;">    最後，向「<a href="https://cyberbotics.com/doc/reference/solid">Solid</a>」的「physics」字段添加一個「Physics」節點。</span><br/><span style="background-color: #ccffcc;">    通過修改「<a href="https://cyberbotics.com/doc/reference/solid">Solid</a>」節點的「translation」字段，將球放置在機器人前面（例如在 {0.2, 0, 0.2}）。</span><br/><span style="background-color: #ccffcc;">    保存模擬。</span><br/><span style="background-color: #ccffcc;">    結果如下圖所示。</span></p>
+<p><img alt="" height="157" src="/images/tutorial_ball.thumbnail.jpg" width="300"/></p>
+<p>你的第一個 Webots 剛體<br/><br/>當模擬開始時，球會撞擊地板。您可以通過對球施加力來移動它（ctrl + alt + 左鍵單擊並拖動）。通過啟用 View / Optional Rendering / Show Contact Points 表單項，可以顯示球與地板之間的接觸點作為青色線條。</p>
+<p>幾何體<br/><br/>為了定義球，我們在兩個不同的上下文中使用了 Sphere 節點：圖形表示 (graphical representation)（children）和定義物理邊界 (physical bounds)（boundingObject）。所有幾何節點（例如 Sphere 節點）都可以在圖形標示中使用。但是，只有其中的一部分可以在物理標示中使用。<a href="https://cyberbotics.com/doc/reference/node-chart">節點圖表</a>中則明確指出哪些節點可以用在何種標示。(這裡需要進一步說明各節點的適用情境)<br/><br/>我們現在將減小球體的大小，並通過增加用於表示它的三角形數量來提高其圖形質量。</p>
+<p style="padding-left: 30px;"><span style="background-color: #ccffcc;">實作 #5：對於定義球的每個 Sphere 節點，將其 radius 字段設置為 0.05，將其 subdivision 字段設置為 2。參考手冊了解 subdivision 字段的含義。</span></p>
+<p>DEF-USE 機制<br/><br/>DEF-USE 機制允許在一個地方定義一個節點，並在場景樹的其他地方重用該定義。這對於避免在世界文件中重複相同的節點非常有用。此外，它還允許用戶同時修改多個對象。其工作原理如下：首先使用 DEF 字符串標記一個節點。然後可以使用 USE 關鍵字在其他地方重用該節點的副本。只有 DEF 節點的字段可以編輯，USE 節點的字段繼承自 DEF 節點，無法更改。此機制依賴於世界文件中節點的順序。DEF 節點應在任何相應的 USE 節點之前定義。<br/><br/>我們之前用來定義球的兩個 Sphere 定義是冗餘的。我們現在將使用 DEF-USE 機制將這兩個 Sphere 合併為一個。</p>
+<p style="padding-left: 30px;"><span style="background-color: #ccffcc;">實作 #6：在場景樹視圖中選擇第一個 Sphere 節點（Shape 的子節點）。場景樹視圖的字段編輯器允許您輸入 DEF 字符串。</span><br/><br/><span style="background-color: #ccffcc;">    在此字段中輸入 BALL_GEOMETRY。</span><br/><span style="background-color: #ccffcc;">    選擇 boundingObject 字段（包含第二個 Sphere 節點），通過右鍵單擊該字段並選擇彈出上下文菜單中的「Delete」條目來清空它。</span><br/><span style="background-color: #ccffcc;">    然後，選擇 boundingObject 字段並單擊「Add」按鈕，在對話框中選擇 USE / BALL_GEOMETRY。</span><br/><span style="background-color: #ccffcc;">    結果如圖所示。</span></p>
+<p>現在，更改第一個 Sphere 節點的 radius 字段也會修改其 boundingObject。<br/><br/>為了方便起見，boundingObject 字段也接受 <a href="https://cyberbotics.com/doc/reference/shape">Shape</a> 節點（而不是直接接受 Sphere 節點）。同樣可以在 <a href="https://cyberbotics.com/doc/reference/shape">Shape</a> 層級使用相同的 DEF-USE 機制，如下圖所示。目前最大的好處是能夠直接將此 <a href="https://cyberbotics.com/doc/reference/shape">Shape</a> 用於圖形目的。稍後此機制對於某些傳感器將非常有用。</p>
+<p><img alt="" height="157" src="/images/tutorial_def_use.thumbnail.jpg" width="300"/></p>
+<p>在名為 BALL_GEOMETRY 的 Sphere 節點上使用 DEF-USE 機制。</p>
+<p><img alt="" height="200" src="/images/tutorial2_DEF_USE.png" width="300"/></p>
+<p>在 Solid 的幾何體的 Sphere 節點上應用 DEF-USE 機制。</p>
+<p style="padding-left: 30px;"><span style="background-color: #ccffcc;">實作 #7：創建第二個球，使用相同的參數，但使用 <a href="https://cyberbotics.com/doc/reference/shape">Shape</a> 節點（而不是直接使用 Sphere 節點）來實現 DEF-USE 機制。</span></p>
+<p>添加牆壁<br/><br/>為了驗證您的進展，請自行實現四面牆來圍繞環境。這些牆必須靜態地定義到環境中。為了理解靜態和動態之間的區別，讓我們取一個地面上的定義物體（球）。如果 Physics 節點為 NULL，它將在模擬期間保持靜止在空中（靜態情況）。如果 physics 字段包含 Physics 節點，它將在重力作用下掉落（動態情況）。<br/><br/>儘量在<a href="https://cyberbotics.com/doc/reference/shape">Shape</a> 層級使用 DEF-USE 機制，而不是在 Geometry 層級。確實，將中間 Shape 節點添加到 Solid 節點的 boundingObject 字段中更方便。實現牆壁的最佳幾何原語是 <a href="https://cyberbotics.com/doc/reference/box">Box</a> 節點。所有牆壁只需定義一個 <a href="https://cyberbotics.com/doc/reference/shape">Shape</a>。預期結果如圖所示。</p>
+<p style="padding-left: 30px;"><span style="background-color: #ccffcc;">實作 #8：添加四面牆，無需物理效果，並且只使用一個 Shape 節點的定義。</span></p>
+<p>解決方案：世界文件<br/><br/>要將您的世界與解決方案進行比較，請進入您的文件並找到在教程1中創建的名為 "my_first_simulation" 的文件夾，然後進入 "worlds" 文件夾並用文本編輯器打開相應的世界文件。此解決方案與其他解決方案位於 solution 目錄中。</p>
+<p><img alt="" height="157" src="/images/tutorial_walls.thumbnail.jpg" width="300"/></p>
+<p>在本教程結束時的模擬狀態。</p>
+<p>效率<br/><br/>剛體的模擬計算代價高昂。通過最小化邊界對象的數量、最小化它們之間的約束（有關約束的更多信息在後續教程中），以及最大化 WorldInfo.basicTimeStep 字段，可以提高模擬速度。在每次模擬中，必須在模擬速度和現實感之間找到權衡。<br/>結論<br/><br/>在本教程結束時，您將能夠基於剛體創建簡單的環境。您能夠從場景樹視圖中添加節點並修改其字段。您已經熟悉了 <a href="https://cyberbotics.com/doc/reference/solid">Solid</a>、Physics、<a href="https://cyberbotics.com/doc/reference/shape">Shape</a>、Sphere 和 <a href="https://cyberbotics.com/doc/reference/box">Box</a> 節點。您還看到了 DEF-USE 機制，該機制允許減少場景樹的節點冗餘。</p><h1>Homework</h1>
 <p>作業 (30%)</p>
 <p>HW1 (5%): <span style="background-color: #ffff00;">建立由 Box 組成的平面四連桿機構 Webots 模擬場景</span></p>
 <p style="padding-left: 30px;">part1:</p>
