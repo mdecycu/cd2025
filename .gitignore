@@ -32,3 +32,5 @@ config/config
 # OS-specific
 .DS_Store
 Thumbs.db
+
+_FOSSIL_

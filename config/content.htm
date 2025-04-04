@@ -182,7 +182,11 @@
 <p><a href="https://fossil-scm.org/">https://fossil-scm.org/</a> </p>
 <p>Github 與 Fossil SCM 結合應用範例:</p>
 <div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/cmsimde/static" data-varname="wcmw3_fossil1" height="630" muted="true" width="1008">
-<source src="/downloads/wink/wcmw3_fossil1.mp4" type="video/mp4"/></video></div><h2>Topic1</h2>
+<source src="/downloads/wink/wcmw3_fossil1.mp4" type="video/mp4"/></video></div>
+<div class="winkVideoContainerClass"></div>
+<div class="winkVideoContainerClass">fossil init w4.fossil<br/><br/>fossil ui w4.fossil<br/><br/>ctrl c<br/><br/>git clone https://github.com/mdecycu/cmsimde_site.git c<br/><br/>cd c<br/><br/>fossil open ./../w4.fossil --force<br/><br/>fossil add .<br/><br/>fossil commit -m "add c"<br/><br/>cd ..<br/><br/>fossil ui w4.fossil<br/><br/><a href="http://localhost:8081/doc/trunk/index.html">http://localhost:8081/doc/trunk/index.html</a></div>
+<div class="winkVideoContainerClass"></div>
+<div class="winkVideoContainerClass">trunk 為最新版本的代號, 若在 Fossil 系統中改版後, 可以將 trunk 換為版號, 直接看到該版的靜態網站內容.</div><h2>Topic1</h2>
 <p>可攜環境與 Github</p>
 <p><object data="/images/topic1.svg" height="885" type="image/svg+xml" width="1357"></object></p>
 <p><a href="https://mde.tw/mind-map/#/?fileURL=https%3A%2F%2Fmde.tw%2Fcd2025%2Fdownloads%2Ftopic1.smm">Edit topic1.smm</a></p><h3>w1</h3>
@@ -220,14 +224,16 @@
 <p></p>
 <h3>Portable</h3>
 <p>以下將說明如何自行在 Windows 操作系統中建立可攜 Python 程式系統.</p>
-<p><a href="/downloads/gen_portable_python_and_get_pip.7z">gen_portable_python_and_get_pip.7z</a></p>
-<p>目前最新的 Python 版本為 3.13.2, 可以利用舊版的 Python310 (為了配合 Siemens NX2312), 以下列程式碼建立一套基本的 Python313 可攜程式套件:</p>
+<p>此作業的目的在展示如何利用既有的 Python 可攜系統建立各版本的 Python 可攜環境.</p>
+<p>以下為操作步驟:</p>
 <ol>
-<li>利用舊版的 Python310 可攜套件執行 <a href="/downloads/gen_3.13.2_portable.py">gen_3.13.2_portable.py</a>, 就可以建立最基本的 Python 3.13.2 系統目錄, 在此命名為 Python313.</li>
-<li>接著將此 Python313 目錄放入舊可攜 Python 程式系統的 Y:\ 之後, 以此目錄名稱取代舊有 start.bat 檔案中的 Python 目錄名稱, 建立一個新的 start_python313.bat, 然後用此批次檔案啟動可攜系統.</li>
-<li>啟動基本的 Python 3.13.2 可攜套件後, 在命令列中以 python get-pip.py 安裝 pip 工具.</li>
-<li>為了能夠執行 cmsimde 動態網站, 在命令列執行 pip install flask flask_cors bs4 lxml pelican markdown, 安裝啟動 cmsimde 所需的 Python 模組.</li>
-<li>至此所得到的 Python313 目錄容量約為 170MB, 壓縮為 <a href="/downloads/Python313.7z.001">Python313.7z.001</a>, <a href="/downloads/Python313.7z.002">Python313.7z.002</a>, <a href="/downloads/Python313.7z.003">Python313.7z.003</a> 與 <a href="/downloads/Python313.7z.004">Python313.7z.004</a> 等四個檔案.</li>
+<li>下載 <a href="http://229.cycu.org/portable_python311.7z">portable_python311.7z</a>, 展開後是一套尚未安裝 pip 的 Python 3.11 可攜程式環境.</li>
+<li>雙點擊 portable_python311 目錄中的 start_ipv6.bat 啟動可攜系統, 在 SciTE 中開啟 Y:\<a href="https://mdewcm2025.github.io/hw-scrum-1/downloads/gen_python313.py">gen_python313.py</a>, 以下拉式功能表 Tools - Go 執行, 便可在 Y:\ 建立 Python313 目錄.</li>
+<li>接著修改 start_ipv6.bat, 利用 Search - Replace, Find 欄位填上 Python311, Replace 欄位填上 Python313 後, 按下 Replace All, 便可將啟動檔中所有 Python311 設定改為 Python313, 另存修改後的檔案為 start_python313.bat.</li>
+<li>接下來以 stop.bat 關閉 start_ipv6.bat 開啟的可攜系統, 改以心建立的 start_python313.bat 開啟可攜環境, 之後在命令列輸入 python, 確認目前的 Python 版本為 3.13.2 後, 利用 Ctrl + z 退出 Python 後, 利用 pip list 確認目前的 Python 3.13.2 系統尚未配置 pip 模組管理工具.</li>
+<li>在命令列中, 以 python get-pip.py 安裝 pip 工具, 完成後, 以 pip list 確認 pip.exe 已經配置完成.</li>
+<li>最後在命令列中, 以 pip install flask flask_cors bs4 lxml pelican markdown 安裝 cmsimde 網際內容管理系統啟動所需的 Python 模組後, 此可攜系統中的 Python 3.13.2 套件已經可以用來維護個人作業倉儲與分組倉儲.</li>
+<li>之後利用新版的 <a href="https://www.scintilla.org/SciTEDownload.html">SciTE</a>, <a href="https://git-scm.com/downloads/win">Portablegit</a>, <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PUTTY</a>, <a href="https://github.com/ShareX/ShareX/releases">ShareX</a>, <a href="https://www.debugmode.com/wink.html">Wink</a>, <a href="https://solvespace.com/download.pl">Solvespace</a>, <a href="https://learn.microsoft.com/zh-tw/sysinternals/downloads/zoomit">Zoomit</a>, <a href="https://learn.microsoft.com/zh-tw/sysinternals/downloads/process-explorer#download">ProcessExplorer</a> 以及原有的 tmp 及 home_ipv6, 以新的 start_python313 啟動.</li>
 </ol>
 <p>在此有一點必須特別注意, SciTE 中有關使用 Pythonw.exe 解譯程式設定的檔案必須使用:</p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">if PLAT_WIN
@@ -240,8 +246,7 @@ if PLAT_MAC
 <hr/>
 <p>自行製作可攜 Python, 以及配置 pip 的過程如下:</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/t8lpTRLP3Ic?si=XdqorGOTaokrPrQx" title="YouTube video player" width="560"></iframe></p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/XqTiDBusTb0?si=MKZ1C_Mjf7mEDUBC" title="YouTube video player" width="560"></iframe></p>
-<h3>repo</h3>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/XqTiDBusTb0?si=MKZ1C_Mjf7mEDUBC" title="YouTube video player" width="560"></iframe></p><h3>repo</h3>
 <p>此作業的目的在展示如何利用既有的 Python 可攜系統建立各版本的 Python 可攜環境.</p>
 <p>以下為操作步驟:</p>
 <ol>
@@ -493,12 +498,34 @@ if stud_github not in a_all_members:
 <h3>Fourbar</h3>
 <p>平面四連桿機構運動分析</p>
 <p>Reference: <a href="https://docs.sympy.org/latest/modules/physics/mechanics/examples/four_bar_linkage_example.html">1</a>, <a href="https://gist.github.com/mdecycu/c6401d697ddbb33fcd0eaed5b4da8d09">2</a>, <a href="https://homepages.math.uic.edu/~jan/phcpy_doc_html/fourbartut.html">3</a></p>
-<p></p>
-<h2>Topic4</h2>
+<p><a href="/downloads/cd2025_box_fourbar_w5.7z">cd2025_box_fourbar_w5.7z</a></p>
+<p><a href="/downloads/fourbar_box_w5.7z">fourbar_box_w5.7z</a></p>
+<p><a href="/downloads/basket_ball_shooter.7z">basket_ball_shooter.7z</a></p>
+<p><a href="/downloads/basket_ball_shooter.7z">basket_ball_shooter.7z</a></p>
+<p><span style="background-color: #ffff00;">請注意, 所有 world 的存檔必須要將模擬時間轉為 0</span>, 否則所存的變數狀態將為該時間的模擬結果.</p>
+<p><a href="https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots?tab-language=python">Tutorial 1</a> 重點摘要:</p>
+<p>將 <a href="http://229.cycu.org/Webots_2025a_web.7z">Webots_2025a_web.7z</a> 解開壓縮後放入可攜套件 (<a href="http://229.cycu.org/portable_wcm2025.7z">portable_wcm2025.7z</a>) 的 data 目錄中.</p>
+<p>因為 start.bat 中已經宣告 Python 所在位置, 並將執行 webotsw.exe 所在的目錄放入 Windows 的命令搜尋路徑變數中 (path).</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">REM for Webots
+set PYTHON_PATH=%Disk%:\Python313
+
+REM for webots
+set  path_webots=%Disk%:\Webots_2025a\msys64\mingw64\bin;%Disk%:\Webots_2025a\msys64\usr\bin</pre>
+<p>當起始一個 Webots project, 需要至少建立 worlds、controllers、protos 等三個目錄, 而且 Robot 的<span style="background-color: #ffff00;">控制器程式必須放入 controllers 目錄, 且控制程式檔名必須與子目錄相同</span>.</p>
+<p><a href="https://cyberbotics.com/doc/guide/tutorial-2-modification-of-the-environment?tab-language=python">Tutorial 2</a> 重點摘要:</p>
+<p><img alt="" height="329" src="/images/simplest_rigit_body_object.png" width="400"/></p>
+<p>根據上圖, 在 <span style="background-color: #ffff00;">Webots 建立剛體物件, 必須使用 Solid 節點, 並從節點中的 children 建立 Shape 後宣告其 geometry 外形用於系統的運動方程式, 而其碰撞檢測的外形依據, 則從 Solid 節點的 boundingObject 中的 geometry 進行確認</span>.</p>
+<p>另外可從 View - Optional Rendering - Show coordinate system 選項, 要求系統列出目前視圖所依據的座標系統.</p>
+<p>當在 base 物件建立旋轉軸時, HingeJoint 物件的位階必須與 base 相同, 而且 link1 的 solid 物件必須接在 HingeJoint 的 endPoint 節點上, 且因為 link1 的最後位置並非位於其旋轉中心, 因此在建立 link1 solid 物件下的 shape 之前必須先使用 pose 物件, 以便在 solid 的 parent 座標系統之下, 建立一個屬於 shape 的局部座標轉換系統.</p>
+<p>另外 HingeJoint 的旋轉中心位置是由 jointParameters 物件下的 anchor 欄位決定, 而其旋轉軸則由 axis 欄位決定.</p>
+<p>由於 link1 最後需要透過碰撞檢測來與籃球互動, 因此除了 dynamic simulation 之外, 還需要設定 boundingObject, 才能界定 link1 的碰撞幾何外形, 但由於前面的 link1 並非在其 parent 座標系統的物件中心旋轉, 而是透過其局部座標轉換 (利用 pose 物件達成), 往局部 x 方向移動 0.2m, 因此 boundingObject 在引用其 shape 時, 也必須透過 pose 轉換到 link1 最終所在位置.</p>
+<p><span>上列流程所完成的 Webots 專案檔: </span><a href="https://localhost:9448/downloads/w6_demo_project.7z">w6_demo_project.7z</a> (joint on link1)</p>
+<p><a href="/downloads/w6_joint_on_base_project.7z">w6_joint_on_base_project.7z</a> (joint on base)</p>
+<p></p><h3>boomer</h3>
+<p><a href="/downloads/w5_boomer.7z">w5_boomer.7z</a></p><h2>Topic4</h2>
 <p>協同設計</p>
 <p><object data="/images/topic4.svg" height="191" type="image/svg+xml" width="546"></object></p>
-<p><a href="https://mde.tw/mind-map/#/?fileURL=https%3A%2F%2Fmde.tw%2Fcd2025%2Fdownloads%2Ftopic4.smm">Edit topic4.smm</a></p>
-<h1>Tutorial</h1>
+<p><a href="https://mde.tw/mind-map/#/?fileURL=https%3A%2F%2Fmde.tw%2Fcd2025%2Fdownloads%2Ftopic4.smm">Edit topic4.smm</a></p><h1>Tutorial</h1>
 <p>Webots R2025a 執行環境硬體需求:<br/><br/>2 GHz 4 核心以上 CPU, NVIDIA 或 AMD 支援 OpenGL 3.3 版, 帶有 512 MB 記憶體以上獨立顯示卡<br/><br/>操作系統:</p>
 <p style="padding-left: 30px;">Windows 10 或 11 64 位元操作系統</p>
 <p style="padding-left: 30px;">Ubuntu 24.04 以上版本</p>
@@ -580,7 +607,22 @@ if stud_github not in a_all_members:
 <p style="padding-left: 30px;">使用 "fourbar_controller" 控制器</p>
 <p style="padding-left: 30px;">包含位置感測器和馬達裝置</p>
 <p><a href="/downloads/fourbar_box.7z">fourbar_box.7z</a></p>
-<h3>handon1</h3>
+<p>1.</p>
+<p><img alt="" height="222" src="/images/webots_w5_1.png" width="231"/></p>
+<p>2.</p>
+<p><img alt="" height="367" src="/images/webots_w5_2.png" width="245"/></p>
+<p>3.</p>
+<p><img alt="" height="270" src="/images/webots_w5_3.png" width="253"/></p>
+<p>4.</p>
+<p><img alt="" height="322" src="/images/webots_w5_4.png" width="800"/></p>
+<p>5. </p>
+<p><img alt="" height="470" src="/images/webots_w5_5.png" width="363"/></p>
+<p>6.</p>
+<p><img alt="" height="332" src="/images/webots_w5_6.png" width="800"/></p>
+<p>7.</p>
+<p><img alt="" height="389" src="/images/webots_w5_7.png" width="800"/></p>
+<p>8.</p>
+<p><img alt="" height="331" src="/images/webots_w5_8.png" width="295"/></p><h3>handon1</h3>
 <p>啟動 Webots 2025a:</p>
 <p style="padding-left: 30px;">啟動可攜程式系統後, 可以在 cmd 命令視窗中執行 webotsw, 就可以啟動 Webots.</p>
 <p>建立 Robot 模擬場景:</p>
@@ -1076,7 +1118,8 @@ c.recursiveImport(
 <p><a href="https://github.com/lcgamboa/picsimlab">https://github.com/lcgamboa/picsimlab</a></p>
 <h2>Fossil SCM</h2>
 <p><a href="https://fossil-scm.org">https://fossil-scm.org</a></p>
-<h2>Leo Editor</h2>
+<p><object data="/images/fossil.svg" height="593" type="image/svg+xml" width="1285"></object></p>
+<p><a href="https://mdecycu.github.io/mind-map/#/?fileURL=https://mde.tw/cd2025/downloads/fossil.smm">Edit fossil.smm</a></p><h2>Leo Editor</h2>
 <p><a href="https://leo-editor.github.io">https://leo-editor.github.io</a></p>
 <p>Leo Editor 是一個大綱編輯器, 單一節點資料可以透過 clone 放入多個其他節點資料中.</p>
 <p>可以利用 <a href="https://leo-editor.github.io/leo-editor/directives.html#clean-path">@clean</a> 節點指令可結合 <a href="https://leo-editor.github.io/leo-editor/directives.html#part-2-all-and-others">@others</a> 與指定的檔案內容同步.</p>
@@ -1096,7 +1139,28 @@ c.recursiveImport(
     theTypes = None,        # Same as ['.py']
 )</pre>
 <p></p>
-<h2>Old</h2>
+<h2>uv</h2>
+<p>uv 是一個由 <a href="https://astral.sh/">Astral</a> 團隊 (<a href="https://www.crmarsh.com/">Founder</a>) 開發的現代 Python 工具，旨在提供更快、更簡單的工作流程，取代傳統的 pip、virtualenv 和 poetry 等工具。以下將全面介紹其核心功能、高級用法及使用場景。</p>
+<p>使用 uv python list 可以列出能夠下載使用的 Python 版本:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">Y:\&gt;uv python list
+cpython-3.14.0a5+freethreaded-windows-x86_64-none    &lt;download available&gt;
+cpython-3.14.0a5-windows-x86_64-none                 &lt;download available&gt;
+cpython-3.13.2+freethreaded-windows-x86_64-none      &lt;download available&gt;
+cpython-3.13.2-windows-x86_64-none                   y:\Python313\python.exe
+cpython-3.13.2-windows-x86_64-none                   &lt;download available&gt;
+cpython-3.12.9-windows-x86_64-none                   &lt;download available&gt;
+cpython-3.11.11-windows-x86_64-none                  &lt;download available&gt;
+cpython-3.10.16-windows-x86_64-none                  &lt;download available&gt;
+cpython-3.9.21-windows-x86_64-none                   &lt;download available&gt;
+cpython-3.8.20-windows-x86_64-none                   &lt;download available&gt;
+cpython-3.7.9-windows-x86_64-none                    &lt;download available&gt;
+pypy-3.11.11-windows-x86_64-none                     &lt;download available&gt;
+pypy-3.10.16-windows-x86_64-none                     &lt;download available&gt;
+pypy-3.9.19-windows-x86_64-none                      &lt;download available&gt;
+pypy-3.8.16-windows-x86_64-none                      &lt;download available&gt;
+pypy-3.7.13-windows-x86_64-none                      &lt;download available&gt;</pre>
+<p>確認可用的 Python 版本後, 可以透過 <a href="https://mde.tw/cd2025/content/Portable.html">Portable</a> 頁面中的流程自行建立可攜 Python 程式套件.</p>
+<p>接下來應該要探討 uv 在可攜程式環境中的應用.</p><h2>Old</h2>
 <p>以下連結僅能在系統主幹的網路 IPv6 協定下擷取:</p>
 <p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/cd2019/content/sitemap.html">cd2019</a></p>
 <p style="padding-left: 60px;"><a href="http://wcm.cycu.org:88/github/cd2019/downloads/vrml97specification.pdf">vrml97specification.pdf</a> (1997)</p>
@@ -1120,8 +1184,7 @@ c.recursiveImport(
 <p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/cd2022_guide/content/sitemap.html">cd2022</a></p>
 <p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/cd2023/content/sitemap.html">cd2023</a></p>
 <p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/cd2024/content/sitemap.html">cd2024</a></p>
-<p></p>
-<h1>Brython</h1>
+<p></p><h1>Brython</h1>
 <p><button id="add1to100">1 add to 100</button></p>
 <!-- 導入 brython 程式庫 -->
 <p>

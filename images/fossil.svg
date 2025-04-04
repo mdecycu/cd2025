@@ -1,0 +1,257 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="1284.5" height="592.5" style="background-color: rgb(241, 241, 241);"><title>fossil</title><g class="smm-container" transform="matrix(1,0,0,1,-947,-204)"><g class="smm-line-container"><path d="M 1123,499.5L 1185.4,499.5L 1185.4,424.5Q 1185.4,419.5 1190.4,419.5L 1227,419.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path><path d="M 1402,419.5L 1434.4,419.5L 1434.4,235.5Q 1434.4,230.5 1439.4,230.5L 1456,230.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path><path d="M 1583,230.5L 1615.4,230.5L 1615.4,230.5L 1637,230.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path><path d="M 1402,419.5L 1434.4,419.5L 1434.4,397.5Q 1434.4,392.5 1439.4,392.5L 1456,392.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path><path d="M 1612,392.5L 1644.4,392.5L 1644.4,289.5Q 1644.4,284.5 1649.4,284.5L 1666,284.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path><path d="M 1402,419.5L 1434.4,419.5L 1434.4,549.5Q 1434.4,554.5 1439.4,554.5L 1456,554.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path><path d="M 1612,392.5L 1644.4,392.5L 1644.4,414.5Q 1644.4,419.5 1649.4,419.5L 1666,419.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path><path d="M 1402,419.5L 1434.4,419.5L 1434.4,603.5Q 1434.4,608.5 1439.4,608.5L 1456,608.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path><path d="M 1123,499.5L 1185.4,499.5L 1185.4,680.5Q 1185.4,685.5 1190.4,685.5L 1227,685.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path><path d="M 1728,419.5L 1760.4,419.5L 1760.4,343.5Q 1760.4,338.5 1765.4,338.5L 1782,338.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path><path d="M 1728,419.5L 1760.4,419.5L 1760.4,397.5Q 1760.4,392.5 1765.4,392.5L 1782,392.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path><path d="M 1728,419.5L 1760.4,419.5L 1760.4,441.5Q 1760.4,446.5 1765.4,446.5L 1782,446.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path><path d="M 1728,419.5L 1760.4,419.5L 1760.4,495.5Q 1760.4,500.5 1765.4,500.5L 1782,500.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path><path d="M 1886,338.5L 1918.4,338.5L 1918.4,338.5L 1940,338.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path><path d="M 2001,392.5L 2033.4,392.5L 2033.4,392.5L 2055,392.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path><path d="M 1123,499.5L 1185.4,499.5L 1185.4,760.5Q 1185.4,765.5 1190.4,765.5L 1227,765.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path><path d="M 1618,765.5L 1650.4,765.5L 1650.4,765.5L 1672,765.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path><path d="M 1885,446.5L 1917.4,446.5L 1917.4,446.5L 1939,446.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path><path d="M 1900,500.5L 1932.4,500.5L 1932.4,500.5L 1954,500.5" stroke-dasharray="none" stroke-width="2" stroke="#1e3556" fill="none"></path></g><g class="smm-outer-frame-container"></g><g class="smm-node-container"><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,960,477.5)"><path d="
+      M10,0
+      L151,0
+      C151,0 161,0 161,10
+      L161,32
+      C161,32 161,42 151,42
+      L10,42
+      C10,42 0,42 0,32
+      L0,10
+      C0,10 0,0 10,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,1,1)" fill="#1e3556" stroke-dasharray="none" stroke-width="2" stroke="#bdc5c9"></path><g transform="matrix(1,0,0,1,16,6)"><g data-width="131" data-height="32" data-offsetx="0" opacity="1"><foreignObject width="131" height="32" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><strong style="color: rgb(255, 255, 255);font-family: 微软雅黑, Microsoft YaHei;font-size: 24px;">Fossil SCM</strong></p></div><style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  </style></foreignObject></g></g><rect width="167" height="48" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1227,401.5)"><path d="
+      M10,0
+      L163,0
+      C163,0 173,0 173,10
+      L173,24
+      C173,24 173,34 163,34
+      L10,34
+      C10,34 0,34 0,24
+      L0,10
+      C0,10 0,0 10,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,1,1)" fill="#a9dada" stroke-dasharray="none" stroke-width="2" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,16,6)"><g data-width="143" data-height="24" data-offsetx="0" opacity="1"><foreignObject width="143" height="24" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(255, 255, 255);font-family: 微软雅黑, Microsoft YaHei;font-size: 18px;">fossil init p.fossil</span></p></div></foreignObject></g></g><rect width="179" height="40" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect><rect fill="transparent" width="20" height="36" x="175" y="0"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1456,215.5)"><path d="
+      M5,0
+      L121,0
+      C121,0 126,0 126,5
+      L126,24
+      C126,24 126,29 121,29
+      L5,29
+      C5,29 0,29 0,24
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0.5,0.5)" fill="transparent" stroke-dasharray="none" stroke-width="1" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,15.5,5.5)"><g data-width="96" data-height="19" data-offsetx="0" opacity="1"><foreignObject width="96" height="19" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(30, 53, 86);font-family: 微软雅黑, Microsoft YaHei;font-size: 14px;">sqlite3 p.fossil</span></p></div></foreignObject></g></g><rect width="131" height="34" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect><rect fill="transparent" width="20" height="30" x="127" y="0"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1637,215.5)"><path d="
+      M5,0
+      L368,0
+      C368,0 373,0 373,5
+      L373,24
+      C373,24 373,29 368,29
+      L5,29
+      C5,29 0,29 0,24
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0.5,0.5)" fill="transparent" stroke-dasharray="none" stroke-width="1" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,15.5,5.5)"><g data-width="343" data-height="19" data-offsetx="0" opacity="1"><foreignObject width="343" height="19" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(30, 53, 86);font-family: 微软雅黑, Microsoft YaHei;font-size: 14px;">update user set pw='new' where login='username';</span></p></div></foreignObject></g></g><rect width="378" height="34" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1456,377.5)"><path d="
+      M5,0
+      L150,0
+      C150,0 155,0 155,5
+      L155,24
+      C155,24 155,29 150,29
+      L5,29
+      C5,29 0,29 0,24
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0.5,0.5)" fill="transparent" stroke-dasharray="none" stroke-width="1" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,15.5,5.5)"><g data-width="125" data-height="19" data-offsetx="0" opacity="1"><foreignObject width="125" height="19" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(30, 53, 86);font-family: 微软雅黑, Microsoft YaHei;font-size: 14px;">fossil open p.fossil</span></p></div></foreignObject></g></g><rect width="160" height="34" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect><rect fill="transparent" width="20" height="30" x="156" y="0"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1666,269.5)"><path d="
+      M5,0
+      L206,0
+      C206,0 211,0 211,5
+      L211,24
+      C211,24 211,29 206,29
+      L5,29
+      C5,29 0,29 0,24
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0.5,0.5)" fill="transparent" stroke-dasharray="none" stroke-width="1" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,15.5,5.5)"><g data-width="181" data-height="19" data-offsetx="0" opacity="1"><foreignObject width="181" height="19" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(30, 53, 86);font-family: 微软雅黑, Microsoft YaHei;font-size: 14px;">if p not vacant, add --force</span></p></div></foreignObject></g></g><rect width="216" height="34" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1456,539.5)"><path d="
+      M5,0
+      L128,0
+      C128,0 133,0 133,5
+      L133,24
+      C133,24 133,29 128,29
+      L5,29
+      C5,29 0,29 0,24
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0.5,0.5)" fill="transparent" stroke-dasharray="none" stroke-width="1" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,15.5,5.5)"><g data-width="103" data-height="19" data-offsetx="0" opacity="1"><foreignObject width="103" height="19" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(30, 53, 86);font-family: 微软雅黑, Microsoft YaHei;font-size: 14px;">fossil ui p.fossil</span></p></div></foreignObject></g></g><rect width="138" height="34" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1666,404.5)"><path d="
+      M5,0
+      L56,0
+      C56,0 61,0 61,5
+      L61,24
+      C61,24 61,29 56,29
+      L5,29
+      C5,29 0,29 0,24
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0.5,0.5)" fill="transparent" stroke-dasharray="none" stroke-width="1" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,15.5,5.5)"><g data-width="31" data-height="19" data-offsetx="0" opacity="1"><foreignObject width="31" height="19" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(30, 53, 86);font-family: 微软雅黑, Microsoft YaHei;font-size: 14px;">cd p</span></p></div></foreignObject></g></g><rect width="66" height="34" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect><rect fill="transparent" width="20" height="30" x="62" y="0"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1456,593.5)"><path d="
+      M5,0
+      L374,0
+      C374,0 379,0 379,5
+      L379,24
+      C379,24 379,29 374,29
+      L5,29
+      C5,29 0,29 0,24
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0.5,0.5)" fill="transparent" stroke-dasharray="none" stroke-width="1" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,15.5,5.5)"><g data-width="349" data-height="19" data-offsetx="0" opacity="1"><foreignObject width="349" height="19" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(30, 53, 86);font-family: 微软雅黑, Microsoft YaHei;font-size: 14px;">fossil server&#160;&#160;c:\repo -notfound p --localhost --https</span></p></div></foreignObject></g></g><rect width="384" height="34" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1227,667.5)"><path d="
+      M10,0
+      L221,0
+      C221,0 231,0 231,10
+      L231,24
+      C231,24 231,34 221,34
+      L10,34
+      C10,34 0,34 0,24
+      L0,10
+      C0,10 0,0 10,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,1,1)" fill="#a9dada" stroke-dasharray="none" stroke-width="2" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,16,6)"><g data-width="201" data-height="24" data-offsetx="0" opacity="1"><foreignObject width="201" height="24" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(255, 255, 255);font-family: 微软雅黑, Microsoft YaHei;font-size: 18px;">under c:\repo directory</span></p></div></foreignObject></g></g><rect width="237" height="40" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1782,323.5)"><path d="
+      M5,0
+      L98,0
+      C98,0 103,0 103,5
+      L103,24
+      C103,24 103,29 98,29
+      L5,29
+      C5,29 0,29 0,24
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0.5,0.5)" fill="transparent" stroke-dasharray="none" stroke-width="1" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,15.5,5.5)"><g data-width="73" data-height="19" data-offsetx="0" opacity="1"><foreignObject width="73" height="19" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(30, 53, 86);font-family: 微软雅黑, Microsoft YaHei;font-size: 14px;">fossil add .</span></p></div></foreignObject></g></g><rect width="108" height="34" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect><rect fill="transparent" width="20" height="30" x="104" y="0"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1782,377.5)"><path d="
+      M5,0
+      L213,0
+      C213,0 218,0 218,5
+      L218,24
+      C218,24 218,29 213,29
+      L5,29
+      C5,29 0,29 0,24
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0.5,0.5)" fill="transparent" stroke-dasharray="none" stroke-width="1" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,15.5,5.5)"><g data-width="188" data-height="19" data-offsetx="0" opacity="1"><foreignObject width="188" height="19" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(30, 53, 86);font-family: 微软雅黑, Microsoft YaHei;font-size: 14px;">fossil commit -m "message"</span></p></div></foreignObject></g></g><rect width="223" height="34" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect><rect fill="transparent" width="20" height="30" x="219" y="0"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1782,431.5)"><path d="
+      M5,0
+      L97,0
+      C97,0 102,0 102,5
+      L102,24
+      C102,24 102,29 97,29
+      L5,29
+      C5,29 0,29 0,24
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0.5,0.5)" fill="transparent" stroke-dasharray="none" stroke-width="1" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,15.5,5.5)"><g data-width="72" data-height="19" data-offsetx="0" opacity="1"><foreignObject width="72" height="19" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(30, 53, 86);font-family: 微软雅黑, Microsoft YaHei;font-size: 14px;">fossil push</span></p></div></foreignObject></g></g><rect width="107" height="34" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect><rect fill="transparent" width="20" height="30" x="103" y="0"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1782,485.5)"><path d="
+      M5,0
+      L112,0
+      C112,0 117,0 117,5
+      L117,24
+      C117,24 117,29 112,29
+      L5,29
+      C5,29 0,29 0,24
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0.5,0.5)" fill="transparent" stroke-dasharray="none" stroke-width="1" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,15.5,5.5)"><g data-width="87" data-height="19" data-offsetx="0" opacity="1"><foreignObject width="87" height="19" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(30, 53, 86);font-family: 微软雅黑, Microsoft YaHei;font-size: 14px;">fossil update</span></p></div></foreignObject></g></g><rect width="122" height="34" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect><rect fill="transparent" width="20" height="30" x="118" y="0"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1940,323.5)"><path d="
+      M5,0
+      L177,0
+      C177,0 182,0 182,5
+      L182,24
+      C182,24 182,29 177,29
+      L5,29
+      C5,29 0,29 0,24
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0.5,0.5)" fill="transparent" stroke-dasharray="none" stroke-width="1" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,15.5,5.5)"><g data-width="152" data-height="19" data-offsetx="0" opacity="1"><foreignObject width="152" height="19" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(30, 53, 86);font-family: 微软雅黑, Microsoft YaHei;font-size: 14px;">stage all modifications</span></p></div></foreignObject></g></g><rect width="187" height="34" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,2055,378)"><path d="
+      M5,0
+      L150,0
+      C150,0 155,0 155,5
+      L155,23
+      C155,23 155,28 150,28
+      L5,28
+      C5,28 0,28 0,23
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0.5,0.5)" fill="transparent" stroke-dasharray="none" stroke-width="1" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,15.5,5.5)"><g data-width="125" data-height="18" data-offsetx="0" opacity="1"><foreignObject width="125" height="18" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p>commit to p.fossil</p></div></foreignObject></g></g><rect width="160" height="33" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1227,747.5)"><path d="
+      M10,0
+      L379,0
+      C379,0 389,0 389,10
+      L389,24
+      C389,24 389,34 379,34
+      L10,34
+      C10,34 0,34 0,24
+      L0,10
+      C0,10 0,0 10,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,1,1)" fill="#a9dada" stroke-dasharray="none" stroke-width="2" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,16,6)"><g data-width="359" data-height="24" data-offsetx="0" opacity="1"><foreignObject width="359" height="24" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(255, 255, 255);font-family: 微软雅黑, Microsoft YaHei;font-size: 18px;">fossil clone https://user@server/p p.fossil</span></p></div></foreignObject></g></g><rect width="395" height="40" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect><rect fill="transparent" width="20" height="36" x="391" y="0"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1672,750.5)"><path d="
+      M5,0
+      L192,0
+      C192,0 197,0 197,5
+      L197,24
+      C197,24 197,29 192,29
+      L5,29
+      C5,29 0,29 0,24
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0.5,0.5)" fill="transparent" stroke-dasharray="none" stroke-width="1" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,15.5,5.5)"><g data-width="167" data-height="19" data-offsetx="0" opacity="1"><foreignObject width="167" height="19" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(30, 53, 86);font-family: 微软雅黑, Microsoft YaHei;font-size: 14px;">key in password to clone</span></p></div></foreignObject></g></g><rect width="202" height="34" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1939,431.5)"><path d="
+      M5,0
+      L275,0
+      C275,0 280,0 280,5
+      L280,24
+      C280,24 280,29 275,29
+      L5,29
+      C5,29 0,29 0,24
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0.5,0.5)" fill="transparent" stroke-dasharray="none" stroke-width="1" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,15.5,5.5)"><g data-width="250" data-height="19" data-offsetx="0" opacity="1"><foreignObject width="250" height="19" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(30, 53, 86);font-family: 微软雅黑, Microsoft YaHei;font-size: 14px;">push modifications to remote p.fossil</span></p></div></foreignObject></g></g><rect width="285" height="34" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g><g class="smm-node" style="cursor: default;" transform="matrix(1,0,0,1,1954,485.5)"><path d="
+      M5,0
+      L233,0
+      C233,0 238,0 238,5
+      L238,24
+      C238,24 238,29 233,29
+      L5,29
+      C5,29 0,29 0,24
+      L0,5
+      C0,5 0,0 5,0
+      Z
+    " class="smm-node-shape" transform="matrix(1,0,0,1,0.5,0.5)" fill="transparent" stroke-dasharray="none" stroke-width="1" stroke="#1e3556"></path><g transform="matrix(1,0,0,1,15.5,5.5)"><g data-width="208" data-height="19" data-offsetx="0" opacity="1"><foreignObject width="208" height="19" x="0" y="0"><div class="smm-richtext-node-wrap" xmlns="http://www.w3.org/1999/xhtml" style="max-width: 500px;"><p><span style="color: rgb(30, 53, 86);font-family: 微软雅黑, Microsoft YaHei;font-size: 14px;">pull modifications from p.fossil</span></p></div></foreignObject></g></g><rect width="243" height="34" x="-2" y="-2" class="smm-hover-node" rx="5" ry="5" fill="none" stroke="#5ec8f8"></rect></g></g><g class="smm-associative-line-container"></g><g class="smm-other-container"></g></g><style>
+  /* 鼠标hover和激活时渲染的矩形 */
+  .smm-hover-node{
+    display: none;
+    opacity: 0.6;
+    stroke-width: 1;
+  }
+
+  .smm-node:not(.smm-node-dragging):hover .smm-hover-node{
+    display: block;
+  }
+
+  .smm-node.active .smm-hover-node, .smm-node-highlight .smm-hover-node{
+    display: block;
+    opacity: 1;
+    stroke-width: 2;
+  }
+
+  .smm-text-node-wrap {
+    user-select: none;
+  }
+
+      .smm-richtext-node-wrap {
+        word-break: break-all;
+        user-select: none;
+      }
+
+      .smm-richtext-node-wrap p {
+        font-family: auto;
+      }
+      </style></svg>
