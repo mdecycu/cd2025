@@ -142,10 +142,93 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Fossil << <a href='Fossil.html'>Previous</a> <a href='w1.html'>Next</a> >> w1<br /><h1>Topic1</h1>
-<p>可攜環境與 Github</p>
-<p><object data="./../images/topic1.svg" height="885" type="image/svg+xml" width="1357"></object></p>
-<p><a href="https://mde.tw/mind-map/#/?fileURL=https%3A%2F%2Fmde.tw%2Fcd2025%2Fdownloads%2Ftopic1.smm">Edit topic1.smm</a></p><br />Fossil << <a href='Fossil.html'>Previous</a> <a href='w1.html'>Next</a> >> w1</div>
+    <div id="tipue_search_content">Tutorial6 << <a href='Tutorial6.html'>Previous</a> <a href='Tutorial8.html'>Next</a> >> Tutorial8<br /><h1>Tutorial7</h1>
+<h4 class="anchor-header" id="tutorial7yourfirstproto20minutes" name="tutorial-7-your-first-proto-20-minutes">Tutorial 7: Your First PROTO</h4>
+<p>The aim of this tutorial is to create a PROTO file corresponding to the four wheels robot from the previous tutorial.</p>
+<h4 class="anchor-header" id="copytherobotdefinition" name="copy-the-robot-definition">Copy the Robot Definition</h4>
+<p>For now, the definition of the robot is completely contained in the world file. Moving this definition in a PROTO file will allow you to use this robot without the need to completely copy and paste its definition (either several times in the same world or in different worlds).</p>
+<blockquote>
+<p><strong>Hands-on #1</strong>: Open the world<span> </span><code>4_wheels_robot.wbt</code><span> </span>created in the previous tutorial in your favorite text editor. Create a new empty text file in the<span> </span><code>protos</code><span> </span>folder of your project called<span> </span><code>FourWheelsRobot.proto</code><span> </span>and open this file in the text editor too, this file will contain the definition of your robot.</p>
+</blockquote>
+<p>Any PROTO file should at least respect the following structure:</p>
+<pre><code>#VRML_SIM R2025a utf8
+PROTO protoName [
+  protoFields
+]
+{
+  protoBody
+}
+</code></pre>
+<p>The<span> </span><code>protoName</code><span> </span>should be the name of the PROTO file (i.e.<span> </span><code>FourWheelsRobot</code><span> </span>in this case),<span> </span><code>protoFields</code><span> </span>defines the modifiable fields of the PROTO node (this part should be empty for now) and the<span> </span><code>protoBody</code><span> </span>is the definition of the root node (i.e. the<span> </span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a><span> </span>node in this case).</p>
+<blockquote>
+<p><strong>Hands-on #2</strong>: Write this default structure in your PROTO file with the correct<span> </span><code>protoName</code>. From the<span> </span><code>4_wheels_robot.wbt</code><span> </span>world file copy the robot node (starting with<span> </span><code>Robot {</code><span> </span>and ending with the final<span> </span><code>}</code>) and paste it in your PROTO file instead of the<span> </span><code>protoBody</code>. Finally, save the PROTO file.</p>
+</blockquote>
+<p><strong>Solution</strong>: You should have something like this:</p>
+<pre><code>  #VRML_SIM R2025a utf8
+  PROTO FourWheelsRobot [
+
+  ]
+  {
+    Robot {
+      # list of fields
+    }
+  }
+</code></pre>
+<h4 class="anchor-header" id="usetheprotonode" name="use-the-proto-node"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-7-your-first-proto?tab-language=python#use-the-proto-node"><span class="anchor-link-image"></span></a>Use the PROTO Node.</h4>
+<p>This new PROTO node is now available for each world in your current project.</p>
+<p><img alt="" height="157" src="./../images/tutorial7_proto.thumbnail.jpg" width="300"/></p>
+<blockquote>
+<p><strong>Hands-on #3</strong>: Open the<span> </span><code>4_wheels_robot.wbt</code><span> </span>world in Webots and add the<span> </span><code>FourWheelsRobot</code><span> </span>node (that you just defined). The node is located in<span> </span><code>PROTO nodes (Current Project) / FourWheelsRobot (Robot)</code>.</p>
+</blockquote>
+<p>A second 4 wheels robot should have been added at the exact same location as the already existing one.</p>
+<h4 class="anchor-header" id="addingfields" name="adding-fields"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-7-your-first-proto?tab-language=python#adding-fields"><span class="anchor-link-image"></span></a>Adding Fields</h4>
+<p>As you probably noticed, this new PROTO node doesn't have any open field, it is therefore impossible to translate, rotate or change the controller for example. It is very easy to add new fields to a PROTO node and to link them with internal fields. This should be done in the PROTO interface part (part between the<span> </span><code>[</code><span> </span>and the<span> </span><code>]</code>).</p>
+<blockquote>
+<p><strong>Hands-on #4</strong>: Edit your PROTO file in your text editor and add the definition of the<span> </span><code>translation</code>,<span> </span><code>rotation</code><span> </span>and<span> </span><code>bodyMass</code><span> </span>field in the PROTO interface part:</p>
+</blockquote>
+<pre><code>  field SFVec3f    translation  0 0 0
+  field SFRotation rotation     0 0 1 0
+  field SFFloat    bodyMass     1
+</code></pre>
+<p>Your PROTO node has now two open fields but they are not linked to any internal field. To link the fields you should use the IS keyword, simply replace the<span> </span><code>translation x y z</code><span> </span>and<span> </span><code>rotation x y z angle</code><span> </span>fields of the<span> </span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a><span> </span>node by:</p>
+<pre><code>  translation IS translation
+  rotation IS rotation
+</code></pre>
+<p>And the<span> </span><code>mass</code><span> </span>field of the<span> </span><a href="https://cyberbotics.com/doc/reference/physics?tab-language=python">Physics</a><span> </span>node of the<span> </span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a><span> </span>node by:</p>
+<pre><code>  mass IS bodyMass
+</code></pre>
+<p>Save your PROTO file, it should now look like this:</p>
+<pre><code>#VRML_SIM R2025a utf8
+PROTO FourWheelsRobot [
+  field SFVec3f    translation  0 0 0
+  field SFRotation rotation     0 0 1 0
+  field SFFloat    bodyMass     1
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    children [
+      # list of children nodes
+    ]
+    boundingObject USE BODY
+    physics Physics {
+      density -1
+      mass IS bodyMass
+    }
+    controller "four_wheels_collision_avoidance"
+  }
+}
+</code></pre>
+<p>You can now save your simulation in Webots and revert it. The<span> </span><code>translation</code>,<span> </span><code>rotation</code><span> </span>and<span> </span><code>bodyMass</code><span> </span>of the<span> </span><code>FourWheelsRobot</code><span> </span>node can now be changed (either in the<span> </span><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/the-scene-tree?tab-language=python">scene tree</a><span> </span>or using the handles in the<span> </span><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/the-3d-window?tab-language=python">3D view</a>).</p>
+<p>The same mechanism could also be used to expose the<span> </span><code>controller</code><span> </span>field of the<span> </span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a><span> </span>node.</p>
+<h4 class="anchor-header" id="solutionprotofile" name="solution-proto-file"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-7-your-first-proto?tab-language=python#solution-proto-file"><span class="anchor-link-image"></span></a>Solution: PROTO File</h4>
+<p>To compare your PROTO file with<span> </span><a href="https://github.com/cyberbotics/webots/tree/released/projects/samples/tutorials/protos/FourWheelsRobot.proto" target="_blank">the solution</a>, go to your files and find the folder named "my_first_simulation" created in<span> </span><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots?tab-language=python">Tutorial 1</a>, then go to the "protos" folder and open with a text editor the right PROTO.</p>
+<h4 class="anchor-header" id="conclusion" name="conclusion"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-7-your-first-proto?tab-language=python#conclusion"><span class="anchor-link-image"></span></a>Conclusion</h4>
+<p>You are now able to create PROTO nodes from any nodes you created in Webots.</p>
+<p>More specifically, you learnt how to copy the node definition in the PROTO file and how to open and link PROTO fields to internal node fields.</p>
+<p>To go further, the<span> </span><a href="https://cyberbotics.com/doc/reference/proto?tab-language=python">PROTO chapter</a><span> </span>of the reference manual explains in detail all the possibilities of the PROTO mechanism.</p>
+<br />Tutorial6 << <a href='Tutorial6.html'>Previous</a> <a href='Tutorial8.html'>Next</a> >> Tutorial8</div>
         
     <!-- footer -->
       <div class="container">

@@ -1133,8 +1133,419 @@ while robot.step(TIME_STEP) != -1:
 <p>3D view of the 4 wheels robot. Note that the coordinate system representations of the robot body and of its wheels are oriented the same way. Their +x-vector (in red) defines the left of the robot, their +y-vector (in green) defines the top of the robot, and their +z-vector (in blue) defines the front of the robot. The distance sensors are oriented in a different way, their +x-vector indicates the direction of the sensor.</p>
 <p><img alt="" height="193" src="/images/tutorial_4_wheels_top_schema.thumbnail.jpg" width="300"/></p>
 <p>Top view of the 4 wheeled robot. The grid behind the robot has a dimension of 0.2 x 0.3 meters. The text labels correspond to the name of the device.</p>
+<h4 class="anchor-header" id="newsimulation" name="new-simulation">New Simulation</h4>
+<blockquote>
+<p><strong>Hands on #1</strong>: Save the world of the previous tutorial as<span> </span><code>4_wheeled_robot.wbt</code>. Remove the nodes defining the e-puck, the ball, the dumbbell and the contact properties. The ground, the walls and the lighting are kept.</p>
+</blockquote>
+<h4 class="anchor-header" id="separatingtherobotinsolidnodes" name="separating-the-robot-in-solid-nodes"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#separating-the-robot-in-solid-nodes"><span class="anchor-link-image"></span></a>Separating the Robot in Solid Nodes</h4>
+<p>Some definitions and rules to create the robot model:</p>
+<ul>
+<li>
+<p>The set containing the<span> </span><a href="https://cyberbotics.com/doc/reference/solid">Solid</a><span> </span>node and all its derived nodes are called the<span> </span><em>solid nodes</em>.</p>
+</li>
+<li>
+<p>A similar definition is applied for the<span> </span><a href="https://cyberbotics.com/doc/reference/device">Device</a>,<span> </span><a href="https://cyberbotics.com/doc/reference/robot">Robot</a>,<span> </span><a href="https://cyberbotics.com/doc/reference/joint">Joint</a><span> </span>and<span> </span><a href="https://cyberbotics.com/doc/reference/motor">Motor</a><span> </span>nodes. You can get more information about the node hierarchy in the<span> </span><a href="https://cyberbotics.com/doc/reference/node-chart">nodes chart diagram</a>.</p>
+</li>
+<li>
+<p>Most sensors and actuators are both<span> </span><a href="https://cyberbotics.com/doc/reference/solid">Solid</a><span> </span>and<span> </span><a href="https://cyberbotics.com/doc/reference/device">Device</a><span> </span>nodes at the same time.</p>
+</li>
+<li>
+<p>The main structure of a<span> </span><a href="https://cyberbotics.com/doc/reference/robot">Robot</a><span> </span>model is a tree of<span> </span><a href="https://cyberbotics.com/doc/reference/solid">Solid</a><span> </span>nodes linked together. The root node of this tree should be a<span> </span><a href="https://cyberbotics.com/doc/reference/robot">Robot</a><span> </span>node.</p>
+</li>
+<li>
+<p>The solids are linked together by<span> </span><a href="https://cyberbotics.com/doc/reference/joint">Joint</a><span> </span>nodes. A<span> </span><a href="https://cyberbotics.com/doc/reference/device">Device</a><span> </span>node should be the direct child of either a<span> </span><a href="https://cyberbotics.com/doc/reference/robot">Robot</a><span> </span>node, a<span> </span><a href="https://cyberbotics.com/doc/reference/solid">Solid</a><span> </span>node or a<span> </span><a href="https://cyberbotics.com/doc/reference/joint">Joint</a><span> </span>node.</p>
+</li>
+<li>
+<p>A<span> </span><a href="https://cyberbotics.com/doc/reference/joint">Joint</a><span> </span>node is used to add one (or two) degree(s) of freedom (DOF), between its parent and its child. The direct parent and child of a<span> </span><a href="https://cyberbotics.com/doc/reference/joint">Joint</a><span> </span>node are both<span> </span><a href="https://cyberbotics.com/doc/reference/solid">Solid</a><span> </span>nodes.</p>
+</li>
+<li>
+<p>The nodes derived from<span> </span><a href="https://cyberbotics.com/doc/reference/joint">Joint</a><span> </span>allow creating different kinds of constraints between the linked<span> </span><a href="https://cyberbotics.com/doc/reference/solid">Solid</a><span> </span>nodes. The most used one in robotics, is the<span> </span><a href="https://cyberbotics.com/doc/reference/hingejoint">HingeJoint</a><span> </span>allowing to model amongst others rotational motors including wheels.</p>
+</li>
+<li>
+<p>A<span> </span><a href="https://cyberbotics.com/doc/reference/joint">Joint</a><span> </span>node can be monitored or actuated by adding a<span> </span><a href="https://cyberbotics.com/doc/reference/positionsensor">PositionSensor</a><span> </span>node, or a motor node to its<span> </span><code>device</code><span> </span>field respectively.</p>
+</li>
+</ul>
+<p>Having these rules in mind, we can start designing the node hierarchy used to model the robot. The first step is to determine which part of the robot should be modeled as a<span> </span><a href="https://cyberbotics.com/doc/reference/solid">Solid</a><span> </span>node.</p>
+<p>In our example, this operation is quite obvious. The robot has 4 DOF corresponding to the wheel motors. It can be divided in five solid nodes: the body and the four wheels.</p>
+<p>Depending on the expected application of the robot model, reducing the DOF while modelling might be necessary to get an efficient simulation. For example, when modeling a caster wheel, a realistic approach implies to model 2 DOF. But if this degree of precision is useless for the simulation, a more efficient approach can be found. For example, to model the caster wheel as a<span> </span><a href="https://cyberbotics.com/doc/reference/sphere">Sphere</a><span> </span>having a null friction coefficient with the ground.</p>
+<p>The second step is to determine which<span> </span><a href="https://cyberbotics.com/doc/reference/solid">Solid</a><span> </span>node is the<span> </span><a href="https://cyberbotics.com/doc/reference/robot">Robot</a><span> </span>node (the root node). This choice is arbitrary, but a solution is often much easier to implement. For example, in the case of a humanoid robot, the robot node would be typically the robot chest, because the robot symmetry facilitates the computation of the joint parameters.</p>
+<p>In our case, the body box is obviously the better choice. The<span> </span><a class="dynamicAnchor" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#high-level-representation-of-the-4-wheeled-robot">figure</a><span> </span>depicts the solid nodes hierarchy of the robot.</p>
+<blockquote>
+<p><strong>Hands on #2</strong>: At the end of the scene tree, add a<span> </span><a href="https://cyberbotics.com/doc/reference/robot">Robot</a><span> </span>node having four<span> </span><a href="https://cyberbotics.com/doc/reference/hingejoint">HingeJoint</a><span> </span>nodes having a<span> </span><a href="https://cyberbotics.com/doc/reference/solid">Solid</a><span> </span>node as<span> </span><code>endPoint</code>. Please refer to<span> </span><a class="dynamicAnchor" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#high-level-representation-of-the-4-wheeled-robot">this figure</a>. Add a<span> </span><a href="https://cyberbotics.com/doc/reference/shape">Shape</a><span> </span>node containing a Box geometry to the<span> </span><a href="https://cyberbotics.com/doc/reference/robot">Robot</a><span> </span>node. Set the color of the<span> </span><a href="https://cyberbotics.com/doc/reference/shape">Shape</a><span> </span>to red. Use the<span> </span><a href="https://cyberbotics.com/doc/reference/shape">Shape</a><span> </span>to define the<span> </span><code>boundingObject</code><span> </span>field of the<span> </span><a href="https://cyberbotics.com/doc/reference/robot">Robot</a><span> </span>node. The dimension of the box is<span> </span><code>(0.2, 0.1, 0.05)</code>. Add a<span> </span><a href="https://cyberbotics.com/doc/reference/physics">Physics</a><span> </span>node to the<span> </span><a href="https://cyberbotics.com/doc/reference/robot">Robot</a>. The<span> </span><a class="dynamicAnchor" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#high-level-representation-of-the-4-wheeled-robot">figure</a><span> </span>represents all the nodes defining the robot. So far, only the direct children nodes of the root<span> </span><a href="https://cyberbotics.com/doc/reference/robot">Robot</a><span> </span>node has been implemented.</p>
+</blockquote>
+<p><img alt="" height="283" src="/images/tutorial6_high_level_representation_wheeled_robot.png" width="300"/></p>
+<p>High level representation of the 4 wheeled robot</p>
+<h4 class="anchor-header" id="hingejoint" name="hingejoint"><code>HingeJoint</code></h4>
+<p>The initial position of the wheel is defined by the translation and the rotation fields of the<span> </span><a href="https://cyberbotics.com/doc/reference/solid">Solid</a><span> </span>node.</p>
+<p>The rotation origin (anchor) and the rotation axis (axis) are defined by the optional<span> </span><a href="https://cyberbotics.com/doc/reference/hingejointparameters">HingeJointParameters</a><span> </span>child of the<span> </span><a href="https://cyberbotics.com/doc/reference/hingejoint">HingeJoint</a><span> </span>node.</p>
+<p><img alt="" height="155" src="/images/hinge_joint.png" width="300"/></p>
+<p>Representation of a hinge joint</p>
+<p>The radius of the wheel is 0.04 and its thickness (height of the cylinder) is 0.02. For the first wheel, the<span> </span><a href="https://cyberbotics.com/doc/reference/solid">Solid</a><span> </span>translation should be defined to<span> </span><code>(0.05, 0.06, 0)</code><span> </span>in order to define the relative gap between the body and the wheel, and the rotation to<span> </span><code>(1 0 0 1.5708)</code><span> </span>for the wheel cylinder to be correctly oriented. The<span> </span><a href="https://cyberbotics.com/doc/reference/hingejointparameters">HingeJointParameters</a><span> </span>anchor should also be defined to<span> </span><code>(0.05, 0.06, 0)</code><span> </span>to define the rotation origin (relatively to the body). Finally, the<span> </span><a href="https://cyberbotics.com/doc/reference/hingejointparameters">HingeJointParameters</a><span> </span>axis should define the rotation axis. In our case it's along the y-axis (so<span> </span><code>(0, 1, 0)</code>).</p>
+<blockquote>
+<p><strong>Hands on #3</strong>: Add a<span> </span><a href="https://cyberbotics.com/doc/reference/hingejointparameters">HingeJointParameters</a><span> </span>node, and enter the field values as described above. Some signs obviously have to be updated for other wheels.</p>
+</blockquote>
+<p>Now, let's implement the cylinder shape of the wheels.</p>
+<p>For each<span> </span><a href="https://cyberbotics.com/doc/reference/hingejoint">HingeJoint</a>, there are three fields in which nodes need to be added.</p>
+<ul>
+<li><strong>jointParameters</strong>: Add a<span> </span><a href="https://cyberbotics.com/doc/reference/hingejointparameters">HingeJointParameters</a><span> </span>and configure the anchor (0.05 -0.06 0) and axis (0 1 0) fields. These values have to be modified according to the location of the wheel.</li>
+<li><strong>device</strong>: Add a<span> </span><a href="https://cyberbotics.com/doc/reference/rotationalmotor">RotationalMotor</a><span> </span>in order to be able to actuate the wheels. Change their<span> </span><code>name</code><span> </span>fields from<span> </span><code>wheel1</code><span> </span>to<span> </span><code>wheel4</code><span> </span>according to<span> </span><a class="dynamicAnchor" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#top-view-of-the-4-wheeled-robot-the-grid-behind-the-robot-has-a-dimension-of-0-2-x-0-3-meters-the-text-labels-correspond-to-the-name-of-the-device">this figure</a>. These labels will be used to reference the wheels from the controller.</li>
+<li><strong>endPoint</strong>: Add a<span> </span><a href="https://cyberbotics.com/doc/reference/solid">Solid</a><span> </span>node, then a<span> </span><a href="https://cyberbotics.com/doc/reference/shape">Shape</a><span> </span>node in the<span> </span><code>children</code><span> </span>field of the<span> </span><a href="https://cyberbotics.com/doc/reference/solid">Solid</a>, and finally, add a<span> </span><a href="https://cyberbotics.com/doc/reference/cylinder">Cylinder</a><span> </span>in the<span> </span><code>geometry</code><span> </span>field of the<span> </span><a href="https://cyberbotics.com/doc/reference/shape">Shape</a><span> </span>node. The<span> </span><a href="https://cyberbotics.com/doc/reference/cylinder">Cylinder</a><span> </span>should have a<span> </span><code>radius</code><span> </span>of<span> </span><code>0.04</code><span> </span>and a<span> </span><code>height</code><span> </span>of<span> </span><code>0.02</code>. Set the color of the wheels to green.</li>
+</ul>
+<blockquote>
+<p><strong>Hands on #4</strong>: Complete the missing nodes to get the same structure as the</p>
+<p>one depicted in<span> </span><a class="dynamicAnchor" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#low-level-representation-of-the-4-wheeled-robot">this figure</a>. Don't forget the<span> </span><a href="https://cyberbotics.com/doc/reference/physics">Physics</a><span> </span>nodes.</p>
+</blockquote>
+<p><img alt="" height="355" src="/images/tutorial6_low_level_rep_wheeled_robot.png" width="800"/></p>
+<p>Low level representation of the 4 wheeled robot</p>
+<h4 class="anchor-header" id="sensors" name="sensors">Sensors</h4>
+<p>The sensors used on the e-puck of<span> </span><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/tutorial-4-more-about-controllers">Tutorial 4</a><span> </span>are not the same as the ones used in this section. Pay attention to their measuring interval which is between<span> </span><code>0 cm = 0</code><span> </span>and<span> </span><code>10 cm = 1000</code>. Find more information about the<span> </span><code>lookupTable</code><span> </span>field<span> </span><a href="https://cyberbotics.com/doc/reference/distancesensor#lookup-table">here</a>.</p>
+<p>The last part of the robot modeling is to add the two distance sensors to the robot. This can be done by adding two<span> </span><a href="https://cyberbotics.com/doc/reference/distancesensor">DistanceSensor</a><span> </span>nodes as direct children of the<span> </span><a href="https://cyberbotics.com/doc/reference/robot">Robot</a><span> </span>node. Note that the distance sensor acquires its data along the positive x-axis. So, it is necessary to rotate the distance sensor to point their x-axis outside the robot (see the<span> </span><a class="dynamicAnchor" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#top-view-of-the-4-wheeled-robot-the-grid-behind-the-robot-has-a-dimension-of-0-2-x-0-3-meters-the-text-labels-correspond-to-the-name-of-the-device">figure</a>).</p>
 <p></p>
-<p></p><h1>Homework</h1>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p><details open=""><summary><strong>Reminder</strong>: How to know the orientation of the distance sensor?</summary>As already says in<span> </span><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/tutorial-3-appearance">Tutorial 3</a>, the distance sensor rays can be viewed using the shortcut<span> </span><kbd>ctrl</kbd>-<kbd>F10</kbd><span> </span>or<span> </span><code>View / Optional Rendering / Show DistanceSensor Rays</code>.
+<blockquote>
+<p><strong>Hands on #5</strong>: Add the two distance sensors as explained above. The distance sensors are at an angle to 0.3 [rad] with the front vector of the robot. Set the graphical and physical shape to a cube (not transformed) having a edge of<span> </span><code>0.01</code><span> </span>[m]. Set the color to blue. Set the<span> </span><code>name</code><span> </span>field according to the labels of<span> </span><a class="dynamicAnchor" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#top-view-of-the-4-wheeled-robot-the-grid-behind-the-robot-has-a-dimension-of-0-2-x-0-3-meters-the-text-labels-correspond-to-the-name-of-the-device">this figure</a>.</p>
+</blockquote>
+<details open=""><summary><strong>Tips</strong>: How to precisely orient distance sensors?</summary>In the<span> </span><a href="https://cyberbotics.com/doc/reference/distancesensor">DistanceSensor</a><span> </span>node, the rotation field has 4 parameters. If you set the angle parameter to 0, then you can use the mouse wheel to increment/decrement by steps of 0.1309 rad (= 7.5 degree).
+<h4 class="anchor-header" id="controller" name="controller"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#controller"><span class="anchor-link-image"></span></a>Controller</h4>
+<p>In the previous tutorials, you have learnt how to setup a feedback loop and how to read the distance sensor values. However, actuating a<span> </span><a href="https://cyberbotics.com/doc/reference/rotationalmotor">RotationalMotor</a><span> </span>node is something new. To program the rotational motors, the first step is to include the API module corresponding to the<span> </span><a href="https://cyberbotics.com/doc/reference/rotationalmotor">RotationalMotor</a><span> </span>node:</p>
+<div class="tab-content" name="python" tabid="3">
+<pre><code class="python language-python hljs"><span class="hljs-keyword">from</span> controller <span class="hljs-keyword">import</span> Motor
+</code></pre>
+</div>
+<p>Then to get the references of the<span> </span><a href="https://cyberbotics.com/doc/reference/rotationalmotor?tab-language=python">RotationalMotor</a><span> </span>nodes:</p>
+<div class="tab-content" name="python" tabid="4">
+<pre><code class="python language-python hljs"><span class="hljs-comment"># initialize motors</span>
+wheels = []
+wheelsNames = [<span class="hljs-string">'wheel1'</span>, <span class="hljs-string">'wheel2'</span>, <span class="hljs-string">'wheel3'</span>, <span class="hljs-string">'wheel4'</span>]
+<span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> wheelsNames:
+    wheels.append(robot.getDevice(name))
+</code></pre>
+</div>
+<p>A<span> </span><a href="https://cyberbotics.com/doc/reference/motor?tab-language=python">Motor</a><span> </span>can be actuated by setting its position, its velocity, its acceleration or its force. Here we are interested in setting its velocity. This can be achieved by setting its position to infinity, and by bounding its velocity:</p>
+<div class="tab-content" name="python" tabid="5">
+<pre><code class="python language-python hljs">speed = <span class="hljs-number">-1.5</span>  <span class="hljs-comment"># [rad/s]</span>
+wheels[<span class="hljs-number">0</span>].setPosition(float(<span class="hljs-string">'inf'</span>))
+wheels[<span class="hljs-number">0</span>].setVelocity(speed)
+</code></pre>
+</div>
+<blockquote>
+<p><strong>Hands on #6</strong>: Implement a controller called<span> </span><code>four_wheeled_collision_avoidance</code><span> </span>moving the robot and avoiding obstacles by detecting them by the distance sensors.</p>
+</blockquote>
+<p>Note that the<span> </span><code>lookupTable</code><span> </span>field of the<span> </span><a href="https://cyberbotics.com/doc/reference/distancesensor?tab-language=python">DistanceSensor</a><span> </span>nodes indicates the values returned by the sensor. To help in the debugging with the sensors, it is possible to see the value of the sensors in the real-time in the<span> </span><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/controller-plugin#robot-window?tab-language=python">robot-window</a>. To open the<span> </span><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/controller-plugin#robot-window?tab-language=python">robot-window</a>, double-click on the robot body and it will bring up a menu on the left with the<span> </span><a href="https://cyberbotics.com/doc/reference/distancesensor?tab-language=python">DistanceSensor</a><span> </span>and<span> </span><a href="https://cyberbotics.com/doc/reference/rotationalmotor?tab-language=python">RotationalMotor</a><span> </span>graph. Run the simulation to see the evolution.</p>
+<p>Don't forget to set the<span> </span><code>controller</code><span> </span>field of the<span> </span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a><span> </span>node to indicate your new controller.</p>
+<p>As usual a possible solution of this exercise is located in the tutorials directory.</p>
+<h4 class="anchor-header" id="thecontrollercode" name="the-controller-code"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot?tab-language=python#the-controller-code"><span class="anchor-link-image"></span></a>The Controller Code</h4>
+<p>Here is the complete code of the controller developed in the previous subsection.</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Robot
+
+TIME_STEP = 64
+robot = Robot()
+ds = []
+dsNames = ['ds_right', 'ds_left']
+for i in range(2):
+    ds.append(robot.getDevice(dsNames[i]))
+    ds[i].enable(TIME_STEP)
+wheels = []
+wheelsNames = ['wheel1', 'wheel2', 'wheel3', 'wheel4']
+for i in range(4):
+    wheels.append(robot.getDevice(wheelsNames[i]))
+    wheels[i].setPosition(float('inf'))
+    wheels[i].setVelocity(0.0)
+avoidObstacleCounter = 0
+while robot.step(TIME_STEP) != -1:
+    leftSpeed = 1.0
+    rightSpeed = 1.0
+    if avoidObstacleCounter &gt; 0:
+        avoidObstacleCounter -= 1
+        leftSpeed = 1.0
+        rightSpeed = -1.0
+    else:  # read sensors
+        for i in range(2):
+            if ds[i].getValue() &lt; 950.0:
+                avoidObstacleCounter = 100
+    wheels[0].setVelocity(leftSpeed)
+    wheels[1].setVelocity(rightSpeed)
+    wheels[2].setVelocity(leftSpeed)
+    wheels[3].setVelocity(rightSpeed)</pre>
+<h4 class="anchor-header" id="solutionworldfile" name="solution-world-file">Solution: World File</h4>
+<p>To compare your world with the solution, go to your files and find the folder named "my_first_simulation" created in<span> </span><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots?tab-language=python">Tutorial 1</a>, then go to the "worlds" folder and open with a text editor the right world.<span> </span><a href="https://github.com/cyberbotics/webots/tree/released/projects/samples/tutorials/worlds/4_wheels_robot.wbt?tab-language=python" target="_blank">This solution</a><span> </span>as the others is located in the<span> </span><a href="https://github.com/cyberbotics/webots/tree/released/projects/samples/tutorials/worlds/?tab-language=python" target="_blank">solution directory</a>.</p>
+<h4 class="anchor-header" id="conclusion" name="conclusion"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot?tab-language=python#conclusion"><span class="anchor-link-image"></span></a>Conclusion</h4>
+<p>You are now able to design simple robot models, to implement them and to create their controllers.</p>
+<p>More specifically, you learnt all the different nodes involved in the design of a robot model, methods to translate and rotate a solid relative to another and the way that a rotational motor is actuated by the controller.</p>
+<h2>Tutorial7</h2>
+<h4 class="anchor-header" id="tutorial7yourfirstproto20minutes" name="tutorial-7-your-first-proto-20-minutes">Tutorial 7: Your First PROTO</h4>
+<p>The aim of this tutorial is to create a PROTO file corresponding to the four wheels robot from the previous tutorial.</p>
+<h4 class="anchor-header" id="copytherobotdefinition" name="copy-the-robot-definition">Copy the Robot Definition</h4>
+<p>For now, the definition of the robot is completely contained in the world file. Moving this definition in a PROTO file will allow you to use this robot without the need to completely copy and paste its definition (either several times in the same world or in different worlds).</p>
+<blockquote>
+<p><strong>Hands-on #1</strong>: Open the world<span> </span><code>4_wheels_robot.wbt</code><span> </span>created in the previous tutorial in your favorite text editor. Create a new empty text file in the<span> </span><code>protos</code><span> </span>folder of your project called<span> </span><code>FourWheelsRobot.proto</code><span> </span>and open this file in the text editor too, this file will contain the definition of your robot.</p>
+</blockquote>
+<p>Any PROTO file should at least respect the following structure:</p>
+<pre><code>#VRML_SIM R2025a utf8
+PROTO protoName [
+  protoFields
+]
+{
+  protoBody
+}
+</code></pre>
+<p>The<span> </span><code>protoName</code><span> </span>should be the name of the PROTO file (i.e.<span> </span><code>FourWheelsRobot</code><span> </span>in this case),<span> </span><code>protoFields</code><span> </span>defines the modifiable fields of the PROTO node (this part should be empty for now) and the<span> </span><code>protoBody</code><span> </span>is the definition of the root node (i.e. the<span> </span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a><span> </span>node in this case).</p>
+<blockquote>
+<p><strong>Hands-on #2</strong>: Write this default structure in your PROTO file with the correct<span> </span><code>protoName</code>. From the<span> </span><code>4_wheels_robot.wbt</code><span> </span>world file copy the robot node (starting with<span> </span><code>Robot {</code><span> </span>and ending with the final<span> </span><code>}</code>) and paste it in your PROTO file instead of the<span> </span><code>protoBody</code>. Finally, save the PROTO file.</p>
+</blockquote>
+<p><strong>Solution</strong>: You should have something like this:</p>
+<pre><code>  #VRML_SIM R2025a utf8
+  PROTO FourWheelsRobot [
+
+  ]
+  {
+    Robot {
+      # list of fields
+    }
+  }
+</code></pre>
+<h4 class="anchor-header" id="usetheprotonode" name="use-the-proto-node"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-7-your-first-proto?tab-language=python#use-the-proto-node"><span class="anchor-link-image"></span></a>Use the PROTO Node.</h4>
+<p>This new PROTO node is now available for each world in your current project.</p>
+<p><img alt="" height="157" src="/images/tutorial7_proto.thumbnail.jpg" width="300"/></p>
+<blockquote>
+<p><strong>Hands-on #3</strong>: Open the<span> </span><code>4_wheels_robot.wbt</code><span> </span>world in Webots and add the<span> </span><code>FourWheelsRobot</code><span> </span>node (that you just defined). The node is located in<span> </span><code>PROTO nodes (Current Project) / FourWheelsRobot (Robot)</code>.</p>
+</blockquote>
+<p>A second 4 wheels robot should have been added at the exact same location as the already existing one.</p>
+<h4 class="anchor-header" id="addingfields" name="adding-fields"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-7-your-first-proto?tab-language=python#adding-fields"><span class="anchor-link-image"></span></a>Adding Fields</h4>
+<p>As you probably noticed, this new PROTO node doesn't have any open field, it is therefore impossible to translate, rotate or change the controller for example. It is very easy to add new fields to a PROTO node and to link them with internal fields. This should be done in the PROTO interface part (part between the<span> </span><code>[</code><span> </span>and the<span> </span><code>]</code>).</p>
+<blockquote>
+<p><strong>Hands-on #4</strong>: Edit your PROTO file in your text editor and add the definition of the<span> </span><code>translation</code>,<span> </span><code>rotation</code><span> </span>and<span> </span><code>bodyMass</code><span> </span>field in the PROTO interface part:</p>
+</blockquote>
+<pre><code>  field SFVec3f    translation  0 0 0
+  field SFRotation rotation     0 0 1 0
+  field SFFloat    bodyMass     1
+</code></pre>
+<p>Your PROTO node has now two open fields but they are not linked to any internal field. To link the fields you should use the IS keyword, simply replace the<span> </span><code>translation x y z</code><span> </span>and<span> </span><code>rotation x y z angle</code><span> </span>fields of the<span> </span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a><span> </span>node by:</p>
+<pre><code>  translation IS translation
+  rotation IS rotation
+</code></pre>
+<p>And the<span> </span><code>mass</code><span> </span>field of the<span> </span><a href="https://cyberbotics.com/doc/reference/physics?tab-language=python">Physics</a><span> </span>node of the<span> </span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a><span> </span>node by:</p>
+<pre><code>  mass IS bodyMass
+</code></pre>
+<p>Save your PROTO file, it should now look like this:</p>
+<pre><code>#VRML_SIM R2025a utf8
+PROTO FourWheelsRobot [
+  field SFVec3f    translation  0 0 0
+  field SFRotation rotation     0 0 1 0
+  field SFFloat    bodyMass     1
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    children [
+      # list of children nodes
+    ]
+    boundingObject USE BODY
+    physics Physics {
+      density -1
+      mass IS bodyMass
+    }
+    controller "four_wheels_collision_avoidance"
+  }
+}
+</code></pre>
+<p>You can now save your simulation in Webots and revert it. The<span> </span><code>translation</code>,<span> </span><code>rotation</code><span> </span>and<span> </span><code>bodyMass</code><span> </span>of the<span> </span><code>FourWheelsRobot</code><span> </span>node can now be changed (either in the<span> </span><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/the-scene-tree?tab-language=python">scene tree</a><span> </span>or using the handles in the<span> </span><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/the-3d-window?tab-language=python">3D view</a>).</p>
+<p>The same mechanism could also be used to expose the<span> </span><code>controller</code><span> </span>field of the<span> </span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a><span> </span>node.</p>
+<h4 class="anchor-header" id="solutionprotofile" name="solution-proto-file"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-7-your-first-proto?tab-language=python#solution-proto-file"><span class="anchor-link-image"></span></a>Solution: PROTO File</h4>
+<p>To compare your PROTO file with<span> </span><a href="https://github.com/cyberbotics/webots/tree/released/projects/samples/tutorials/protos/FourWheelsRobot.proto" target="_blank">the solution</a>, go to your files and find the folder named "my_first_simulation" created in<span> </span><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots?tab-language=python">Tutorial 1</a>, then go to the "protos" folder and open with a text editor the right PROTO.</p>
+<h4 class="anchor-header" id="conclusion" name="conclusion"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-7-your-first-proto?tab-language=python#conclusion"><span class="anchor-link-image"></span></a>Conclusion</h4>
+<p>You are now able to create PROTO nodes from any nodes you created in Webots.</p>
+<p>More specifically, you learnt how to copy the node definition in the PROTO file and how to open and link PROTO fields to internal node fields.</p>
+<p>To go further, the<span> </span><a href="https://cyberbotics.com/doc/reference/proto?tab-language=python">PROTO chapter</a><span> </span>of the reference manual explains in detail all the possibilities of the PROTO mechanism.</p>
+<h2>Tutorial8</h2>
+<h4 class="anchor-header" id="tutorial8thesupervisor30minutes" name="tutorial-8-the-supervisor-30-minutes">Tutorial 8: The Supervisor</h4>
+<p>A<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a><span> </span>oversees a world and can set or get information about it. This tutorial will teach you:</p>
+<ul>
+<li>How to move objects (移動物件) using the supervisor.</li>
+<li>How to delete a node (刪除節點) and spawn another (產生另一個節點) in its place.</li>
+<li>How to track the evolution of an object (追蹤物件演進) in the scene.</li>
+<li>How to change the properties of an object (改變物件性質) , namely its color (顏色).</li>
+</ul>
+<p><span style="background-color: #ccffcc;">若要使用類似 CoppeliaSim 場景中的<a href="https://zh.wikipedia.org/zh-tw/%E4%B8%83%E5%8A%83%E7%AE%A1" style="background-color: #ccffcc;">七段顯示器</a>, 以便建立數位記分板, 可以採用 Supervisor 控制器.</span></p>
+<p>These are only some tasks the<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a><span> </span>is capable of, refer to its documentation for a complete overview. Just note that it is, however, not possible to access directly measurements recorded by devices mounted on a different robot even if the supervisor option is enabled.</p>
+<h4>Setting up the Environment and Adding a Supervisor</h4>
+<blockquote>
+<p><strong>Hands-on #1</strong>: The objective is to create the environment and add a Supervisor. Create a new project from<span> </span><strong>File / New / New Project Directory...</strong><span> </span>menu item and follow the instructions:</p>
+<ol>
+<li>Name the project directory<span> </span><code>my_supervisor</code><span> </span>instead of the proposed<span> </span><code>my_project</code>.</li>
+<li>Name the world file<span> </span><code>my_supervisor.wbt</code><span> </span>instead of the proposed<span> </span><code>empty.wbt</code>.</li>
+<li>Click all the tick boxes, including the "Add a rectangle arena" which is not ticked by default. (需要納入競技平台)</li>
+<li>In order to have more space, enlarge the arena by setting the size to 10x10 meters by changing the<span> </span><code>floorSize</code><span> </span>field.</li>
+<li>Add a<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/sphero/bb8/protos/BB-8.proto" target="_blank">BB-8</a><span> </span>robot to the scene, to do this click the<span> </span><code>Add</code><span> </span>button<span> </span><img alt="" height="26" src="https://raw.githubusercontent.com/cyberbotics/webots/released/docs/guide/images/add-button.png" width="26"/><span> </span>and navigate to:<span> </span><code>PROTO nodes (Webots projects) / robots / sphero / bb8</code>.</li>
+<li>For the purpose of this tutorial, remove the default controller of<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/sphero/bb8/protos/BB-8.proto" target="_blank">BB-8</a><span> </span>by clicking the<span> </span><code>controller</code><span> </span>field, then the<span> </span><code>Select</code><span> </span>button, and pick<span> </span><code>&lt;none&gt;</code><span> </span>from the list. (移除原型節點中既有的控制器設定)</li>
+<li>Add a simple<span> </span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a><span> </span>node to the scene, this will become our Supervisor. The<span> </span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a><span> </span>node can be found in the<span> </span><code>base nodes</code><span> </span>category when clicking the<span> </span><code>Add</code><span> </span>button. To better keep track of it, change its<span> </span><code>name</code><span> </span>field to<span> </span><code>supervisor</code>.</li>
+<li><span style="background-color: #ccffcc;">Despite the name change the node is still currently just a <a href="https://cyberbotics.com/doc/reference/robot?tab-language=python" style="background-color: #ccffcc;">Robot</a>, to turn this robot into a <a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python" style="background-color: #ccffcc;">Supervisor</a> requires to set its <code>supervisor</code> field to "TRUE".</span></li>
+<li>Much like a normal robot, the behavior of a supervisor is defined by a controller. Add a controller using the<span> </span><strong>File / New / New Robot Controller...</strong><span> </span>menu item, selecting the programming language you prefer. For this tutorial, Python is the choice, but the code will be provided for all other options. Set<span> </span><code>supervisor_controller</code><span> </span>as the name of the controller and click finish (for C++ and Java call it<span> </span><code>SupervisorController</code><span> </span>instead).</li>
+<li>Expand once more the<span> </span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a><span> </span>node, press the<span> </span><code>controller</code><span> </span>field and click the<span> </span><code>Select</code><span> </span>button in order to attribute the controller you just created to the supervisor.</li>
+<li>Save the world.</li>
+</ol>
+</blockquote>
+<p>If you followed these steps, your environment should look like this:</p>
+<p><img alt="" height="164" src="/images/tutorial_8_environment.thumbnail.jpg" width="300"/></p>
+<p><span>Resulting environment.</span></p>
+<h4 class="anchor-header" id="movingobjectsusingasupervisor" name="moving-objects-using-a-supervisor">Moving Objects Using a Supervisor</h4>
+<p>So far our<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a><span> </span>is quite dull, because the controller that was attributed to it does nothing.</p>
+<p>In this section, we will program the supervisor to move the BB-8 robot to a different location. <span style="background-color: #ccffcc;">It should be noted that to achieve this we are effectively cheating, rather than instructing the BB-8 to move to a new location we will transport it there</span>. In other words the movement will ignore all the physics, but herein lies the power of a<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a>, as it can bend the rules however it likes.</p>
+<p>As you might have noticed, the default controller we created from the<span> </span><strong>File / New / New Robot Controller...</strong><span> </span>menu item is setup for a classic robot, not a supervisor. In order to access the powers of a supervisor requires therefore some slight changes to the controller. To begin with, replace the contents of the default controller with the following code, depending on the language you have picked and save.</p>
+<p>The changes include:</p>
+<ul>
+<li><span style="background-color: #ffff99;">import the Supervisor library/module instead of the Robot one</span></li>
+<li><span style="background-color: #ffff99;">instead of creating a <code>Robot</code> instance, create a <code>Supervisor</code> one.</span></li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong><span> </span>It is important to remember that a supervisor is nothing more than a robot with special powers, which implies that whatever a robot can do, so can the supervisor. This means that you do not need a<span> </span><code>Robot</code><span> </span>instance if you have a supervisor one. For example the infinite loop that determines the pace of the controller (namely:<span> </span><code>while robot.step(TIME_STEP) != -1</code>) does not need to be changed, as the supervisor can do the same.</p>
+</blockquote>
+<p>Here are the instructions to follow based on the programming language you picked.</p>
+<div class="tab-content" name="python" tabid="7">
+<p>Replace the contents of your controller with the following and save.</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Supervisor
+
+TIME_STEP = 32
+
+robot = Supervisor()  # create Supervisor instance
+
+# [CODE PLACEHOLDER 1]
+
+i = 0
+while robot.step(TIME_STEP) != -1:
+  # [CODE PLACEHOLDER 2]
+
+  i += 1</pre>
+</div>
+<p>To move BB-8 to a new location is quite straightforward, if you wished to do so without the help of a supervisor you would simply change its<span> </span><code>translation</code><span> </span>field to the desired value, say<span> </span><code>0 0 2.5</code>. The<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a><span> </span>does it much in the same way.</p>
+<div class="tab-content" name="python" tabid="8">
+<blockquote>
+<p><strong>Hands-on #2</strong>: Move BB-8 using the Supervisor. In principle the world could be very complex, so it is necessary to have a way of uniquely identifying our BB-8 among the other objects. To do so we can use the<span> </span><code>DEF</code><span> </span>mechanism explored in<span> </span><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/tutorial-2-modification-of-the-environment?tab-language=python">tutorial 2</a>. Click the BB-8 node in the scene tree and give it a<span> </span><code>DEF</code><span> </span>name "BB-8", then save the world.</p>
+<p>Behind the scenes, each node is uniquely identifiable by a node reference and by having this reference, we can modify it. To retrieve the reference, the supervisor method<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_node_get_from_def"><code>getFromDef</code></a><span> </span>can be used. In<span> </span><code>CODE PLACEHOLDER 1</code>, retrieve the node reference of BB-8.</p>
+<pre><code class="python language-python hljs">bb8_node = robot.getFromDef(<span class="hljs-string">'BB-8'</span>)
+</code></pre>
+<p>Now that we have access to the node, we need to get access to its<span> </span><code>translation</code><span> </span>field, specifically we need a reference to this field as we just did for the node. To do so, the<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_node_get_field"><code>getField</code></a><span> </span>method can be used.</p>
+<pre><code class="python language-python hljs">translation_field = bb8_node.getField(<span class="hljs-string">'translation'</span>)
+</code></pre>
+<p>Finally, now that a reference to the translation field is available, all that remains to do is to set it to a different value. Once again, the supervisor API has all the necessary tools to do so. The<span> </span><code>translation</code><span> </span>field is of type<span> </span><code>SFVec3</code>, which just means it is a three dimensional vector. The value of this field can be set by using the<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_field_set_sf_vec3f"><code>setSFVec3f</code></a><span> </span>method.</p>
+<pre><code class="python language-python hljs"><span class="hljs-keyword">if</span> i == <span class="hljs-number">0</span>:
+  new_value = [<span class="hljs-number">2.5</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]
+  translation_field.setSFVec3f(new_value)
+</code></pre>
+<p>That is all there is to it. If you save and run the simulation you will see that BB-8 is transported to a new location instantly.</p>
+</blockquote>
+</div>
+<p>This is a simple example, but the principle remains the same no matter which field you wish to change. <span style="background-color: #ccffcc;">You can for instance increase the size of an object, perhaps change its color, change the light conditions, or reset its position if it goes out of bounds, the options are limitless. It is just a matter of getting a node reference, from which a field reference can be obtained by name, and set its value by using the function that is appropriate for the type you are trying to change.</span></p>
+<p>Spawning and Removing Nodes</p>
+<p>Supervisors can also be used to populate the environment, allowing to dynamically setup the scene. This section focuses on how nodes can be added and removed, specifically we will remove<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/sphero/bb8/protos/BB-8.proto" target="_blank">BB-8</a><span> </span>from this world, and replace it with a different robot, namely<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a>.</p>
+<div class="tab-content" name="python" tabid="9">
+<blockquote>
+<p><strong>Hands-on #3</strong>: Removing and adding nodes. In the previous section, we already saw how to retrieve the node reference of an object. A node can be removed from the scene tree by using the<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_node_remove"><code>remove</code></a><span> </span>method. <span style="background-color: #ccffcc;">The <code>if</code> condition is not necessary, it simply adds a 10 step delay before the removal to make it more apparent.</span> Add the following code in<span> </span><code>CODE PLACEHOLDER 2</code>.</p>
+<pre><code class="python language-python hljs"><span class="hljs-keyword">if</span> i == <span class="hljs-number">10</span>:
+  bb8_node.remove()
+</code></pre>
+<p>After 10 time steps,<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/sphero/bb8/protos/BB-8.proto" target="_blank">BB-8</a><span> </span>will be removed from the scene. Now, let's instead add the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a><span> </span>robot after 20 time steps.</p>
+<p>In order to add a node, we must know where we wish to spawn it in the scene tree. Should it be added at the top level of the scene tree? Should it <span style="background-color: #ccffcc;">inserted as a field of a another node</span>? These questions will change how the node will be inserted and which supervisor function needs to be used, but the constant factor among them is that we need a reference to this position. In this context, the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a><span> </span>robot will be added at the last position in the scene tree, where BB-8 used to appear.</p>
+<p>First of all, we need to declare the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a><span> </span>to Webots as in importable PROTO for the world we created. To proceed, click on the<span> </span><code>IMPORTABLE EXTERNPROTO</code><span> </span>button located at the top of the scene tree.</p>
+<p>The field editor, located below the scene tree, should display an<span> </span><code>IMPORTABLE EXTERNPROTO</code><span> </span>pane with a button named "Insert new". Click this button and select the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a><span> </span>robot from the<span> </span><code>PROTO nodes (Webots Projects)</code><span> </span>section. Press the "Insert" button. If you hover the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a><span> </span>item that appeared below the "Insert new" button, you will see in the tooltip the URL from where it is downloaded. Save the world file, so that this information is stored.</p>
+<p>Although not apparent, the scene tree is in fact a<span> </span><a href="https://cyberbotics.com/doc/reference/group?tab-language=python">Group</a><span> </span>node, and each of the objects in the scene tree like<span> </span><code>WorldInfo</code>,<span> </span><code>Viewpoint</code>,<span> </span><code>TexturedBackground</code><span> </span>and so forth are nothing more than nodes defined as its children. We refer to this<span> </span><a href="https://cyberbotics.com/doc/reference/group?tab-language=python">Group</a><span> </span>node containing everything as the<span> </span><code>root</code><span> </span>node. In order to insert the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a><span> </span>robot, the reference we require is actually a reference to <span style="background-color: #ccffcc;">the <code>children</code> field of the <code>root</code> node</span>. In the spot marked by<span> </span><code>CODE PLACEHOLDER 1</code>, the following code allows to get this reference.</p>
+<pre><code class="python language-python hljs">root_node = robot.getRoot()
+children_field = root_node.getField(<span class="hljs-string">'children'</span>)
+</code></pre>
+<p>To spawn a node you should use the supervisor function<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_field_import_mf_node_from_string"><code>importMFNodeFromString</code></a><span> </span>or<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_field_import_sf_node_from_string"><code>importSFNodeFromString</code></a>. The "MFNode" and "SFNode" components in the name of these functions specify what is the type of the node where the objects is inserted<span> </span><em>into</em>. "MFNode" stands for multi-field node whereas "sf_node" stands for single-field node.</p>
+<p>As previously mentioned, the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a><span> </span>should be added to the<span> </span><code>children</code><span> </span>field of the<span> </span><code>root</code><span> </span>node, and as you might guess, this<span> </span><code>children</code><span> </span>field is of type multi-field.</p>
+<p>Let's add it from string after 20 time steps, add the following snippet in<span> </span><code>CODE PLACEHOLDER 2</code>:</p>
+<pre><code class="python language-python hljs"><span class="hljs-keyword">if</span> i == <span class="hljs-number">20</span>:
+  children_field.<a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_field_import_mf_node_from_string">importMFNodeFromString</a>(<span class="hljs-number">-1</span>, <span class="hljs-string">'Nao { }'</span>)
+</code></pre>
+<p>The "-1" specifies in which position we wish to insert the node, in this case, to insert it at the last position.<span> </span><code>"Nao { }"</code><span> </span>is a string that describes what we wish to spawn. The way the object is described is by using the VRML97 format, this is the format used in the world files as well. After 20 timesteps, the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a><span> </span>robot will spawn in the middle of the scene.</p>
+<p>Let's assume we wanted the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a><span> </span>to be spawned in the position BB-8 used to be, we certainly could move it there following the procedure of hands-on 2, but that would not be smart. In fact, we can simply specify the translation field directly in the string! Replace the string<span> </span><code>"Nao { }"</code><span> </span>with<span> </span><code>"Nao { translation 2.5 0 0.334 }"</code><span> </span>and it will spawn exactly at that location. It does not stop there, in the same fashion we could define its<span> </span><code>controller</code><span> </span>parameter, or the<span> </span><code>cameraWidth</code><span> </span>or any other of its parameters in the same fashion.</p>
+</blockquote>
+</div>
+<blockquote>
+<p><strong>Trick:</strong><span> </span>If you are not familiar with VRML97, an easy trick to define these strings is to let Webots do it for you. You can manually create the object (using the Webots interface), and then save the world. When saving, Webots will translate what you built into a string of text. If you open the world file with a text editor, you can simply copy the description of the object.</p>
+</blockquote>
+<h4 class="anchor-header" id="trackobjectpositionusingasupervisor" name="track-object-position-using-a-supervisor"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-8-the-supervisor?tab-language=python#track-object-position-using-a-supervisor"><span class="anchor-link-image"></span></a>Track Object Position Using a Supervisor</h4>
+<p>Since the supervisor has unlimited power, it is the perfect tool to track the evolution of a simulation. In this section, <span style="background-color: #ccffcc;">we will use the acquired knowledge to spawn a ball, and track its position as it falls and when it touches the ground change its color</span>.</p>
+<div class="tab-content" name="python" tabid="10">
+<blockquote>
+<p><strong>Hands-on #4</strong>: We need to use the<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_field_import_mf_node_from_string"><code>wb_supervisor_field_import_mf_node_from_string</code></a><span> </span>function to spawn the ball at location<span> </span><code>0 1 1</code>, and since we are at it, let us get a reference to this node and to the<span> </span><code>color</code><span> </span>field of the<span> </span><code>Ball</code>. But first, we have to declare the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Ball</a><span> </span>as an<span> </span><code>IMPORTABLE EXTERNPROTO</code><span> </span>as we did it previously for the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a><span> </span>robot. Once done, in<span> </span><code>CODE PLACEHOLDER 1</code><span> </span>add:</p>
+<pre><code class="python language-python hljs">children_field.importMFNodeFromString(<span class="hljs-number">-1</span>, <span class="hljs-string">'DEF BALL Ball { translation 0 1 1 }'</span>)
+ball_node = robot.getFromDef(<span class="hljs-string">'BALL'</span>)
+color_field = ball_node.getField(<span class="hljs-string">'color'</span>)
+</code></pre>
+<p>If you run the simulation, the ball should appear and begin to fall until it clashes with the ground.</p>
+<p>In order to track the position of the ball, we could get a reference to its translation field and read that value continuously however a simpler approach would be to use another supervisor method created for that task, namely<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_node_get_position"><code>getPosition</code></a>. In<span> </span><code>CODE PLACEHOLDER 2</code><span> </span>add:</p>
+<pre><code class="python language-python hljs">position = ball_node.getPosition()
+print(<span class="hljs-string">'Ball position: %f %f %f\n'</span> %(position[<span class="hljs-number">0</span>], position[<span class="hljs-number">1</span>], position[<span class="hljs-number">2</span>]))
+</code></pre>
+<p>Now that we can track it, let's change the color of the bool as soon as it collides. Since the ball has a radius of 0.2, we can change the<span> </span><code>color</code><span> </span>field when the "Y" coordinate of the position is smaller than this value.</p>
+<pre><code class="python language-python hljs"><span class="hljs-keyword">if</span> position[<span class="hljs-number">2</span>] &lt; <span class="hljs-number">0.2</span>:
+  red_color = [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]
+  color_field.setSFColor(red_color)
+</code></pre>
+</blockquote>
+</div>
+<h4 class="anchor-header" id="puttingeverythingtogether" name="putting-everything-together"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-8-the-supervisor?tab-language=python#putting-everything-together"><span class="anchor-link-image"></span></a>Putting Everything Together</h4>
+<p>Here you can find the complete code of the controller.</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Supervisor
+
+TIME_STEP = 32
+
+robot = Supervisor()  # create Supervisor instance
+
+# [CODE PLACEHOLDER 1]
+bb8_node = robot.getFromDef('BB-8')
+translation_field = bb8_node.getField('translation')
+
+root_node = robot.getRoot()
+children_field = root_node.getField('children')
+
+children_field.importMFNodeFromString(-1, 'DEF BALL Ball { translation 0 1 1 }')
+ball_node = robot.getFromDef('BALL')
+color_field = ball_node.getField('color')
+
+i = 0
+while robot.step(TIME_STEP) != -1:
+  # [CODE PLACEHOLDER 2]
+  if (i == 0):
+    new_value = [2.5, 0, 0]
+    translation_field.setSFVec3f(new_value)
+
+  if i == 10:
+      bb8_node.remove()
+
+  if i == 20:
+    children_field.importMFNodeFromString(-1, 'Nao { }')
+
+  position = ball_node.getPosition()
+  print('Ball position: %f %f %f\n' %(position[0], position[1], position[2]))
+
+  if position[2] &lt; 0.2:
+    red_color = [1, 0, 0]
+    color_field.setSFColor(red_color)
+
+  i += 1</pre>
+<h4 class="anchor-header" id="conclusion" name="conclusion">Conclusion</h4>
+<p>With this tutorial you have learned:</p>
+<ol>
+<li>A<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a><span> </span>is nothing more than a<span> </span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a><span> </span>with extra powers, therefore anything that you can do with a<span> </span><code>Robot</code><span> </span>instance, you can do with a<span> </span><code>Supervisor</code><span> </span>instance.</li>
+<li>A<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a><span> </span>is not bound by physics, since its powers are unlimited, it can also "cheat".</li>
+<li>Whenever one wishes to alter the scene tree using a<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a>, a reference needs to be obtained:
+<ul>
+<li>To insert a node, you need a reference of the field that will contain it.</li>
+<li>To remove a node, you need a reference to the node (i.e., the object) itself.</li>
+<li>To change the value of a parameter like (translation, color, size, etc.) you need a reference to said field.</li>
+</ul>
+</li>
+<li>Spawning a robot or an object can be achieved by defining it as an<span> </span><code>IMPORTABLE EXTERNPROTO</code><span> </span>and using the<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_field_import_mf_node_from_string">wb_supervisor_field_import_mf_node_from_string</a><span> </span>API function.</li>
+</ol><h1>Homework</h1>
 <p>作業 (30%)</p>
 <p>HW1 (5%): <span style="background-color: #ffff00;">建立由 Box 組成的平面四連桿機構 Webots 模擬場景</span></p>
 <p style="padding-left: 30px;">part1:</p>
@@ -1688,4 +2099,4 @@ doc["aitetris"].bind("click", aitetris.do)
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div2"></div>
 <!-- editor2 結束 --><hr/>
-<p></p>
+<p></p></details></details></p>

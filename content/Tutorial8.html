@@ -1,0 +1,377 @@
+<!DOCTYPE html><html>
+        <head>
+        <title>cd2025</title>
+        <meta charset="utf-8">
+<meta property="head" content="H2">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+        
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <!-- for Wink3 客製化關閉 -->
+        <!--
+        <link rel="stylesheet" type="text/css" href="./../cmsimde/static/winkPlayer.css" />
+        <script type="text/javascript" src="./../cmsimde/static/winkPlayer.js"></script>
+        -->
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushMojo.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushWbt.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushRust.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
+}
+</style>
+
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container">
+                <div class="row align-items-center">
+                <h1>cd2025 協同產品設計實習</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">cd2025 協同產品設計實習</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">SMap</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Summary.html'>Summary</a><li><a href='Product.html'>Product</a><li><a href='Control.html'>Control</a><li><a href='CPS.html'>CPS</a><li><a href='AI.html'>AI</a></li></ul><li class='has-children'><a href='Topics.html'>Topics</a><ul class='dropdown'><li class='has-children'><a href='Wink.html'>Wink</a><ul class='dropdown'><li><a href='Fossil.html'>Fossil</a></li></ul><li class='has-children'><a href='Topic1.html'>Topic1</a><ul class='dropdown'><li><a href='w1.html'>w1</a><li><a href='Portable.html'>Portable</a><li><a href='repo.html'>repo</a><li><a href='SSH.html'>SSH</a><li><a href='list.html'>list</a><li><a href='IPv6.html'>IPv6</a></li></ul><li class='has-children'><a href='Topic2.html'>Topic2</a><ul class='dropdown'><li><a href='Compile.html'>Compile</a><li><a href='Onshape.html'>Onshape</a></li></ul><li class='has-children'><a href='Topic3.html'>Topic3</a><ul class='dropdown'><li><a href='Fourbar.html'>Fourbar</a><li><a href='boomer.html'>boomer</a></li></ul><li><a href='Topic4.html'>Topic4</a></li></ul><li class='has-children'><a href='Tutorial.html'>Tutorial</a><ul class='dropdown'><li><a href='onelink.html'>onelink</a><li class='has-children'><a href='fourbar1.html'>fourbar1</a><ul class='dropdown'><li><a href='handon1.html'>handon1</a></li></ul><li><a href='fourbar2.html'>fourbar2</a><li><a href='DEF.html'>DEF</a><li><a href='Tutorial1.html'>Tutorial1</a><li><a href='Tutorial2.html'>Tutorial2</a><li><a href='Tutorial3.html'>Tutorial3</a><li><a href='Tutorial4.html'>Tutorial4</a><li><a href='Tutorial5.html'>Tutorial5</a><li><a href='Tutorial6.html'>Tutorial6</a><li><a href='Tutorial7.html'>Tutorial7</a><li><a href='Tutorial8.html'>Tutorial8</a></li></ul><li class='has-children'><a href='Homework.html'>Homework</a><ul class='dropdown'><li><a href='HW1.html'>HW1</a><li><a href='HW2.html'>HW2</a><li><a href='HW3.html'>HW3</a></li></ul><li class='has-children'><a href='Exam.html'>Exam</a><ul class='dropdown'><li><a href='Exam1.html'>Exam1</a><li><a href='Exam2.html'>Exam2</a><li><a href='Exam3.html'>Exam3</a></li></ul><li class='has-children'><a href='Reference.html'>Reference</a><ul class='dropdown'><li class='has-children'><a href='Webots.html'>Webots</a><ul class='dropdown'><li><a href='Webots_ref.html'>Webots_ref</a><li><a href='Webots_doc.html'>Webots_doc</a></li></ul><li class='has-children'><a href='Solvespace.html'>Solvespace</a><ul class='dropdown'><li><a href='Learn_Solvs.html'>Learn_Solvs</a></li></ul><li><a href='Pyslvs-UI.html'>Pyslvs-UI</a><li><a href='PICSimLab.html'>PICSimLab</a><li><a href='Fossil SCM.html'>Fossil SCM</a><li><a href='Leo Editor.html'>Leo Editor</a><li><a href='uv.html'>uv</a><li><a href='Old.html'>Old</a></li></ul><li><a href='Brython.html'>Brython</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
+
+            </div>
+          </div>
+          
+        </header>
+    <div id="tipue_search_content">Tutorial7 << <a href='Tutorial7.html'>Previous</a> <a href='Homework.html'>Next</a> >> Homework<br /><h1>Tutorial8</h1>
+<h4 class="anchor-header" id="tutorial8thesupervisor30minutes" name="tutorial-8-the-supervisor-30-minutes">Tutorial 8: The Supervisor</h4>
+<p>A<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a><span> </span>oversees a world and can set or get information about it. This tutorial will teach you:</p>
+<ul>
+<li>How to move objects (移動物件) using the supervisor.</li>
+<li>How to delete a node (刪除節點) and spawn another (產生另一個節點) in its place.</li>
+<li>How to track the evolution of an object (追蹤物件演進) in the scene.</li>
+<li>How to change the properties of an object (改變物件性質) , namely its color (顏色).</li>
+</ul>
+<p><span style="background-color: #ccffcc;">若要使用類似 CoppeliaSim 場景中的<a href="https://zh.wikipedia.org/zh-tw/%E4%B8%83%E5%8A%83%E7%AE%A1" style="background-color: #ccffcc;">七段顯示器</a>, 以便建立數位記分板, 可以採用 Supervisor 控制器.</span></p>
+<p>These are only some tasks the<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a><span> </span>is capable of, refer to its documentation for a complete overview. Just note that it is, however, not possible to access directly measurements recorded by devices mounted on a different robot even if the supervisor option is enabled.</p>
+<h4>Setting up the Environment and Adding a Supervisor</h4>
+<blockquote>
+<p><strong>Hands-on #1</strong>: The objective is to create the environment and add a Supervisor. Create a new project from<span> </span><strong>File / New / New Project Directory...</strong><span> </span>menu item and follow the instructions:</p>
+<ol>
+<li>Name the project directory<span> </span><code>my_supervisor</code><span> </span>instead of the proposed<span> </span><code>my_project</code>.</li>
+<li>Name the world file<span> </span><code>my_supervisor.wbt</code><span> </span>instead of the proposed<span> </span><code>empty.wbt</code>.</li>
+<li>Click all the tick boxes, including the "Add a rectangle arena" which is not ticked by default. (需要納入競技平台)</li>
+<li>In order to have more space, enlarge the arena by setting the size to 10x10 meters by changing the<span> </span><code>floorSize</code><span> </span>field.</li>
+<li>Add a<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/sphero/bb8/protos/BB-8.proto" target="_blank">BB-8</a><span> </span>robot to the scene, to do this click the<span> </span><code>Add</code><span> </span>button<span> </span><img alt="" height="26" src="https://raw.githubusercontent.com/cyberbotics/webots/released/docs/guide/images/add-button.png" width="26"/><span> </span>and navigate to:<span> </span><code>PROTO nodes (Webots projects) / robots / sphero / bb8</code>.</li>
+<li>For the purpose of this tutorial, remove the default controller of<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/sphero/bb8/protos/BB-8.proto" target="_blank">BB-8</a><span> </span>by clicking the<span> </span><code>controller</code><span> </span>field, then the<span> </span><code>Select</code><span> </span>button, and pick<span> </span><code>&lt;none&gt;</code><span> </span>from the list. (移除原型節點中既有的控制器設定)</li>
+<li>Add a simple<span> </span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a><span> </span>node to the scene, this will become our Supervisor. The<span> </span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a><span> </span>node can be found in the<span> </span><code>base nodes</code><span> </span>category when clicking the<span> </span><code>Add</code><span> </span>button. To better keep track of it, change its<span> </span><code>name</code><span> </span>field to<span> </span><code>supervisor</code>.</li>
+<li><span style="background-color: #ccffcc;">Despite the name change the node is still currently just a <a href="https://cyberbotics.com/doc/reference/robot?tab-language=python" style="background-color: #ccffcc;">Robot</a>, to turn this robot into a <a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python" style="background-color: #ccffcc;">Supervisor</a> requires to set its <code>supervisor</code> field to "TRUE".</span></li>
+<li>Much like a normal robot, the behavior of a supervisor is defined by a controller. Add a controller using the<span> </span><strong>File / New / New Robot Controller...</strong><span> </span>menu item, selecting the programming language you prefer. For this tutorial, Python is the choice, but the code will be provided for all other options. Set<span> </span><code>supervisor_controller</code><span> </span>as the name of the controller and click finish (for C++ and Java call it<span> </span><code>SupervisorController</code><span> </span>instead).</li>
+<li>Expand once more the<span> </span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a><span> </span>node, press the<span> </span><code>controller</code><span> </span>field and click the<span> </span><code>Select</code><span> </span>button in order to attribute the controller you just created to the supervisor.</li>
+<li>Save the world.</li>
+</ol>
+</blockquote>
+<p>If you followed these steps, your environment should look like this:</p>
+<p><img alt="" height="164" src="./../images/tutorial_8_environment.thumbnail.jpg" width="300"/></p>
+<p><span>Resulting environment.</span></p>
+<h4 class="anchor-header" id="movingobjectsusingasupervisor" name="moving-objects-using-a-supervisor">Moving Objects Using a Supervisor</h4>
+<p>So far our<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a><span> </span>is quite dull, because the controller that was attributed to it does nothing.</p>
+<p>In this section, we will program the supervisor to move the BB-8 robot to a different location. <span style="background-color: #ccffcc;">It should be noted that to achieve this we are effectively cheating, rather than instructing the BB-8 to move to a new location we will transport it there</span>. In other words the movement will ignore all the physics, but herein lies the power of a<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a>, as it can bend the rules however it likes.</p>
+<p>As you might have noticed, the default controller we created from the<span> </span><strong>File / New / New Robot Controller...</strong><span> </span>menu item is setup for a classic robot, not a supervisor. In order to access the powers of a supervisor requires therefore some slight changes to the controller. To begin with, replace the contents of the default controller with the following code, depending on the language you have picked and save.</p>
+<p>The changes include:</p>
+<ul>
+<li><span style="background-color: #ffff99;">import the Supervisor library/module instead of the Robot one</span></li>
+<li><span style="background-color: #ffff99;">instead of creating a <code>Robot</code> instance, create a <code>Supervisor</code> one.</span></li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong><span> </span>It is important to remember that a supervisor is nothing more than a robot with special powers, which implies that whatever a robot can do, so can the supervisor. This means that you do not need a<span> </span><code>Robot</code><span> </span>instance if you have a supervisor one. For example the infinite loop that determines the pace of the controller (namely:<span> </span><code>while robot.step(TIME_STEP) != -1</code>) does not need to be changed, as the supervisor can do the same.</p>
+</blockquote>
+<p>Here are the instructions to follow based on the programming language you picked.</p>
+<div class="tab-content" name="python" tabid="7">
+<p>Replace the contents of your controller with the following and save.</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Supervisor
+
+TIME_STEP = 32
+
+robot = Supervisor()  # create Supervisor instance
+
+# [CODE PLACEHOLDER 1]
+
+i = 0
+while robot.step(TIME_STEP) != -1:
+  # [CODE PLACEHOLDER 2]
+
+  i += 1</pre>
+</div>
+<p>To move BB-8 to a new location is quite straightforward, if you wished to do so without the help of a supervisor you would simply change its<span> </span><code>translation</code><span> </span>field to the desired value, say<span> </span><code>0 0 2.5</code>. The<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a><span> </span>does it much in the same way.</p>
+<div class="tab-content" name="python" tabid="8">
+<blockquote>
+<p><strong>Hands-on #2</strong>: Move BB-8 using the Supervisor. In principle the world could be very complex, so it is necessary to have a way of uniquely identifying our BB-8 among the other objects. To do so we can use the<span> </span><code>DEF</code><span> </span>mechanism explored in<span> </span><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/tutorial-2-modification-of-the-environment?tab-language=python">tutorial 2</a>. Click the BB-8 node in the scene tree and give it a<span> </span><code>DEF</code><span> </span>name "BB-8", then save the world.</p>
+<p>Behind the scenes, each node is uniquely identifiable by a node reference and by having this reference, we can modify it. To retrieve the reference, the supervisor method<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_node_get_from_def"><code>getFromDef</code></a><span> </span>can be used. In<span> </span><code>CODE PLACEHOLDER 1</code>, retrieve the node reference of BB-8.</p>
+<pre><code class="python language-python hljs">bb8_node = robot.getFromDef(<span class="hljs-string">'BB-8'</span>)
+</code></pre>
+<p>Now that we have access to the node, we need to get access to its<span> </span><code>translation</code><span> </span>field, specifically we need a reference to this field as we just did for the node. To do so, the<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_node_get_field"><code>getField</code></a><span> </span>method can be used.</p>
+<pre><code class="python language-python hljs">translation_field = bb8_node.getField(<span class="hljs-string">'translation'</span>)
+</code></pre>
+<p>Finally, now that a reference to the translation field is available, all that remains to do is to set it to a different value. Once again, the supervisor API has all the necessary tools to do so. The<span> </span><code>translation</code><span> </span>field is of type<span> </span><code>SFVec3</code>, which just means it is a three dimensional vector. The value of this field can be set by using the<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_field_set_sf_vec3f"><code>setSFVec3f</code></a><span> </span>method.</p>
+<pre><code class="python language-python hljs"><span class="hljs-keyword">if</span> i == <span class="hljs-number">0</span>:
+  new_value = [<span class="hljs-number">2.5</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]
+  translation_field.setSFVec3f(new_value)
+</code></pre>
+<p>That is all there is to it. If you save and run the simulation you will see that BB-8 is transported to a new location instantly.</p>
+</blockquote>
+</div>
+<p>This is a simple example, but the principle remains the same no matter which field you wish to change. <span style="background-color: #ccffcc;">You can for instance increase the size of an object, perhaps change its color, change the light conditions, or reset its position if it goes out of bounds, the options are limitless. It is just a matter of getting a node reference, from which a field reference can be obtained by name, and set its value by using the function that is appropriate for the type you are trying to change.</span></p>
+<p>Spawning and Removing Nodes</p>
+<p>Supervisors can also be used to populate the environment, allowing to dynamically setup the scene. This section focuses on how nodes can be added and removed, specifically we will remove<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/sphero/bb8/protos/BB-8.proto" target="_blank">BB-8</a><span> </span>from this world, and replace it with a different robot, namely<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a>.</p>
+<div class="tab-content" name="python" tabid="9">
+<blockquote>
+<p><strong>Hands-on #3</strong>: Removing and adding nodes. In the previous section, we already saw how to retrieve the node reference of an object. A node can be removed from the scene tree by using the<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_node_remove"><code>remove</code></a><span> </span>method. <span style="background-color: #ccffcc;">The <code>if</code> condition is not necessary, it simply adds a 10 step delay before the removal to make it more apparent.</span> Add the following code in<span> </span><code>CODE PLACEHOLDER 2</code>.</p>
+<pre><code class="python language-python hljs"><span class="hljs-keyword">if</span> i == <span class="hljs-number">10</span>:
+  bb8_node.remove()
+</code></pre>
+<p>After 10 time steps,<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/sphero/bb8/protos/BB-8.proto" target="_blank">BB-8</a><span> </span>will be removed from the scene. Now, let's instead add the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a><span> </span>robot after 20 time steps.</p>
+<p>In order to add a node, we must know where we wish to spawn it in the scene tree. Should it be added at the top level of the scene tree? Should it <span style="background-color: #ccffcc;">inserted as a field of a another node</span>? These questions will change how the node will be inserted and which supervisor function needs to be used, but the constant factor among them is that we need a reference to this position. In this context, the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a><span> </span>robot will be added at the last position in the scene tree, where BB-8 used to appear.</p>
+<p>First of all, we need to declare the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a><span> </span>to Webots as in importable PROTO for the world we created. To proceed, click on the<span> </span><code>IMPORTABLE EXTERNPROTO</code><span> </span>button located at the top of the scene tree.</p>
+<p>The field editor, located below the scene tree, should display an<span> </span><code>IMPORTABLE EXTERNPROTO</code><span> </span>pane with a button named "Insert new". Click this button and select the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a><span> </span>robot from the<span> </span><code>PROTO nodes (Webots Projects)</code><span> </span>section. Press the "Insert" button. If you hover the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a><span> </span>item that appeared below the "Insert new" button, you will see in the tooltip the URL from where it is downloaded. Save the world file, so that this information is stored.</p>
+<p>Although not apparent, the scene tree is in fact a<span> </span><a href="https://cyberbotics.com/doc/reference/group?tab-language=python">Group</a><span> </span>node, and each of the objects in the scene tree like<span> </span><code>WorldInfo</code>,<span> </span><code>Viewpoint</code>,<span> </span><code>TexturedBackground</code><span> </span>and so forth are nothing more than nodes defined as its children. We refer to this<span> </span><a href="https://cyberbotics.com/doc/reference/group?tab-language=python">Group</a><span> </span>node containing everything as the<span> </span><code>root</code><span> </span>node. In order to insert the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a><span> </span>robot, the reference we require is actually a reference to <span style="background-color: #ccffcc;">the <code>children</code> field of the <code>root</code> node</span>. In the spot marked by<span> </span><code>CODE PLACEHOLDER 1</code>, the following code allows to get this reference.</p>
+<pre><code class="python language-python hljs">root_node = robot.getRoot()
+children_field = root_node.getField(<span class="hljs-string">'children'</span>)
+</code></pre>
+<p>To spawn a node you should use the supervisor function<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_field_import_mf_node_from_string"><code>importMFNodeFromString</code></a><span> </span>or<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_field_import_sf_node_from_string"><code>importSFNodeFromString</code></a>. The "MFNode" and "SFNode" components in the name of these functions specify what is the type of the node where the objects is inserted<span> </span><em>into</em>. "MFNode" stands for multi-field node whereas "sf_node" stands for single-field node.</p>
+<p>As previously mentioned, the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a><span> </span>should be added to the<span> </span><code>children</code><span> </span>field of the<span> </span><code>root</code><span> </span>node, and as you might guess, this<span> </span><code>children</code><span> </span>field is of type multi-field.</p>
+<p>Let's add it from string after 20 time steps, add the following snippet in<span> </span><code>CODE PLACEHOLDER 2</code>:</p>
+<pre><code class="python language-python hljs"><span class="hljs-keyword">if</span> i == <span class="hljs-number">20</span>:
+  children_field.<a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_field_import_mf_node_from_string">importMFNodeFromString</a>(<span class="hljs-number">-1</span>, <span class="hljs-string">'Nao { }'</span>)
+</code></pre>
+<p>The "-1" specifies in which position we wish to insert the node, in this case, to insert it at the last position.<span> </span><code>"Nao { }"</code><span> </span>is a string that describes what we wish to spawn. The way the object is described is by using the VRML97 format, this is the format used in the world files as well. After 20 timesteps, the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a><span> </span>robot will spawn in the middle of the scene.</p>
+<p>Let's assume we wanted the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a><span> </span>to be spawned in the position BB-8 used to be, we certainly could move it there following the procedure of hands-on 2, but that would not be smart. In fact, we can simply specify the translation field directly in the string! Replace the string<span> </span><code>"Nao { }"</code><span> </span>with<span> </span><code>"Nao { translation 2.5 0 0.334 }"</code><span> </span>and it will spawn exactly at that location. It does not stop there, in the same fashion we could define its<span> </span><code>controller</code><span> </span>parameter, or the<span> </span><code>cameraWidth</code><span> </span>or any other of its parameters in the same fashion.</p>
+</blockquote>
+</div>
+<blockquote>
+<p><strong>Trick:</strong><span> </span>If you are not familiar with VRML97, an easy trick to define these strings is to let Webots do it for you. You can manually create the object (using the Webots interface), and then save the world. When saving, Webots will translate what you built into a string of text. If you open the world file with a text editor, you can simply copy the description of the object.</p>
+</blockquote>
+<h4 class="anchor-header" id="trackobjectpositionusingasupervisor" name="track-object-position-using-a-supervisor"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-8-the-supervisor?tab-language=python#track-object-position-using-a-supervisor"><span class="anchor-link-image"></span></a>Track Object Position Using a Supervisor</h4>
+<p>Since the supervisor has unlimited power, it is the perfect tool to track the evolution of a simulation. In this section, <span style="background-color: #ccffcc;">we will use the acquired knowledge to spawn a ball, and track its position as it falls and when it touches the ground change its color</span>.</p>
+<div class="tab-content" name="python" tabid="10">
+<blockquote>
+<p><strong>Hands-on #4</strong>: We need to use the<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_field_import_mf_node_from_string"><code>wb_supervisor_field_import_mf_node_from_string</code></a><span> </span>function to spawn the ball at location<span> </span><code>0 1 1</code>, and since we are at it, let us get a reference to this node and to the<span> </span><code>color</code><span> </span>field of the<span> </span><code>Ball</code>. But first, we have to declare the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Ball</a><span> </span>as an<span> </span><code>IMPORTABLE EXTERNPROTO</code><span> </span>as we did it previously for the<span> </span><a href="https://webots.cloud/run?url=https://github.com/cyberbotics/webots/blob/released/projects/robots/softbank/nao/protos/Nao.proto" target="_blank">Nao</a><span> </span>robot. Once done, in<span> </span><code>CODE PLACEHOLDER 1</code><span> </span>add:</p>
+<pre><code class="python language-python hljs">children_field.importMFNodeFromString(<span class="hljs-number">-1</span>, <span class="hljs-string">'DEF BALL Ball { translation 0 1 1 }'</span>)
+ball_node = robot.getFromDef(<span class="hljs-string">'BALL'</span>)
+color_field = ball_node.getField(<span class="hljs-string">'color'</span>)
+</code></pre>
+<p>If you run the simulation, the ball should appear and begin to fall until it clashes with the ground.</p>
+<p>In order to track the position of the ball, we could get a reference to its translation field and read that value continuously however a simpler approach would be to use another supervisor method created for that task, namely<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_node_get_position"><code>getPosition</code></a>. In<span> </span><code>CODE PLACEHOLDER 2</code><span> </span>add:</p>
+<pre><code class="python language-python hljs">position = ball_node.getPosition()
+print(<span class="hljs-string">'Ball position: %f %f %f\n'</span> %(position[<span class="hljs-number">0</span>], position[<span class="hljs-number">1</span>], position[<span class="hljs-number">2</span>]))
+</code></pre>
+<p>Now that we can track it, let's change the color of the bool as soon as it collides. Since the ball has a radius of 0.2, we can change the<span> </span><code>color</code><span> </span>field when the "Y" coordinate of the position is smaller than this value.</p>
+<pre><code class="python language-python hljs"><span class="hljs-keyword">if</span> position[<span class="hljs-number">2</span>] &lt; <span class="hljs-number">0.2</span>:
+  red_color = [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]
+  color_field.setSFColor(red_color)
+</code></pre>
+</blockquote>
+</div>
+<h4 class="anchor-header" id="puttingeverythingtogether" name="putting-everything-together"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-8-the-supervisor?tab-language=python#putting-everything-together"><span class="anchor-link-image"></span></a>Putting Everything Together</h4>
+<p>Here you can find the complete code of the controller.</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Supervisor
+
+TIME_STEP = 32
+
+robot = Supervisor()  # create Supervisor instance
+
+# [CODE PLACEHOLDER 1]
+bb8_node = robot.getFromDef('BB-8')
+translation_field = bb8_node.getField('translation')
+
+root_node = robot.getRoot()
+children_field = root_node.getField('children')
+
+children_field.importMFNodeFromString(-1, 'DEF BALL Ball { translation 0 1 1 }')
+ball_node = robot.getFromDef('BALL')
+color_field = ball_node.getField('color')
+
+i = 0
+while robot.step(TIME_STEP) != -1:
+  # [CODE PLACEHOLDER 2]
+  if (i == 0):
+    new_value = [2.5, 0, 0]
+    translation_field.setSFVec3f(new_value)
+
+  if i == 10:
+      bb8_node.remove()
+
+  if i == 20:
+    children_field.importMFNodeFromString(-1, 'Nao { }')
+
+  position = ball_node.getPosition()
+  print('Ball position: %f %f %f\n' %(position[0], position[1], position[2]))
+
+  if position[2] &lt; 0.2:
+    red_color = [1, 0, 0]
+    color_field.setSFColor(red_color)
+
+  i += 1</pre>
+<h4 class="anchor-header" id="conclusion" name="conclusion">Conclusion</h4>
+<p>With this tutorial you have learned:</p>
+<ol>
+<li>A<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a><span> </span>is nothing more than a<span> </span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a><span> </span>with extra powers, therefore anything that you can do with a<span> </span><code>Robot</code><span> </span>instance, you can do with a<span> </span><code>Supervisor</code><span> </span>instance.</li>
+<li>A<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a><span> </span>is not bound by physics, since its powers are unlimited, it can also "cheat".</li>
+<li>Whenever one wishes to alter the scene tree using a<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a>, a reference needs to be obtained:
+<ul>
+<li>To insert a node, you need a reference of the field that will contain it.</li>
+<li>To remove a node, you need a reference to the node (i.e., the object) itself.</li>
+<li>To change the value of a parameter like (translation, color, size, etc.) you need a reference to said field.</li>
+</ul>
+</li>
+<li>Spawning a robot or an object can be achieved by defining it as an<span> </span><code>IMPORTABLE EXTERNPROTO</code><span> </span>and using the<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_field_import_mf_node_from_string">wb_supervisor_field_import_mf_node_from_string</a><span> </span>API function.</li>
+</ol><br />Tutorial7 << <a href='Tutorial7.html'>Previous</a> <a href='Homework.html'>Next</a> >> Homework</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        
