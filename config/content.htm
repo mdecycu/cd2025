@@ -1372,7 +1372,48 @@ PROTO FourWheelsRobot [
 <li>How to track the evolution of an object (追蹤物件演進) in the scene.</li>
 <li>How to change the properties of an object (改變物件性質) , namely its color (顏色).</li>
 </ul>
-<p><span style="background-color: #ccffcc;">若要使用類似 CoppeliaSim 場景中的<a href="https://zh.wikipedia.org/zh-tw/%E4%B8%83%E5%8A%83%E7%AE%A1" style="background-color: #ccffcc;">七段顯示器</a>, 以便建立數位記分板, 可以採用 Supervisor 控制器.</span></p>
+<p><span style="background-color: #ccffcc;">若要使用類似 CoppeliaSim 場景中的<a href="https://zh.wikipedia.org/zh-tw/%E4%B8%83%E5%8A%83%E7%AE%A1" style="background-color: #ccffcc;">七段顯示器</a>, 以便建立數位記分板, 可以採用 Supervisor 控制器. (或者使用 <a href="https://github.com/cyberbotics/webots/blob/master/docs/reference/display.md">Display</a> 顯示分數)</span></p>
+<hr/>
+<p dir="auto">The<span> </span><a href="https://github.com/cyberbotics/webots/blob/master/docs/reference/display.md#display">Display</a><span> </span>node allows to handle a 2D pixel array using simple API functions, and render it into a 2D overlay on the 3D view, into a 2D texture of any<span> </span><a href="https://github.com/cyberbotics/webots/blob/master/docs/reference/shape.md">Shape</a><span> </span>node, or both. <span style="background-color: #ffff99;">It can model an embedded screen or it can display any graphical information such as graphs, text, robot trajectory, filtered camera images</span> and so on.</p>
+<p dir="auto">To model an embedded screen, the first child of the<span> </span><a href="https://github.com/cyberbotics/webots/blob/master/docs/reference/display.md#display">Display</a><span> </span>node should be or contain (recursive search if the first node is a<span> </span><a href="https://github.com/cyberbotics/webots/blob/master/docs/reference/group.md">Group</a>) a<span> </span><a href="https://github.com/cyberbotics/webots/blob/master/docs/reference/shape.md">Shape</a><span> </span>node having an appearance and an<span> </span><a href="https://github.com/cyberbotics/webots/blob/master/docs/reference/imagetexture.md">ImageTexture</a><span> </span>node, then the internal texture of the<span> </span><a href="https://github.com/cyberbotics/webots/blob/master/docs/reference/imagetexture.md">ImageTexture</a><span> </span>node is replaced by the texture of the<span> </span><a href="https://github.com/cyberbotics/webots/blob/master/docs/reference/display.md#display">Display</a>. Both<span> </span><a href="https://github.com/cyberbotics/webots/blob/master/docs/reference/appearance.md">Appearance</a><span> </span>and<span> </span><a href="https://github.com/cyberbotics/webots/blob/master/docs/reference/pbrappearance.md">PBRAppearance</a><span> </span>nodes are supported. In case of<span> </span><a href="https://github.com/cyberbotics/webots/blob/master/docs/reference/pbrappearance.md">PBRAppearance</a><span> </span>node, at least<span> </span><code>PBRAppearance.baseColorMap</code><span> </span>or<span> </span><code>PBRAppearance.emissiveColorMap</code><span> </span><a href="https://github.com/cyberbotics/webots/blob/master/docs/reference/imagetexture.md">ImageTexture</a><span> </span>node should be defined. If both are defined, then both textures will be internally replaced by the<span> </span><a href="https://github.com/cyberbotics/webots/blob/master/docs/reference/display.md#display">Display</a><span> </span>texture. Using the<span> </span><a href="https://github.com/cyberbotics/webots/blob/master/docs/reference/appearance.md">Appearance</a><span> </span>node and setting the<span> </span><a href="https://github.com/cyberbotics/webots/blob/master/docs/reference/material.md">Material</a>.emissiveColor field to<span> </span><code>1 1 1</code><span> </span>helps preserving the original colors of the loaded<span> </span><a href="https://github.com/cyberbotics/webots/blob/master/docs/reference/display.md#display">Display</a><span> </span>texture. Additionally, it is necessary to set the<span> </span><code>filtering</code><span> </span>field of the<span> </span><a href="https://github.com/cyberbotics/webots/blob/master/docs/reference/imagetexture.md">ImageTexture</a><span> </span>nodes to 0 in order to prevent issues when distancing oneself from the <a href="https://github.com/cyberbotics/webots/blob/master/docs/reference/display.md">display</a>.</p>
+<p dir="auto">Example:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Supervisor
+
+# Create the Supervisor instance
+supervisor = Supervisor()
+
+# Get the display node
+display = supervisor.getDevice("display")
+
+# Set the initial digit
+digit = 0
+
+# Set the font size
+font_size = 24
+
+# Main loop
+while supervisor.step(int(supervisor.getBasicTimeStep())) != -1:
+    # Clear the display
+    display.setAlpha(1.0)
+    display.setColor(0x000000)
+    display.fillRectangle(0, 0, display.getWidth(), display.getHeight())
+    
+    # Draw the digit
+    display.setAlpha(1.0)
+    display.setColor(0xFFFFFF)
+    display.setFont("Arial", font_size, True)
+    display.drawText(str(digit), display.getWidth() // 2 - font_size, display.getHeight() // 2 - font_size)
+    
+    # Increment the digit
+    digit += 1
+    
+    # Reset the digit after 100
+    if digit &gt; 100:
+        digit = 0</pre>
+<p>Display demo: <a href="/downloads/display_demo.7z">display_demo.7z</a></p>
+<p><img alt="" height="249" src="/images/display_digit_demo.gif" width="400"/></p>
+<p>上列 Display 節點可應用於競技場景中的計時與計分流程</p>
+<hr/>
 <p>These are only some tasks the<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a><span> </span>is capable of, refer to its documentation for a complete overview. Just note that it is, however, not possible to access directly measurements recorded by devices mounted on a different robot even if the supervisor option is enabled.</p>
 <h4>Setting up the Environment and Adding a Supervisor</h4>
 <blockquote>
