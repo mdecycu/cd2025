@@ -1412,6 +1412,7 @@ while supervisor.step(int(supervisor.getBasicTimeStep())) != -1:
         digit = 0</pre>
 <p>Display demo: <a href="/downloads/display_demo.7z">display_demo.7z</a></p>
 <p><img alt="" height="249" src="/images/display_digit_demo.gif" width="400"/></p>
+<p>上列 Display 節點可應用於競技場景中的計時與計分流程</p>
 <hr/>
 <p>These are only some tasks the<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a><span> </span>is capable of, refer to its documentation for a complete overview. Just note that it is, however, not possible to access directly measurements recorded by devices mounted on a different robot even if the supervisor option is enabled.</p>
 <h4>Setting up the Environment and Adding a Supervisor</h4>
@@ -1585,7 +1586,289 @@ while robot.step(TIME_STEP) != -1:
 </ul>
 </li>
 <li>Spawning a robot or an object can be achieved by defining it as an<span> </span><code>IMPORTABLE EXTERNPROTO</code><span> </span>and using the<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_field_import_mf_node_from_string">wb_supervisor_field_import_mf_node_from_string</a><span> </span>API function.</li>
-</ol><h1>Homework</h1>
+</ol><h2>Basketball</h2>
+<p>籃球遊戲場景的設置與得分感測</p>
+<p>basketball.wbt</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">#VRML_SIM R2023b utf8
+
+WorldInfo {
+  basicTimeStep 32
+}
+
+Viewpoint {
+  orientation -0.577 0.577 0.577 2.094
+  position 0 1 3
+}
+
+Floor {
+  size 5 5
+}
+
+# Circular Loop
+Track {
+  radius 1
+  height 0.1
+  thickness 0.1
+  color 0.8 0.8 0.8
+}
+
+# Balls
+DEF BALL1 Solid {
+  translation 0.5 0.1 0
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0 0
+        }
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+  physics Physics {
+    density 1000
+  }
+}
+
+DEF BALL2 Solid {
+  translation -0.5 0.1 0
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 0 0 1
+        }
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+  physics Physics {
+    density 1000
+  }
+}
+
+# Distance Sensor
+DEF DISTANCE_SENSOR DistanceSensor {
+  translation 0 0.1 1
+  rotation 0 1 0 1.5708
+  type "infra-red"
+}</pre>
+<p>controller script:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Robot
+
+# Time step of the simulation
+TIME_STEP = 32
+
+# Create the Robot instance
+robot = Robot()
+
+# Get the distance sensor
+distance_sensor = robot.getDevice('DISTANCE_SENSOR')
+distance_sensor.enable(TIME_STEP)
+
+# Counter for balls
+ball_count = 0
+threshold = 0.1  # Adjust based on your sensor's distance range
+
+while robot.step(TIME_STEP) != -1:
+    # Read the sensor value
+    sensor_value = distance_sensor.getValue()
+    
+    # Check if a ball is detected
+    if sensor_value &lt; threshold:
+        ball_count += 1
+        print(f"Ball count: {ball_count}")
+        
+        # Wait until the ball passes
+        while distance_sensor.getValue() &lt; threshold:
+            robot.step(TIME_STEP)</pre>
+<p>距離感測與接觸感測的差異:</p>
+<h4>DistanceSensor</h4>
+<ul>
+<li><strong>Functionality</strong>: Measures the distance to an object in front of it.</li>
+<li><strong>Type</strong>: Can be an infra-red, laser, ultrasonic, or other types of distance measuring sensors.</li>
+<li><strong>Range</strong>: Can measure distances within a specified range, typically from a few centimeters to several meters.</li>
+<li><strong>Use Case</strong>: Ideal for detecting objects at a distance, obstacle avoidance, measuring distances, and mapping environments.</li>
+</ul>
+<h4>TouchSensor</h4>
+<ul>
+<li><strong>Functionality</strong>: Detects physical contact or touch.</li>
+<li><strong>Type</strong>: Can be a bumper, force sensor, or force3D sensor.</li>
+<li><strong>Range</strong>: Detects contact at a specific point or over an area.</li>
+<li><strong>Use Case</strong>: Ideal for detecting collisions, pressure, and touch. Commonly used for bumpers on robots, detecting when a robot has touched or collided with an object.</li>
+</ul>
+<h4>Example of Usage:</h4>
+<h4>DistanceSensor</h4>
+<p>設置:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">#VRML_SIM R2023b utf8
+
+WorldInfo {
+  basicTimeStep 32
+}
+
+Viewpoint {
+  position 0 1 3
+}
+
+Robot {
+  controller "distance_sensor_controller"
+  
+  DistanceSensor {
+    name "distance_sensor"
+    type "infra-red"
+    translation 0 0.1 0.2
+  }
+}</pre>
+<p>控制程式:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Robot
+
+robot = Robot()
+timestep = int(robot.getBasicTimeStep())
+
+distance_sensor = robot.getDevice('distance_sensor')
+distance_sensor.enable(timestep)
+
+while robot.step(timestep) != -1:
+    distance = distance_sensor.getValue()
+    print(f"Distance: {distance}")</pre>
+<h4>TouchSensor</h4>
+<p>設置:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">#VRML_SIM R2023b utf8
+
+WorldInfo {
+  basicTimeStep 32
+}
+
+Viewpoint {
+  position 0 1 3
+}
+
+Robot {
+  controller "touch_sensor_controller"
+  
+  TouchSensor {
+    name "touch_sensor"
+    type "bumper"
+    translation 0 0.1 0.2
+  }
+}</pre>
+<p>控制程式:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Robot
+
+robot = Robot()
+timestep = int(robot.getBasicTimeStep())
+
+touch_sensor = robot.getDevice('touch_sensor')
+touch_sensor.enable(timestep)
+
+while robot.step(timestep) != -1:
+    touched = touch_sensor.getValue()
+    if touched:
+        print("Touch detected!")</pre>
+<p>最後, 利用 touchsensor 與 display 顯示籃球進框得分:</p>
+<p>場景設置:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">#VRML_SIM R2023b utf8
+
+WorldInfo {
+  basicTimeStep 32
+}
+
+Viewpoint {
+  orientation -0.577 0.577 0.577 2.094
+  position 0 1 3
+}
+
+Floor {
+  size 5 5
+}
+
+# Circular Loop for the basketball hoop
+Track {
+  radius 0.5
+  height 0.05
+  thickness 0.05
+  color 0.8 0.8 0.8
+  translation 0 1 0
+  rotation 1 0 0 1.5708
+}
+
+# Basketball
+DEF BASKETBALL Solid {
+  translation 0 1.2 0
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0.5 0
+        }
+      }
+      geometry Sphere {
+        radius 0.1
+      }
+    }
+  ]
+  physics Physics {
+    density 1
+  }
+}
+
+# Touch Sensor to detect the basketball passing through the hoop
+DEF TOUCH_SENSOR TouchSensor {
+  translation 0 1 0
+  rotation 1 0 0 1.5708
+  type "force"
+}
+
+# Display node to show the score
+DEF SCORE_DISPLAY Display {
+  width 64
+  height 64
+  translation 0 2 0
+}</pre>
+<p>控制程式:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Robot, Display, TouchSensor
+
+# Create the Robot instance
+robot = Robot()
+
+# Get the time step of the current world
+timestep = int(robot.getBasicTimeStep())
+
+# Get the touch sensor and enable it
+touch_sensor = robot.getDevice('TOUCH_SENSOR')
+touch_sensor.enable(timestep)
+
+# Get the display node
+display = robot.getDevice('SCORE_DISPLAY')
+
+# Initialize the score
+score = 0
+
+# Function to update the display with the current score
+def update_display(score):
+    display.setAlpha(1.0)
+    display.setColor(0x000000)
+    display.fillRectangle(0, 0, display.getWidth(), display.getHeight())
+    display.setAlpha(1.0)
+    display.setColor(0xFFFFFF)
+    display.setFont("Arial", 24, True)
+    display.drawText(f"Score: {score}", 10, 10)
+
+# Main loop
+while robot.step(timestep) != -1:
+    # Check if the touch sensor is pressed
+    if touch_sensor.getValue() &gt; 0:
+        score += 1
+        update_display(score)
+        
+        # Wait until the ball passes
+        while touch_sensor.getValue() &gt; 0:
+            robot.step(timestep)</pre>
+<p></p><h1>Homework</h1>
 <p>作業 (30%)</p>
 <p>HW1 (5%): <span style="background-color: #ffff00;">建立由 Box 組成的平面四連桿機構 Webots 模擬場景</span></p>
 <p style="padding-left: 30px;">part1:</p>
