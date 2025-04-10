@@ -1,6 +1,7 @@
 <h1>About</h1>
-<p>倉儲: <a href="https://github.com/mdecycu/cd2025">https://github.com/mdecycu/cd2025</a></p>
-<p>網頁: <a href="https://mde.tw/cd2025">https://mde.tw/cd2025</a></p>
+<p>課程倉儲與網頁:</p>
+<p style="padding-left: 30px;">倉儲: <a href="https://github.com/mdecycu/cd2025">https://github.com/mdecycu/cd2025</a></p>
+<p style="padding-left: 30px;">網頁: <a href="https://mde.tw/cd2025">https://mde.tw/cd2025</a></p>
 <p>課程目標:</p>
 <p style="padding-left: 30px;">透過機電系統模擬與控制了解協同產品設計的特性與應用</p>
 <p>教學內容:</p>
@@ -19,6 +20,7 @@
 <p style="padding-left: 30px;">Teams 團隊代碼: <span>p5z4eku</span></p>
 <p><span>學員作業網站樣板: <a href="https://mde.tw/cd2025_hw">https://mde.tw/cd2025_hw</a> </span></p>
 <p><span>學員作業範例: <a href="https://mdecd2025.github.io/hw-scrum-1">https://mdecd2025.github.io/hw-scrum-1</a> <br/></span></p>
+<p><span>已知 w4 之前的學員作業倉儲版本, 無法在 IPv6 位址設定時正確運作, 各學員必須下載 <a href="http://229.cycu.org/cmsimde_w4.7z">cmsimde_w4.7z</a>, 解開壓縮檔案後, 替換倉儲中的 cmsimde 目錄.</span></p>
 <hr/>
 <p>課程評分:</p>
 <p style="padding-left: 30px;">Homework (30%) - 每週至少提交兩次與課程進度有關的內容, 完成後填回自評表單</p>
@@ -455,7 +457,8 @@ if stud_github not in a_all_members:
 <p style="padding-left: 30px;">任務一: 請用 Brython 寫出在 id="brython_div1" 嵌入 html 連結的程式. 希望各連結能透過 http 協定連結到班上有 66 位學員的靜態網頁. 其中各學員的固定 IPv6 分別為 2001:288:6004:17:fff1:cd25:0000:b001 到 2001:288:6004:17:fff1:cd25:0000:b066, 且使用 port 8000 進行連結. 請寫出此一 Brython 程式.</p>
 <p style="padding-left: 30px;">任務二: 若各學員序號取自 https://mde.tw/cd2025/downloads/w4_2b_index.txt, 且此一資料以空白隔開序號加"." 及學號, 能否修改成以學員的學號作為 html 的標示.</p>
 <p style="padding-left: 30px;">任務三: 完成各學員的 html 連結後, 請再用 Brython 程式設法進入每一位學員的網站查驗, 是否可以讀取到該連結 content 目錄中的 About.html, 若可以則 pass, 若無法連結則列出無法完成連結的學員學號.</p>
-<p style="padding-left: 30px;">請分別列出上述三個任務的程式碼.</p><h2>Topic2</h2>
+<p style="padding-left: 30px;">請分別列出上述三個任務的程式碼.</p>
+<h2>Topic2</h2>
 <p>零組件繪圖</p>
 <p><object data="/images/topic2.svg" height="671" type="image/svg+xml" width="1016"></object></p>
 <p><a href="https://mde.tw/mind-map/#/?fileURL=https%3A%2F%2Fmde.tw%2Fcd2025%2Fdownloads%2Ftopic2.smm">Edit topic2.smm</a></p>
@@ -533,7 +536,8 @@ set  path_webots=%Disk%:\Webots_2025a\msys64\mingw64\bin;%Disk%:\Webots_2025a\ms
 <p>由於 link1 最後需要透過碰撞檢測來與籃球互動, 因此除了 dynamic simulation 之外, 還需要設定 boundingObject, 才能界定 link1 的碰撞幾何外形, 但由於前面的 link1 並非在其 parent 座標系統的物件中心旋轉, 而是透過其局部座標轉換 (利用 pose 物件達成), 往局部 x 方向移動 0.2m, 因此 boundingObject 在引用其 shape 時, 也必須透過 pose 轉換到 link1 最終所在位置.</p>
 <p><span>上列流程所完成的 Webots 專案檔: </span><a href="/downloads/w6_demo_project.7z">w6_demo_project.7z</a> (joint on link1)</p>
 <p><a href="/downloads/w6_joint_on_base_project.7z">w6_joint_on_base_project.7z</a> (joint on base)</p>
-<p></p><h3>boomer</h3>
+<p></p>
+<h3>boomer</h3>
 <p><a href="/downloads/w5_boomer.7z">w5_boomer.7z</a></p>
 <h2>Topic4</h2>
 <p>協同設計</p>
@@ -925,7 +929,10 @@ DEF FOURBAR Robot {
 <li>準確定義各個 joint 的錨點（anchor）</li>
 <li>確保所有連桿的物理屬性正確設置</li>
 </ol>
-<p><a href="/downloads/fourbar_slvs.7z">fourbar_slvs.7z</a></p><h2>Tutorial1</h2>
+<p><a href="/downloads/fourbar_slvs.7z">fourbar_slvs.7z</a></p>
+<h2>Stage1</h2>
+<p>學習利用 Webots 建立模擬場景的第一階段工作, 是認識其套件功能表與場景所需的目錄及檔案架構. 並且學習如何利用控制器程式操縱場景中的物件. 這也是 <a href="https://mde.tw/cd2025/content/Tutorial1.html">Tutorial1</a> 操作的主要目的.</p>
+<p><a href="https://mde.tw/cd2025/content/Tutorial2.html">Tutorial2</a> 則說明如何使用 Webots 內建的標準幾何物件, 其中的物件幾何外形除了用於動力系統的運動方程式, 還可用於物體移動時的碰撞檢測. 建立物件時必須遵照 Solid - Shape - physics 的樹狀結構規劃, 按照順序配置物件.</p><h3>Tutorial1</h3>
 <p>導引課程<br/><br/>本章的目的是解說 Webots 的基本概念，這些概念是自行創建模擬場景 (.wbt) 時必須用到的。學習重點在於機器人及其環境的模型建構，以及機器人控制器 (controllers) 的程式設計。您還將學習如何尋找進一步的教學資料。<br/><br/>本章適合 Webots 的初學者。不過，仍然需要有程式設計 (Programming) 的背景。範例是用 Python 語言編寫的。如果您不熟悉 Python 語言，您仍然應該能夠理解本章，因為下面的 Python 程式非常簡單。除了程式設計，您不需要任何特定的知識即可完成本章中的教程。然而，基本的機器人學 (Robotcs)、數學 (Mathematics)、模型建構 (Modeling) 和樹狀表示法 (Tree representation) 的背景知識可能會有所幫助。有經驗的 Webots 使用者可以跳過最初的教程。不過，我們建議他們至少閱讀這些教程的介紹和結論。<br/><br/>本章的每個部分（除了第一和最後一部分）都是一個導引課程。每個導引課程都有一個明確的教育目標，並在第一段中進行解釋。獲得的概念隨後會在結論子部分中總結。每一個導引課程都被設計成一系列互動步驟。要繼續進行下一個教程，通常需要掌握前一個教學中獲得的知識。因此，我們強烈建議您按照它們的自然順序進行。此外，我們建議您在繼續進一步之前，確保您已經理解了導引課程中的所有概念。<br/><br/>最後一部分將為您提供一些解決本章未涉及問題的提示。<br/><br/>導引課程的解決方案位於 Webots 安裝目錄的 "WEBOTS_HOME/projects/samples/tutorials" 子目錄中。</p>
 <p>導引課程 1：在 Webots 中進行您的第一次模擬<br/><br/>目標<br/><br/>本導引課程的目標是讓您熟悉用戶界面和 Webots 的基本概念。您將創建一個包含簡單環境的首次模擬：一個帶有地板和牆壁的競技場、幾個箱子、一個 e-puck 機器人和一個使機器人移動的控制程式。<br/><br/>步驟<br/><br/>1. 啟動 Webots：在您的電腦上打開 Webots (假如使用協同產品設計課程的可攜套件，啟動後在命令列中輸入 webotsw 即可開啟 Webots)。</p>
 <p style="padding-left: 30px;"><span style="background-color: #ccffcc;">實作 #1：通過雙擊 Webots 圖標（或在終端中從命令行調用）來啟動 Webots。如果您是第一次在此電腦上運行 Webots，可能會提示您選擇圖形主題。您也可能被邀請參加 Webots 指導遊覽，請關閉指導遊覽。</span></p>
@@ -957,7 +964,7 @@ rightMotor.setPosition(10.0)  # 設置右側輪子電機的目標位置為 10.0
 while robot.step(TIME_STEP) != -1:  # 當機器人步進時間步長不等於 -1 時（模擬仍在運行）
     pass  # 什麼也不做，保持循環運行</pre>
 <p>8. 保存並運行模擬：<br/>    - 保存您的世界文件。<br/>    - 點擊 Play 按鈕運行模擬並觀察機器人移動。<br/><br/>結論<br/><br/>在本導引課程中，您已經學習了如何在 Webots 中創建一個簡單的模擬，包括添加競技場、牆壁、障礙物和 e-puck 機器人。您還創建了一個基本的控制程式來使機器人移動。本導引課程已經為您探索 Webots 更進階功能提供了充實的基礎。</p>
-<h2>Tutorial2</h2>
+<h3>Tutorial2</h3>
 <p>導引課程 2：修改環境<br/><br/>在本導引課程中，我們將教您如何在環境中創建簡單的物件。第一步將是創建一個與環境互動的球。我們將處理與節點相關的幾個概念：它們的含義是什麼，如何創建它們，它們如何必須隸屬等等。此外，我們還將看到如何設置物理效果。<br/><br/>將介紹幾種節點類型。它們的詳細定義可以在<a href="https://cyberbotics.com/doc/reference/nodes-and-api-functions">參考手冊</a>中找到。將<a href="https://cyberbotics.com/doc/reference/node-chart">節點圖表</a>放在您面前，將有助於理解節點的繼承關係。</p>
 <p>一個新的模擬<br/><br/>首先，我們基於教程 1 中創建的模擬來創建一個新的模擬。</p>
 <p style="padding-left: 30px;"><span style="background-color: #ccffcc;">實作 #1：確保 my_first_simulation.wbt 世界文件已打開，並且模擬已暫停且虛擬時間為 0。使用 File / Save World As... 菜單將模擬保存為 obstacles.wbt。</span></p>
@@ -988,7 +995,14 @@ while robot.step(TIME_STEP) != -1:  # 當機器人步進時間步長不等於 -1
 <p><img alt="" height="157" src="/images/tutorial_walls.thumbnail.jpg" width="300"/></p>
 <p>在本教程結束時的模擬狀態。</p>
 <p>效率<br/><br/>剛體的模擬計算代價高昂。通過最小化邊界對象的數量、最小化它們之間的約束（有關約束的更多信息在後續教程中），以及最大化 WorldInfo.basicTimeStep 字段，可以提高模擬速度。在每次模擬中，必須在模擬速度和現實感之間找到權衡。</p>
-<p>結論<br/><br/>在本教程結束時，您將能夠基於剛體創建簡單的環境。您能夠從場景樹視圖中添加節點並修改其字段。您已經熟悉了 <a href="https://cyberbotics.com/doc/reference/solid">Solid</a>、Physics、<a href="https://cyberbotics.com/doc/reference/shape">Shape</a>、Sphere 和 <a href="https://cyberbotics.com/doc/reference/box">Box</a> 節點。您還看到了 DEF-USE 機制，該機制允許減少場景樹的節點冗餘。</p><h2>Tutorial3</h2>
+<p>結論<br/><br/>在本教程結束時，您將能夠基於剛體創建簡單的環境。您能夠從場景樹視圖中添加節點並修改其字段。您已經熟悉了 <a href="https://cyberbotics.com/doc/reference/solid">Solid</a>、Physics、<a href="https://cyberbotics.com/doc/reference/shape">Shape</a>、Sphere 和 <a href="https://cyberbotics.com/doc/reference/box">Box</a> 節點。您還看到了 DEF-USE 機制，該機制允許減少場景樹的節點冗餘。</p>
+<h2>Stage2</h2>
+<p>Webots 進入第二階段, 包含零件的外觀 (<a href="https://mde.tw/cd2025/content/Tutorial3.html">Tutorial3</a>), 控制與感測 (<a href="https://mde.tw/cd2025/content/Tutorial4.html">Tutorial4</a>), 以及複合外形零件的建構 (<a href="https://mde.tw/cd2025/content/Tutorial5.html">Tutorial5</a>) 等議題.</p>
+<p><a href="https://mde.tw/cd2025/content/HW1.html">Homework1</a> 僅使用簡單的 Box 建立平面四連桿機構場景. 若利用 <a href="https://mde.tw/cd2025/content/Tutorial5.html">Tutorial5</a> 中的 Group 節點, 就能整合出更多外形的零組件.</p>
+<p><a href="https://mde.tw/cd2025/content/HW2.html">Homework2</a> 雖然使用 MCAD 套件繪製機構所需零件, 但因為在組立時各零件已經完成定位, 因此使用上, 只要透過 <a href="https://cyberbotics.com/doc/reference/cadshape">CadShape</a> 導入 obj 格式的零件檔案, 即可在模擬場景中套用.</p>
+<p>至於 <a href="https://cyberbotics.com/doc/reference/hingejoint">hingeJoint</a> 中的 <a href="https://cyberbotics.com/doc/reference/hingejointparameters">HingeJointParameters</a> 則宣告該轉軸所在位置 (anchor) 以及旋轉軸 (axis) 即可.</p>
+<p><a href="https://mde.tw/cd2025/content/HW3.html">Homework3</a> 投籃機的實現則必須使用 <a href="https://mde.tw/cd2025/content/Tutorial4.html">Tutorial4</a> 中的控制與感測技術.</p>
+<p></p><h3>Tutorial3</h3>
 <p>導引課程 3：外觀<br/><br/>本導引課程的目的是讓你熟悉一些與圖形渲染相關的節點。當這些節點被適當使用時，可以很快創建出外觀良好的模擬。良好的圖形質量不僅能提升用戶體驗，對於機器人感知其環境的模擬（如攝像頭圖像處理、循線等）也是至關重要的。<br/><br/>本教學結束時的效果如下圖所示。</p>
 <p><img alt="" height="158" src="/images/tutorial_appearance.thumbnail.jpg" width="300"/></p>
 <p>新模擬</p>
@@ -1013,7 +1027,7 @@ while robot.step(TIME_STEP) != -1:  # 當機器人步進時間步長不等於 -1
 <p style="padding-left: 30px;"><span style="background-color: #ccffcc;">實作 #5：使用"視圖 / 線框渲染" (View / Wireframe Rendering) 表單項以線框模式查看模擬。然後還原為普通渲染模式："視圖 / 普通渲染" (View / Plain Rendering)。</span></p>
 <p>其他渲染功能也很有幫助：<br/><br/>    查看座標系統： View / Optional Rendering / Show Coordinates System 或使用 ctrl-F1<br/>    查看距離傳感器光線： View / Optional Rendering / Show DistanceSensor Rays 或使用 ctrl-F10</p>
 <p>解決方案：世界文件<br/><br/>要將您的世界與解決方案進行比較，請轉到您的文件並找到在 <a href="https://mde.tw/cd2025/content/Tutorial1.html">Tutorial1</a>中創建的名為 my_first_simulation 的文件夾，然後轉到 worlds 文件夾並使用文本編輯器打開正確的世界文件。<a href="https://github.com/cyberbotics/webots/tree/released/projects/samples/tutorials/worlds/appearance.wbt">此解決方案</a>和其他解決方案位於<a href="https://github.com/cyberbotics/webots/tree/released/projects/samples/tutorials/worlds/">解決方案目錄</a>中。<br/><br/>結論<br/><br/>在本導引課程中，您學習了如何使用 <a href="https://cyberbotics.com/doc/reference/pbrappearance">PBRAppearance</a> 節點和光源節點設置一個美觀的環境。<br/><br/>您可以通過閱讀參考手冊中這些節點的詳細描述來進一步了解此主題。此<a href="https://github.com/cyberbotics/webots/discussions/5411">常見問題</a>解答將為您提供有效設置這些節點的方法。</p>
-<h2>Tutorial4</h2>
+<h3>Tutorial4</h3>
 <p>導引課程 4：更多關於控制器的內容<br/><br/>現在我們開始討論與編程機器人控制器相關的主題。我們將設計一個簡單的控制器來避開在前面的教程中創建的障礙物。<br/><br/>本教程將介紹 Webots 中機器人編程的基礎。在本章結束時，您應該了解場景樹節點與控制器 API 之間的關聯，如何初始化和清理機器人控制器，如何初始化機器人設備，如何獲取傳感器值，如何指令執行器，以及如何編程一個簡單的反饋迴路。<br/><br/>本教程僅涉及 Webots 功能的正確使用。機器人算法的研究超出了本教程的目標，因此不會在此處討論。掌握一些基本的編程知識是解決本章問題的必要條件（任何 C 教程應該都是足夠的入門介紹）。在本章的末尾，提供了進一步的機器人算法的鏈接。</p>
 <p>新的模擬場景與控制器</p>
 <p style="padding-left: 30px;"><span style="background-color: #ccffcc;">實作 #1：將之前的世界保存為 collision_avoidance.wbt。從文件/新建/新建機器人控制器菜單項中創建一個新的 C（或任何其他語言）控制器，命名為 epuck_avoid_collision（對於 C++ 和 Java，命名為 EPuckAvoidCollision）。修改 E-puck 節點的控制器字段以將其與新控制器關聯。</span></p>
@@ -1139,7 +1153,7 @@ while robot.step(TIME_STEP) != -1:
     leftMotor.setVelocity(leftSpeed)
     rightMotor.setVelocity(rightSpeed)</pre>
 <p>解決方案：世界文件<br/><br/>要將您的世界與解決方案進行比較，請轉到您的文件並找到在教程1中創建的名為 my_first_simulation 的文件夾，然後轉到 worlds 文件夾並使用文本編輯器打開正確的世界。此解決方案與其他解決方案位於解決方案目錄中。<br/><br/>結論<br/><br/>以下是您剛剛學到的關鍵點的快速摘要：<br/><br/>- 控制器入口點是主函數，就像任何標準的 C 程序一樣。<br/>- 在調用 wb_robot_init 函數之前，不應調用任何 Webots API 函數。<br/>- 離開主函數之前要調用的最後一個函數是 wb_robot_cleanup 函數。<br/>- 設備由其設備節點的名稱字段引用。可以通過 wb_robot_get_device 函數檢索節點的引用。<br/>- 每個控制器程序都作為 Webots 進程的子進程執行。控制器進程不與 Webots 共享任何內存（除了相機的圖像），並且它可以在與 Webots 不同的 CPU（或 CPU 核心）上運行。<br/>- 控制器代碼鏈接到 libController 動態庫。該庫處理控制器與 Webots 之間的通信。<br/><br/>本節更詳細地解釋了控制器編程。您應該仔細閱讀以進一步了解在 Webots 中的機器人編程。</p>
-<h2>Tutorial5</h2>
+<h3>Tutorial5</h3>
 <p>導引課程 5：複合固體和物理屬性</p>
 <p>本導引課程的目的是通過創建一個具有多個邊界對象的固體來更詳細地探索物理模擬：一個由兩個球體和一個圓柱體組成的啞鈴。預期結果如圖所示。</p>
 <p><img alt="" height="157" src="/images/tutorial_dumbbell.thumbnail.jpg" width="300"/></p>
@@ -1185,7 +1199,10 @@ while robot.step(TIME_STEP) != -1:
 <h4 class="anchor-header" id="conclusion" name="conclusion"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-5-compound-solid-and-physics-attributes#conclusion"><span class="anchor-link-image"></span></a>Conclusion</h4>
 <p>You are now able to build a wide range of solids including those being composed of several rigid bodies. You know that a Geometry node can be moved and rotated if it is included in a <a href="https://cyberbotics.com/doc/reference/pose">Pose</a> node. You are aware about all the physics parameters allowing you to design robust simulations. The next step will be to create your own robot.</p>
 <p>You can test your skills by creating common objects such as a table.</p>
-<h2>Tutorial6</h2>
+<h2>Stage3</h2>
+<p><a href="https://mde.tw/cd2025/content/Tutorial6.html">Tutorial6</a> 是學習如何建立與與控制行動機器人</p>
+<p><a href="https://mde.tw/cd2025/content/Tutorial7.html">Tutorial7</a> 則說明如何自行建立原型物件 (PROTO)</p>
+<p><a href="https://mde.tw/cd2025/content/Tutorial8.html">Tutorial8</a> 就自行開發投籃機模擬場景而言, 可在虛擬的模擬場景中, 利用超物理的程式控制加速虛實產品的開發流程.</p><h3>Tutorial6</h3>
 <h4 class="anchor-header" id="tutorial64wheeledrobot60minutes" name="tutorial-6-4-wheeled-robot-60-minutes">Tutorial 6: 4-Wheeled Robot</h4>
 <p>This tutorial aims at creating your first robot from scratch. The robot will consist of a body, four wheels, and two distance sensors. The result is depicted on <a class="dynamicAnchor" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#3d-view-of-the-4-wheels-robot-note-that-the-coordinate-system-representations-of-the-robot-body-and-of-its-wheels-are-oriented-the-same-way-their-px-vector-in-red-defines-the-left-of-the-robot-their-py-vector-in-green-defines-the-top-of-the-robot-and-their-pz-vector-in-blue-defines-the-front-of-the-robot-the-distance-sensors-are-oriented-in-a-different-way-their-px-vector-indicates-the-direction-of-the-sensor">this figure</a>. The <a class="dynamicAnchor" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#top-view-of-the-4-wheeled-robot-the-grid-behind-the-robot-has-a-dimension-of-0-2-x-0-3-meters-the-text-labels-correspond-to-the-name-of-the-device">next figure</a> shows the robot from a top view.</p>
 <p><img alt="" height="209" src="/images/tutorial_4_wheels_robot.thumbnail.jpg" width="300"/></p>
@@ -1266,6 +1283,10 @@ while robot.step(TIME_STEP) != -1:
 <p></p>
 <p></p>
 <p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
 <p><details open=""><summary><strong>Reminder</strong>: How to know the orientation of the distance sensor?</summary>As already says in<span> </span><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/tutorial-3-appearance">Tutorial 3</a>, the distance sensor rays can be viewed using the shortcut<span> </span><kbd>ctrl</kbd>-<kbd>F10</kbd><span> </span>or<span> </span><code>View / Optional Rendering / Show DistanceSensor Rays</code>.
 <blockquote>
 <p><strong>Hands on #5</strong>: Add the two distance sensors as explained above. The distance sensors are at an angle to 0.3 [rad] with the front vector of the robot. Set the graphical and physical shape to a cube (not transformed) having a edge of<span> </span><code>0.01</code><span> </span>[m]. Set the color to blue. Set the<span> </span><code>name</code><span> </span>field according to the labels of<span> </span><a class="dynamicAnchor" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#top-view-of-the-4-wheeled-robot-the-grid-behind-the-robot-has-a-dimension-of-0-2-x-0-3-meters-the-text-labels-correspond-to-the-name-of-the-device">this figure</a>.</p>
@@ -1337,7 +1358,7 @@ while robot.step(TIME_STEP) != -1:
 <h4 class="anchor-header" id="conclusion" name="conclusion"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot?tab-language=python#conclusion"><span class="anchor-link-image"></span></a>Conclusion</h4>
 <p>You are now able to design simple robot models, to implement them and to create their controllers.</p>
 <p>More specifically, you learnt all the different nodes involved in the design of a robot model, methods to translate and rotate a solid relative to another and the way that a rotational motor is actuated by the controller.</p>
-<h2>Tutorial7</h2>
+<h3>Tutorial7</h3>
 <h4 class="anchor-header" id="tutorial7yourfirstproto20minutes" name="tutorial-7-your-first-proto-20-minutes">Tutorial 7: Your First PROTO</h4>
 <p>The aim of this tutorial is to create a PROTO file corresponding to the four wheels robot from the previous tutorial.</p>
 <h4 class="anchor-header" id="copytherobotdefinition" name="copy-the-robot-definition">Copy the Robot Definition</h4>
@@ -1423,7 +1444,7 @@ PROTO FourWheelsRobot [
 <p>You are now able to create PROTO nodes from any nodes you created in Webots.</p>
 <p>More specifically, you learnt how to copy the node definition in the PROTO file and how to open and link PROTO fields to internal node fields.</p>
 <p>To go further, the<span> </span><a href="https://cyberbotics.com/doc/reference/proto?tab-language=python">PROTO chapter</a><span> </span>of the reference manual explains in detail all the possibilities of the PROTO mechanism.</p>
-<h2>Tutorial8</h2>
+<h3>Tutorial8</h3>
 <h4 class="anchor-header" id="tutorial8thesupervisor30minutes" name="tutorial-8-the-supervisor-30-minutes">Tutorial 8: The Supervisor</h4>
 <p>A<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a><span> </span>oversees a world and can set or get information about it. This tutorial will teach you:</p>
 <ul>
@@ -2048,8 +2069,9 @@ while supervisor.step(timestep) != -1:
 <p style="padding-left: 30px;">The Webots nodes and APIs are open specifications which can be freely reused without authorization from Cyberbotics. The Webots API can be freely ported and adapted to operate on any robotics platform using the remote-control and/or the cross-compilation frameworks. Cyberbotics offers support to help developers implementing the Webots API on real robots. This benefits to the robotics community by improving interoperability between different robotics applications.</p>
 <p class="" data-end="65" data-start="0" style="padding-left: 30px;">本手冊包含了 Webots 中使用的 ".wbt" 世界描述語言的節點和欄位規範。它還規範了從控制器程序操作這些節點所使用的功能。</p>
 <p class="" data-end="231" data-start="67" style="padding-left: 30px;">Webots 節點和 API 是開放規範，可以自由重複使用，無需 Cyberbotics 授權。Webots API 可以自由移植並適應於任何機器人平台，使用遠端控制和/或交叉編譯框架。Cyberbotics 提供支持，幫助開發者在實際機器人上實現 Webots API。這將有助於機器人社群，提升不同機器人應用之間的互操作性。</p>
-<p class="" data-end="231" data-start="67" style="padding-left: 30px;">節點與函式: <a href="https://www.cyberbotics.com/doc/reference/nodes-and-functions">https://www.cyberbotics.com/doc/reference/nodes-and-functions</a> </p>
-<p style="padding-left: 30px;"><a href="https://cyberbotics.com/doc/reference/contactproperties">https://cyberbotics.com/doc/reference/contactproperties</a> </p><h1>Homework</h1>
+<p class="" data-end="231" data-start="67" style="padding-left: 30px;">節點與函式: <a href="https://www.cyberbotics.com/doc/reference/nodes-and-functions">https://www.cyberbotics.com/doc/reference/nodes-and-functions</a></p>
+<p style="padding-left: 30px;"><a href="https://cyberbotics.com/doc/reference/contactproperties">https://cyberbotics.com/doc/reference/contactproperties</a></p>
+<h1>Homework</h1>
 <p>作業 (30%)</p>
 <p>HW1 (5%): <span style="background-color: #ffff00;">建立由 Box 組成的平面四連桿機構 Webots 模擬場景</span></p>
 <p style="padding-left: 30px;">part1:</p>
@@ -2609,4 +2631,8 @@ doc["aitetris"].bind("click", aitetris.do)
 <!-- editor2 結束 --><hr/>
 <p></p>
 </details></details></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
 <p></p>
