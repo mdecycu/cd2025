@@ -152,6 +152,10 @@ img.add_border {
 <p>2b 以 <a href="./../downloads/w4_2b_index.txt">w4_2b_index.txt</a> 中的序號為準, 例如: 序號為 1 的學員其固定 IPv6 位址為:</p>
 <p style="padding-left: 30px;"><span>2001:288:6004:17:fff1:cd25:0000:b001</span></p>
 <p style="padding-left: 30px;"><span>若序號為 66 其 IPv6 位址為 2001:288:6004:17:fff1:cd25:0000:b066</span></p>
+<p>註: 利用 Brython <a href="https://mde.tw/wcm2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9f3df9d865a7ceca8e799ee9b1a31602/raw/5299aa53dc856df47c98993e016c9c0db2c74edf/2025_spring_set_mde_dns.py">產生</a> DNS 伺服器所需的設定.</p>
+<p>完成 dns 設定之後:</p>
+<p style="padding-left: 30px;">2a 序號為 1 的學員其伺服器主機符號名稱為 a1.mde.nfu.edu.tw, 序號 50 則對應 a50.</p>
+<p style="padding-left: 30px;">2b 序號為 1 的學員其伺服器主機符號名稱為 b1.mde.nfu.edu.tw, 序號 50 則對應 b50.</p>
 <hr/>
 <p>各組員將電腦設為所份配的固定 IPv6 後, 可以利用 python -m http.server, 在作業倉儲中啟動 port 8000 的 http 靜態網頁伺服器, 以下為各班的近端學員靜態網站連結:</p>
 <p><a href="https://mde.tw/cd2025/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9f3df9d865a7ceca8e799ee9b1a31602/raw/a4414e311503fac8d57d4f5e44999147c54cf7fa/list_2a_group.py">列出 2a 分組網站與倉儲連結</a></p>
@@ -166,8 +170,7 @@ img.add_border {
 <p style="padding-left: 30px;">任務一: 請用 Brython 寫出在 id="brython_div1" 嵌入 html 連結的程式. 希望各連結能透過 http 協定連結到班上有 66 位學員的靜態網頁. 其中各學員的固定 IPv6 分別為 2001:288:6004:17:fff1:cd25:0000:b001 到 2001:288:6004:17:fff1:cd25:0000:b066, 且使用 port 8000 進行連結. 請寫出此一 Brython 程式.</p>
 <p style="padding-left: 30px;">任務二: 若各學員序號取自 https://mde.tw/cd2025/downloads/w4_2b_index.txt, 且此一資料以空白隔開序號加"." 及學號, 能否修改成以學員的學號作為 html 的標示.</p>
 <p style="padding-left: 30px;">任務三: 完成各學員的 html 連結後, 請再用 Brython 程式設法進入每一位學員的網站查驗, 是否可以讀取到該連結 content 目錄中的 About.html, 若可以則 pass, 若無法連結則列出無法完成連結的學員學號.</p>
-<p style="padding-left: 30px;">請分別列出上述三個任務的程式碼.</p>
-<br />list << <a href='list.html'>Previous</a> <a href='Topic2.html'>Next</a> >> Topic2</div>
+<p style="padding-left: 30px;">請分別列出上述三個任務的程式碼.</p><br />list << <a href='list.html'>Previous</a> <a href='Topic2.html'>Next</a> >> Topic2</div>
         
     <!-- footer -->
       <div class="container">
