@@ -999,7 +999,7 @@ while robot.step(TIME_STEP) != -1:  # 當機器人步進時間步長不等於 -1
 <h2>Stage2</h2>
 <p>Webots 進入第二階段, 包含零件的外觀 (<a href="https://mde.tw/cd2025/content/Tutorial3.html">Tutorial3</a>), 控制與感測 (<a href="https://mde.tw/cd2025/content/Tutorial4.html">Tutorial4</a>), 以及複合外形零件的建構 (<a href="https://mde.tw/cd2025/content/Tutorial5.html">Tutorial5</a>) 等議題.</p>
 <p><a href="https://mde.tw/cd2025/content/HW1.html">Homework1</a> 僅使用簡單的 Box 建立平面四連桿機構場景. 若利用 <a href="https://mde.tw/cd2025/content/Tutorial5.html">Tutorial5</a> 中的 Group 節點, 就能整合出更多外形的零組件.</p>
-<p><a href="https://mde.tw/cd2025/content/HW2.html">Homework2</a> 雖然使用 MCAD 套件繪製機構所需零件, 但因為在組立時各零件已經完成定位, 因此使用上, 只要透過 <a href="https://cyberbotics.com/doc/reference/cadshape">CadShape</a> 導入 obj 格式的零件檔案, 即可在模擬場景中套用.</p>
+<p><a href="https://mde.tw/cd2025/content/HW2.html">Homework2</a> 雖然使用 MCAD 套件繪製機構所需零件, 但因為在組立時各零件已經完成定位, 因此使用上, 只要透過 <a href="https://cyberbotics.com/doc/reference/cadshape">CadShape</a> 導入 obj 格式的零件檔案, 即可在模擬場景中套用, 至於各連桿 <a href="https://cyberbotics.com/doc/reference/solid">Solid</a> 節點中的 boundingObject 欄位, 只要利用 <a href="https://cyberbotics.com/doc/reference/mesh?version=R2025a">Mesh</a> 節點中的 url 指向物件 obj 檔案即可.</p>
 <p>至於 <a href="https://cyberbotics.com/doc/reference/hingejoint">hingeJoint</a> 中的 <a href="https://cyberbotics.com/doc/reference/hingejointparameters">HingeJointParameters</a> 則宣告該轉軸所在位置 (anchor) 以及旋轉軸 (axis) 即可.</p>
 <p><a href="https://mde.tw/cd2025/content/HW3.html">Homework3</a> 投籃機的實現則必須使用 <a href="https://mde.tw/cd2025/content/Tutorial4.html">Tutorial4</a> 中的控制與感測技術.</p>
 <p></p><h3>Tutorial3</h3>
@@ -1200,9 +1200,9 @@ while robot.step(TIME_STEP) != -1:
 <p>You are now able to build a wide range of solids including those being composed of several rigid bodies. You know that a Geometry node can be moved and rotated if it is included in a <a href="https://cyberbotics.com/doc/reference/pose">Pose</a> node. You are aware about all the physics parameters allowing you to design robust simulations. The next step will be to create your own robot.</p>
 <p>You can test your skills by creating common objects such as a table.</p>
 <h2>Stage3</h2>
-<p><a href="https://mde.tw/cd2025/content/Tutorial6.html">Tutorial6</a> 是學習如何建立與與控制行動機器人</p>
-<p><a href="https://mde.tw/cd2025/content/Tutorial7.html">Tutorial7</a> 則說明如何自行建立原型物件 (PROTO)</p>
-<p><a href="https://mde.tw/cd2025/content/Tutorial8.html">Tutorial8</a> 就自行開發投籃機模擬場景而言, 可在虛擬的模擬場景中, 利用超物理的程式控制加速虛實產品的開發流程.</p><h3>Tutorial6</h3>
+<p><a href="https://mde.tw/cd2025/content/Tutorial6.html">Tutorial6</a> 是學習如何建立及控制行動機器人.</p>
+<p><a href="https://mde.tw/cd2025/content/Tutorial7.html">Tutorial7</a> 則說明如何自行建立原型物件 (PROTO).</p>
+<p><a href="https://mde.tw/cd2025/content/Tutorial8.html">Tutorial8</a> 就自行開發投籃機模擬場景而言, 可在虛擬的模擬場景中, 利用隨意配置且非可實際配置的程式控制加速虛實產品的開發流程.</p><h3>Tutorial6</h3>
 <h4 class="anchor-header" id="tutorial64wheeledrobot60minutes" name="tutorial-6-4-wheeled-robot-60-minutes">Tutorial 6: 4-Wheeled Robot</h4>
 <p>This tutorial aims at creating your first robot from scratch. The robot will consist of a body, four wheels, and two distance sensors. The result is depicted on <a class="dynamicAnchor" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#3d-view-of-the-4-wheels-robot-note-that-the-coordinate-system-representations-of-the-robot-body-and-of-its-wheels-are-oriented-the-same-way-their-px-vector-in-red-defines-the-left-of-the-robot-their-py-vector-in-green-defines-the-top-of-the-robot-and-their-pz-vector-in-blue-defines-the-front-of-the-robot-the-distance-sensors-are-oriented-in-a-different-way-their-px-vector-indicates-the-direction-of-the-sensor">this figure</a>. The <a class="dynamicAnchor" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#top-view-of-the-4-wheeled-robot-the-grid-behind-the-robot-has-a-dimension-of-0-2-x-0-3-meters-the-text-labels-correspond-to-the-name-of-the-device">next figure</a> shows the robot from a top view.</p>
 <p><img alt="" height="209" src="/images/tutorial_4_wheels_robot.thumbnail.jpg" width="300"/></p>
