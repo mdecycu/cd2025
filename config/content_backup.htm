@@ -600,6 +600,7 @@ set  path_webots=%Disk%:\Webots_2025a\msys64\mingw64\bin;%Disk%:\Webots_2025a\ms
 <h2>Fourbar</h2>
 <h4>onelink</h4>
 <p><a href="/downloads/onelink_webots.7z">onelink_webots.7z</a> (直接採 Shape 建模)</p>
+<p><a href="/downloads/fourbar_box_w8.7z">fourbar_box_w8.7z</a> (將 joint4 接在 link3 末端, 然後 solidReference 參照到內定的 &lt;static environment&gt;, 表示將 link3 末端的 joint4 直接固定在 base 上 (固定點)</p>
 <p><a href="/downloads/onelink_slvs.7z">onelink_slvs.7z</a> (利用 Solvespace 繪製組立檔案, 轉為 STL 後, 再分割為 STL 零件與 OBJ 零件後, 將 OBJ 零件 import 進 Blender 確認零件名稱, 各 OBJ 零件分別利用 Solid 與 CadShape 節點建立從屬關係, 最後加入 hinge 旋轉軸與 Python 控制程式, 讓單一機械臂以 30deg/s 速度轉動)</p>
 <p style="padding-left: 30px;">onelink_w_hinge.wbt 直接在場景樹狀結構中定義 Solid (可用於較簡單的零組件系統)</p>
 <p style="padding-left: 30px;">onelink_w_hinge2.wbt 則將各零件以 PROTO 定義為原型節點, 之後在場景中導入後引用 (適合較複雜的零組件系統)</p>
@@ -929,8 +930,7 @@ DEF FOURBAR Robot {
 <li>準確定義各個 joint 的錨點（anchor）</li>
 <li>確保所有連桿的物理屬性正確設置</li>
 </ol>
-<p><a href="/downloads/fourbar_slvs.7z">fourbar_slvs.7z</a></p>
-<h2>Stage1</h2>
+<p><a href="/downloads/fourbar_slvs.7z">fourbar_slvs.7z</a></p><h2>Stage1</h2>
 <p>學習利用 Webots 建立模擬場景的第一階段工作, 是認識其套件功能表與場景所需的目錄及檔案架構. 並且學習如何利用控制器程式操縱場景中的物件. 這也是 <a href="https://mde.tw/cd2025/content/Tutorial1.html">Tutorial1</a> 操作的主要目的.</p>
 <p><a href="https://mde.tw/cd2025/content/Tutorial2.html">Tutorial2</a> 則說明如何使用 Webots 內建的標準幾何物件, 其中的物件幾何外形除了用於動力系統的運動方程式, 還可用於物體移動時的碰撞檢測. 建立物件時必須遵照 Solid - Shape - physics 的樹狀結構規劃, 按照順序配置物件.</p><h3>Tutorial1</h3>
 <p>導引課程<br/><br/>本章的目的是解說 Webots 的基本概念，這些概念是自行創建模擬場景 (.wbt) 時必須用到的。學習重點在於機器人及其環境的模型建構，以及機器人控制器 (controllers) 的程式設計。您還將學習如何尋找進一步的教學資料。<br/><br/>本章適合 Webots 的初學者。不過，仍然需要有程式設計 (Programming) 的背景。範例是用 Python 語言編寫的。如果您不熟悉 Python 語言，您仍然應該能夠理解本章，因為下面的 Python 程式非常簡單。除了程式設計，您不需要任何特定的知識即可完成本章中的教程。然而，基本的機器人學 (Robotcs)、數學 (Mathematics)、模型建構 (Modeling) 和樹狀表示法 (Tree representation) 的背景知識可能會有所幫助。有經驗的 Webots 使用者可以跳過最初的教程。不過，我們建議他們至少閱讀這些教程的介紹和結論。<br/><br/>本章的每個部分（除了第一和最後一部分）都是一個導引課程。每個導引課程都有一個明確的教育目標，並在第一段中進行解釋。獲得的概念隨後會在結論子部分中總結。每一個導引課程都被設計成一系列互動步驟。要繼續進行下一個教程，通常需要掌握前一個教學中獲得的知識。因此，我們強烈建議您按照它們的自然順序進行。此外，我們建議您在繼續進一步之前，確保您已經理解了導引課程中的所有概念。<br/><br/>最後一部分將為您提供一些解決本章未涉及問題的提示。<br/><br/>導引課程的解決方案位於 Webots 安裝目錄的 "WEBOTS_HOME/projects/samples/tutorials" 子目錄中。</p>
@@ -1201,7 +1201,7 @@ while robot.step(TIME_STEP) != -1:
 <p>You can test your skills by creating common objects such as a table.</p>
 <h2>Stage3</h2>
 <p><a href="https://mde.tw/cd2025/content/Tutorial6.html">Tutorial6</a> 是學習如何建立及控制行動機器人.</p>
-<p><a href="https://mde.tw/cd2025/content/Tutorial7.html">Tutorial7</a> 則說明如何自行建立原型物件 (PROTO).</p>
+<p><a href="https://mde.tw/cd2025/content/Tutorial7.html">Tutorial7</a> 說明如何自行建立原型物件 (PROTO).</p>
 <p><a href="https://mde.tw/cd2025/content/Tutorial8.html">Tutorial8</a> 就自行開發投籃機模擬場景而言, 可在虛擬的模擬場景中, 利用隨意配置且非可實際配置的程式控制加速虛實產品的開發流程.</p><h3>Tutorial6</h3>
 <h4 class="anchor-header" id="tutorial64wheeledrobot60minutes" name="tutorial-6-4-wheeled-robot-60-minutes">Tutorial 6: 4-Wheeled Robot</h4>
 <p>This tutorial aims at creating your first robot from scratch. The robot will consist of a body, four wheels, and two distance sensors. The result is depicted on <a class="dynamicAnchor" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#3d-view-of-the-4-wheels-robot-note-that-the-coordinate-system-representations-of-the-robot-body-and-of-its-wheels-are-oriented-the-same-way-their-px-vector-in-red-defines-the-left-of-the-robot-their-py-vector-in-green-defines-the-top-of-the-robot-and-their-pz-vector-in-blue-defines-the-front-of-the-robot-the-distance-sensors-are-oriented-in-a-different-way-their-px-vector-indicates-the-direction-of-the-sensor">this figure</a>. The <a class="dynamicAnchor" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#top-view-of-the-4-wheeled-robot-the-grid-behind-the-robot-has-a-dimension-of-0-2-x-0-3-meters-the-text-labels-correspond-to-the-name-of-the-device">next figure</a> shows the robot from a top view.</p>

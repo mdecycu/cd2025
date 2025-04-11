@@ -145,6 +145,7 @@ img.add_border {
     <div id="tipue_search_content">Tutorial << <a href='Tutorial.html'>Previous</a> <a href='Stage1.html'>Next</a> >> Stage1<br /><h1>Fourbar</h1>
 <h4>onelink</h4>
 <p><a href="./../downloads/onelink_webots.7z">onelink_webots.7z</a> (直接採 Shape 建模)</p>
+<p><a href="./../downloads/fourbar_box_w8.7z">fourbar_box_w8.7z</a> (將 joint4 接在 link3 末端, 然後 <a href="https://cyberbotics.com/doc/reference/solidreference">solidReference</a> 參照到內定的 &lt;static environment&gt;, 表示將 link3 末端的 joint4 直接固定在 base 上 (固定點)</p>
 <p><a href="./../downloads/onelink_slvs.7z">onelink_slvs.7z</a> (利用 Solvespace 繪製組立檔案, 轉為 STL 後, 再分割為 STL 零件與 OBJ 零件後, 將 OBJ 零件 import 進 Blender 確認零件名稱, 各 OBJ 零件分別利用 Solid 與 CadShape 節點建立從屬關係, 最後加入 hinge 旋轉軸與 Python 控制程式, 讓單一機械臂以 30deg/s 速度轉動)</p>
 <p style="padding-left: 30px;">onelink_w_hinge.wbt 直接在場景樹狀結構中定義 Solid (可用於較簡單的零組件系統)</p>
 <p style="padding-left: 30px;">onelink_w_hinge2.wbt 則將各零件以 PROTO 定義為原型節點, 之後在場景中導入後引用 (適合較複雜的零組件系統)</p>
@@ -474,8 +475,7 @@ DEF FOURBAR Robot {
 <li>準確定義各個 joint 的錨點（anchor）</li>
 <li>確保所有連桿的物理屬性正確設置</li>
 </ol>
-<p><a href="./../downloads/fourbar_slvs.7z">fourbar_slvs.7z</a></p>
-<br />Tutorial << <a href='Tutorial.html'>Previous</a> <a href='Stage1.html'>Next</a> >> Stage1</div>
+<p><a href="./../downloads/fourbar_slvs.7z">fourbar_slvs.7z</a></p><br />Tutorial << <a href='Tutorial.html'>Previous</a> <a href='Stage1.html'>Next</a> >> Stage1</div>
         
     <!-- footer -->
       <div class="container">
