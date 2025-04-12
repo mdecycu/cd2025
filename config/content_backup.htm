@@ -600,7 +600,7 @@ set  path_webots=%Disk%:\Webots_2025a\msys64\mingw64\bin;%Disk%:\Webots_2025a\ms
 <h2>Fourbar</h2>
 <h4>onelink</h4>
 <p><a href="/downloads/onelink_webots.7z">onelink_webots.7z</a> (直接採 Shape 建模)</p>
-<p><a href="/downloads/fourbar_box_w8.7z">fourbar_box_w8.7z</a> (將 joint4 接在 link3 末端, 然後 solidReference 參照到內定的 &lt;static environment&gt;, 表示將 link3 末端的 joint4 直接固定在 base 上 (固定點)</p>
+<p><a href="/downloads/fourbar_box_w8.7z">fourbar_box_w8.7z</a> (將 joint4 接在 link3 末端, 然後 <a href="https://cyberbotics.com/doc/reference/solidreference">solidReference</a> 參照到內定的 &lt;static environment&gt;, 表示將 link3 末端的 joint4 直接固定在 base 上 (固定點)</p>
 <p><a href="/downloads/onelink_slvs.7z">onelink_slvs.7z</a> (利用 Solvespace 繪製組立檔案, 轉為 STL 後, 再分割為 STL 零件與 OBJ 零件後, 將 OBJ 零件 import 進 Blender 確認零件名稱, 各 OBJ 零件分別利用 Solid 與 CadShape 節點建立從屬關係, 最後加入 hinge 旋轉軸與 Python 控制程式, 讓單一機械臂以 30deg/s 速度轉動)</p>
 <p style="padding-left: 30px;">onelink_w_hinge.wbt 直接在場景樹狀結構中定義 Solid (可用於較簡單的零組件系統)</p>
 <p style="padding-left: 30px;">onelink_w_hinge2.wbt 則將各零件以 PROTO 定義為原型節點, 之後在場景中導入後引用 (適合較複雜的零組件系統)</p>
@@ -2268,7 +2268,79 @@ path=~~;%path_webots%;%path%;</pre>
 <p style="padding-left: 60px;"><a href="https://cyberbotics.com/doc/reference/robot">Robot</a> (controller, <a href="https://cyberbotics.com/doc/guide/controller-programming">controller programming</a>)</p>
 <p style="padding-left: 30px;"></p>
 <p></p>
-<h2>Solvespace</h2>
+<h3>Nodes</h3>
+<h4><a href="https://cyberbotics.com/doc/reference/solidreference">SoildReference</a></h4>
+<p>SolidReference 可以用在 Joint 節點的 endPoint 欄位中，用來指向一個現有的 Solid 或靜態環境 &lt;static environment&gt;。通過這種方式，可以閉合機械迴圈。</p>
+<p>當指向一個 Solid 時，唯一的限制是 Solid 和 Joint 必須是某個共同上層 Solid 的後代。<br/><br/>SolidReference 是一個引用類型，允許在 Joint 節點的 endPoint 欄位中指定某個目標。它可以指向兩種類型的對象：</p>
+<p style="padding-left: 30px;">現有的 Solid：這是一個具體的實體（例如某個機械零件或組件）。</p>
+<p style="padding-left: 30px;">靜態環境 &lt;static environment&gt;：這通常指的是不動的參考框架（例如地面或固定基座）。</p>
+<p>用法：</p>
+<p style="padding-left: 30px;">在模擬或設計中，當需要定義一個關節（Joint）的連接點時，SolidReference 提供了一個靈活的方式來指定這個點是連接到某個具體的實體還是靜態的外部環境。</p>
+<p style="padding-left: 30px;">例如，在一個機械手臂的模擬中，SolidReference 可以用來指定手臂的某個關節是連接到另一個手臂部件（Solid）還是固定在地面上（靜態環境 &lt;static environment&gt;）。</p>
+<p>endPoint 欄位的用途</p>
+<p style="padding-left: 30px;">endPoint 是 Joint 節點的一個屬性，用來定義關節的終點（或連接點）。</p>
+<p style="padding-left: 30px;">通過在 endPoint 中使用 SolidReference，系統能夠明確知道這個關節連接到哪個對象。</p>
+<p>用法示例：</p>
+<p style="padding-left: 30px;">假設你正在設計一個雙擺系統（兩個連桿通過關節連接），第一個關節的 endPoint 可能會指向第一個連桿（Solid），而第二個關節的 endPoint 可能指向第二個連桿或固定基座（靜態環境）。</p>
+<p>閉合機械迴圈（Mechanical loops）</p>
+<p style="padding-left: 30px;">機械迴圈 是指在機械結構中，部件通過關節形成一個閉合的鏈，例如四連桿機構或某些並聯機器人結</p>
+<p style="padding-left: 30px;">SolidReference 的重要性在於它允許系統正確處理這樣的閉合結構。</p>
+<p>如何實現：</p>
+<p style="padding-left: 30px;">通過在 Joint 的 endPoint 中使用 SolidReference，可以將一個關節的終點連接到某個已存在的 Solid，從而形成閉合迴圈。</p>
+<p style="padding-left: 30px;">例如，在一個四連桿機構中，每個關節的 endPoint 會指向下一個連桿，直到最後一個關節的 endPoint 連回到第一個連桿，形成閉合。</p>
+<p>為什麼需要閉合迴圈：</p>
+<p style="padding-left: 30px;">在模擬中，閉合迴圈確保了機械系統的運動學和動力學約束能夠被正確解析，例如計算各部件的相對運動或力。</p>
+<p>指向 Solid 時的限制</p>
+<p style="padding-left: 30px;">限制條件：當 SolidReference 用來指向一個 Solid 時，這個 Solid 和 Joint 必須是某個共同上層 Solid 的後代。</p>
+<p style="padding-left: 30px;">解釋：</p>
+<p style="padding-left: 30px;">這意味著 Solid 和 Joint 必須在同一個層次結構（hierarchy）內，且共享一個共同的「祖先」 Solid。</p>
+<p style="padding-left: 30px;">這種限制確保了系統能夠在一個明確的參考框架內解析關節和實體之間的關係，避免模擬中的歧義或錯誤。</p>
+<p style="padding-left: 30px;">示例：</p>
+<p style="padding-left: 30px;">假設有一個機械系統，包含一個主框架（上層 Solid），這個主框架下有兩個子部件（兩個 Solid）和一個關節（Joint）。如果想讓這個關節連接到其中一個子部件，則這個子部件和關節必須都在主框架的層次結構內。</p>
+<p style="padding-left: 30px;">如果試圖讓關節連接到一個完全獨立的 Solid（不在主框架的後代中），系統可能會因為無法確定相對位置或運動關係而報錯。</p>
+<p>實際應用場景</p>
+<p style="padding-left: 30px;">機器人模擬：在模擬多關節機器人時，SolidReference 可以用來定義每個關節的連接點，確保手臂或腿部的運動符合設計。</p>
+<p style="padding-left: 30px;">汽車懸吊系統：懸吊系統中的連桿和關節可能形成閉合迴圈，SolidReference 幫助模擬這些部件如何相互作用。</p>
+<p style="padding-left: 30px;">遊戲引擎物理模擬：在物理引擎（如 Unity 或 Unreal Engine）中，類似的概念用來定義剛體（Solid）和關節（Joint）之間的關係。</p>
+<p>注意事項</p>
+<p style="padding-left: 30px;">層次結構的重要性：在使用 SolidReference 時，必須確保系統的層次結構設計合理，否則可能違反「共同上層 Solid」的限制。</p>
+<p style="padding-left: 30px;">靜態環境的特殊性：當 SolidReference 指向靜態環境時，通常不需要考慮層次結構，因為靜態環境是一個全局參考框架。</p>
+<p style="padding-left: 30px;">模擬效率：正確使用 SolidReference 可以減少模擬中的計算錯誤，提高系統的穩定性和效率。</p>
+<p><a href="https://www.cyberbotics.com/doc/reference/contactproperties">ContactProperties</a></p>
+<p>在 Webots 中，ContactProperties 節點用來定義兩個物體之間的接觸屬性（例如摩擦力、反彈係數等）。這對於模擬物理互動（例如碰撞、滑動或滾動）非常重要。</p>
+<p>基本結構<br/><br/>ContactProperties 是一種物理屬性節點，用於描述材料之間的接觸行為。它需要放置在 WorldInfo.physics 節點中，並且適用於場景中的物體。</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">ContactProperties {
+  material1 "Material1"
+  material2 "Material2"
+  coulombFriction 0.5
+  bounce 0.2
+  bounceVelocity 0.1
+  softERP 0.2
+  softCFM 0.01
+}</pre>
+<p>屬性解釋<br/><br/>    material1 和 material2<br/>        定義接觸的兩個物體的材料。<br/>        如果 material1 或 material2 是空字串（""），則表示這些屬性適用於所有材料。<br/>        例如，material1 "wood" 和 material2 "metal" 定義木材和金屬之間的接觸行為。<br/><br/>    coulombFriction<br/>        定義庫倫摩擦係數，用於模擬接觸表面的摩擦力。<br/>        值範圍：0 到無窮大。<br/>        例如，coulombFriction 0.5 表示中等摩擦力，0 表示無摩擦（完全滑動）。<br/><br/>    bounce<br/>        定義反彈係數（或恢復係數），決定物體在碰撞後的彈性程度。<br/>        值範圍：0（無反彈）到 1（完全彈性碰撞）。<br/>        例如，bounce 0.8 表示接觸後物體反彈很高。<br/><br/>    bounceVelocity<br/>        定義啟用反彈的最小碰撞速度（m/s）。<br/>        如果碰撞速度低於此值，則不會有彈性反彈。<br/><br/>    softERP<br/>        決定接觸的彈性修復因子（Error Reduction Parameter）。<br/>        用於模擬柔性接觸的效果，值通常在 0 到 1 之間。<br/>        較高的值會讓接觸點更剛硬。<br/><br/>    softCFM<br/>        定義接觸的柔性參數（Constraint Force Mixing）。<br/>        用於模擬柔性接觸的效果，較高的值會讓接觸點更柔軟。<br/><br/>3. 使用範例<br/><br/>以下是一個模擬木材與金屬之間的接觸屬性的範例：</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">ContactProperties {
+  material1 "wood"
+  material2 "metal"
+  coulombFriction 0.3
+  bounce 0.5
+  bounceVelocity 0.2
+  softERP 0.8
+  softCFM 0.01
+}</pre>
+<p>表示：<br/><br/>    木材和金屬接觸時的摩擦係數為 0.3。<br/>    有中等程度的反彈，反彈係數為 0.5。<br/>    碰撞速度超過 0.2 m/s 才會發生反彈。<br/>    接觸的彈性修復因子設為 0.8（較剛硬）。<br/>    柔性係數設為 0.01（接觸點稍微柔軟）。<br/><br/>針對籃球與鐵框的 ContactProperties 參數設定:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">ContactProperties {
+  material1 "basketball"
+  material2 "metal"
+  coulombFriction 0.6
+  bounce 0.8
+  bounceVelocity 0.2
+  softERP 0.8
+  softCFM 0.01
+}</pre>
+<p>這表示：<br/><br/>    籃球和金屬框接觸時的摩擦係數為 0.6。<br/>    有中等程度的反彈，反彈係數為 0.8。<br/>    碰撞速度超過 0.2 m/s 才會發生反彈。<br/>    接觸的彈性修復因子設為 0.8（較剛硬）。<br/>    柔性係數設為 0.01（接觸點稍微柔軟）。</p>
+<p><a href="https://cyberbotics.com/doc/reference/distancesensor">DistanceSensor</a></p>
+<p></p><h2>Solvespace</h2>
 <p>Web-based Solvespace: <a href="https://cad.apps.dgramop.xyz/">https://cad.apps.dgramop.xyz/</a> (<a href="https://solvespace.com/forum.pl?action=viewthread&amp;parent=2369&amp;tt=1718121481">source</a> and <a href="https://github.com/solvespace/solvespace/pull/1275">PR</a>)</p>
 <p><a href="https://github.com/solvespace/solvespace/pull/493">Python related PR</a></p>
 <p>在 <a href="http://229.cycu.org/python_2025_lite.7z">python_2025_lite.7z</a><span> 加入以下說明的 msys2 與 cmake 後, 可用來編譯 Solvespace v3.1 版原始碼的可攜套件 <a href="http://229.cycu.org/python_2025_lite_w_msys_cmake_solvespace.7z">python_2025_lite_w_msys_cmake_solvespace.7z</a> (Download 1.96GB, After extracted 3.7GB)</span></p>
@@ -2292,8 +2364,7 @@ path=~~;%path_webots%;%path%;</pre>
 <p>cmake .. -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Release</p>
 <p>mingw32-make</p>
 <p>完成編譯後, solvespace.exe 即位於 build\bin 目錄中, 執行時則需要 libwinpthread-1.dll 動態連結程式庫.</p>
-<p>進行上述流程編譯的原始碼 <a href="http://229.cycu.org/solvespace_v3.1_src.7z">solvespace_v3.1_src.7z</a>, 以及編譯完成的 <a href="http://229.cycu.org/solvespace_v3.1_msys2.7z">solvespace_v3.1_msys2.7z</a>.</p>
-<h3>Learn_Solvs</h3>
+<p>進行上述流程編譯的原始碼 <a href="http://229.cycu.org/solvespace_v3.1_src.7z">solvespace_v3.1_src.7z</a>, 以及編譯完成的 <a href="http://229.cycu.org/solvespace_v3.1_msys2.7z">solvespace_v3.1_msys2.7z</a>.</p><h3>Learn_Solvs</h3>
 <p><a href="https://youtu.be/IlY1YFid8HA?si=bbryzq7P-Z_vR9Rc">https://youtu.be/IlY1YFid8HA?si=bbryzq7P-Z_vR9Rc</a></p>
 <p><a href="https://chromamine.com/2024/07/3d-cad-with-solvespace/">https://chromamine.com/2024/07/3d-cad-with-solvespace/</a></p>
 <p><a href="https://www.youtube.com/watch?v=xAqSddiK5MQ&amp;list=PLWNz5TggYhO1mMihPAIPvozJkNN828FaI">https://thenybble.de/posts/solvespace-mini-tutorial/ </a></p>
