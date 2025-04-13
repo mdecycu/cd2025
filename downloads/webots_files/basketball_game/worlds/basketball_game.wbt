@@ -20,8 +20,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.6571198734045608 0.6673404348979353 0.3504999513937321 2.502960318458379
-  position 1.4128113210771336 5.074040610116835 4.1042541789309315
+  orientation -0.6346952843564805 0.6155079684542357 0.46723852236837876 2.2617923831171716
+  position -0.24206573726562236 5.254203505878472 11.41929564086548
 }
 TexturedBackground {
 }
@@ -154,16 +154,16 @@ Robot {
                   appearance Appearance {
                     material Material {
                       diffuseColor 0.8 0.8 0
+                      transparency 1
                     }
                   }
                   geometry DEF sensor Cylinder {
                     height 0.4
-                    radius 0.07
+                    radius 0.02
                   }
                 }
               ]
               name "sensor"
-              boundingObject USE sensor_shape
             }
           ]
           name "sensor"
@@ -174,6 +174,7 @@ Robot {
             0.5 0 0
           ]
           type "infra-red"
+          numberOfRays 6
         }
       ]
       name "stand"
@@ -208,5 +209,23 @@ DEF ball Solid {
   physics Physics {
     density -1
     mass 0.001
+  }
+}
+Solid {
+  translation 0 -0.1 0
+  rotation 1 0 0 -1.57
+  children [
+    CadShape {
+      url [
+        "../solvespace/floor.obj"
+      ]
+    }
+  ]
+  name "floor"
+  contactMaterial "metal"
+  boundingObject Mesh {
+    url [
+      "../solvespace/floor.obj"
+    ]
   }
 }
