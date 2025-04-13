@@ -1033,12 +1033,12 @@ while robot.step(TIME_STEP) != -1:  # 當機器人步進時間步長不等於 -1
 <p style="padding-left: 30px;"><span style="background-color: #ccffcc;">實作 #1：將之前的世界保存為 collision_avoidance.wbt。從文件/新建/新建機器人控制器菜單項中創建一個新的 C（或任何其他語言）控制器，命名為 epuck_avoid_collision（對於 C++ 和 Java，命名為 EPuckAvoidCollision）。修改 E-puck 節點的控制器字段以將其與新控制器關聯。</span></p>
 <p style="padding-left: 30px;"><span style="background-color: #ccffcc;">Hands on #1: Save the previous world as collision_avoidance.wbt. Create a new C (or any other language) controller called epuck_avoid_collision (for C++ and Java call it EPuckAvoidCollision instead) from the File / New / New Robot Controller... menu item. Modify the controller field of the E-puck node in order to associate it to the new controller.</span></p>
 <p>Reminder: How to create a new controller?<br/>Select the File / New / New Robot Controller... menu item and choose your programming language and the file name.</p>
-<p>了解 e-puck 模型<br/><br/>控制器編程需要一些與 e-puck 模型相關的信息。為了創建碰撞避免算法，我們需要讀取其炮塔周圍的8個紅外距離傳感器的值，並且我們需要驅動其兩個輪子。下圖展示了距離傳感器在炮塔周圍的分佈情況以及 e-puck 的方向。<br/><br/>距離傳感器在機器人層次結構中由 8 個 <a href="https://cyberbotics.com/doc/reference/distancesensor">DistanceSensor</a> 節點建模。這些節點通過它們的名稱字段進行引用（從 ps0 到 ps7）。我們將在稍後解釋這些節點是如何定義的。目前，只需注意可以通過 Webots API 的相關模塊訪問 DistanceSensor 節點（通過 webots/distance_sensor.h 包含文件）。距離傳感器返回的值在 0 到 4096 之間縮放（線性分段到距離）。4096 表示測量到大量光（障礙物很近），而 0 表示沒有測量到光（沒有障礙物）。<br/><br/>控制器 API 是一個編程接口，它使您能夠訪問機器人的模擬傳感器和執行器。例如，包含 webots/distance_sensor.h 文件允許使用 wb_distance_sensor_* 函數，通過這些函數可以查詢 DistanceSensor 節點的值。API 函數的文檔可以在<a href="https://cyberbotics.com/doc/reference/nodes-and-api-functions">參考手冊</a>中找到，並附有每個節點的描述。</p>
+<p>了解 e-puck 模型<br/><br/>控制器編程需要一些與 e-puck 模型相關的信息。為了創建碰撞檢測算法，我們需要讀取其炮塔周圍的 8 個紅外距離傳感器的值，並且我們需要驅動其兩個輪子。下圖展示了距離傳感器在炮塔周圍的分佈情況以及 e-puck 的方向。<br/><br/>距離傳感器在機器人層次結構中由 8 個 <a href="https://cyberbotics.com/doc/reference/distancesensor">DistanceSensor</a> 節點建模。這些節點通過它們的名稱字段進行引用（從 ps0 到 ps7）。我們將在稍後解釋這些節點是如何定義的。目前，只需注意可以通過 Webots API 的相關模塊訪問 DistanceSensor 節點（通過 webots/distance_sensor.h 標頭文件）。距離傳感器返回的值在 0 到 4096 之間縮放（線性分段到距離）。4096 表示測量到大量光（障礙物很近），而 0 表示沒有測量到光（沒有障礙物）。<br/><br/>控制器 API 是一個編程接口，它使您能夠訪問機器人的模擬傳感器和執行器。例如，包含 webots/distance_sensor.h 文件允許使用 wb_distance_sensor_* 函數，通過這些函數可以查詢 DistanceSensor 節點的值。API 函數的文檔可以在<a href="https://cyberbotics.com/doc/reference/nodes-and-api-functions">參考手冊</a>中找到，並附有每個節點的描述。</p>
 <p><img alt="" height="281" src="/images/tutorial_e-puck_top_view.thumbnail.jpg" width="300"/></p>
-<p>e-puck模型的頂視圖。綠色箭頭表示機器人的前方。紅色線條代表紅外距離傳感器的方向。字符串標籤對應於距離傳感器的名稱。</p>
+<p>e-puck 模型的上視圖。綠色箭頭表示機器人的前方。紅色線條代表紅外距離傳感器的方向。字符串標籤對應於距離傳感器的名稱。</p>
 <p><img alt="" height="181" src="/images/UML state machine of a simple feedback loop.png" width="600"/></p>
 <p>簡單回饋迴路的 UML 狀態機</p>
-<p>編寫控制器程序<br/><br/>我們想要編程一個非常簡單的碰撞避免行為。您將編程使機器人向前行駛，直到前方距離傳感器檢測到障礙物，然後轉向無障礙物的方向。為了做到這一點，我們將使用在圖中的UML狀態機中所示的簡單反饋迴路。<br/><br/>此控制器的完整代碼在下一小節中給出。</p>
+<p>編寫控制器程序<br/><br/>我們想要編程一個非常簡單的碰撞避免行為。您將編程使機器人向前行駛，直到前方距離傳感器檢測到障礙物，然後轉向無障礙物的方向。為了做到這一點，我們將使用在圖中的 UML 狀態機中所示的簡單反饋迴路。<br/><br/>此控制器的完整代碼在下一小節中給出。</p>
 <p style="padding-left: 30px;"><span style="background-color: #ccffcc;">動手操作 #2：在控制器文件的開頭，添加對應於 Robot、DistanceSensor 和 Motor 節點的導入指令，以便能夠使用相應的 API：</span><br/><br/><span style="background-color: #ccffcc;">from controller import Robot, DistanceSensor, Motor</span><br/><br/><span style="background-color: #ccffcc;">在導入語句之後，定義一個變量，用於定義每個物理步長的持續時間。這個宏將用作 Robot::step 函數的參數，它也將用於啟用設備。這個持續時間以毫秒為單位，必須是 WorldInfo 節點的 basicTimeStep 字段值的倍數。</span><br/><br/><span style="background-color: #ccffcc;">TIME_STEP = 64</span></p>
 <p>主函數是控制器程序開始執行的地方。傳遞給主函數的參數由 Robot 節點的 controllerArgs 字段給出。必須使用 wb_robot_init 函數初始化 Webots API，並使用 wb_robot_cleanup 函數清理它。</p>
 <p>動手操作 #3：在 Python 中沒有主函數，程序從文件的開始處開始執行：</p>
@@ -1152,8 +1152,7 @@ while robot.step(TIME_STEP) != -1:
     # write actuators inputs
     leftMotor.setVelocity(leftSpeed)
     rightMotor.setVelocity(rightSpeed)</pre>
-<p>解決方案：世界文件<br/><br/>要將您的世界與解決方案進行比較，請轉到您的文件並找到在教程1中創建的名為 my_first_simulation 的文件夾，然後轉到 worlds 文件夾並使用文本編輯器打開正確的世界。此解決方案與其他解決方案位於解決方案目錄中。<br/><br/>結論<br/><br/>以下是您剛剛學到的關鍵點的快速摘要：<br/><br/>- 控制器入口點是主函數，就像任何標準的 C 程序一樣。<br/>- 在調用 wb_robot_init 函數之前，不應調用任何 Webots API 函數。<br/>- 離開主函數之前要調用的最後一個函數是 wb_robot_cleanup 函數。<br/>- 設備由其設備節點的名稱字段引用。可以通過 wb_robot_get_device 函數檢索節點的引用。<br/>- 每個控制器程序都作為 Webots 進程的子進程執行。控制器進程不與 Webots 共享任何內存（除了相機的圖像），並且它可以在與 Webots 不同的 CPU（或 CPU 核心）上運行。<br/>- 控制器代碼鏈接到 libController 動態庫。該庫處理控制器與 Webots 之間的通信。<br/><br/>本節更詳細地解釋了控制器編程。您應該仔細閱讀以進一步了解在 Webots 中的機器人編程。</p>
-<h3>Tutorial5</h3>
+<p>解決方案：世界文件<br/><br/>要將您的世界與解決方案進行比較，請轉到您的文件並找到在 <a href="https://mde.tw/cd2025/content/Tutorial1.html">Tutorial1</a> 中創建的名為 my_first_simulation 的文件夾，然後轉到 worlds 文件夾並使用文本編輯器打開正確的世界。此解決方案與其他解決方案位於解決方案目錄中。<br/><br/>結論<br/><br/>以下是您剛剛學到的關鍵點的快速摘要：<br/><br/>- 控制器入口點是主函數，就像任何標準的 C 程序一樣。<br/>- 在調用 wb_robot_init 函數之前，不應調用任何 Webots API 函數。<br/>- 離開主函數之前要調用的最後一個函數是 wb_robot_cleanup 函數。<br/>- 設備由其設備節點的名稱字段引用。可以通過 wb_robot_get_device 函數檢索節點的引用。<br/>- 每個控制器程序都作為 Webots 進程的子進程執行。控制器進程不與 Webots 共享任何內存（除了相機的圖像），並且它可以在與 Webots 不同的 CPU（或 CPU 核心）上運行。<br/>- 控制器代碼鏈接到 libController 動態庫。該庫處理控制器與 Webots 之間的通信。<br/><br/>本節更詳細地解釋了控制器編程。您應該仔細閱讀以進一步了解在 Webots 中的機器人編程。</p><h3>Tutorial5</h3>
 <p>導引課程 5：複合固體和物理屬性</p>
 <p>本導引課程的目的是通過創建一個具有多個邊界對象的固體來更詳細地探索物理模擬：一個由兩個球體和一個圓柱體組成的啞鈴。預期結果如圖所示。</p>
 <p><img alt="" height="157" src="/images/tutorial_dumbbell.thumbnail.jpg" width="300"/></p>
@@ -1202,7 +1201,7 @@ while robot.step(TIME_STEP) != -1:
 <h2>Stage3</h2>
 <p><a href="https://mde.tw/cd2025/content/Tutorial6.html">Tutorial6</a> 是學習如何建立及控制行動機器人.</p>
 <p><a href="https://mde.tw/cd2025/content/Tutorial7.html">Tutorial7</a> 說明如何自行建立原型物件 (PROTO).</p>
-<p><a href="https://mde.tw/cd2025/content/Tutorial8.html">Tutorial8</a> 就自行開發投籃機模擬場景而言, 可在虛擬的模擬場景中, 利用隨意配置且非可實際配置的程式控制加速虛實產品的開發流程.</p><h3>Tutorial6</h3>
+<p><a href="https://mde.tw/cd2025/content/Tutorial8.html">Tutorial8</a> 就自行開發投籃機模擬場景而言, 可在虛擬的模擬場景中, 利用 supervisor 模式配置非可實際達成的程式控制加速虛實產品的開發流程.</p><h3>Tutorial6</h3>
 <h4 class="anchor-header" id="tutorial64wheeledrobot60minutes" name="tutorial-6-4-wheeled-robot-60-minutes">Tutorial 6: 4-Wheeled Robot</h4>
 <p>This tutorial aims at creating your first robot from scratch. The robot will consist of a body, four wheels, and two distance sensors. The result is depicted on <a class="dynamicAnchor" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#3d-view-of-the-4-wheels-robot-note-that-the-coordinate-system-representations-of-the-robot-body-and-of-its-wheels-are-oriented-the-same-way-their-px-vector-in-red-defines-the-left-of-the-robot-their-py-vector-in-green-defines-the-top-of-the-robot-and-their-pz-vector-in-blue-defines-the-front-of-the-robot-the-distance-sensors-are-oriented-in-a-different-way-their-px-vector-indicates-the-direction-of-the-sensor">this figure</a>. The <a class="dynamicAnchor" href="https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot#top-view-of-the-4-wheeled-robot-the-grid-behind-the-robot-has-a-dimension-of-0-2-x-0-3-meters-the-text-labels-correspond-to-the-name-of-the-device">next figure</a> shows the robot from a top view.</p>
 <p><img alt="" height="209" src="/images/tutorial_4_wheels_robot.thumbnail.jpg" width="300"/></p>
@@ -1669,6 +1668,7 @@ while robot.step(TIME_STEP) != -1:
 <li>Spawning a robot or an object can be achieved by defining it as an<span> </span><code>IMPORTABLE EXTERNPROTO</code><span> </span>and using the<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python#wb_supervisor_field_import_mf_node_from_string">wb_supervisor_field_import_mf_node_from_string</a><span> </span>API function.</li>
 </ol>
 <h2>Basketball</h2>
+<p><a href="/downloads/basketball_game_demo.7z">basketball_game_demo.7z</a></p>
 <p>籃球遊戲場景的設置與得分感測</p>
 <p>basketball.wbt</p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">#VRML_SIM R2023b utf8
@@ -2070,8 +2070,7 @@ while supervisor.step(timestep) != -1:
 <p class="" data-end="65" data-start="0" style="padding-left: 30px;">本手冊包含了 Webots 中使用的 ".wbt" 世界描述語言的節點和欄位規範。它還規範了從控制器程序操作這些節點所使用的功能。</p>
 <p class="" data-end="231" data-start="67" style="padding-left: 30px;">Webots 節點和 API 是開放規範，可以自由重複使用，無需 Cyberbotics 授權。Webots API 可以自由移植並適應於任何機器人平台，使用遠端控制和/或交叉編譯框架。Cyberbotics 提供支持，幫助開發者在實際機器人上實現 Webots API。這將有助於機器人社群，提升不同機器人應用之間的互操作性。</p>
 <p class="" data-end="231" data-start="67" style="padding-left: 30px;">節點與函式: <a href="https://www.cyberbotics.com/doc/reference/nodes-and-functions">https://www.cyberbotics.com/doc/reference/nodes-and-functions</a></p>
-<p style="padding-left: 30px;"><a href="https://cyberbotics.com/doc/reference/contactproperties">https://cyberbotics.com/doc/reference/contactproperties</a></p>
-<h1>Homework</h1>
+<p style="padding-left: 30px;"><a href="https://cyberbotics.com/doc/reference/contactproperties">https://cyberbotics.com/doc/reference/contactproperties</a></p><h1>Homework</h1>
 <p>作業 (30%)</p>
 <p>HW1 (5%): <span style="background-color: #ffff00;">建立由 Box 組成的平面四連桿機構 Webots 模擬場景</span></p>
 <p style="padding-left: 30px;">part1:</p>
