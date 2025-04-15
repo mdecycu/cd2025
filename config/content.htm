@@ -2070,7 +2070,16 @@ while supervisor.step(timestep) != -1:
 <p class="" data-end="65" data-start="0" style="padding-left: 30px;">本手冊包含了 Webots 中使用的 ".wbt" 世界描述語言的節點和欄位規範。它還規範了從控制器程序操作這些節點所使用的功能。</p>
 <p class="" data-end="231" data-start="67" style="padding-left: 30px;">Webots 節點和 API 是開放規範，可以自由重複使用，無需 Cyberbotics 授權。Webots API 可以自由移植並適應於任何機器人平台，使用遠端控制和/或交叉編譯框架。Cyberbotics 提供支持，幫助開發者在實際機器人上實現 Webots API。這將有助於機器人社群，提升不同機器人應用之間的互操作性。</p>
 <p class="" data-end="231" data-start="67" style="padding-left: 30px;">節點與函式: <a href="https://www.cyberbotics.com/doc/reference/nodes-and-functions">https://www.cyberbotics.com/doc/reference/nodes-and-functions</a></p>
-<p style="padding-left: 30px;"><a href="https://cyberbotics.com/doc/reference/contactproperties">https://cyberbotics.com/doc/reference/contactproperties</a></p><h1>Homework</h1>
+<p style="padding-left: 30px;"><a href="https://cyberbotics.com/doc/reference/contactproperties">https://cyberbotics.com/doc/reference/contactproperties</a></p>
+<h3>counter</h3>
+<p>Webots 啟動時，同時啟動串流伺服器指令: webotsw --stream</p>
+<p>內建埠號為 1234，由於採用 WebGL2 進行網頁著色，因此在 Windows 環境中使用 Edge 連線至 <a href="http://localhost:1234">http://localhost:1234</a> 或 <a href="http://stream_server_ip:1234">http://stream_server_ip:1234</a> 將會較為順暢.</p>
+<p>至於希望利用 display 展示投籃成績的方法，僅能在近端 Webots 套件中檢視，因此若要讓記分板或計時器能在串流瀏覽器中展示，必須採用 7 段顯示器設置，並利用 supervisor 模式進行操控.</p>
+<p>利用 Solvespace 繪製的 7 段顯示器零組件檔案: <a href="/downloads/score_counter.7z">score_counter.7z</a></p>
+<p>若要在 Webots 中利用變顏色的 .obj 零件顯示數字, 可以透過 Solid - Shape - Mesh 然後將 url 指向 7 段顯示器中的 a ~ g 零件, 並且利用 controller 改變各零件的顏色.</p>
+<p>利用 r, b, y, g 按鍵改變 7 段顯示器中的 f 零件示範場景: <a href="/downloads/7_segment_display.7z">7_segment_display.7z</a>, 執行結果如下:</p>
+<p><img alt="" height="328" src="/images/solid_shape_mesh_color_changed.gif" width="400"/></p>
+<p></p><h1>Homework</h1>
 <p>作業 (30%)</p>
 <p>HW1 (5%): <span style="background-color: #ffff00;">建立由 Box 組成的平面四連桿機構 Webots 模擬場景</span></p>
 <p style="padding-left: 30px;">part1:</p>
