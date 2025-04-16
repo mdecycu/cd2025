@@ -7,8 +7,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.2559360666690542 0.2667591696244143 0.9291589073991953 1.6152704015741943
-  position -0.083187817862941 -2.5228955059786897 1.5527854479032577
+  orientation -0.5623984303897632 0.5699088606744341 0.599092560477844 2.0560327851975027
+  position -0.017502019275354563 -0.7175771829175285 4.168618078631734
 }
 TexturedBackground {
 }
@@ -22,7 +22,23 @@ Robot {
     Transform {
       children [
         DEF sevent_segment Pose {
+          translation 0.22 0.22 0
           children [
+            Pose {
+              translation -0.22 0.31 0
+              children [
+                DEF background Shape {
+                  appearance Appearance {
+                    material Material {
+                      diffuseColor 0 0 0
+                    }
+                  }
+                  geometry Box {
+                    size 1.3 0.8 0.02
+                  }
+                }
+              ]
+            }
             DEF first Group {
               children [
                 DEF A1 Shape {
@@ -112,7 +128,7 @@ Robot {
               ]
             }
             DEF second Pose {
-              translation -0.33 0 0
+              translation -0.4 0 0
               children [
                 DEF second Group {
                   children [
@@ -205,7 +221,7 @@ Robot {
               ]
             }
             DEF third Pose {
-              translation -0.66 0 0
+              translation -0.8 0 0
               children [
                 DEF third Group {
                   children [
