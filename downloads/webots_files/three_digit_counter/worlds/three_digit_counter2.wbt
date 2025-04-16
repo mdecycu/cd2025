@@ -28,6 +28,7 @@ Robot {
                 DEF A1 Shape {
                   appearance Appearance {
                     material DEF a1 Material {
+                      diffuseColor 0 1 0
                     }
                   }
                   geometry Mesh {
@@ -39,6 +40,7 @@ Robot {
                 DEF B1 Shape {
                   appearance Appearance {
                     material DEF b1 Material {
+                      diffuseColor 0 1 0
                     }
                   }
                   geometry Mesh {
@@ -50,6 +52,7 @@ Robot {
                 DEF C1 Shape {
                   appearance Appearance {
                     material DEF c1 Material {
+                      diffuseColor 0 1 0
                     }
                   }
                   geometry Mesh {
@@ -61,6 +64,7 @@ Robot {
                 DEF D1 Shape {
                   appearance Appearance {
                     material DEF d1 Material {
+                      diffuseColor 0 1 0
                     }
                   }
                   geometry Mesh {
@@ -72,6 +76,7 @@ Robot {
                 DEF E1 Shape {
                   appearance Appearance {
                     material DEF e1 Material {
+                      diffuseColor 0 0 0
                     }
                   }
                   geometry Mesh {
@@ -83,7 +88,7 @@ Robot {
                 DEF F1 Shape {
                   appearance Appearance {
                     material DEF f1 Material {
-                      diffuseColor 0 0 1
+                      diffuseColor 0 0 0
                     }
                   }
                   geometry Mesh {
@@ -95,6 +100,7 @@ Robot {
                 DEF G1 Shape {
                   appearance Appearance {
                     material DEF g1 Material {
+                      diffuseColor 0 1 0
                     }
                   }
                   geometry Mesh {
@@ -113,6 +119,7 @@ Robot {
                     DEF A2 Shape {
                       appearance Appearance {
                         material DEF a2 Material {
+                          diffuseColor 0 1 0
                         }
                       }
                       geometry Mesh {
@@ -124,6 +131,7 @@ Robot {
                     DEF B2 Shape {
                       appearance Appearance {
                         material DEF b2 Material {
+                          diffuseColor 0 1 0
                         }
                       }
                       geometry Mesh {
@@ -135,6 +143,7 @@ Robot {
                     DEF C2 Shape {
                       appearance Appearance {
                         material DEF c2 Material {
+                          diffuseColor 0 0 0
                         }
                       }
                       geometry Mesh {
@@ -146,6 +155,7 @@ Robot {
                     DEF D2 Shape {
                       appearance Appearance {
                         material DEF d2 Material {
+                          diffuseColor 0 1 0
                         }
                       }
                       geometry Mesh {
@@ -157,6 +167,7 @@ Robot {
                     DEF E2 Shape {
                       appearance Appearance {
                         material DEF e2 Material {
+                          diffuseColor 0 1 0
                         }
                       }
                       geometry Mesh {
@@ -168,7 +179,7 @@ Robot {
                     DEF F2 Shape {
                       appearance Appearance {
                         material DEF f2 Material {
-                          diffuseColor 1 0 0
+                          diffuseColor 0 0 0
                         }
                       }
                       geometry Mesh {
@@ -180,6 +191,7 @@ Robot {
                     DEF G2 Shape {
                       appearance Appearance {
                         material DEF g2 Material {
+                          diffuseColor 0 1 0
                         }
                       }
                       geometry Mesh {
@@ -200,6 +212,7 @@ Robot {
                     DEF A3 Shape {
                       appearance Appearance {
                         material DEF a3 Material {
+                          diffuseColor 0 0 0
                         }
                       }
                       geometry Mesh {
@@ -211,6 +224,7 @@ Robot {
                     DEF B3 Shape {
                       appearance Appearance {
                         material DEF b3 Material {
+                          diffuseColor 0 1 0
                         }
                       }
                       geometry Mesh {
@@ -222,6 +236,7 @@ Robot {
                     DEF C3 Shape {
                       appearance Appearance {
                         material DEF c3 Material {
+                          diffuseColor 0 1 0
                         }
                       }
                       geometry Mesh {
@@ -233,6 +248,7 @@ Robot {
                     DEF D3 Shape {
                       appearance Appearance {
                         material DEF d3 Material {
+                          diffuseColor 0 0 0
                         }
                       }
                       geometry Mesh {
@@ -244,6 +260,7 @@ Robot {
                     DEF E3 Shape {
                       appearance Appearance {
                         material DEF e3 Material {
+                          diffuseColor 0 0 0
                         }
                       }
                       geometry Mesh {
@@ -255,7 +272,7 @@ Robot {
                     DEF F3 Shape {
                       appearance Appearance {
                         material DEF f3 Material {
-                          diffuseColor 1 1 0
+                          diffuseColor 0 0 0
                         }
                       }
                       geometry Mesh {
@@ -267,6 +284,7 @@ Robot {
                     DEF G3 Shape {
                       appearance Appearance {
                         material DEF g3 Material {
+                          diffuseColor 0 0 0
                         }
                       }
                       geometry Mesh {
@@ -284,6 +302,6 @@ Robot {
       ]
     }
   ]
-  controller "my_controller"
+  controller "seven_segment"
   supervisor TRUE
 }
