@@ -1366,20 +1366,19 @@ while robot.step(TIME_STEP) != -1:
 <p><strong>Hands-on #1</strong>: Open the world<span> </span><code>4_wheels_robot.wbt</code><span> </span>created in the previous tutorial in your favorite text editor. Create a new empty text file in the<span> </span><code>protos</code><span> </span>folder of your project called<span> </span><code>FourWheelsRobot.proto</code><span> </span>and open this file in the text editor too, this file will contain the definition of your robot.</p>
 </blockquote>
 <p>Any PROTO file should at least respect the following structure:</p>
-<pre><code>#VRML_SIM R2025a utf8
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">#VRML_SIM R2025a utf8
 PROTO protoName [
   protoFields
 ]
 {
   protoBody
-}
-</code></pre>
+}</pre>
 <p>The<span> </span><code>protoName</code><span> </span>should be the name of the PROTO file (i.e.<span> </span><code>FourWheelsRobot</code><span> </span>in this case),<span> </span><code>protoFields</code><span> </span>defines the modifiable fields of the PROTO node (this part should be empty for now) and the<span> </span><code>protoBody</code><span> </span>is the definition of the root node (i.e. the<span> </span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a><span> </span>node in this case).</p>
 <blockquote>
 <p><strong>Hands-on #2</strong>: Write this default structure in your PROTO file with the correct<span> </span><code>protoName</code>. From the<span> </span><code>4_wheels_robot.wbt</code><span> </span>world file copy the robot node (starting with<span> </span><code>Robot {</code><span> </span>and ending with the final<span> </span><code>}</code>) and paste it in your PROTO file instead of the<span> </span><code>protoBody</code>. Finally, save the PROTO file.</p>
 </blockquote>
 <p><strong>Solution</strong>: You should have something like this:</p>
-<pre><code>  #VRML_SIM R2025a utf8
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">#VRML_SIM R2025a utf8
   PROTO FourWheelsRobot [
 
   ]
@@ -1387,9 +1386,8 @@ PROTO protoName [
     Robot {
       # list of fields
     }
-  }
-</code></pre>
-<h4 class="anchor-header" id="usetheprotonode" name="use-the-proto-node"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-7-your-first-proto?tab-language=python#use-the-proto-node"><span class="anchor-link-image"></span></a>Use the PROTO Node.</h4>
+  }</pre>
+<h4>Use the PROTO Node.</h4>
 <p>This new PROTO node is now available for each world in your current project.</p>
 <p><img alt="" height="157" src="/images/tutorial7_proto.thumbnail.jpg" width="300"/></p>
 <blockquote>
@@ -1442,8 +1440,7 @@ PROTO FourWheelsRobot [
 <h4 class="anchor-header" id="conclusion" name="conclusion"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-7-your-first-proto?tab-language=python#conclusion"><span class="anchor-link-image"></span></a>Conclusion</h4>
 <p>You are now able to create PROTO nodes from any nodes you created in Webots.</p>
 <p>More specifically, you learnt how to copy the node definition in the PROTO file and how to open and link PROTO fields to internal node fields.</p>
-<p>To go further, the<span> </span><a href="https://cyberbotics.com/doc/reference/proto?tab-language=python">PROTO chapter</a><span> </span>of the reference manual explains in detail all the possibilities of the PROTO mechanism.</p>
-<h3>Tutorial8</h3>
+<p>To go further, the<span> </span><a href="https://cyberbotics.com/doc/reference/proto?tab-language=python">PROTO chapter</a><span> </span>of the reference manual explains in detail all the possibilities of the PROTO mechanism.</p><h3>Tutorial8</h3>
 <h4 class="anchor-header" id="tutorial8thesupervisor30minutes" name="tutorial-8-the-supervisor-30-minutes">Tutorial 8: The Supervisor</h4>
 <p>A<span> </span><a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a><span> </span>oversees a world and can set or get information about it. This tutorial will teach you:</p>
 <ul>
@@ -2079,6 +2076,7 @@ while supervisor.step(timestep) != -1:
 <p>若要在 Webots 中利用變顏色的 .obj 零件顯示數字, 可以透過 Solid - Shape - Mesh 然後將 url 指向 7 段顯示器中的 a ~ g 零件, 並且利用 controller 改變各零件的顏色.</p>
 <p>利用 r, b, y, g 按鍵改變 7 段顯示器中的 f 零件示範場景: <a href="/downloads/7_segment_display.7z">7_segment_display.7z</a>, 執行結果如下:</p>
 <p><img alt="" height="328" src="/images/solid_shape_mesh_color_changed.gif" width="400"/></p>
+<p><a href="/downloads/three_digit_counter.7z">three_digit_counter.7z</a></p>
 <p></p><h1>Homework</h1>
 <p>作業 (30%)</p>
 <p>HW1 (5%): <span style="background-color: #ffff00;">建立由 Box 組成的平面四連桿機構 Webots 模擬場景</span></p>
