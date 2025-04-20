@@ -14,6 +14,7 @@
 <p style="padding-left: 30px;"><span>備註: </span><span>請更新上列 portable_wcm2025.7z 中的 wscite 為 5.5.5 版 (</span><a href="http://229.cycu.org/wscite_5.5.5.7z">wscite_5.5.5.7z</a><span>, 解開壓縮檔案後取代 5.5.4 版的 wscite 目錄)</span></p>
 <p style="padding-left: 30px;"><a href="http://229.cycu.org/Webots_2025a.7z">Webots_2025a.7z</a> (1.5 GB, 解開後約為 2.9GB, 可單獨運作)</p>
 <p style="padding-left: 30px;"><a href="http://229.cycu.org/Webots_2025a_web.7z">Webots_2025a_web.7z</a> (171 MB, 解開壓縮後約為 1GB, 必須連網運作)</p>
+<p style="padding-left: 30px;">備註: 已知 Webots 2025a 有不少 bugs, 其中包括操作過程閃退以及無法使用 Transform 節點, 因此可以換為 <a href="http://229.cycu.org/Webots_2023b.7z">Webots_2023b.7z</a> 版.</p>
 <p style="padding-left: 30px;"><a href="http://229.cycu.org/Blender4.2.7z">Blender4.2.7z</a></p>
 <p>Teams 線上教學:</p>
 <p style="padding-left: 30px;">以 "學號@nfu.edu.tw" 登入<span> </span><a href="https://login.microsoftonline.com/">https://login.microsoftonline.com/</a><span> </span>Office 365</p>
@@ -39,8 +40,7 @@
 <p>2a 上課時段: 每週五下午 13:20 - 17:10 (w2(228)、w7(春假)、w15(端午) 放假)</p>
 <p>2b 上課時段: 每週二上午 08:10 - 12:00</p>
 <p><a href="https://calendar.google.com/calendar/embed?src=mde.nfu.edu.tw_3439313938333136353439%40resource.calendar.google.com&amp;ctz=Asia%2FTaipei&amp;mode=week&amp;src=mde.nfu.edu.tw_35303530373431313438%40resource.calendar.google.com&amp;ctz=Asia%2FTaipei&amp;src=yen%40gm.nfu.edu.tw&amp;ctz=Asia%2FTaipei"> 全頁檢視 </a></p>
-<p><iframe height="600" src="https://calendar.google.com/calendar/embed?src=mde.nfu.edu.tw_3439313938333136353439%40resource.calendar.google.com&amp;ctz=Asia%2FTaipei&amp;mode=week&amp;src=mde.nfu.edu.tw_35303530373431313438%40resource.calendar.google.com&amp;ctz=Asia%2FTaipei&amp;src=yen%40gm.nfu.edu.tw&amp;ctz=Asia%2FTaipei" width="800"></iframe></p>
-<h2>Summary</h2>
+<p><iframe height="600" src="https://calendar.google.com/calendar/embed?src=mde.nfu.edu.tw_3439313938333136353439%40resource.calendar.google.com&amp;ctz=Asia%2FTaipei&amp;mode=week&amp;src=mde.nfu.edu.tw_35303530373431313438%40resource.calendar.google.com&amp;ctz=Asia%2FTaipei&amp;src=yen%40gm.nfu.edu.tw&amp;ctz=Asia%2FTaipei" width="800"></iframe></p><h2>Summary</h2>
 <p><object data="/images/cd2025.svg" height="1395" type="image/svg+xml" width="1534"></object></p>
 <p><a href="https://mde.tw/mind-map/#/?fileURL=https%3A%2F%2Fmde.tw%2Fcd2025%2Fdownloads%2Fcd2025.smm">Edit cd2025.smm</a></p>
 <h2>Product</h2>
@@ -1411,7 +1411,7 @@ PROTO protoName [
 <pre><code>  mass IS bodyMass
 </code></pre>
 <p>Save your PROTO file, it should now look like this:</p>
-<pre><code>#VRML_SIM R2025a utf8
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">#VRML_SIM R2025a utf8
 PROTO FourWheelsRobot [
   field SFVec3f    translation  0 0 0
   field SFRotation rotation     0 0 1 0
@@ -1431,8 +1431,7 @@ PROTO FourWheelsRobot [
     }
     controller "four_wheels_collision_avoidance"
   }
-}
-</code></pre>
+}</pre>
 <p>You can now save your simulation in Webots and revert it. The<span> </span><code>translation</code>,<span> </span><code>rotation</code><span> </span>and<span> </span><code>bodyMass</code><span> </span>of the<span> </span><code>FourWheelsRobot</code><span> </span>node can now be changed (either in the<span> </span><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/the-scene-tree?tab-language=python">scene tree</a><span> </span>or using the handles in the<span> </span><a class="dynamicLoad" href="https://cyberbotics.com/doc/guide/the-3d-window?tab-language=python">3D view</a>).</p>
 <p>The same mechanism could also be used to expose the<span> </span><code>controller</code><span> </span>field of the<span> </span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a><span> </span>node.</p>
 <h4 class="anchor-header" id="solutionprotofile" name="solution-proto-file"><a class="anchor-link" href="https://cyberbotics.com/doc/guide/tutorial-7-your-first-proto?tab-language=python#solution-proto-file"><span class="anchor-link-image"></span></a>Solution: PROTO File</h4>
@@ -2077,7 +2076,115 @@ while supervisor.step(timestep) != -1:
 <p>利用 r, b, y, g 按鍵改變 7 段顯示器中的 f 零件示範場景: <a href="/downloads/7_segment_display.7z">7_segment_display.7z</a>, 執行結果如下:</p>
 <p><img alt="" height="328" src="/images/solid_shape_mesh_color_changed.gif" width="400"/></p>
 <p><a href="/downloads/three_digit_counter.7z">three_digit_counter.7z</a></p>
-<p></p><h1>Homework</h1>
+<p>由外部 Python 程式的執行控制 Webots 場景:</p>
+<ol>
+<li>場景 Robot 的 Controller 欄位設為 extern</li>
+<li>可攜程式環境的 PYTHONPATH 環境變數必須納入 Webots 中的 Python 程式庫: set PYTHONPATH=%Disk%:\Python313\DLLs;%Disk%:\Python313\Lib;%Disk%:\Python313\Lib\site-packages;%Disk%:\Webots_2025a\msys64\mingw64\bin;%Disk%:\Webots_2025a\lib\controller\python;</li>
+<li>可攜系統的 PYTHON_PATH 必須指向所使用的 Python 版本目錄: set PYTHON_PATH=%Disk%:\Python313</li>
+<li>可攜系統的 WEBOTS_HOME 必須指令 Webots 所在目錄: set WEBOTS_HOME=%Disk%:\Webots_2025a</li>
+</ol>
+<p>原生的 Webots Controller 若根據上述說明, 由外部的 Python 程式控制後, 再經由程式啟動模擬, 應該可以透過 Websocket 設置 Webots 應用程式所在電腦作為 Server, 與網路上的另一台 Client 程式進行互動.</p>
+<p>以下先測試由外部程式啟動模擬並進行倒數 999 秒:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Supervisor
+
+class SevenSegmentController:
+    def __init__(self, supervisor, color_on, color_off):
+        self.supervisor = supervisor
+
+        # Define the segments for each digit
+        self.digit_segments = [
+            [f"a1", f"b1", f"c1", f"d1", f"e1", f"f1", f"g1"],  # Units
+            [f"a2", f"b2", f"c2", f"d2", f"e2", f"f2", f"g2"],  # Tens
+            [f"a3", f"b3", f"c3", f"d3", f"e3", f"f3", f"g3"]   # Hundreds
+        ]
+
+        # Segment patterns for digits 0-9
+        self.segment_patterns = {
+            0: [1, 1, 1, 1, 1, 1, 0],
+            1: [0, 1, 1, 0, 0, 0, 0],
+            2: [1, 1, 0, 1, 1, 0, 1],
+            3: [1, 1, 1, 1, 0, 0, 1],
+            4: [0, 1, 1, 0, 0, 1, 1],
+            5: [1, 0, 1, 1, 0, 1, 1],
+            6: [1, 0, 1, 1, 1, 1, 1],
+            7: [1, 1, 1, 0, 0, 0, 0],
+            8: [1, 1, 1, 1, 1, 1, 1],
+            9: [1, 1, 1, 1, 0, 1, 1]
+        }
+
+        # Colors for on and off states
+        self.color_on = color_on  # Bright green
+        self.color_off = color_off  # Black
+
+        # Retrieve material nodes for each segment
+        self.segment_nodes = []
+        for digit in self.digit_segments:
+            digit_nodes = []
+            for segment in digit:
+                node = self.supervisor.getFromDef(segment)
+                if node is None:
+                    print(f"Error: Node with DEF name '{segment}' not found!")
+                    exit()
+                digit_nodes.append(node.getField("diffuseColor"))
+            self.segment_nodes.append(digit_nodes)
+
+    def set_digit(self, digit_index, value):
+        """Set the digit at the given index (0 for units, 1 for tens, 2 for hundreds) to the given value (0-9)."""
+        pattern = self.segment_patterns[value]
+        for i, state in enumerate(pattern):
+            color = self.color_on if state else self.color_off
+            self.segment_nodes[digit_index][i].setSFVec3f(color)
+
+    def display_number(self, number):
+        """Display a number (0-999) using the three 7-segment displays."""
+        if not (0 &lt;= number &lt;= 999):
+            print("Error: Number out of range (must be 0-999)")
+            return
+
+        # Break the number into hundreds, tens, and units
+        hundreds = number // 100
+        tens = (number % 100) // 10
+        units = number % 10
+
+        # Update the displays
+        self.set_digit(2, hundreds)
+        self.set_digit(1, tens)
+        self.set_digit(0, units)
+
+
+# Main program
+if __name__ == "__main__":
+    # Create a Supervisor instance
+    supervisor = Supervisor()
+
+    # 設定模擬模式為實時啟動
+    supervisor.simulationSetMode(Supervisor.SIMULATION_MODE_REAL_TIME)
+
+
+    # Define colors
+    color_on = [0.0, 1.0, 0.0]  # Bright green
+    color_off = [0.0, 0.0, 0.0]  # Black
+
+    # Create an instance of the SevenSegmentController
+    controller = SevenSegmentController(supervisor, color_on, color_off)
+
+    # Run the simulation loop
+    timestep = int(supervisor.getBasicTimeStep())
+    timer = 999  # Start countdown from 999
+
+    while supervisor.step(timestep) != -1:
+        if timer &gt;= 0:  # Continue counting down until 0
+            controller.display_number(timer)
+            timer -= 1  # Decrement the timer
+        supervisor.step(1000)  # Wait for 1 second in simulation time</pre>
+<p>其中由程式啟動模擬的程式段為:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># Create a Supervisor instance
+supervisor = Supervisor()
+
+# 設定模擬模式為實時啟動
+supervisor.simulationSetMode(Supervisor.SIMULATION_MODE_REAL_TIME)</pre>
+<p>範例如下: <a href="/downloads/three_digit_counter_w9.7z">three_digit_counter_w9.7z</a></p>
+<h3>Youbot_cart</h3><h1>Homework</h1>
 <p>作業 (30%)</p>
 <p>HW1 (5%): <span style="background-color: #ffff00;">建立由 Box 組成的平面四連桿機構 Webots 模擬場景</span></p>
 <p style="padding-left: 30px;">part1:</p>
