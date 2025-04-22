@@ -145,7 +145,20 @@ img.add_border {
     <div id="tipue_search_content">Fourbar << <a href='Fourbar.html'>Previous</a> <a href='Stage1.html'>Next</a> >> Stage1<br /><h1>w10</h1>
 <p><a href="./../downloads/w10_2b_hw1_hw2_demo.7z">w10_2b_hw1_hw2_demo.7z</a></p>
 <p>以下模擬將 joint4 定在 link3 末端, 然後透過 SolidReference 指定為 &lt;static environment&gt;, 表示此 joint4 必須固定在地面.</p>
-<p><img alt="" height="326" src="./../images/w10_2b_joint4_on_link3.png" width="400"/></p><br />Fourbar << <a href='Fourbar.html'>Previous</a> <a href='Stage1.html'>Next</a> >> Stage1</div>
+<p>與 <a href="./../downloads/fourbar_slvs.7z">fourbar_slvs.7z</a> 在引用 obj 格式零件上的差異在於: 使用 Solid - Shape - Mesh 節點導入的 CAD 繪製零件, 無需如 Solid - CadShape 必須透過 .mtl 修改導入零件的顏色, Shape 節點可以直接置入 Material 欄位, 透過 diffuseColor 改變零件顏色.</p>
+<p><img alt="" height="326" src="./../images/w10_2b_joint4_on_link3.png" width="400"/></p>
+<p>有關 CadShape:</p>
+<p>The <a class="dynamicAnchor" href="https://cyberbotics.com/doc/reference/cadshape#cadshape">CadShape</a> node renders a Collada (.dae) or Wavefront (.obj) object imported from an external file. <span style="background-color: #ccffcc;">Both Collada and Wavefront files can include 3D geometries and appearances, be it materials or references to external textures, therefore the <a class="dynamicAnchor" href="https://cyberbotics.com/doc/reference/cadshape#cadshape" style="background-color: #ccffcc;">CadShape</a> node builds both</span>. If the file references external textures, these should be placed relative to the collada/wavefront file itself as indicated (i.e., in the location expressed within the .dae/.obj file), no additional search is performed for these textures.</p>
+<p>假如希望導入的零件使用外部的材質檔案進行調控, 可以使用 CadShape 節點, 以 .dae 或 .obj 導入.</p>
+<p>有關 Mesh:</p>
+<p>The <a class="dynamicAnchor" href="https://cyberbotics.com/doc/reference/mesh#mesh">Mesh</a> node represents a 3D shape imported from an external file created by a 3D modeling software. <span style="background-color: #ccffcc;">The <a class="dynamicAnchor" href="https://cyberbotics.com/doc/reference/mesh#mesh" style="background-color: #ccffcc;">Mesh</a> node can be used either as a graphical or as a collision detection primitive (in a boundingObject)</span>. Currently, the following formats are supported:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/COLLADA" target="_blank">Collada</a> files (.dae).</li>
+<li><a href="https://en.wikipedia.org/wiki/STL_(file_format)" target="_blank">STL</a> files (.stl).</li>
+<li><a href="https://wiki.fileformat.com/3d/obj" target="_blank">Wavefront</a> files (.obj).</li>
+</ul>
+<p>If the file contains more than one mesh, the meshes will be merged into a single one.</p>
+<p>Mesh 可以接受 .dae、stl 或 .obj 檔案格式零件, 且可用於零件外形與碰撞檢測用 (CadShape 節點則只能用於零件外形展示, 而不能用於碰撞檢測).</p><br />Fourbar << <a href='Fourbar.html'>Previous</a> <a href='Stage1.html'>Next</a> >> Stage1</div>
         
     <!-- footer -->
       <div class="container">
