@@ -30,7 +30,7 @@
 <p style="padding-left: 60px;">HW3 (20%): 建立 Webots 桌上籃球遊戲機模擬系統</p>
 <p style="padding-left: 30px;">Exam (40%) - 建立包含操作流程影片、心得以及提供檔案下載的網頁後填回自評表單</p>
 <p style="padding-left: 60px;">Exam1 (10%): 建立 Webots 基本物件模擬場景</p>
-<p style="padding-left: 60px;">Exam2 (10%: 利用 CAD 零組件建立模擬場景</p>
+<p style="padding-left: 60px;">Exam2 (10%): 利用 CAD 零組件建立模擬場景</p>
 <p style="padding-left: 60px;">Exam3 (20%): Webots 機電模擬場景的協同設計</p>
 <p style="padding-left: 30px;">Final Report (30%) - 利用網頁內容進行簡報並提交 pdf 格式書面報告, 完成後填回自評表單</p>
 <p style="padding-left: 60px;">題目: Webots 動態投籃模擬系統的協同設計</p>
@@ -935,7 +935,19 @@ DEF FOURBAR Robot {
 <p><a href="/downloads/w10_2b_hw1_hw2_demo.7z">w10_2b_hw1_hw2_demo.7z</a></p>
 <p>以下模擬將 joint4 定在 link3 末端, 然後透過 SolidReference 指定為 &lt;static environment&gt;, 表示此 joint4 必須固定在地面.</p>
 <p>與 <a href="/downloads/fourbar_slvs.7z">fourbar_slvs.7z</a> 在引用 obj 格式零件上的差異在於: 使用 Solid - Shape - Mesh 節點導入的 CAD 繪製零件, 無需如 Solid - CadShape 必須透過 .mtl 修改導入零件的顏色, Shape 節點可以直接置入 Material 欄位, 透過 diffuseColor 改變零件顏色.</p>
-<p><img alt="" height="326" src="/images/w10_2b_joint4_on_link3.png" width="400"/></p><h2>Stage1</h2>
+<p><img alt="" height="326" src="/images/w10_2b_joint4_on_link3.png" width="400"/></p>
+<p>有關 CadShape:</p>
+<p>The <a class="dynamicAnchor" href="https://cyberbotics.com/doc/reference/cadshape#cadshape">CadShape</a> node renders a Collada (.dae) or Wavefront (.obj) object imported from an external file. <span style="background-color: #ccffcc;">Both Collada and Wavefront files can include 3D geometries and appearances, be it materials or references to external textures, therefore the <a class="dynamicAnchor" href="https://cyberbotics.com/doc/reference/cadshape#cadshape" style="background-color: #ccffcc;">CadShape</a> node builds both</span>. If the file references external textures, these should be placed relative to the collada/wavefront file itself as indicated (i.e., in the location expressed within the .dae/.obj file), no additional search is performed for these textures.</p>
+<p>假如希望導入的零件使用外部的材質檔案進行調控, 可以使用 CadShape 節點, 以 .dae 或 .obj 導入.</p>
+<p>有關 Mesh:</p>
+<p>The <a class="dynamicAnchor" href="https://cyberbotics.com/doc/reference/mesh#mesh">Mesh</a> node represents a 3D shape imported from an external file created by a 3D modeling software. <span style="background-color: #ccffcc;">The <a class="dynamicAnchor" href="https://cyberbotics.com/doc/reference/mesh#mesh" style="background-color: #ccffcc;">Mesh</a> node can be used either as a graphical or as a collision detection primitive (in a boundingObject)</span>. Currently, the following formats are supported:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/COLLADA" target="_blank">Collada</a> files (.dae).</li>
+<li><a href="https://en.wikipedia.org/wiki/STL_(file_format)" target="_blank">STL</a> files (.stl).</li>
+<li><a href="https://wiki.fileformat.com/3d/obj" target="_blank">Wavefront</a> files (.obj).</li>
+</ul>
+<p>If the file contains more than one mesh, the meshes will be merged into a single one.</p>
+<p>Mesh 可以接受 .dae、stl 或 .obj 檔案格式零件, 且可用於零件外形與碰撞檢測用 (CadShape 節點則只能用於零件外形展示, 而不能用於碰撞檢測).</p><h2>Stage1</h2>
 <p>學習利用 Webots 建立模擬場景的第一階段工作, 是認識其套件功能表與場景所需的目錄及檔案架構. 並且學習如何利用控制器程式操縱場景中的物件. 這也是 <a href="https://mde.tw/cd2025/content/Tutorial1.html">Tutorial1</a> 操作的主要目的.</p>
 <p><a href="https://mde.tw/cd2025/content/Tutorial2.html">Tutorial2</a> 則說明如何使用 Webots 內建的標準幾何物件, 其中的物件幾何外形除了用於動力系統的運動方程式, 還可用於物體移動時的碰撞檢測. 建立物件時必須遵照 Solid - Shape - physics 的樹狀結構規劃, 按照順序配置物件.</p><h3>Tutorial1</h3>
 <p>導引課程<br/><br/>本章的目的是解說 Webots 的基本概念，這些概念是自行創建模擬場景 (.wbt) 時必須用到的。學習重點在於機器人及其環境的模型建構，以及機器人控制器 (controllers) 的程式設計。您還將學習如何尋找進一步的教學資料。<br/><br/>本章適合 Webots 的初學者。不過，仍然需要有程式設計 (Programming) 的背景。範例是用 Python 語言編寫的。如果您不熟悉 Python 語言，您仍然應該能夠理解本章，因為下面的 Python 程式非常簡單。除了程式設計，您不需要任何特定的知識即可完成本章中的教程。然而，基本的機器人學 (Robotcs)、數學 (Mathematics)、模型建構 (Modeling) 和樹狀表示法 (Tree representation) 的背景知識可能會有所幫助。有經驗的 Webots 使用者可以跳過最初的教程。不過，我們建議他們至少閱讀這些教程的介紹和結論。<br/><br/>本章的每個部分（除了第一和最後一部分）都是一個導引課程。每個導引課程都有一個明確的教育目標，並在第一段中進行解釋。獲得的概念隨後會在結論子部分中總結。每一個導引課程都被設計成一系列互動步驟。要繼續進行下一個教程，通常需要掌握前一個教學中獲得的知識。因此，我們強烈建議您按照它們的自然順序進行。此外，我們建議您在繼續進一步之前，確保您已經理解了導引課程中的所有概念。<br/><br/>最後一部分將為您提供一些解決本章未涉及問題的提示。<br/><br/>導引課程的解決方案位於 Webots 安裝目錄的 "WEBOTS_HOME/projects/samples/tutorials" 子目錄中。</p>
@@ -2274,9 +2286,8 @@ supervisor.simulationSetMode(Supervisor.SIMULATION_MODE_REAL_TIME)</pre>
 <p>Exam3 (20%): Webots 機電模擬場景的協同設計 (HW3 內容之延伸應用測驗)</p>
 <p>操作影片標題: 國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam3 - 學員學號</p>
 <h1>Reference</h1>
-<p>以下相關參考資料, 部分網站連結只能從系上 IPv6 網段中擷取:</p>
-<p></p>
-<h2>Webots</h2>
+<p><a href="https://introduction-to-autonomous-robots.github.io/csci3302.html">https://introduction-to-autonomous-robots.github.io/csci3302.html</a> </p>
+<p></p><h2>Webots</h2>
 <p><img alt="" height="350" src="/images/webots_apis_overview.png" width="400"/></p>
 <p><a href="https://www.theconstruct.ai/webots-robot-simulator-ros-olivier-michel/">https://www.theconstruct.ai/webots-robot-simulator-ros-olivier-michel/</a> (<a href="https://lis2.epfl.ch/resources/podcast/2007/01/olivier-michel-robot-simulation-as.html">Old talk</a>, <a href="https://www.youtube.com/watch?v=kb85OrR0NFk">Video1</a>, <a href="https://www.youtube.com/watch?v=nxGPXK30EW8">Video2</a>, <a href="https://www.youtube.com/watch?v=WlB2cRim_80">Video3</a>)</p>
 <p></p>
