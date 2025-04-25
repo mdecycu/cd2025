@@ -182,6 +182,10 @@ img.add_border {
 <p style="padding-left: 30px;">14. (參考) 對於 webotsw --stream 在近端啟動伺服器的部分尚未完成, 目前僅能透過官方網站擷取 Webotsview.js, 具體問題在於 webots 串流伺服器啟動後, 不接受跨網域擷取 Webotsview.js, 亦即必須處理伺服器間的 Access-Control-Allow-Origin（CORS）議題. 自行 <a href="https://github.com/cyberbotics/webots/wiki/Windows-installation/">build webotsw.exe</a> 應該就可以克服此一問題.</p>
 <p style="padding-left: 30px;">15. (參考) 另外 Webots stream server 目前僅接受多 client 檢視, 而不支援跨 server 執行 controller 指令, 若要在系統模擬架構下進行多人同步協同 (類似 CoppeliaSim 的串流控制), 則必須自行處理.</p>
 <hr/>
+<p>針對上面 task 15. 可以透過 Websocket 建立一個伺服器, 然後有配合協同的另外一台電腦啟動 client 程式, 利用鍵盤方向鍵進行控制, 此時必須將 cart 的 controller 設為 extern.</p>
+<p>執行之前必須將 server 與 client 程式改用各自所分配的 IPv6 網路位址:</p>
+<p><a href="./../downloads/youbot_cart_w10_websocket.7z">youbot_cart_w10_websocket.7z</a> (執行後, server 與 client 都可以利用方向鍵控制 cart)</p>
+<hr/>
 <p><a href="./../downloads/w10_2b_hw1_hw2_demo.7z">w10_2b_hw1_hw2_demo.7z</a></p>
 <p>以下模擬將 joint4 定在 link3 末端, 然後透過 SolidReference 指定為 &lt;static environment&gt;, 表示此 joint4 必須固定在地面.</p>
 <p>與 <a href="./../downloads/fourbar_slvs.7z">fourbar_slvs.7z</a> 在引用 obj 格式零件上的差異在於: 使用 Solid - Shape - Mesh 節點導入的 CAD 繪製零件, 無需如 Solid - CadShape 必須透過 .mtl 修改導入零件的顏色, Shape 節點可以直接置入 Material 欄位, 透過 diffuseColor 改變零件顏色.</p>
