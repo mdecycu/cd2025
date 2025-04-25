@@ -2,6 +2,7 @@
         <head>
         <title>cd2025</title>
         <meta charset="utf-8">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -141,49 +142,60 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content"> <a href='Summary.html'>Next</a> >> Summary<br /><h1>About</h1>
-<p>課程倉儲與網頁:</p>
-<p style="padding-left: 30px;">倉儲: <a href="https://github.com/mdecycu/cd2025">https://github.com/mdecycu/cd2025</a></p>
-<p style="padding-left: 30px;">網頁: <a href="https://mde.tw/cd2025">https://mde.tw/cd2025</a></p>
-<p>課程目標:</p>
-<p style="padding-left: 30px;">透過機電系統模擬與控制了解協同產品設計的特性與應用</p>
-<p>教學內容:</p>
-<p style="padding-left: 30px;">協同產品設計概論</p>
-<p style="padding-left: 30px;">機電系統模擬</p>
-<p style="padding-left: 30px;">協同分組專案</p>
-<p style="padding-left: 30px;">協同分組報告</p>
-<p>USB 隨身碟:</p>
-<p style="padding-left: 30px;">下載 <a href="http://229.cycu.org/portable_wcm2025.7z">portable_wcm2025.7z</a> (330MB, 解開壓縮後 1.4GB)</p>
-<p style="padding-left: 30px;"><span>備註: </span><span>請更新上列 portable_wcm2025.7z 中的 wscite 為 5.5.5 版 (</span><a href="http://229.cycu.org/wscite_5.5.5.7z">wscite_5.5.5.7z</a><span>, 解開壓縮檔案後取代 5.5.4 版的 wscite 目錄)</span></p>
-<p style="padding-left: 30px;"><a href="http://229.cycu.org/Webots_2025a.7z">Webots_2025a.7z</a> (1.5 GB, 解開後約為 2.9GB, 可單獨運作)</p>
-<p style="padding-left: 30px;"><a href="http://229.cycu.org/Webots_2025a_web.7z">Webots_2025a_web.7z</a> (171 MB, 解開壓縮後約為 1GB, 必須連網運作)</p>
-<p style="padding-left: 30px;">備註: 已知 Webots 2025a 有不少 bugs, 其中包括操作過程閃退以及無法使用 Transform 節點, 因此可以換為 <a href="http://229.cycu.org/Webots_2023b.7z">Webots_2023b.7z</a> 版.</p>
-<p style="padding-left: 30px;"><a href="http://229.cycu.org/Blender4.2.7z">Blender4.2.7z</a></p>
-<p>Teams 線上教學:</p>
-<p style="padding-left: 30px;">以 "學號@nfu.edu.tw" 登入<span> </span><a href="https://login.microsoftonline.com/">https://login.microsoftonline.com/</a><span> </span>Office 365</p>
-<p style="padding-left: 30px;">Teams 團隊代碼: <span>p5z4eku</span></p>
-<p><span>學員作業網站樣板: <a href="https://mde.tw/cd2025_hw">https://mde.tw/cd2025_hw</a> </span></p>
-<p><span>學員作業範例: <a href="https://mdecd2025.github.io/hw-scrum-1">https://mdecd2025.github.io/hw-scrum-1</a> <br/></span></p>
-<p><span>已知 w4 之前的學員作業倉儲版本, 無法在 IPv6 位址設定時正確運作, 各學員必須下載 <a href="http://229.cycu.org/cmsimde_w4.7z">cmsimde_w4.7z</a>, 解開壓縮檔案後, 替換倉儲中的 cmsimde 目錄.</span></p>
+    <div id="tipue_search_content">Summary << <a href='Summary.html'>Previous</a> <a href='Product.html'>Next</a> >> Product<br /><h1>Tasks</h1>
+<p>截至目前已知:</p>
+<p style="padding-left: 30px;">1. 最新的可攜程式系統與套件版本:</p>
+<p style="padding-left: 60px;"><a href="http://229.cycu.org/portable_wcm2025_w10.7z">portable_wcm2025_w10.7z</a></p>
+<p style="padding-left: 30px;">2. 已知如何自行建立各種版本的 Python 可攜系統:</p>
+<p style="padding-left: 60px;"><a href="https://mde.tw/cd2025/content/Portable.html">https://mde.tw/cd2025/content/Portable.html</a> </p>
+<p style="padding-left: 30px;">3. 已知哪一個版本 SciTE 較為穩定:</p>
+<p style="padding-left: 60px;"><span>請更新上列 portable_wcm2025.7z 中的 wscite 為 5.5.5 版 (</span><a href="http://229.cycu.org/wscite_5.5.5.7z">wscite_5.5.5.7z</a><span>, 解開壓縮檔案後取代 5.5.4 版的 wscite 目錄)</span></p>
+<p style="padding-left: 30px;">4. 已知如何使用 Codespaces 管理個人與協同分組的倉儲:</p>
+<p style="padding-left: 60px;">./init_replit (處理 codespaces 上的 python 模組, 令其可執行 python main.py 與 python main2.py)</p>
+<p style="padding-left: 30px;">5. 已知可以透過 token 或 Github session 管理管理個人與協同分組的倉儲:</p>
+<p style="padding-left: 60px;">.git/config 中 url 將 token 放入即可取得權限 (透過 https)</p>
+<p style="padding-left: 60px;">利用 puttygen.exe 建立 keys, 然後以 session 取得維護倉儲的權限.</p>
+<p style="padding-left: 60px;"><a href="https://mde.tw/cd2025/content/SSH.html">https://mde.tw/cd2025/content/SSH.html</a> </p>
+<p style="padding-left: 30px;">6. 已知哪一個版本的 Webots 較為穩定:</p>
+<p style="padding-left: 60px;"><span>備註: 已知 Webots 2025a 有不少 bugs, 其中包括操作過程閃退以及無法使用 Transform 節點, 因此可以換為 </span><a href="http://229.cycu.org/Webots_2023b.7z">Webots_2023b.7z</a><span><span> </span>版.</span></p>
+<p style="padding-left: 30px;">7. 已知如何更新個人與協同分組的倉儲, 以便套用所分配的 <a href="https://mde.tw/cd2025/content/IPv6.html">IPv6 位址</a>啟動網際協同流程:</p>
+<p style="padding-left: 60px;"><span>已知 w4 之前的學員作業倉儲版本, 無法在 IPv6 位址設定時正確運作, 各學員必須下載 </span><a href="http://229.cycu.org/cmsimde_w4.7z">cmsimde_w4.7z</a><span>, 解開壓縮檔案後, 替換倉儲中的 cmsimde 目錄.</span></p>
+<p style="padding-left: 60px;"><span>更改 init.py 中將 ip 設為所分配的 <a href="https://mde.tw/cd2025/content/IPv6.html">IPv6 address</a>.</span></p>
+<p style="padding-left: 30px;">8. 已知投籃機的零組件可以透過 Solvespace 與 Onshape 繪製, 其中前者簡便而後者有利於協同.</p>
+<p style="padding-left: 60px;"><a href="https://mde.tw/cd2025/downloads/fourbar_slvs.7z">fourbar_slvs.7z</a> (joint4 設於 base 然後利用 SolidReference 指向 link3)</p>
+<p style="padding-left: 30px;">9. 已知如何利用 Solid - Shape - Box 或 Solid - CadShape 建立封閉式多連桿機構模擬, (若希望直接更改零組件顏色, 則可以使用 Solid - Shape - Mesh 進行多連桿機構進行組立:</p>
+<p style="padding-left: 60px;"><a href="https://mde.tw/cd2025/downloads/fourbar_box.7z">fourbar_box.7z</a> (joint4 設於 base 右端, 然後利用 SolidReference 指向 link3)</p>
+<p style="padding-left: 60px;"><a href="https://mde.tw/cd2025/downloads/fourbar_box_w8.7z">fourbar_box_w8.7z</a> (joint4 設於 link3 末端, 然後利用 SolidReference 指向 static_environment)</p>
+<p style="padding-left: 60px;"><a href="https://mde.tw/cd2025/downloads/w10_2b_hw1_hw2_demo.7z">w10_2b_hw1_hw2_demo.7z</a> (直接使用 Solid - Shape - Mesh 比較方便直接利用 material 設定零件顏色)</p>
+<p style="padding-left: 30px;">10. 已知可以透過 Solid - Shape - Mesh 中 material 的名稱, 以控制器程式改變顏色, 進而製作出七段顯示模擬器:</p>
+<p style="padding-left: 60px;"><span> </span><a href="https://mde.tw/cd2025/downloads/7_segment_display.7z">7_segment_display.7z</a> (利用按鍵改變零件顏色)</p>
+<p style="padding-left: 60px;"><a href="https://mde.tw/cd2025/downloads/score_counter.7z">score_counter.7z</a> (三個位數的 7 段顯示器模擬)</p>
+<p style="padding-left: 30px;">11. 已知可以透過 boundingObject 中的 Mesh 設定, 讓封閉連桿執行投籃動作, 且經由紅外線距離感測紀錄是否得分:</p>
+<p style="padding-left: 60px;"><a href="https://mde.tw/cd2025/downloads/basketball_game_demo.7z">basketball_game_demo.7z</a></p>
+<p style="padding-left: 30px;">12. 接下來若要利用各組員所分配的 <a href="https://mde.tw/cd2025/content/IPv6.html">IPv6 位址</a>配置一台具備 https 連線用的網際協同伺服器, 建議使用 Virtualbox 或 <a href="https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion">VMWare Workstation</a> 加上 Nginx, Stunnel 或直接採 cmsimde 進行設定.</p>
+<p style="padding-left: 60px;"><a href="http://229.cycu.org/win10.vdi">win10.vdi</a> (Virtualbox 的 Windows 10 虛擬主機檔案)</p>
+<p style="padding-left: 30px;">13. 投籃機與籃框的移動裝置則可採用 <a href="https://www.cyberbotics.com/doc/guide/youbot?version=cyberbotics:R2019a-rev1#!">Kuka 套件項下</a>的 <a href="https://mde.tw/cd2025/content/Youbot_cart.html">Youbot</a> <a href="https://en.wikipedia.org/wiki/Mecanum_wheel">Mecanum</a> 輪底座.</p>
+<p style="padding-left: 60px;"><a href="https://mde.tw/cd2025/content/Youbot_cart.html">https://mde.tw/cd2025/content/Youbot_cart.html</a> </p>
+<p style="padding-left: 60px;"><a href="./../downloads/youbot_cart_w10.7z">youbot_cart_w10.7z</a> (利用鍵盤方向鍵控制平台行進)</p>
+<p style="padding-left: 30px;">14. (參考) 對於 webotsw --stream 在近端啟動伺服器的部分尚未完成, 目前僅能透過官方網站擷取 Webotsview.js, 具體問題在於 webots 串流伺服器啟動後, 不接受跨網域擷取 Webotsview.js, 亦即必須處理伺服器間的 Access-Control-Allow-Origin（CORS）議題. 自行 <a href="https://github.com/cyberbotics/webots/wiki/Windows-installation/">build webotsw.exe</a> 應該就可以克服此一問題.</p>
+<p style="padding-left: 30px;">15. (參考) 另外 Webots stream server 目前僅接受多 client 檢視, 而不支援跨 server 執行 controller 指令, 若要在系統模擬架構下進行多人同步協同 (類似 CoppeliaSim 的串流控制), 則必須自行處理.</p>
 <hr/>
-<p>課程評分:</p>
-<p style="padding-left: 30px;">Homework (30%) - 每週至少提交兩次與課程進度有關的內容, 完成後填回自評表單</p>
-<p style="padding-left: 60px;">HW1 (5%): 建立由 Box 組成的平面四連桿機構 Webots 模擬場景</p>
-<p style="padding-left: 60px;">HW2 (5%): 建立由 CAD 繪製零件組成的平面四連桿機構 Webots 模擬場景</p>
-<p style="padding-left: 60px;">HW3 (20%): 建立 Webots 桌上籃球遊戲機模擬系統</p>
-<p style="padding-left: 30px;">Exam (40%) - 建立包含操作流程影片、心得以及提供檔案下載的網頁後填回自評表單</p>
-<p style="padding-left: 60px;">Exam1 (10%): 建立 Webots 基本物件模擬場景</p>
-<p style="padding-left: 60px;">Exam2 (10%): 利用 CAD 零組件建立模擬場景</p>
-<p style="padding-left: 60px;">Exam3 (20%): Webots 機電模擬場景的協同設計</p>
-<p style="padding-left: 30px;">Final Report (30%) - 利用網頁內容進行簡報並提交 pdf 格式書面報告, 完成後填回自評表單</p>
-<p style="padding-left: 60px;">題目: Webots 動態投籃模擬系統的協同設計</p>
-<p></p>
-<hr/>
-<p>行事曆</p>
-<p>2a 上課時段: 每週五下午 13:20 - 17:10 (w2(228)、w7(春假)、w15(端午) 放假)</p>
-<p>2b 上課時段: 每週二上午 08:10 - 12:00</p>
-<p><a href="https://calendar.google.com/calendar/embed?src=mde.nfu.edu.tw_3439313938333136353439%40resource.calendar.google.com&amp;ctz=Asia%2FTaipei&amp;mode=week&amp;src=mde.nfu.edu.tw_35303530373431313438%40resource.calendar.google.com&amp;ctz=Asia%2FTaipei&amp;src=yen%40gm.nfu.edu.tw&amp;ctz=Asia%2FTaipei"> 全頁檢視 </a></p>
-<p><iframe height="600" src="https://calendar.google.com/calendar/embed?src=mde.nfu.edu.tw_3439313938333136353439%40resource.calendar.google.com&amp;ctz=Asia%2FTaipei&amp;mode=week&amp;src=mde.nfu.edu.tw_35303530373431313438%40resource.calendar.google.com&amp;ctz=Asia%2FTaipei&amp;src=yen%40gm.nfu.edu.tw&amp;ctz=Asia%2FTaipei" width="800"></iframe></p><br /> <a href='Summary.html'>Next</a> >> Summary</div>
+<p><a href="./../downloads/w10_2b_hw1_hw2_demo.7z">w10_2b_hw1_hw2_demo.7z</a></p>
+<p>以下模擬將 joint4 定在 link3 末端, 然後透過 SolidReference 指定為 &lt;static environment&gt;, 表示此 joint4 必須固定在地面.</p>
+<p>與 <a href="./../downloads/fourbar_slvs.7z">fourbar_slvs.7z</a> 在引用 obj 格式零件上的差異在於: 使用 Solid - Shape - Mesh 節點導入的 CAD 繪製零件, 無需如 Solid - CadShape 必須透過 .mtl 修改導入零件的顏色, Shape 節點可以直接置入 Material 欄位, 透過 diffuseColor 改變零件顏色.</p>
+<p><img alt="" height="326" src="./../images/w10_2b_joint4_on_link3.png" width="400"/></p>
+<p>有關 CadShape:</p>
+<p>The <a class="dynamicAnchor" href="https://cyberbotics.com/doc/reference/cadshape#cadshape">CadShape</a> node renders a Collada (.dae) or Wavefront (.obj) object imported from an external file. <span style="background-color: #ccffcc;">Both Collada and Wavefront files can include 3D geometries and appearances, be it materials or references to external textures, therefore the <a class="dynamicAnchor" href="https://cyberbotics.com/doc/reference/cadshape#cadshape" style="background-color: #ccffcc;">CadShape</a> node builds both</span>. If the file references external textures, these should be placed relative to the collada/wavefront file itself as indicated (i.e., in the location expressed within the .dae/.obj file), no additional search is performed for these textures.</p>
+<p>假如希望導入的零件使用外部的材質檔案進行調控, 可以使用 CadShape 節點, 以 .dae 或 .obj 導入.</p>
+<p>有關 Mesh:</p>
+<p>The <a class="dynamicAnchor" href="https://cyberbotics.com/doc/reference/mesh#mesh">Mesh</a> node represents a 3D shape imported from an external file created by a 3D modeling software. <span style="background-color: #ccffcc;">The <a class="dynamicAnchor" href="https://cyberbotics.com/doc/reference/mesh#mesh" style="background-color: #ccffcc;">Mesh</a> node can be used either as a graphical or as a collision detection primitive (in a boundingObject)</span>. Currently, the following formats are supported:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/COLLADA" target="_blank">Collada</a> files (.dae).</li>
+<li><a href="https://en.wikipedia.org/wiki/STL_(file_format)" target="_blank">STL</a> files (.stl).</li>
+<li><a href="https://wiki.fileformat.com/3d/obj" target="_blank">Wavefront</a> files (.obj).</li>
+</ul>
+<p>If the file contains more than one mesh, the meshes will be merged into a single one.</p>
+<p>Mesh 可以接受 .dae、stl 或 .obj 檔案格式零件, 且可用於零件外形與碰撞檢測用 (CadShape 節點則只能用於零件外形展示, 而不能用於碰撞檢測).</p><br />Summary << <a href='Summary.html'>Previous</a> <a href='Product.html'>Next</a> >> Product</div>
         
     <!-- footer -->
       <div class="container">
