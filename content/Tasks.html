@@ -165,6 +165,43 @@ img.add_border {
 <p style="padding-left: 60px;"><a href="https://mde.tw/cd2025/downloads/fourbar_slvs.7z">fourbar_slvs.7z</a> (joint4 設於 base 然後利用 SolidReference 指向 link3)</p>
 <p style="padding-left: 30px;">9. 已知如何利用 Solid - Shape - Box 或 Solid - CadShape 建立封閉式多連桿機構模擬, (若希望直接更改零組件顏色, 則可以使用 Solid - Shape - Mesh 進行多連桿機構進行組立:</p>
 <p style="padding-left: 60px;"><a href="https://mde.tw/cd2025/downloads/fourbar_box.7z">fourbar_box.7z</a> (joint4 設於 base 右端, 然後利用 SolidReference 指向 link3)</p>
+<p style="padding-left: 60px;">以下為控制程式的詳細說明:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 從 Webots 的 controller 模組中匯入 Robot 類別
+from controller import Robot
+
+def run_robot():
+    # 建立 Robot 實例
+    # 這會初始化機器人並提供存取其設備和模擬相關功能的能力
+    robot = Robot()
+
+    # 獲取模擬的基本時間步長
+    # 這會取得模擬的基本時間步長（以毫秒為單位），定義模擬更新的時間間隔。
+    # 並且將它轉換為整數以供後續使用
+    timestep = int(robot.getBasicTimeStep())
+
+    # 獲取馬達設備
+    # 這會取得名為 'motor' 的馬達設備的參考，該名稱必須與機器人配置中的設備名稱一致
+    motor = robot.getDevice('motor')
+
+    # 設定馬達為連續旋轉模式
+    # `setPosition(float('inf'))` 將馬達的目標位置設為無限大，使其能以連續旋轉模式運行。
+    # 這通常用於速度控制模式的馬達
+    motor.setPosition(float('inf'))
+
+    # 設定馬達的速度
+    # `setVelocity(1.0)` 將馬達的速度設為 1.0 弧度/秒，可以調整此值來改變馬達的速度
+    motor.setVelocity(1.0)
+
+    # 主控制迴圈
+    # 此迴圈在模擬啟動時持續執行。`robot.step(timestep)` 會讓模擬推進一個時間步長。
+    # 當模擬結束時，它會返回 -1。
+    while robot.step(timestep) != -1:
+        pass  # 此處未執行其他操作，但可以在此加入機器人的行為邏輯
+
+# 程式的進入點
+# `if __name__ == "__main__":` 確保此腳本僅在直接執行時運行，而非被匯入為模組時。
+if __name__ == "__main__":
+    run_robot()</pre>
 <p style="padding-left: 60px;"><a href="https://mde.tw/cd2025/downloads/fourbar_box_w8.7z">fourbar_box_w8.7z</a> (joint4 設於 link3 末端, 然後利用 SolidReference 指向 static_environment)</p>
 <p style="padding-left: 60px;"><a href="https://mde.tw/cd2025/downloads/w10_2b_hw1_hw2_demo.7z">w10_2b_hw1_hw2_demo.7z</a> (直接使用 Solid - Shape - Mesh 比較方便直接利用 material 設定零件顏色)</p>
 <p style="padding-left: 30px;">10. 已知可以透過 Solid - Shape - Mesh 中 material 的名稱, 以控制器程式改變顏色, 進而製作出七段顯示模擬器:</p>
