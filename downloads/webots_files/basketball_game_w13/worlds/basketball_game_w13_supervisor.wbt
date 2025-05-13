@@ -1,0 +1,237 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+
+WorldInfo {
+  coordinateSystem "NUE"
+  contactProperties [
+    ContactProperties {
+      material1 "ball"
+      material2 "metal"
+      coulombFriction [
+        0.6
+      ]
+      bounce 0.6
+      bounceVelocity 0.2
+      softERP 0.8
+      softCFM 0.01
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.6346952843564805 0.6155079684542357 0.46723852236837876 2.2617923831171716
+  position -0.24206573726562236 5.254203505878472 11.41929564086548
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+DEF fourbar Robot {
+  children [
+    DEF base Solid {
+      children [
+        CadShape {
+          url [
+            "../split_parts/base.obj"
+          ]
+        }
+      ]
+      name "base"
+      boundingObject Mesh {
+        url [
+          "../split_parts/base.obj"
+        ]
+      }
+    }
+    DEF joint1 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+        anchor -0.3 0.22 0
+      }
+      device [
+        DEF motor1 RotationalMotor {
+          name "motor1"
+          maxVelocity 100000
+          maxTorque 100000
+        }
+      ]
+      endPoint DEF press Solid {
+        children [
+          CadShape {
+            url [
+              "../split_parts/press.obj"
+            ]
+          }
+          DEF joint2 HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0 0 1
+              anchor -0.0224 0.148 0
+            }
+            endPoint DEF connector Solid {
+              children [
+                DEF connector CadShape {
+                  url [
+                    "../split_parts/connector.obj"
+                  ]
+                }
+                DEF joint3 HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0 0 1
+                    anchor -0.0686 0.7071 0
+                  }
+                  endPoint DEF shooter Solid {
+                    children [
+                      CadShape {
+                        url [
+                          "../split_parts/shooter.obj"
+                        ]
+                      }
+                    ]
+                    name "shooter"
+                    boundingObject Mesh {
+                      url [
+                        "../split_parts/shooter.obj"
+                      ]
+                    }
+                    physics Physics {
+                    }
+                  }
+                }
+              ]
+              name "connector"
+              boundingObject Mesh {
+                url [
+                  "../split_parts/connector.obj"
+                ]
+              }
+              physics Physics {
+              }
+            }
+          }
+        ]
+        name "press"
+        boundingObject Mesh {
+          url [
+            "../split_parts/press.obj"
+          ]
+        }
+        physics Physics {
+        }
+      }
+    }
+    DEF joint4 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+        anchor 0.15 0.68 0
+      }
+      endPoint SolidReference {
+        solidName "shooter"
+      }
+    }
+    DEF stand Solid {
+      rotation 0 0 1 -1.57
+      children [
+        Pose {
+          translation -1.125 2.8 -0.3
+          rotation 0 1 0 -1.57
+          children [
+            CadShape {
+              url [
+                "../solvespace/basket_stand.obj"
+              ]
+            }
+          ]
+        }
+        DistanceSensor {
+          translation -1.125 2.8 -0.3
+          rotation 0 1 0 1.57
+          children [
+            Solid {
+              rotation 1 0 0 0
+              children [
+                DEF sensor_shape Shape {
+                  appearance Appearance {
+                    material Material {
+                      diffuseColor 0.8 0.8 0
+                      transparency 1
+                    }
+                  }
+                  geometry DEF sensor Cylinder {
+                    height 0.4
+                    radius 0.02
+                  }
+                }
+              ]
+              name "sensor"
+            }
+          ]
+          name "sensor"
+          lookupTable [
+            0 1000 0
+            0.1 800 10
+            0.2 400 10
+            0.5 0 0
+          ]
+          type "infra-red"
+          numberOfRays 6
+        }
+      ]
+      name "stand"
+      contactMaterial "metal"
+      boundingObject Pose {
+        translation -1.125 2.8 -0.3
+        rotation 0 1 0 -1.57
+        children [
+          Mesh {
+            url [
+              "../solvespace/basket_stand.obj"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+  contactMaterial "metal"
+  controller "sensor_km"
+}
+DEF supervisor Robot {
+  name "supervisor"
+  controller "feed_ball"
+  supervisor TRUE
+}
+DEF ball Solid {
+  translation -0.62 0.96 -0.25
+  children [
+    DEF ball_shape Shape {
+      geometry Sphere {
+        radius 0.1
+      }
+    }
+  ]
+  name "ball"
+  contactMaterial "ball"
+  boundingObject USE ball_shape
+  physics Physics {
+    density -1
+    mass 0.001
+  }
+}
+Solid {
+  translation 0 -0.1 0
+  rotation 1 0 0 -1.57
+  children [
+    CadShape {
+      url [
+        "../solvespace/floor.obj"
+      ]
+    }
+  ]
+  name "floor"
+  contactMaterial "metal"
+  boundingObject Mesh {
+    url [
+      "../solvespace/floor.obj"
+    ]
+  }
+}
