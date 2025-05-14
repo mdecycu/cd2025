@@ -147,7 +147,7 @@ if __name__ == "__main__":
 </ul>
 <p>If the file contains more than one mesh, the meshes will be merged into a single one.</p>
 <p>Mesh 可以接受 .dae、stl 或 .obj 檔案格式零件, 且可用於零件外形與碰撞檢測用 (CadShape 節點則只能用於零件外形展示, 而不能用於碰撞檢測).</p><h3>Closing</h3>
-<p>在 Webots supervisor 模式下建立 sphere:</p>
+<p>在 Webots <a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">supervisor</a> 模式下建立 sphere (利用監控模式建立節點):</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義一個函數，用於創建球的節點
 def create_sphere(supervisor, position):
     def_name = generate_valid_def_name()  # 獲取唯一的 DEF 名稱
@@ -178,6 +178,10 @@ def create_sphere(supervisor, position):
     children_field = root.getField("children")  # 獲取根節點的子節點字段
     children_field.importMFNodeFromString(-1, sphere_string)  # 將新創建的球節點加入模擬
     return def_name  # 返回球的 DEF 名稱</pre>
+<p>在 <a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">supervisor</a> 模式移除節點 (<a href="https://cyberbotics.com/doc/reference/supervisor#wb_supervisor_node_remove">remove node</a>):</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 定義一個函數，用於移除球的節點
+def remove_object(node):
+    node.remove()  # 調用 Webots 的 remove 方法移除節點</pre>
 <p></p><h2>Product</h2>
 <p>Product Development Process (產品開發過程)</p>
 <p><img alt="" height="443" src="/images/product_development_process.png" width="400"/></p>
@@ -724,7 +728,74 @@ set  path_webots=%Disk%:\Webots_2025a\msys64\mingw64\bin;%Disk%:\Webots_2025a\ms
 <li><span>請各組利用 <a href="https://mde.tw/cd2025/downloads/youbot_cart_w10_websocket.7z">youbot_cart_w10_websocket.7z</a> 中的 Youbot 底座平台, 由各組組長以 webotsw --stream 啟動後, 可在其餘組員的電腦中, 透過 Websocket 客戶端程式控制平台車的前進、後退與左右轉. 完成後請各學員將操作與設定說明過程拍成影片, 上傳至 Youtube, 影片標題: "<span style="background-color: #ffff00;">國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam3-3 - 學員學號</span>".</span></li>
 <li><span>上述機電模擬場景的協同設計, 請分別由各組組員將所完成的影片與心得整理在個人作業網站中的 Exam3 頁面後, 再逐一利用組員的帳號權限, 將個人心得與上述操作影片, 統一放入分組網站中的 Exam3 頁面中.</span></li>
 </ol><h1>Final</h1>
-<p>Final Report (30%) - 利用網頁內容進行簡報並提交 pdf 格式書面報告, 完成後填回自評表單</p><h1>Tutorial</h1>
+<p>Final Report (30%) - 利用網頁內容進行簡報並提交 pdf 格式書面報告, 完成後填回自評表單</p>
+<p><span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a> 與 <a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a> 節點的結合應用: <a href="https://mde.tw/cd2025/downloads/basketball_game_w13.7z">basketball_game_w13.7z</a> 中的 basketball_game.wbt 啟動後直接觸動投籃動作, 並在籃球通過籃框感測器時列出 "得分".</span></p>
+<p><span>send_command_from_emitter.wbt 啟動後, 由 supervisor 操縱的下列程式送出指令訊號, 交由場景中的 Robot 主體執行:</span></p>
+<p><span>send_command_from_emitter.py:</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Supervisor
+
+def run_supervisor():
+    # Create the Supervisor instance
+    supervisor = Supervisor()
+
+    # Get simulation time step
+    timestep = int(supervisor.getBasicTimeStep())
+
+    # Get the emitter for sending commands
+    emitter = supervisor.getDevice("emitter")  # Ensure the emitter is defined in your world file
+    if emitter is None:
+        print("Error: Could not find emitter device")
+        return
+
+    # Main control loop
+    while supervisor.step(timestep) != -1:
+
+        # Send motor position command to the robot
+        motor_position = 38 * 3.14159 / 180  # Motor position in radians
+        message = f"SET_POSITION:{motor_position}"  # Construct the command message
+        emitter.send(message.encode("utf-8"))  # Send the message via the emitter
+
+if __name__ == "__main__":
+    run_supervisor()</pre>
+<p><span>robot_controller.py 中的接收命令程式:</span></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Robot, Receiver
+
+def run_robot():
+    # Create the Robot instance
+    robot = Robot()
+
+    # Get simulation time step
+    timestep = int(robot.getBasicTimeStep())
+
+    # Get the motor device
+    motor = robot.getDevice("motor1")  # Replace "motor1" with the actual motor name
+    if motor is None:
+        print("Error: Could not find motor device")
+        return
+
+    # Get the receiver for receiving commands
+    receiver = robot.getDevice("receiver")  # Ensure the receiver is defined in your world file
+    if receiver is None:
+        print("Error: Could not find receiver device")
+        return
+    receiver.enable(timestep)
+
+    # Main control loop
+    while robot.step(timestep) != -1:
+        # Process received messages
+        if receiver.getQueueLength() &gt; 0:
+            message = receiver.getString() # Receive the message
+            receiver.nextPacket()  # Move to the next packet
+
+            # Parse the command message
+            if message.startswith("SET_POSITION:"):
+                position = float(message.split(":")[1])  # Extract the desired position
+                motor.setPosition(position)  # Set the motor position
+
+if __name__ == "__main__":
+    run_robot()</pre>
+<p>此一作法可以利用 supervisor 統整發球機制與投球機構的作動, 例如: 在發球機構啟動之前, 利用 supervisor 模式讓籃球停球在特定位置, 用來控制球拍打後的運動距離.</p>
+<p>一旦確定投球機構與球的起始位置之間關係後, 再調整投球機構的持球零件外型設計.</p><h1>Tutorial</h1>
 <p>Webots R2025a 執行環境硬體需求:<br/><br/>2 GHz 4 核心以上 CPU, NVIDIA 或 AMD 支援 OpenGL 3.3 版, 帶有 512 MB 記憶體以上獨立顯示卡<br/><br/>操作系統:</p>
 <p style="padding-left: 30px;">Windows 10 或 11 64 位元操作系統</p>
 <p style="padding-left: 30px;">Ubuntu 24.04 以上版本</p>
