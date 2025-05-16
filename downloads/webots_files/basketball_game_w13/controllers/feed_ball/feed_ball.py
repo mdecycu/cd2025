@@ -1,3 +1,6 @@
+"""
+利用 Webots 的監控模式在特定位置配合按鍵建立籃球物件
+"""
 # 匯入必要的模組
 from controller import Supervisor, Keyboard  # Supervisor 用於控制模擬環境，Keyboard 用於監聽鍵盤輸入
 import time  # 用於實現生成球後的延時
@@ -16,14 +19,12 @@ sphere_position = (-0.62, 1.07, -0.25)  # 球的生成位置
 def generate_valid_def_name(base_name="Sphere"):
     timestamp = int(supervisor.getTime() * 1000)  # 使用模擬時間生成唯一名稱
     return f"{base_name}_{timestamp}"
-
 # 定義一個函數，用於生成隨機顏色
 def generate_random_color():
     r = random.random()  # 生成隨機紅色分量 (0.0 - 1.0)
     g = random.random()  # 生成隨機綠色分量 (0.0 - 1.0)
     b = random.random()  # 生成隨機藍色分量 (0.0 - 1.0)
     return r, g, b
-
 # 定義一個函數，用於創建球的節點
 def create_sphere(supervisor, position):
     def_name = generate_valid_def_name()  # 獲取唯一的 DEF 名稱
@@ -56,7 +57,6 @@ def create_sphere(supervisor, position):
     children_field = root.getField("children")  # 獲取根節點的子節點字段
     children_field.importMFNodeFromString(-1, sphere_string)  # 將新創建的球節點加入模擬
     print(f"Sphere created at position {position} with DEF name: {def_name} and color: ({r:.2f}, {g:.2f}, {b:.2f})")
-
 # 主模擬迴圈
 last_key_time = 0  # 記錄上次按下鍵的時間
 debounce_time = 0.5  # 設定按鍵防抖時間為 0.5 秒
