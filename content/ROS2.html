@@ -2,7 +2,7 @@
         <head>
         <title>cd2025</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -142,76 +142,20 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Exam3 << <a href='Exam3.html'>Previous</a> <a href='Tutorial.html'>Next</a> >> Tutorial<br /><h1>Final</h1>
-<p>Final Report (30%) - 利用網頁內容進行簡報並提交 pdf 格式書面報告, 完成後填回自評表單</p>
-<p><span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a> 與 <a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a> 節點的結合應用: <a href="https://mde.tw/cd2025/downloads/basketball_game_w13.7z">basketball_game_w13.7z</a> 中的 basketball_game.wbt 啟動後直接觸動投籃動作, 並在籃球通過籃框感測器時列出 "得分".</span></p>
-<p><span>send_command_from_emitter.wbt 啟動後, 由 supervisor 操縱的下列程式送出指令訊號, 交由場景中的 Robot 主體執行:</span></p>
-<p><span>send_command_from_emitter.py:</span></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Supervisor
-
-def run_supervisor():
-    # Create the Supervisor instance
-    supervisor = Supervisor()
-
-    # Get simulation time step
-    timestep = int(supervisor.getBasicTimeStep())
-
-    # Get the emitter for sending commands
-    emitter = supervisor.getDevice("emitter")  # Ensure the emitter is defined in your world file
-    if emitter is None:
-        print("Error: Could not find emitter device")
-        return
-
-    # Main control loop
-    while supervisor.step(timestep) != -1:
-
-        # Send motor position command to the robot
-        motor_position = 38 * 3.14159 / 180  # Motor position in radians
-        message = f"SET_POSITION:{motor_position}"  # Construct the command message
-        emitter.send(message.encode("utf-8"))  # Send the message via the emitter
-
-if __name__ == "__main__":
-    run_supervisor()</pre>
-<p><span>robot_controller.py 中的接收命令程式:</span></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Robot, Receiver
-
-def run_robot():
-    # Create the Robot instance
-    robot = Robot()
-
-    # Get simulation time step
-    timestep = int(robot.getBasicTimeStep())
-
-    # Get the motor device
-    motor = robot.getDevice("motor1")  # Replace "motor1" with the actual motor name
-    if motor is None:
-        print("Error: Could not find motor device")
-        return
-
-    # Get the receiver for receiving commands
-    receiver = robot.getDevice("receiver")  # Ensure the receiver is defined in your world file
-    if receiver is None:
-        print("Error: Could not find receiver device")
-        return
-    receiver.enable(timestep)
-
-    # Main control loop
-    while robot.step(timestep) != -1:
-        # Process received messages
-        if receiver.getQueueLength() &gt; 0:
-            message = receiver.getString() # Receive the message
-            receiver.nextPacket()  # Move to the next packet
-
-            # Parse the command message
-            if message.startswith("SET_POSITION:"):
-                position = float(message.split(":")[1])  # Extract the desired position
-                motor.setPosition(position)  # Set the motor position
-
-if __name__ == "__main__":
-    run_robot()</pre>
-<p>此一作法可以利用 supervisor 統整發球機制與投球機構的作動, 例如: 在發球機構啟動之前, 利用 supervisor 模式讓籃球停球在特定位置, 用來控制球拍打後的運動距離.</p>
-<p>一旦確定投球機構與球的起始位置之間關係後, 再調整投球機構的持球零件外型設計.</p>
-<p>另外, basketball_game_w13_supervisor.wbt 的設計方法, 則僅利用 supervisor 模式負責發球, 之後的擊球機構則完全由 Robot 的 controller 程式控制, 除了啟動場景模擬後的第一次擊球由程式直接控制外, 之後使用者按下 m 鍵機構會回復原始位置, 按下 k 鍵則觸動轉動特定轉角, 按下 a 鍵則由 supervisor 控制程式在特定位置發球.</p><br />Exam3 << <a href='Exam3.html'>Previous</a> <a href='Tutorial.html'>Next</a> >> Tutorial</div>
+    <div id="tipue_search_content">Topic4 << <a href='Topic4.html'>Previous</a> <a href='HW.html'>Next</a> >> HW<br /><h1>ROS2</h1>
+<p>webots_ros2 is a package that provides the necessary interfaces to simulate a robot in the Webots open-source 3D robots simulator. It integrates with ROS2 using ROS2 messages, services and actions.</p>
+<p style="padding-left: 30px;"><a href="https://github.com/cyberbotics/webots_ros2">https://github.com/cyberbotics/webots_ros2</a> </p>
+<p style="padding-left: 30px;"><a href="https://docs.ros.org/en/foxy/Tutorials/Advanced/Simulators/Webots/Installation-Windows.html">https://docs.ros.org/en/foxy/Tutorials/Advanced/Simulators/Webots/Installation-Windows.html</a> </p>
+<p>ROS2 Tutorial:</p>
+<p style="padding-left: 30px;"><a href="https://docs.ros.org/en/foxy/Tutorials.html">https://docs.ros.org/en/foxy/Tutorials.html</a> </p>
+<p style="padding-left: 30px;">Windows 安裝: <a href="https://docs.ros.org/en/foxy/Installation/Windows-Install-Binary.html">https://docs.ros.org/en/foxy/Installation/Windows-Install-Binary.html</a> </p>
+<p style="padding-left: 30px;"><a href="https://github.com/MJavadZallaghi/ros2webots">https://github.com/MJavadZallaghi/ros2webots</a> </p>
+<p>ROS2 在 Windows 操作系統的使用, 建立做成虛擬主機的方式使用.</p>
+<p>安裝 <a href="https://chocolatey.org/compare">Chocolatey</a>:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">Set-ExecutionPolicy Bypass -Scope Process -Force; `
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; `
+iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))</pre>
+<p></p><br />Topic4 << <a href='Topic4.html'>Previous</a> <a href='HW.html'>Next</a> >> HW</div>
         
     <!-- footer -->
       <div class="container">

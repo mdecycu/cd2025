@@ -130,6 +130,7 @@ if __name__ == "__main__":
 <p><span>啟動順序: 先 Run simulation, 執行 server, 然後再執行 client 後進行控制.</span></p>
 <p><span>17. w13 利用 supervisor 模式, 希望當投球機投出球後, 無論得分與否, 只要投球機構回復原始投球姿態後, controller 將會自動在原球位置產生另一顆球, proof of concept 如 <a href="/downloads/w13_random_sphere.7z">w13_random_sphere.7z</a> 所示.</span></p>
 <p><span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a> 與 <a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a> 節點的結合應用: <a href="/downloads/basketball_game_w13.7z">basketball_game_w13.7z</a></span></p>
+<p><span>18. 當投籃系統中籃框採亂數左右移動時, 可以透過影像辨識追蹤籃框位置與距離: <a href="/downloads/webots-example-visual-tracking.7z">webots-example-visual-tracking.7z</a></span></p>
 <hr/>
 <p><a href="/downloads/w10_2b_hw1_hw2_demo.7z">w10_2b_hw1_hw2_demo.7z</a></p>
 <p>以下模擬將 joint4 定在 link3 末端, 然後透過 SolidReference 指定為 &lt;static environment&gt;, 表示此 joint4 必須固定在地面.</p>
@@ -684,7 +685,19 @@ set  path_webots=%Disk%:\Webots_2025a\msys64\mingw64\bin;%Disk%:\Webots_2025a\ms
 <p>協同設計</p>
 <p><object data="/images/topic4.svg" height="191" type="image/svg+xml" width="546"></object></p>
 <p><a href="https://mde.tw/mind-map/#/?fileURL=https%3A%2F%2Fmde.tw%2Fcd2025%2Fdownloads%2Ftopic4.smm">Edit topic4.smm</a></p>
-<h1>HW</h1>
+<h3>ROS2</h3>
+<p>webots_ros2 is a package that provides the necessary interfaces to simulate a robot in the Webots open-source 3D robots simulator. It integrates with ROS2 using ROS2 messages, services and actions.</p>
+<p style="padding-left: 30px;"><a href="https://github.com/cyberbotics/webots_ros2">https://github.com/cyberbotics/webots_ros2</a> </p>
+<p style="padding-left: 30px;"><a href="https://docs.ros.org/en/foxy/Tutorials/Advanced/Simulators/Webots/Installation-Windows.html">https://docs.ros.org/en/foxy/Tutorials/Advanced/Simulators/Webots/Installation-Windows.html</a> </p>
+<p>ROS2 Tutorial:</p>
+<p style="padding-left: 30px;"><a href="https://docs.ros.org/en/foxy/Tutorials.html">https://docs.ros.org/en/foxy/Tutorials.html</a> </p>
+<p style="padding-left: 30px;">Windows 安裝: <a href="https://docs.ros.org/en/foxy/Installation/Windows-Install-Binary.html">https://docs.ros.org/en/foxy/Installation/Windows-Install-Binary.html</a> </p>
+<p>ROS2 在 Windows 操作系統的使用, 建立做成虛擬主機的方式使用.</p>
+<p>安裝 <a href="https://chocolatey.org/compare">Chocolatey</a>:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">Set-ExecutionPolicy Bypass -Scope Process -Force; `
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; `
+iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))</pre>
+<p></p><h1>HW</h1>
 <p>Homework (30%) - 每週至少提交兩次與課程進度有關的內容, 完成後填回自評表單</p>
 <p style="padding-left: 30px;">HW1 (5%): 建立由 Box 組成的平面四連桿機構 Webots 模擬場景</p>
 <p style="padding-left: 30px;">HW2 (5%): 建立由 CAD 繪製零件組成的平面四連桿機構 Webots 模擬場景</p>
