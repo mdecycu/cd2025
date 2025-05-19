@@ -330,7 +330,7 @@ CLIENT_ID = 'your_CLIENT_ID'
 CLIENT_SECRET = 'your_CLIENT_SECRET'
 TENANT_ID = 'your_TENANT_ID'
 AUTHORITY = f'https://login.microsoftonline.com/{TENANT_ID}'
-REDIRECT_URI = 'https://35.cycu.org/callback'
+REDIRECT_URI = 'https://your_server_domain/callback'
 SCOPE = 'User.Read'
  
 # 用於登錄和取得授權碼
@@ -404,8 +404,215 @@ def logout():
 if __name__ == '__main__':
     context = (r'C:\Certbot\live\your_server_domain\cert.pem', r'C:\Certbot\live\your_server_domain\privkey.pem')
     app.run(debug=True, host='your_server_domain', port=443, ssl_context=context)</pre>
-<p>啟動後, 以 <a href="https://your_server_domain">https://your_server_domain</a> 連線後, 系統導到 Office 365 登入</p>
-<p></p><h1>Topics</h1>
+<p>啟動後, 以 <a href="https://your_server_domain">https://your_server_domain</a> 連線後, 系統導到 Office 365 登入.</p>
+<p>以下則為寄信範例:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import requests
+import json
+ 
+# 替換為你的應用程式資訊
+CLIENT_ID = 'your_client_id'
+CLIENT_SECRET = 'your_client_secret'
+TENANT_ID = 'your_tenant_id'
+AUTHORITY = f'https://login.microsoftonline.com/{TENANT_ID}'
+TOKEN_URL = f'{AUTHORITY}/oauth2/v2.0/token'
+SCOPE = 'https://graph.microsoft.com/.default'
+ 
+# 獲取 OAuth2 訪問令牌
+def get_access_token():
+    token_data = {
+        'grant_type': 'client_credentials',
+        'client_id': CLIENT_ID,
+        'client_secret': CLIENT_SECRET,
+        'scope': SCOPE
+    }
+    token_r = requests.post(TOKEN_URL, data=token_data)
+    token_r.raise_for_status()
+    tokens = token_r.json()
+    return tokens['access_token']
+ 
+# 發送電子郵件
+def send_email(access_token, to_address, subject, body):
+    headers = {
+        'Authorization': f'Bearer {access_token}',
+        'Content-Type': 'application/json'
+    }
+    email_data = {
+        "message": {
+            "subject": subject,
+            "body": {
+                "contentType": "Text",
+                "content": body
+            },
+            "toRecipients": [
+                {
+                    "emailAddress": {
+                        "address": to_address
+                    }
+                }
+            ]
+        },
+        "saveToSentItems": "true"
+    }
+    email_url = 'https://graph.microsoft.com/v1.0/me/sendMail'
+    response = requests.post(email_url, headers=headers, json=email_data)
+    response.raise_for_status()
+    print("Email sent successfully!")
+ 
+if __name__ == "__main__":
+    token = get_access_token()
+    send_email(token, 'recipient@example.com', 'Test Subject', 'This is the email body.')</pre>
+<p>以下利用 ChatGPT 進行對話:</p>
+<p>問:</p>
+<p data-pm-slice="0 0 []">使用 python + flask 開發一個簡單的資料庫程式, 並使用 SQLite, 目前表單有使用者學號以及其 github 帳號, 還有一個備註欄位, 只需要 add, query, update 與 delete 功能, 該如何進行?</p>
+<p data-pm-slice="0 0 []">答:</p>
+<p>安裝 Flask 和 SQLite<br/><br/>首先，確保你已經安裝了 Flask 和 SQLite。如果你還沒有安裝，請使用以下命令：</p>
+<p><code class="js plain">pip install Flask</code></p>
+<p><code class="js plain">SQLite 通常已經隨 Python 安裝，不需要額外安裝。如果你需要 SQLite 的 Python 模組，可以使用以下命令：</code></p>
+<p><code class="js plain">pip install sqlite3</code></p>
+<p data-pm-slice="0 0 []">建立 Flask 應用程式</p>
+<p data-pm-slice="0 0 []">應用程式結構:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">flask_app/
+│
+├── app.py
+├── schema.sql
+└── templates/
+    ├── index.html
+    ├── add.html
+    ├── update.html
+    └── query.html</pre>
+<p data-pm-slice="0 0 []">schema.sql — 定義 SQLite 資料表</p>
+<p data-pm-slice="0 0 []">在 schema.sql 文件中，定義 SQLite 資料表結構：</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    student_id TEXT NOT NULL UNIQUE,
+    github_account TEXT NOT NULL,
+    notes TEXT
+);</pre>
+<p data-pm-slice="0 0 []">app.py — Flask 應用程式<br/><br/>在 app.py 中，設置 Flask 應用程式並建立 CRUD 功能：</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"></pre>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from flask import Flask, request, redirect, url_for, render_template
+import sqlite3
+ 
+app = Flask(__name__)
+ 
+DATABASE = 'database.db'
+ 
+def get_db():
+    conn = sqlite3.connect(DATABASE)
+    conn.row_factory = sqlite3.Row
+    return conn
+ 
+def init_db():
+    with app.app_context():
+        db = get_db()
+        with open('schema.sql', 'r') as f:
+            db.executescript(f.read())
+        db.commit()
+ 
+@app.route('/')
+def index():
+    return render_template('index.html')
+ 
+@app.route('/add', methods=['GET', 'POST'])
+def add_user():
+    if request.method == 'POST':
+        student_id = request.form['student_id']
+        github_account = request.form['github_account']
+        notes = request.form.get('notes', '')
+ 
+        db = get_db()
+        db.execute('INSERT INTO users (student_id, github_account, notes) VALUES (?, ?, ?)',
+                   (student_id, github_account, notes))
+        db.commit()
+        return redirect(url_for('index'))
+ 
+    return render_template('add.html')
+ 
+@app.route('/update/&lt;int:user_id&gt;', methods=['GET', 'POST'])
+def update_user(user_id):
+    db = get_db()
+    if request.method == 'POST':
+        student_id = request.form['student_id']
+        github_account = request.form['github_account']
+        notes = request.form.get('notes', '')
+ 
+        db.execute('UPDATE users SET student_id = ?, github_account = ?, notes = ? WHERE id = ?',
+                   (student_id, github_account, notes, user_id))
+        db.commit()
+        return redirect(url_for('index'))
+ 
+    user = db.execute('SELECT * FROM users WHERE id = ?', (user_id,)).fetchone()
+    return render_template('update.html', user=user)
+ 
+@app.route('/delete/&lt;int:user_id&gt;')
+def delete_user(user_id):
+    db = get_db()
+    db.execute('DELETE FROM users WHERE id = ?', (user_id,))
+    db.commit()
+    return redirect(url_for('index'))
+ 
+@app.route('/query')
+def query_users():
+    db = get_db()
+    users = db.execute('SELECT * FROM users').fetchall()
+    return render_template('query.html', users=users)
+ 
+if __name__ == '__main__':
+    init_db()
+    app.run(debug=True)</pre>
+<p data-pm-slice="0 0 []">templates/index.html:</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Index&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to User Management&lt;/h1&gt;
+    &lt;a href="{{ url_for('add_user') }}"&gt;Add User&lt;/a&gt; |
+    &lt;a href="{{ url_for('query_users') }}"&gt;Query Users&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p data-pm-slice="0 0 []">templates/add.html:</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Add User&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Add User&lt;/h1&gt;
+    &lt;form action="{{ url_for('add_user') }}" method="post"&gt;
+        &lt;label for="student_id"&gt;Student ID:&lt;/label&gt;
+        &lt;input type="text" id="student_id" name="student_id" required&gt;&lt;br&gt;
+        &lt;label for="github_account"&gt;GitHub Account:&lt;/label&gt;
+        &lt;input type="text" id="github_account" name="github_account" required&gt;&lt;br&gt;
+        &lt;label for="notes"&gt;Notes:&lt;/label&gt;
+        &lt;textarea id="notes" name="notes"&gt;&lt;/textarea&gt;&lt;br&gt;
+        &lt;input type="submit" value="Add"&gt;
+    &lt;/form&gt;
+    &lt;a href="{{ url_for('index') }}"&gt;Back&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p data-pm-slice="0 0 []">templates/update.html:</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Update User&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Update User&lt;/h1&gt;
+    &lt;form action="{{ url_for('update_user', user_id=user['id']) }}" method="post"&gt;
+        &lt;label for="student_id"&gt;Student ID:&lt;/label&gt;
+        &lt;input type="text" id="student_id" name="student_id" value="{{ user['student_id'] }}" required&gt;&lt;br&gt;
+        &lt;label for="github_account"&gt;GitHub Account:&lt;/label&gt;
+        &lt;input type="text" id="github_account" name="github_account" value="{{ user['github_account'] }}" required&gt;&lt;br&gt;
+        &lt;label for="notes"&gt;Notes:&lt;/label&gt;
+        &lt;textarea id="notes" name="notes"&gt;{{ user['notes'] }}&lt;/textarea&gt;&lt;br&gt;
+        &lt;input type="submit" value="Update"&gt;
+    &lt;/form&gt;
+    &lt;a href="{{ url_for('index') }}"&gt;Back&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p data-pm-slice="0 0 []"></p><h1>Topics</h1>
 <p><a href="https://classroom.github.com">Github Classroom</a>: hw 為學員個人的作業倉儲, 2a 與 2b 則為各班的分組協同倉儲</p>
 <p><img alt="" height="201" src="/images/cd2025_classroom_hw_and_project.png" width="400"/></p>
 <p>cd2025 協同產品設計實習包括下列 4 個主題:</p>
@@ -441,7 +648,7 @@ if __name__ == '__main__':
 <div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/cmsimde/static" data-varname="wcmw3_fossil1" height="630" muted="true" width="1008">
 <source src="/downloads/wink/wcmw3_fossil1.mp4" type="video/mp4"/></video></div>
 <div class="winkVideoContainerClass"></div>
-<div class="winkVideoContainerClass">fossil init w4.fossil<br/><br/>fossil ui w4.fossil<br/><br/>ctrl c<br/><br/>git clone https://github.com/mdecycu/cmsimde_site.git c<br/><br/>cd c<br/><br/>fossil open ./../w4.fossil --force<br/><br/>fossil add .<br/><br/>fossil commit -m "add c"<br/><br/>cd ..<br/><br/>fossil ui w4.fossil<br/><br/><a href="http://localhost:8081/doc/trunk/index.html">http://localhost:8081/doc/trunk/index.html</a></div>
+<div class="winkVideoContainerClass">fossil init w4.fossil<br/><br/>fossil ui w4.fossil<br/><br/>ctrl c<br/><br/>git clone https://github.com/mdecycu/cmsimde_site.git c<br/><br/>cd c<br/><br/>fossil open ./../w4.fossil --force<br/><br/>fossil add .<br><br>fossil commit -m "add c"<br><br>cd ..<br/><br/>fossil ui w4.fossil<br/><br/><a href="http://localhost:8081/doc/trunk/index.html">http://localhost:8081/doc/trunk/index.html</a></br></br></br></br></div>
 <div class="winkVideoContainerClass"></div>
 <div class="winkVideoContainerClass">trunk 為最新版本的代號, 若在 Fossil 系統中改版後, 可以將 trunk 換為版號, 直接看到該版的靜態網站內容.</div>
 <h2>Topic1</h2>
