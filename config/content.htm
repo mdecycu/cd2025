@@ -293,7 +293,121 @@ def remove_object(node):
 <li>正向面對挑戰</li>
 <li>培養創業家精神</li>
 </ol>
-<h1>Topics</h1>
+<h2>Project</h2>
+<p></p>
+<p>修課學員經由 @nfu.edu.tw 網域, 可利用"學號@nfu.edu.tw"經由 <a href="https://login.microsoftonline.com/">https://login.microsoftonline.com/</a> 登入 MS 365.</p>
+<p>登入後, 使用者可以利用"<a href="https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade">應用程式註冊</a>"建立應用程式.</p>
+<p>所註冊的延伸應用程式則可以利用 Microsoft Online 主機所提供的 OAuth2 API 程式庫, 取得登入者的 profile.</p>
+<p>經由上列步驟取得登入者的 profile 後, 延伸應用程式可設法讀取課程學員的作業倉儲與網站連結.</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from flask import Flask, redirect, request, session, url_for
+import requests
+import json
+ 
+app = Flask(__name__)
+app.secret_key = 'your_secret_key'  # 用於 Flask session 的秘密金鑰
+ 
+# 替換成你的 Azure AD 應用程式資訊
+'''
+取得 CLIENT_ID（應用程式 (用戶端) 識別碼）
+
+    進入你的應用程式註冊細節頁面。
+    在「概觀」分頁中，找到「應用程式 (用戶端) 識別碼」（Application (client) ID）。
+    複製這個 GUID 字串，填入 CLIENT_ID = '這個字串'
+
+建立 CLIENT_SECRET（用戶端密碼）
+
+    在應用程式註冊的左側欄選單選擇「憑證與秘密」（Certificates &amp; secrets）。
+    點選「新增用戶端密碼」（New client secret）。
+    填寫描述與存續期限，按下「新增」。
+    建立後會出現一個「值」(Value)，這才是 CLIENT_SECRET，只會顯示一次，請立即複製起來，填入 CLIENT_SECRET = '這個值'
+
+取得 TENANT_ID（目錄 (租用戶) 識別碼）
+
+    同樣在「概觀」分頁中，找到「目錄 (租用戶) 識別碼」（Directory (tenant) ID）。
+    複製這個 GUID 字串，填入 TENANT_ID = '這個字串'
+'''
+CLIENT_ID = 'your_CLIENT_ID'
+CLIENT_SECRET = 'your_CLIENT_SECRET'
+TENANT_ID = 'your_TENANT_ID'
+AUTHORITY = f'https://login.microsoftonline.com/{TENANT_ID}'
+REDIRECT_URI = 'https://35.cycu.org/callback'
+SCOPE = 'User.Read'
+ 
+# 用於登錄和取得授權碼
+@app.route('/')
+def index():
+    auth_url = (f'{AUTHORITY}/oauth2/v2.0/authorize'
+                f'?client_id={CLIENT_ID}'
+                f'&amp;response_type=code'
+                f'&amp;redirect_uri={REDIRECT_URI}'
+                f'&amp;response_mode=query'
+                f'&amp;scope={SCOPE}')
+    return redirect(auth_url)
+ 
+# 處理回調和交換授權碼
+@app.route('/callback')
+def callback():
+    code = request.args.get('code')
+    token_url = f'{AUTHORITY}/oauth2/v2.0/token'
+    token_data = {
+        'grant_type': 'authorization_code',
+        'code': code,
+        'redirect_uri': REDIRECT_URI,
+        'client_id': CLIENT_ID,
+        'client_secret': CLIENT_SECRET,
+        'scope': SCOPE
+    }
+    token_r = requests.post(token_url, data=token_data)
+    token_r.raise_for_status()
+    tokens = token_r.json()
+    session['access_token'] = tokens['access_token']
+    return redirect(url_for('profile'))
+ 
+# 使用訪問令牌呼叫 Microsoft Graph API 來獲取用戶資料
+@app.route('/profile')
+def profile():
+    access_token = session.get('access_token')
+    if not access_token:
+        return redirect(url_for('index'))
+ 
+    headers = {
+        'Authorization': f'Bearer {access_token}',
+        'Content-Type': 'application/json'
+    }
+    graph_url = 'https://graph.microsoft.com/v1.0/me'
+    graph_r = requests.get(graph_url, headers=headers)
+    graph_r.raise_for_status()
+    user_info = graph_r.json()
+    user_email = str(user_info["mail"])
+    user_id = user_email.split("@")[0]
+    session["user_id"] = user_id
+    # 登出 MS Online 並重定向回首頁
+    # 返回 HTML 及 JavaScript 以進行自動登出
+    return (f'Hello, {user_id} &lt;br&gt;'
+            f'&lt;script type="text/javascript"&gt;'
+            f'  window.location = "https://login.microsoftonline.com/common/oauth2/v2.0/logout";'
+            f'&lt;/script&gt;')
+ 
+@app.route('/userid')
+def userid():
+    return session["user_id"]
+     
+ 
+# 登出功能
+@app.route('/logout')
+def logout():
+    # 清除 session 中的訪問令牌
+    session.pop('access_token', None)
+    # 重定向到 MS Online 登出 URL
+    return redirect('https://login.microsoftonline.com/common/oauth2/v2.0/logout')
+ 
+if __name__ == '__main__':
+    context = (r'C:\Certbot\live\your_server_domain\cert.pem', r'C:\Certbot\live\your_server_domain\privkey.pem')
+    app.run(debug=True, host='your_server_domain', port=443, ssl_context=context)</pre>
+<p>啟動後, 以 <a href="https://your_server_domain">https://your_server_domain</a> 連線後, 系統導到 Office 365 登入.</p>
+<p>Reference:</p>
+<p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/cad2024/content/Project.html">http://wcm.cycu.org:88/github/cad2024/content/Project.html</a> </p>
+<p></p><h1>Topics</h1>
 <p><a href="https://classroom.github.com">Github Classroom</a>: hw 為學員個人的作業倉儲, 2a 與 2b 則為各班的分組協同倉儲</p>
 <p><img alt="" height="201" src="/images/cd2025_classroom_hw_and_project.png" width="400"/></p>
 <p>cd2025 協同產品設計實習包括下列 4 個主題:</p>
@@ -306,8 +420,7 @@ def remove_object(node):
 <p>主題 3 採用的機電模擬場景工具為 Webots R2025a, 相較於 CoppeliaSim, Webots 採用 Apache 使用授權, 不限於在學校環境中使用. 結合 <a href="https://github.com/aidudezzz/deepbots">Deepbots</a> 可用於機電系統的強化學習 (Reinforce Learning).</p>
 <p><a href="/downloads/https_server_py.7z">https_server_py.7z</a> (利用 Python 伺服同目錄的 index.html)</p>
 <h4>Topic4: 協同設計</h4>
-<p>主題 4 為協同設計, 各組員可採同步或非同步模式或建立不同操除分支提交改版紀錄, 也可利用 Odoo PLM 模組建立產品開發生命週期間各階段組員的互動紀錄.</p>
-<h2>Wink</h2>
+<p>主題 4 為協同設計, 各組員可採同步或非同步模式或建立不同操除分支提交改版紀錄, 也可利用 Odoo PLM 模組建立產品開發生命週期間各階段組員的互動紀錄.</p><h2>Wink</h2>
 <pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;!-- 假如檔案小於 5mb, 將 mp4 檔案放入 downloads 目錄後取出 --&gt;
 &lt;div class="winkVideoContainerClass"&gt;&lt;video width="1008" height="630" autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/cmsimde/static" data-varname="your_video_unique_name" muted="true"&gt;
 &lt;source src="/downloads/your_video.mp4" type="video/mp4" /&gt;&lt;/video&gt;&lt;/div&gt;</pre>
