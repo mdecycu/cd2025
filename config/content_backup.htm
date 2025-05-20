@@ -612,7 +612,41 @@ if __name__ == '__main__':
     &lt;a href="{{ url_for('index') }}"&gt;Back&lt;/a&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre>
-<p data-pm-slice="0 0 []"></p><h1>Topics</h1>
+<p data-pm-slice="0 0 []">templates/query.html:</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Query Users&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Users&lt;/h1&gt;
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;th&gt;ID&lt;/th&gt;
+            &lt;th&gt;Student ID&lt;/th&gt;
+            &lt;th&gt;GitHub Account&lt;/th&gt;
+            &lt;th&gt;Notes&lt;/th&gt;
+            &lt;th&gt;Actions&lt;/th&gt;
+        &lt;/tr&gt;
+        {% for user in users %}
+        &lt;tr&gt;
+            &lt;td&gt;{{ user['id'] }}&lt;/td&gt;
+            &lt;td&gt;{{ user['student_id'] }}&lt;/td&gt;
+            &lt;td&gt;{{ user['github_account'] }}&lt;/td&gt;
+            &lt;td&gt;{{ user['notes'] }}&lt;/td&gt;
+            &lt;td&gt;
+                &lt;a href="{{ url_for('update_user', user_id=user['id']) }}"&gt;Update&lt;/a&gt; |
+                &lt;a href="{{ url_for('delete_user', user_id=user['id']) }}"&gt;Delete&lt;/a&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        {% endfor %}
+    &lt;/table&gt;
+    &lt;a href="{{ url_for('index') }}"&gt;Back&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p data-pm-slice="0 0 []">啟動應用程式<br/><br/>確保你的 Flask 應用程式和模板文件已經正確配置，然後啟動應用程式：</p>
+<p data-pm-slice="0 0 []"><code class="js plain">python app.py</code></p>
+<p data-pm-slice="0 0 []"><code class="js plain">接下來, 可以在瀏覽器中訪問 <code>http://127.0.0.1:5000/</code> 來查看和管理你的資料。</code></p><h1>Topics</h1>
 <p><a href="https://classroom.github.com">Github Classroom</a>: hw 為學員個人的作業倉儲, 2a 與 2b 則為各班的分組協同倉儲</p>
 <p><img alt="" height="201" src="/images/cd2025_classroom_hw_and_project.png" width="400"/></p>
 <p>cd2025 協同產品設計實習包括下列 4 個主題:</p>
@@ -648,7 +682,7 @@ if __name__ == '__main__':
 <div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/cmsimde/static" data-varname="wcmw3_fossil1" height="630" muted="true" width="1008">
 <source src="/downloads/wink/wcmw3_fossil1.mp4" type="video/mp4"/></video></div>
 <div class="winkVideoContainerClass"></div>
-<div class="winkVideoContainerClass">fossil init w4.fossil<br/><br/>fossil ui w4.fossil<br/><br/>ctrl c<br/><br/>git clone https://github.com/mdecycu/cmsimde_site.git c<br/><br/>cd c<br/><br/>fossil open ./../w4.fossil --force<br/><br/>fossil add .<br><br>fossil commit -m "add c"<br><br>cd ..<br/><br/>fossil ui w4.fossil<br/><br/><a href="http://localhost:8081/doc/trunk/index.html">http://localhost:8081/doc/trunk/index.html</a></br></br></br></br></div>
+<div class="winkVideoContainerClass">fossil init w4.fossil<br/><br/>fossil ui w4.fossil<br/><br/>ctrl c<br/><br/>git clone https://github.com/mdecycu/cmsimde_site.git c<br/><br/>cd c<br/><br/>fossil open ./../w4.fossil --force<br/><br/>fossil add .<br/><br/>fossil commit -m "add c"<br/><br/>cd ..<br/><br/>fossil ui w4.fossil<br/><br/><a href="http://localhost:8081/doc/trunk/index.html">http://localhost:8081/doc/trunk/index.html</a></div>
 <div class="winkVideoContainerClass"></div>
 <div class="winkVideoContainerClass">trunk 為最新版本的代號, 若在 Fossil 系統中改版後, 可以將 trunk 換為版號, 直接看到該版的靜態網站內容.</div>
 <h2>Topic1</h2>
