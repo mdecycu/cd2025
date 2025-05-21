@@ -1,0 +1,17 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.6794629329650922 0.6660067471427266 0.30783946382301136 2.5554866616118908
+  position -0.13187287031031114 6.682891963411258 7.552864450510785
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+BallShooter {
+}
