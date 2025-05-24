@@ -216,7 +216,7 @@ class STLConverter:
 # 直接轉換指定的 STL 檔案
 try:
     # 指定要轉換的 STL 檔案名稱和縮放比例
-    stl_file = "block.stl"
+    stl_file = "shooter_assembly.stl"
     scale = 0.01  # 縮放比例，可以根據需要調整
 
     # 創建轉換器實例並執行轉換

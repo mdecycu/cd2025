@@ -1,2 +1,7 @@
-紅色方塊為外部轉入的零件
-綠色方塊則為採 Box 建立的零件
+youbot_cart_w14_w_plate.wbt
+
+size of plate on Youbot cart
+
+length 50 cm
+width 30 cm
+height 2 cm
