@@ -39,8 +39,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation 0.07746296485828803 0.048673368694202954 0.9958064029997606 4.534793444285308
-  position 0.776697339139979 3.9935566653446966 0.07388067626603359
+  orientation 0.29741929154438174 -0.2961047803500992 -0.9076693913926246 4.6112477120566036
+  position -0.05713568617900141 -13.926771098643899 10.71393185329643
   follow "youBot"
 }
 TexturedBackground {
@@ -48,10 +48,10 @@ TexturedBackground {
 TexturedBackgroundLight {
 }
 Floor {
-  size 5 5
+  size 15 15
   tileSize 1 1
 }
-Robot {
+DEF youbot Robot {
   translation 0 0 0.102838
   children [
     BodyMesh {
@@ -71,7 +71,7 @@ Robot {
         }
       ]
       endPoint DEF WHEEL_SOLID Solid {
-        translation 0.228 -0.158 -0.055
+        translation 0.2281930286974056 -0.15799988265235732 -0.055047827878947915
         rotation 0 1 0 0
         children [
           Shape {
@@ -269,7 +269,7 @@ Robot {
         }
       ]
       endPoint DEF WHEEL_SOLID Solid {
-        translation 0.228 0.158 -0.055
+        translation 0.22782916662591632 0.1580000814935569 -0.05494995355124475
         rotation 0 1 0 0
         children [
           Shape {
@@ -467,8 +467,8 @@ Robot {
         }
       ]
       endPoint DEF WHEEL_SOLID Solid {
-        translation -0.228 -0.158 -0.055
-        rotation 0 1 0 0
+        translation -0.22760948785719293 -0.1579938715044018 -0.055152666172193415
+        rotation 0.010027459965518735 4.322957127172458e-08 0.9999497237594688 3.2373608622551644e-07
         children [
           Shape {
             appearance PBRAppearance {
@@ -665,8 +665,8 @@ Robot {
         }
       ]
       endPoint DEF WHEEL_SOLID Solid {
-        translation -0.228 0.158 -0.055
-        rotation 0 1 0 0
+        translation -0.22831352559931442 0.1579993904908171 -0.05468568089420528
+        rotation -0.5868508392249004 -2.4419060282830165e-08 -0.8096950614280847 2.9802322387695313e-08
         children [
           Shape {
             appearance PBRAppearance {
@@ -848,29 +848,56 @@ Robot {
         }
       }
     }
+    DEF PLATE Solid {
+      translation 0 0 0.03
+      children [
+        DEF plate Shape {
+          appearance PBRAppearance {
+            baseColor 0.75 0.75 0.75
+            roughness 0.3
+          }
+          geometry Box {
+            size 0.5 0.3 0.02
+          }
+        }
+      ]
+      name "plate"
+      boundingObject USE plate
+      physics Physics {
+        density -1
+        mass 0.5
+      }
+    }
     Solid {
-      translation 0.4 -0.25 0.09
+      translation 0.18 -0.12 0.12
       rotation 1 0 0 1.57
       children [
         DEF base Solid {
           children [
-            DEF base_shape CadShape {
-              url [
-                "./../split_parts/base.obj"
-              ]
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 1 0 0
+                }
+              }
+              geometry Mesh {
+                url [
+                  "../cad/split_parts/part_4.obj"
+                ]
+              }
             }
           ]
           name "base"
           boundingObject Mesh {
             url [
-              "./../split_parts/base.obj"
+              "./../cad/split_parts/part_4.obj"
             ]
           }
         }
         DEF joint1 HingeJoint {
           jointParameters HingeJointParameters {
             axis 0 0 1
-            anchor -0.3 0.22 0
+            anchor -0.35 0.15 0
           }
           device [
             DEF motor1 RotationalMotor {
@@ -883,44 +910,73 @@ Robot {
             }
           ]
           endPoint DEF press Solid {
+            translation 2.474081597886313e-05 -0.0011205126174545776 8.94599023174014e-06
+            rotation -0.9820758509066544 0.1877454584379744 0.016693289127231826 2.430492220326292e-05
             children [
-              CadShape {
-                url [
-                  "./../split_parts/press.obj"
-                ]
+              Shape {
+                appearance Appearance {
+                  material Material {
+                    diffuseColor 0 1 0
+                  }
+                }
+                geometry Mesh {
+                  url [
+                    "../cad/split_parts/part_2.obj"
+                  ]
+                }
               }
               DEF joint2 HingeJoint {
                 jointParameters HingeJointParameters {
                   axis 0 0 1
-                  anchor -0.0224 0.148 0
+                  anchor -0.054 0.101 0
                 }
                 endPoint DEF connector Solid {
+                  translation 2.001189458169378e-05 -0.00033074498397954455 1.5164110889753777e-06
+                  rotation -0.9999541729014182 0.008044724625147933 -0.005189846119699086 5.127731851103069e-06
                   children [
-                    DEF connector CadShape {
-                      url [
-                        "./../split_parts/connector.obj"
-                      ]
+                    Shape {
+                      appearance Appearance {
+                        material Material {
+                          diffuseColor 0 0 1
+                        }
+                      }
+                      geometry Mesh {
+                        url [
+                          "../cad/split_parts/part_3.obj"
+                        ]
+                      }
                     }
                     DEF joint3 HingeJoint {
                       jointParameters HingeJointParameters {
                         axis 0 0 1
-                        anchor -0.0686 0.7071 0
+                        anchor -0.08 0.5002 0
                       }
                       endPoint DEF shooter Solid {
+                        translation 1.6927142481248936e-05 -0.00028717919894838406 2.003237808453906e-06
+                        rotation -0.9999921650819372 -0.0039513373940277575 -0.00023813344613834233 2.9835086931725715e-06
                         children [
-                          CadShape {
-                            url [
-                              "./../split_parts/shooter.obj"
-                            ]
+                          Shape {
+                            appearance Appearance {
+                              material Material {
+                                diffuseColor 1 1 0
+                              }
+                            }
+                            geometry Mesh {
+                              url [
+                                "../cad/split_parts/part_1.obj"
+                              ]
+                            }
                           }
                         ]
                         name "shooter"
                         boundingObject Mesh {
                           url [
-                            "./../split_parts/shooter.obj"
+                            "./../cad/split_parts/part_1.obj"
                           ]
                         }
                         physics Physics {
+                          density -1
+                          mass 0.1
                         }
                       }
                     }
@@ -928,10 +984,12 @@ Robot {
                   name "connector"
                   boundingObject Mesh {
                     url [
-                      "./../split_parts/connector.obj"
+                      "./../cad/split_parts/part_3.obj"
                     ]
                   }
                   physics Physics {
+                    density -1
+                    mass 0.1
                   }
                 }
               }
@@ -939,17 +997,19 @@ Robot {
             name "press"
             boundingObject Mesh {
               url [
-                "./../split_parts/press.obj"
+                "./../cad/split_parts/part_2.obj"
               ]
             }
             physics Physics {
+              density -1
+              mass 0.1
             }
           }
         }
         DEF joint4 HingeJoint {
           jointParameters HingeJointParameters {
             axis 0 0 1
-            anchor 0.15 0.68 0
+            anchor 0.1 0.5 0
           }
           endPoint SolidReference {
             solidName "shooter"
@@ -961,27 +1021,29 @@ Robot {
         children [
           Mesh {
             url [
-              "../split_parts/base.obj"
+              "../cad/split_parts/part_1.obj"
             ]
           }
           Mesh {
             url [
-              "../split_parts/press.obj"
+              "../cad/split_parts/part_2.obj"
             ]
           }
           Mesh {
             url [
-              "../split_parts/connector.obj"
+              "../cad/split_parts/part_3.obj"
             ]
           }
           Mesh {
             url [
-              "../split_parts/shooter.obj"
+              "../cad/split_parts/part_4.obj"
             ]
           }
         ]
       }
       physics Physics {
+        density -1
+        mass 0.1
       }
     }
   ]
@@ -1019,8 +1081,12 @@ Robot {
       0 0 0
     ]
   }
-  controller "w14_integrated_controlle"
+  controller "small_controller"
   controllerArgs [
     "demo"
   ]
+}
+DEF supervisor Robot {
+  controller "small_feed_ball"
+  supervisor TRUE
 }
