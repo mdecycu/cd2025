@@ -196,6 +196,50 @@ def remove_object(node):
 <li>將 <a href="/downloads/youbot_cart_w15.7z">youbot_cart_w15.7z</a> 的 w15_shooter_stand_feed_ball.wbt 場景中的籃框平台車, 套用<span> </span><a href="https://mde.tw/cd2025/downloads/youbot_cart_w10_websocket.7z">youbot_cart_w10_websocket.7z</a> 程式控制, 改為 Websocket 模式, 籃框移動由 client 端進行控制</li>
 <li>將目前可以自由移動的籃框平台車, 改為只能面對場域中心點為圓心進行圓周運動</li>
 </ol>
+<p>解題邏輯:</p>
+<p>目前已經可以發球、投籃並透過籃框中的距離感測器, 判定是否得分</p>
+<p>假如能在每次投籃後, 都追蹤球落地之前與籃框中心的距離, 就能設法移動籃框, 讓下一球可以採相同投法得分</p>
+<p>移動 stand 的 Python 控制程式:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Supervisor, Keyboard
+
+MOVE_STEP = 0.01  # 每次平移 0.01 m
+
+supervisor = Supervisor()
+keyboard = Keyboard()
+timestep = int(supervisor.getBasicTimeStep())
+keyboard.enable(timestep)
+
+stand_node = supervisor.getFromDef('stand')
+if stand_node is None:
+    print("找不到 DEF 為 'stand' 的 Robot，請檢查 world 檔案！")
+    exit(1)
+
+translation_field = stand_node.getField('translation')
+
+print("使用上下左右鍵移動 stand：")
+print("↑：x 增加 0.01 m，↓：x 減少 0.01 m")
+print("→：y 增加 0.01 m，←：y 減少 0.01 m")
+
+while supervisor.step(timestep) != -1:
+    key = keyboard.getKey()
+    if key == -1:
+        continue
+
+    cur_pos = translation_field.getSFVec3f()
+    new_pos = list(cur_pos)
+
+    if key == Keyboard.UP:
+        new_pos[0] += MOVE_STEP  # x 增加
+    elif key == Keyboard.DOWN:
+        new_pos[0] -= MOVE_STEP  # x 減少
+    elif key == Keyboard.RIGHT:
+        new_pos[1] += MOVE_STEP  # y 增加
+    elif key == Keyboard.LEFT:
+        new_pos[1] -= MOVE_STEP  # y 減少
+
+    if new_pos != cur_pos:
+        translation_field.setSFVec3f(new_pos)
+        print(f"stand 新位置: x={new_pos[0]:.3f}, y={new_pos[1]:.3f}, z={new_pos[2]:.3f}")</pre>
 <p>References:</p>
 <p style="padding-left: 30px;"><a href="/downloads/youbot_cart_w14.7z">youbot_cart_w14.7z</a></p>
 <p style="padding-left: 30px;"><a href="/downloads/youbot_cart_w15.7z">youbot_cart_w15.7z</a></p>
@@ -1113,7 +1157,7 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocola
 <li><span>請每位學員利用 <a href="https://mdecd2025.github.io/hw-scrum-1/downloads/three_digit_counter.7z">three_digit_counter.7z</a> 中的七段顯示器進行修改, 以 webotsw --stream 啟動後, 可在其餘組員的電腦中, 透過瀏覽器檢視參與協同組員 Webots 中所展示的<span style="background-color: #ccffcc;">學員學號</span>. 完成後請各學員將操作與設定說明過程拍成影片, 上傳至 Youtube, 影片標題: "<span style="background-color: #ffff00;">國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam3-2 - 學員學號</span>".</span></li>
 <li><span>請各組利用 <a href="https://mde.tw/cd2025/downloads/youbot_cart_w10_websocket.7z">youbot_cart_w10_websocket.7z</a> 中的 Youbot 底座平台, 由各組組長以 webotsw --stream 啟動後, 可在其餘組員的電腦中, 透過 Websocket 客戶端程式控制平台車的前進、後退與左右轉. 完成後請各學員將操作與設定說明過程拍成影片, 上傳至 Youtube, 影片標題: "<span style="background-color: #ffff00;">國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam3-3 - 學員學號</span>".</span></li>
 <li><span>上述機電模擬場景的協同設計, 請分別由各組組員將所完成的影片與心得整理在個人作業網站中的 Exam3 頁面後, 再逐一利用組員的帳號權限, 將個人心得與上述操作影片, 統一放入分組網站中的 Exam3 頁面中.</span></li>
-</ol><h1>rrr</h1>
+</ol>
 <h1>Final</h1>
 <p>Final Report (30%) - 利用網頁內容進行簡報並提交 pdf 格式書面報告, 完成後填回自評表單</p>
 <p><span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a> 與 <a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a> 節點的結合應用: <a href="https://mde.tw/cd2025/downloads/basketball_game_w13.7z">basketball_game_w13.7z</a> 中的 basketball_game.wbt 啟動後直接觸動投籃動作, 並在籃球通過籃框感測器時列出 "得分".</span></p>
