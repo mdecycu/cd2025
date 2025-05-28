@@ -196,6 +196,50 @@ def remove_object(node):
 <li>將 <a href="/downloads/youbot_cart_w15.7z">youbot_cart_w15.7z</a> 的 w15_shooter_stand_feed_ball.wbt 場景中的籃框平台車, 套用<span> </span><a href="https://mde.tw/cd2025/downloads/youbot_cart_w10_websocket.7z">youbot_cart_w10_websocket.7z</a> 程式控制, 改為 Websocket 模式, 籃框移動由 client 端進行控制</li>
 <li>將目前可以自由移動的籃框平台車, 改為只能面對場域中心點為圓心進行圓周運動</li>
 </ol>
+<p>解題邏輯:</p>
+<p>目前已經可以發球、投籃並透過籃框中的距離感測器, 判定是否得分</p>
+<p>假如能在每次投籃後, 都追蹤球落地之前與籃框中心的距離, 就能設法移動籃框, 讓下一球可以採相同投法得分</p>
+<p>移動 stand 的 Python 控制程式:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Supervisor, Keyboard
+
+MOVE_STEP = 0.01  # 每次平移 0.01 m
+
+supervisor = Supervisor()
+keyboard = Keyboard()
+timestep = int(supervisor.getBasicTimeStep())
+keyboard.enable(timestep)
+
+stand_node = supervisor.getFromDef('stand')
+if stand_node is None:
+    print("找不到 DEF 為 'stand' 的 Robot，請檢查 world 檔案！")
+    exit(1)
+
+translation_field = stand_node.getField('translation')
+
+print("使用上下左右鍵移動 stand：")
+print("↑：x 增加 0.01 m，↓：x 減少 0.01 m")
+print("→：y 增加 0.01 m，←：y 減少 0.01 m")
+
+while supervisor.step(timestep) != -1:
+    key = keyboard.getKey()
+    if key == -1:
+        continue
+
+    cur_pos = translation_field.getSFVec3f()
+    new_pos = list(cur_pos)
+
+    if key == Keyboard.UP:
+        new_pos[0] += MOVE_STEP  # x 增加
+    elif key == Keyboard.DOWN:
+        new_pos[0] -= MOVE_STEP  # x 減少
+    elif key == Keyboard.RIGHT:
+        new_pos[1] += MOVE_STEP  # y 增加
+    elif key == Keyboard.LEFT:
+        new_pos[1] -= MOVE_STEP  # y 減少
+
+    if new_pos != cur_pos:
+        translation_field.setSFVec3f(new_pos)
+        print(f"stand 新位置: x={new_pos[0]:.3f}, y={new_pos[1]:.3f}, z={new_pos[2]:.3f}")</pre>
 <p>References:</p>
 <p style="padding-left: 30px;"><a href="/downloads/youbot_cart_w14.7z">youbot_cart_w14.7z</a></p>
 <p style="padding-left: 30px;"><a href="/downloads/youbot_cart_w15.7z">youbot_cart_w15.7z</a></p>
@@ -1113,7 +1157,8 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocola
 <li><span>請每位學員利用 <a href="https://mdecd2025.github.io/hw-scrum-1/downloads/three_digit_counter.7z">three_digit_counter.7z</a> 中的七段顯示器進行修改, 以 webotsw --stream 啟動後, 可在其餘組員的電腦中, 透過瀏覽器檢視參與協同組員 Webots 中所展示的<span style="background-color: #ccffcc;">學員學號</span>. 完成後請各學員將操作與設定說明過程拍成影片, 上傳至 Youtube, 影片標題: "<span style="background-color: #ffff00;">國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam3-2 - 學員學號</span>".</span></li>
 <li><span>請各組利用 <a href="https://mde.tw/cd2025/downloads/youbot_cart_w10_websocket.7z">youbot_cart_w10_websocket.7z</a> 中的 Youbot 底座平台, 由各組組長以 webotsw --stream 啟動後, 可在其餘組員的電腦中, 透過 Websocket 客戶端程式控制平台車的前進、後退與左右轉. 完成後請各學員將操作與設定說明過程拍成影片, 上傳至 Youtube, 影片標題: "<span style="background-color: #ffff00;">國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam3-3 - 學員學號</span>".</span></li>
 <li><span>上述機電模擬場景的協同設計, 請分別由各組組員將所完成的影片與心得整理在個人作業網站中的 Exam3 頁面後, 再逐一利用組員的帳號權限, 將個人心得與上述操作影片, 統一放入分組網站中的 Exam3 頁面中.</span></li>
-</ol><h1>Final</h1>
+</ol><h1>rrr</h1>
+<h1>Final</h1>
 <p>Final Report (30%) - 利用網頁內容進行簡報並提交 pdf 格式書面報告, 完成後填回自評表單</p>
 <p><span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a> 與 <a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a> 節點的結合應用: <a href="https://mde.tw/cd2025/downloads/basketball_game_w13.7z">basketball_game_w13.7z</a> 中的 basketball_game.wbt 啟動後直接觸動投籃動作, 並在籃球通過籃框感測器時列出 "得分".</span></p>
 <p><span>send_command_from_emitter.wbt 啟動後, 由 supervisor 操縱的下列程式送出指令訊號, 交由場景中的 Robot 主體執行:</span></p>
@@ -1685,7 +1730,30 @@ while robot.step(TIME_STEP) != -1:  # 當機器人步進時間步長不等於 -1
 <p>渲染選項<br/><br/>Webots 在視圖菜單中提供了幾種渲染模式。</p>
 <p style="padding-left: 30px;"><span style="background-color: #ccffcc;">實作 #5：使用"視圖 / 線框渲染" (View / Wireframe Rendering) 表單項以線框模式查看模擬。然後還原為普通渲染模式："視圖 / 普通渲染" (View / Plain Rendering)。</span></p>
 <p>其他渲染功能也很有幫助：<br/><br/>    查看座標系統： View / Optional Rendering / Show Coordinates System 或使用 ctrl-F1<br/>    查看距離傳感器光線： View / Optional Rendering / Show DistanceSensor Rays 或使用 ctrl-F10</p>
-<p>解決方案：世界文件<br/><br/>要將您的世界與解決方案進行比較，請轉到您的文件並找到在 <a href="https://mde.tw/cd2025/content/Tutorial1.html">Tutorial1</a>中創建的名為 my_first_simulation 的文件夾，然後轉到 worlds 文件夾並使用文本編輯器打開正確的世界文件。<a href="https://github.com/cyberbotics/webots/tree/released/projects/samples/tutorials/worlds/appearance.wbt">此解決方案</a>和其他解決方案位於<a href="https://github.com/cyberbotics/webots/tree/released/projects/samples/tutorials/worlds/">解決方案目錄</a>中。<br/><br/>結論<br/><br/>在本導引課程中，您學習了如何使用 <a href="https://cyberbotics.com/doc/reference/pbrappearance">PBRAppearance</a> 節點和光源節點設置一個美觀的環境。<br/><br/>您可以通過閱讀參考手冊中這些節點的詳細描述來進一步了解此主題。此<a href="https://github.com/cyberbotics/webots/discussions/5411">常見問題</a>解答將為您提供有效設置這些節點的方法。</p><h3>Tutorial4</h3>
+<p>解決方案：世界文件<br/><br/>要將您的世界與解決方案進行比較，請轉到您的文件並找到在 <a href="https://mde.tw/cd2025/content/Tutorial1.html">Tutorial1</a>中創建的名為 my_first_simulation 的文件夾，然後轉到 worlds 文件夾並使用文本編輯器打開正確的世界文件。<a href="https://github.com/cyberbotics/webots/tree/released/projects/samples/tutorials/worlds/appearance.wbt">此解決方案</a>和其他解決方案位於<a href="https://github.com/cyberbotics/webots/tree/released/projects/samples/tutorials/worlds/">解決方案目錄</a>中。<br/><br/>結論<br/><br/>在本導引課程中，您學習了如何使用 <a href="https://cyberbotics.com/doc/reference/pbrappearance">PBRAppearance</a> 節點和光源節點設置一個美觀的環境。<br/><br/>您可以通過閱讀參考手冊中這些節點的詳細描述來進一步了解此主題。此<a href="https://github.com/cyberbotics/webots/discussions/5411">常見問題</a>解答將為您提供有效設置這些節點的方法。</p><h3>Distancesensor</h3>
+<p><a href="https://cyberbotics.com/doc/reference/distancesensor">https://cyberbotics.com/doc/reference/distancesensor</a></p>
+<p>Derived from <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/device">Device</a> and <a class="dynamicLoad" href="https://cyberbotics.com/doc/reference/solid">Solid</a>.</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">DistanceSensor {
+  MFVec3f  lookupTable              [ 0 0 0, 0.1 1000 0 ] # lookup table
+  SFString type                     "generic"             # {"generic", "infra-red", "sonar", "laser"}
+  SFInt32  numberOfRays             1                     # [1, inf)
+  SFFloat  aperture                 1.5708                # [0, 2*pi]
+  SFFloat  gaussianWidth            1                     # [0, inf)
+  SFFloat  resolution               -1                    # {-1, [0, inf)}
+  SFFloat  redColorSensitivity      1                     # [0, inf)
+}</pre>
+<p>在 Webots 的 DistanceSensor 設為紅外線（Infra-red, IR）模式時，lookupTable 欄位用於將感測器的原始輸出值（通常是類比值，例如AD值或電壓）對應到實際的距離（通常以米為單位）。這個對應關係並非線性，且會根據不同的紅外線感測器型號而有所不同，因此需要用 lookupTable 明確設定。</p>
+<p>lookupTable 的格式說明<br/><br/>lookupTable 是一串三元組（triplet）組成的陣列，每個三元組代表：</p>
+<p>[distance, value, standardDeviation]</p>
+<p>distance：真實世界對應的距離（單位：公尺）。<br/>value：感測器輸出的原始值（通常為電壓或AD值）。<br/>standardDeviation：該點測量的誤差標準差（單位：公尺，非必需，可設為0）。</p>
+<p><br/>第一欄：輸入的距離（distance，單位：公尺）<br/>第二欄：對應的感測器反應值（response value，通常是電壓或 AD 值）<br/>第三欄：對應的標準差（standard deviation）</p>
+<p>例如:</p>
+<p>lookupTable [<br/>  0.05 100 0.01<br/>  0.20 400 0.01<br/>  0.80 800 0.01<br/>]</p>
+<p>這代表：<br/><br/>當輸出值為 100 時，對應距離為 0.05 公尺。<br/>當輸出值為 400 時，對應距離為 0.20 公尺。<br/>... 以此類推。<br/><br/>Webots 會用這些點做線性內插，將感測器讀數（例如 350）對應到距離。</p>
+<p> 設定 lookupTable 的方法<br/><br/>查閱感測器手冊：取得原廠提供的「輸出值 vs 距離」對照表。<br/>選擇幾個代表性數值：通常選 3~5 組即可覆蓋感測範圍。<br/>將其填入 lookupTable：</p>
+<p>使用 lookupTable 設定的意義<br/><br/>lookupTable 告訴 Webots「當感測器輸出某值時，應該對應到什麼距離」。<br/>因為紅外線測距不是線性的，所以線性內插比直接計算更準確。<br/>這讓模擬更貼近真實感測器行為。</p>
+<p style="text-align: left;"></p>
+<p style="text-align: left;"></p><h3>Tutorial4</h3>
 <p>導引課程 4：更多關於控制器的內容<br/><br/>現在我們開始討論與編程機器人控制器相關的主題。我們將設計一個簡單的控制器來避開在前面的教程中創建的障礙物。<br/><br/>本教程將介紹 Webots 中機器人編程的基礎。在本章結束時，您應該了解場景樹節點與控制器 API 之間的關聯，如何初始化和清理機器人控制器，如何初始化機器人設備，如何獲取傳感器值，如何指令執行器，以及如何編程一個簡單的反饋迴路。<br/><br/>本教程僅涉及 Webots 功能的正確使用。機器人算法的研究超出了本教程的目標，因此不會在此處討論。掌握一些基本的編程知識是解決本章問題的必要條件（任何 C 教程應該都是足夠的入門介紹）。在本章的末尾，提供了進一步的機器人算法的鏈接。</p>
 <p>新的模擬場景與控制器</p>
 <p style="padding-left: 30px;"><span style="background-color: #ccffcc;">實作 #1：將之前的世界保存為 collision_avoidance.wbt。從文件/新建/新建機器人控制器菜單項中創建一個新的 C（或任何其他語言）控制器，命名為 epuck_avoid_collision（對於 C++ 和 Java，命名為 EPuckAvoidCollision）。修改 E-puck 節點的控制器欄位以將其與新控制器關聯。</span></p>
