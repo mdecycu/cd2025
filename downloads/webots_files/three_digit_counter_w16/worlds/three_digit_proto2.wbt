@@ -1,14 +1,14 @@
-#VRML_SIM R2025a utf8
+#VRML_SIM R2023b utf8
 
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
 
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.5623984303897632 0.5699088606744341 0.599092560477844 2.0560327851975027
-  position -0.017502019275354563 -0.7175771829175285 4.168618078631734
+  orientation -0.186141518945707 -0.18057533864890138 0.9657866648470662 4.647278783759795
+  position 0.06598544664348666 1.6375050262315922 0.8415942316570624
 }
 TexturedBackground {
 }
@@ -17,17 +17,20 @@ TexturedBackgroundLight {
 RectangleArena {
 }
 Robot {
-  translation 0 -0.59 0.26
   children [
-    Transform {
+    Pose {
+      translation 1.26707e-06 -1.67506e-12 0.27
+      rotation 2.346409999993541e-06 1.125079999996903e-14 0.9999999999972473 3.14159
       children [
-        DEF sevent_segment Pose {
-          translation 0.22 0.22 0
+        Transform {
+          translation 0 0.47 -0.000374265
+          rotation 1 0 0 1.57
+          scale 0.2 0.2 0.2
           children [
             Pose {
-              translation -0.22 0.31 0
+              translation 0 0.31 0
               children [
-                DEF background Shape {
+                Shape {
                   appearance Appearance {
                     material Material {
                       diffuseColor 0 0 0
@@ -39,102 +42,14 @@ Robot {
                 }
               ]
             }
-            DEF first Group {
+            Pose {
+              translation 0.4 0 0
               children [
-                DEF A1 Shape {
-                  appearance Appearance {
-                    material DEF a1 Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "../cad/score_counter/split_parts/a.obj"
-                    ]
-                  }
-                }
-                DEF B1 Shape {
-                  appearance Appearance {
-                    material DEF b1 Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "../cad/score_counter/split_parts/b.obj"
-                    ]
-                  }
-                }
-                DEF C1 Shape {
-                  appearance Appearance {
-                    material DEF c1 Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "../cad/score_counter/split_parts/c.obj"
-                    ]
-                  }
-                }
-                DEF D1 Shape {
-                  appearance Appearance {
-                    material DEF d1 Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "../cad/score_counter/split_parts/d.obj"
-                    ]
-                  }
-                }
-                DEF E1 Shape {
-                  appearance Appearance {
-                    material DEF e1 Material {
-                      diffuseColor 0 0 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "../cad/score_counter/split_parts/e.obj"
-                    ]
-                  }
-                }
-                DEF F1 Shape {
-                  appearance Appearance {
-                    material DEF f1 Material {
-                      diffuseColor 0 0 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "../cad/score_counter/split_parts/f.obj"
-                    ]
-                  }
-                }
-                DEF G1 Shape {
-                  appearance Appearance {
-                    material DEF g1 Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "../cad/score_counter/split_parts/g.obj"
-                    ]
-                  }
-                }
-              ]
-            }
-            DEF second Pose {
-              translation -0.4 0 0
-              children [
-                DEF second Group {
+                Group {
                   children [
-                    DEF A2 Shape {
+                    DEF a1 Shape {
                       appearance Appearance {
-                        material DEF a2 Material {
+                        material DEF a1mat Material {
                           diffuseColor 0 1 0
                         }
                       }
@@ -144,9 +59,9 @@ Robot {
                         ]
                       }
                     }
-                    DEF B2 Shape {
+                    DEF b1 Shape {
                       appearance Appearance {
-                        material DEF b2 Material {
+                        material DEF b1mat Material {
                           diffuseColor 0 1 0
                         }
                       }
@@ -156,10 +71,10 @@ Robot {
                         ]
                       }
                     }
-                    DEF C2 Shape {
+                    DEF c1 Shape {
                       appearance Appearance {
-                        material DEF c2 Material {
-                          diffuseColor 0 0 0
+                        material DEF c1mat Material {
+                          diffuseColor 0 1 0
                         }
                       }
                       geometry Mesh {
@@ -168,9 +83,9 @@ Robot {
                         ]
                       }
                     }
-                    DEF D2 Shape {
+                    DEF d1 Shape {
                       appearance Appearance {
-                        material DEF d2 Material {
+                        material DEF d1mat Material {
                           diffuseColor 0 1 0
                         }
                       }
@@ -180,10 +95,10 @@ Robot {
                         ]
                       }
                     }
-                    DEF E2 Shape {
+                    DEF e1 Shape {
                       appearance Appearance {
-                        material DEF e2 Material {
-                          diffuseColor 0 1 0
+                        material DEF e1mat Material {
+                          diffuseColor 0 0 0
                         }
                       }
                       geometry Mesh {
@@ -192,10 +107,10 @@ Robot {
                         ]
                       }
                     }
-                    DEF F2 Shape {
+                    DEF f1 Shape {
                       appearance Appearance {
-                        material DEF f2 Material {
-                          diffuseColor 0 0 0
+                        material DEF f1mat Material {
+                          diffuseColor 0 1 0
                         }
                       }
                       geometry Mesh {
@@ -204,9 +119,9 @@ Robot {
                         ]
                       }
                     }
-                    DEF G2 Shape {
+                    DEF g1 Shape {
                       appearance Appearance {
-                        material DEF g2 Material {
+                        material DEF g1mat Material {
                           diffuseColor 0 1 0
                         }
                       }
@@ -220,15 +135,14 @@ Robot {
                 }
               ]
             }
-            DEF third Pose {
-              translation -0.8 0 0
+            Pose {
               children [
-                DEF third Group {
+                Group {
                   children [
-                    DEF A3 Shape {
+                    DEF a2 Shape {
                       appearance Appearance {
-                        material DEF a3 Material {
-                          diffuseColor 0 0 0
+                        material DEF a2mat Material {
+                          diffuseColor 0 1 0
                         }
                       }
                       geometry Mesh {
@@ -237,9 +151,9 @@ Robot {
                         ]
                       }
                     }
-                    DEF B3 Shape {
+                    DEF b2 Shape {
                       appearance Appearance {
-                        material DEF b3 Material {
+                        material DEF b2mat Material {
                           diffuseColor 0 1 0
                         }
                       }
@@ -249,9 +163,9 @@ Robot {
                         ]
                       }
                     }
-                    DEF C3 Shape {
+                    DEF c2 Shape {
                       appearance Appearance {
-                        material DEF c3 Material {
+                        material DEF c2mat Material {
                           diffuseColor 0 1 0
                         }
                       }
@@ -261,9 +175,102 @@ Robot {
                         ]
                       }
                     }
-                    DEF D3 Shape {
+                    DEF d2 Shape {
                       appearance Appearance {
-                        material DEF d3 Material {
+                        material DEF d2mat Material {
+                          diffuseColor 0 1 0
+                        }
+                      }
+                      geometry Mesh {
+                        url [
+                          "../cad/score_counter/split_parts/d.obj"
+                        ]
+                      }
+                    }
+                    DEF e2 Shape {
+                      appearance Appearance {
+                        material DEF e2mat Material {
+                          diffuseColor 0 1 0
+                        }
+                      }
+                      geometry Mesh {
+                        url [
+                          "../cad/score_counter/split_parts/e.obj"
+                        ]
+                      }
+                    }
+                    DEF f2 Shape {
+                      appearance Appearance {
+                        material DEF f2mat Material {
+                          diffuseColor 0 1 0
+                        }
+                      }
+                      geometry Mesh {
+                        url [
+                          "../cad/score_counter/split_parts/f.obj"
+                        ]
+                      }
+                    }
+                    DEF g2 Shape {
+                      appearance Appearance {
+                        material DEF g2mat Material {
+                          diffuseColor 0 1 0
+                        }
+                      }
+                      geometry Mesh {
+                        url [
+                          "../cad/score_counter/split_parts/g.obj"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+            Pose {
+              translation -0.4 0 0
+              children [
+                Group {
+                  children [
+                    DEF a3 Shape {
+                      appearance Appearance {
+                        material DEF a3mat Material {
+                          diffuseColor 0 1 0
+                        }
+                      }
+                      geometry Mesh {
+                        url [
+                          "../cad/score_counter/split_parts/a.obj"
+                        ]
+                      }
+                    }
+                    DEF b3 Shape {
+                      appearance Appearance {
+                        material DEF b3mat Material {
+                          diffuseColor 0 1 0
+                        }
+                      }
+                      geometry Mesh {
+                        url [
+                          "../cad/score_counter/split_parts/b.obj"
+                        ]
+                      }
+                    }
+                    DEF c3 Shape {
+                      appearance Appearance {
+                        material DEF c3mat Material {
+                          diffuseColor 0 1 0
+                        }
+                      }
+                      geometry Mesh {
+                        url [
+                          "../cad/score_counter/split_parts/c.obj"
+                        ]
+                      }
+                    }
+                    DEF d3 Shape {
+                      appearance Appearance {
+                        material DEF d3mat Material {
                           diffuseColor 0 0 0
                         }
                       }
@@ -273,9 +280,9 @@ Robot {
                         ]
                       }
                     }
-                    DEF E3 Shape {
+                    DEF e3 Shape {
                       appearance Appearance {
-                        material DEF e3 Material {
+                        material DEF e3mat Material {
                           diffuseColor 0 0 0
                         }
                       }
@@ -285,9 +292,9 @@ Robot {
                         ]
                       }
                     }
-                    DEF F3 Shape {
+                    DEF f3 Shape {
                       appearance Appearance {
-                        material DEF f3 Material {
+                        material DEF f3mat Material {
                           diffuseColor 0 0 0
                         }
                       }
@@ -297,9 +304,9 @@ Robot {
                         ]
                       }
                     }
-                    DEF G3 Shape {
+                    DEF g3 Shape {
                       appearance Appearance {
-                        material DEF g3 Material {
+                        material DEF g3mat Material {
                           diffuseColor 0 0 0
                         }
                       }
@@ -318,6 +325,6 @@ Robot {
       ]
     }
   ]
-  controller "seven_segment"
+  controller "three_digit_counter"
   supervisor TRUE
 }

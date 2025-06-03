@@ -65,7 +65,7 @@ if __name__ == "__main__":
     display = SevenSegmentController(supervisor, color_on, color_off)
 
     timestep = int(supervisor.getBasicTimeStep())
-    number = 789  # 可以修改這行來顯示不同數字
+    number = 456  # 可以修改這行來顯示不同數字
 
     while supervisor.step(timestep) != -1:
         display.display_number(number)
