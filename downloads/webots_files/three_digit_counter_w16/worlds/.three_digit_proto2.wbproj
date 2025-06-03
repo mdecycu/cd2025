@@ -4,7 +4,7 @@ simulationViewPerspectives: 000000ff000000010000000200000180000003c2010000000201
 sceneTreePerspectives: 000000ff00000001000000030000001d000000c0000000000100000002010000000201
 maximizedDockId: -1
 centralWidgetVisible: 1
-renderingMode: WIREFRAME
+renderingMode: PLAIN
 orthographicViewHeight: 1
 textFiles: 0 "controllers/three_digit_counter/three_digit_counter.py"
 consoles: Console:All:All
