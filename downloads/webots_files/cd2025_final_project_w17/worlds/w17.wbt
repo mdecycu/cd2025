@@ -42,7 +42,7 @@ WorldInfo {
 }
 Viewpoint {
   orientation -0.3212036030761455 0.32281364956200415 0.8902918583404891 1.6817737419483034
-  position -0.34830632369845094 -26.054554868500944 21.889847768248714
+  position -0.36392903366769525 -29.179070824456623 24.481815359260846
   follow "youBot"
 }
 TexturedBackground {
@@ -1062,306 +1062,6 @@ DEF stand Robot {
         mass 0.5
       }
     }
-    Transform {
-      translation -6.02 7.87076 0.93
-      rotation 1 0 0 0.523599
-      scale 4 4 4
-      children [
-        Pose {
-          translation 0 0.31 0
-          children [
-            Shape {
-              appearance Appearance {
-                material Material {
-                  diffuseColor 0 0 0
-                }
-              }
-              geometry Box {
-                size 1.3 0.8 0.02
-              }
-            }
-          ]
-        }
-        Pose {
-          translation 0.4 0 0
-          children [
-            Group {
-              children [
-                DEF a1 Shape {
-                  appearance Appearance {
-                    material DEF a1mat Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/a.obj"
-                    ]
-                  }
-                }
-                DEF b1 Shape {
-                  appearance Appearance {
-                    material DEF b1mat Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/b.obj"
-                    ]
-                  }
-                }
-                DEF c1 Shape {
-                  appearance Appearance {
-                    material DEF c1mat Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/c.obj"
-                    ]
-                  }
-                }
-                DEF d1 Shape {
-                  appearance Appearance {
-                    material DEF d1mat Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/d.obj"
-                    ]
-                  }
-                }
-                DEF e1 Shape {
-                  appearance Appearance {
-                    material DEF e1mat Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/e.obj"
-                    ]
-                  }
-                }
-                DEF f1 Shape {
-                  appearance Appearance {
-                    material DEF f1mat Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/f.obj"
-                    ]
-                  }
-                }
-                DEF g1 Shape {
-                  appearance Appearance {
-                    material DEF g1mat Material {
-                      diffuseColor 0.05 0.05 0.05
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/g.obj"
-                    ]
-                  }
-                }
-              ]
-            }
-          ]
-        }
-        Pose {
-          children [
-            Group {
-              children [
-                DEF a2 Shape {
-                  appearance Appearance {
-                    material DEF a2mat Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/a.obj"
-                    ]
-                  }
-                }
-                DEF b2 Shape {
-                  appearance Appearance {
-                    material DEF b2mat Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/b.obj"
-                    ]
-                  }
-                }
-                DEF c2 Shape {
-                  appearance Appearance {
-                    material DEF c2mat Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/c.obj"
-                    ]
-                  }
-                }
-                DEF d2 Shape {
-                  appearance Appearance {
-                    material DEF d2mat Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/d.obj"
-                    ]
-                  }
-                }
-                DEF e2 Shape {
-                  appearance Appearance {
-                    material DEF e2mat Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/e.obj"
-                    ]
-                  }
-                }
-                DEF f2 Shape {
-                  appearance Appearance {
-                    material DEF f2mat Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/f.obj"
-                    ]
-                  }
-                }
-                DEF g2 Shape {
-                  appearance Appearance {
-                    material DEF g2mat Material {
-                      diffuseColor 0.05 0.05 0.05
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/g.obj"
-                    ]
-                  }
-                }
-              ]
-            }
-          ]
-        }
-        Pose {
-          translation -0.4 0 0
-          children [
-            Group {
-              children [
-                DEF a3 Shape {
-                  appearance Appearance {
-                    material DEF a3mat Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/a.obj"
-                    ]
-                  }
-                }
-                DEF b3 Shape {
-                  appearance Appearance {
-                    material DEF b3mat Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/b.obj"
-                    ]
-                  }
-                }
-                DEF c3 Shape {
-                  appearance Appearance {
-                    material DEF c3mat Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/c.obj"
-                    ]
-                  }
-                }
-                DEF d3 Shape {
-                  appearance Appearance {
-                    material DEF d3mat Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/d.obj"
-                    ]
-                  }
-                }
-                DEF e3 Shape {
-                  appearance Appearance {
-                    material DEF e3mat Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/e.obj"
-                    ]
-                  }
-                }
-                DEF f3 Shape {
-                  appearance Appearance {
-                    material DEF f3mat Material {
-                      diffuseColor 0 1 0
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/f.obj"
-                    ]
-                  }
-                }
-                DEF g3 Shape {
-                  appearance Appearance {
-                    material DEF g3mat Material {
-                      diffuseColor 0.05 0.05 0.05
-                    }
-                  }
-                  geometry Mesh {
-                    url [
-                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/g.obj"
-                    ]
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
     Emitter {
       name "score_emitter"
       channel 1
@@ -1416,4 +1116,304 @@ DEF counter_supervisor Robot {
   name "counter_supervisor"
   controller "counter_supervisor"
   supervisor TRUE
+}
+Transform {
+  translation 0 7.87076 0.93
+  rotation 1 0 0 0.523599
+  scale 4 4 4
+  children [
+    Pose {
+      translation 0 0.31 0
+      children [
+        Shape {
+          appearance Appearance {
+            material Material {
+              diffuseColor 0 0 0
+            }
+          }
+          geometry Box {
+            size 1.3 0.8 0.02
+          }
+        }
+      ]
+    }
+    Pose {
+      translation 0.4 0 0
+      children [
+        Group {
+          children [
+            DEF a1 Shape {
+              appearance Appearance {
+                material DEF a1mat Material {
+                  diffuseColor 0.05 0.05 0.05
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/a.obj"
+                ]
+              }
+            }
+            DEF b1 Shape {
+              appearance Appearance {
+                material DEF b1mat Material {
+                  diffuseColor 0 1 0
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/b.obj"
+                ]
+              }
+            }
+            DEF c1 Shape {
+              appearance Appearance {
+                material DEF c1mat Material {
+                  diffuseColor 0 1 0
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/c.obj"
+                ]
+              }
+            }
+            DEF d1 Shape {
+              appearance Appearance {
+                material DEF d1mat Material {
+                  diffuseColor 0.05 0.05 0.05
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/d.obj"
+                ]
+              }
+            }
+            DEF e1 Shape {
+              appearance Appearance {
+                material DEF e1mat Material {
+                  diffuseColor 0.05 0.05 0.05
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/e.obj"
+                ]
+              }
+            }
+            DEF f1 Shape {
+              appearance Appearance {
+                material DEF f1mat Material {
+                  diffuseColor 0 1 0
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/f.obj"
+                ]
+              }
+            }
+            DEF g1 Shape {
+              appearance Appearance {
+                material DEF g1mat Material {
+                  diffuseColor 0 1 0
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/g.obj"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+    Pose {
+      children [
+        Group {
+          children [
+            DEF a2 Shape {
+              appearance Appearance {
+                material DEF a2mat Material {
+                  diffuseColor 0 1 0
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/a.obj"
+                ]
+              }
+            }
+            DEF b2 Shape {
+              appearance Appearance {
+                material DEF b2mat Material {
+                  diffuseColor 0 1 0
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/b.obj"
+                ]
+              }
+            }
+            DEF c2 Shape {
+              appearance Appearance {
+                material DEF c2mat Material {
+                  diffuseColor 0 1 0
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/c.obj"
+                ]
+              }
+            }
+            DEF d2 Shape {
+              appearance Appearance {
+                material DEF d2mat Material {
+                  diffuseColor 0 1 0
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/d.obj"
+                ]
+              }
+            }
+            DEF e2 Shape {
+              appearance Appearance {
+                material DEF e2mat Material {
+                  diffuseColor 0 1 0
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/e.obj"
+                ]
+              }
+            }
+            DEF f2 Shape {
+              appearance Appearance {
+                material DEF f2mat Material {
+                  diffuseColor 0 1 0
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/f.obj"
+                ]
+              }
+            }
+            DEF g2 Shape {
+              appearance Appearance {
+                material DEF g2mat Material {
+                  diffuseColor 0.05 0.05 0.05
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/g.obj"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+    Pose {
+      translation -0.4 0 0
+      children [
+        Group {
+          children [
+            DEF a3 Shape {
+              appearance Appearance {
+                material DEF a3mat Material {
+                  diffuseColor 0 1 0
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/a.obj"
+                ]
+              }
+            }
+            DEF b3 Shape {
+              appearance Appearance {
+                material DEF b3mat Material {
+                  diffuseColor 0 1 0
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/b.obj"
+                ]
+              }
+            }
+            DEF c3 Shape {
+              appearance Appearance {
+                material DEF c3mat Material {
+                  diffuseColor 0 1 0
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/c.obj"
+                ]
+              }
+            }
+            DEF d3 Shape {
+              appearance Appearance {
+                material DEF d3mat Material {
+                  diffuseColor 0 1 0
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/d.obj"
+                ]
+              }
+            }
+            DEF e3 Shape {
+              appearance Appearance {
+                material DEF e3mat Material {
+                  diffuseColor 0 1 0
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/e.obj"
+                ]
+              }
+            }
+            DEF f3 Shape {
+              appearance Appearance {
+                material DEF f3mat Material {
+                  diffuseColor 0 1 0
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/f.obj"
+                ]
+              }
+            }
+            DEF g3 Shape {
+              appearance Appearance {
+                material DEF g3mat Material {
+                  diffuseColor 0.05 0.05 0.05
+                }
+              }
+              geometry Mesh {
+                url [
+                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/g.obj"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

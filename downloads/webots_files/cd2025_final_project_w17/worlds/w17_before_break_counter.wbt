@@ -43,7 +43,7 @@ WorldInfo {
 }
 Viewpoint {
   orientation -0.3212036030761455 0.32281364956200415 0.8902918583404891 1.6817737419483034
-  position -0.31847506712541485 -20.08835327273719 16.940536772352537
+  position -0.3479517366829901 -25.983638056388127 21.83101815071901
   follow "youBot"
 }
 TexturedBackground {
@@ -1063,11 +1063,6 @@ DEF stand Robot {
         mass 0.5
       }
     }
-    counter {
-      translation -6.02 7.87076 0.93
-      rotation 1 0 0 0.523599
-      scale 4 4 4
-    }
     Emitter {
       name "score_emitter"
       channel 1
@@ -1122,4 +1117,9 @@ DEF counter_supervisor Robot {
   name "counter_supervisor"
   controller "counter_supervisor"
   supervisor TRUE
+}
+counter {
+  translation 0 7.87076 0.93
+  rotation 1 0 0 0.523599
+  scale 4 4 4
 }
