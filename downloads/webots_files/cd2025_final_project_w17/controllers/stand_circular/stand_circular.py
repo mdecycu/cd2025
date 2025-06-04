@@ -122,7 +122,7 @@ for _ in range(10):
 # 取得目前位置，作為圓周點生成的基準
 pos = gps.getValues()
 x0, y0 = pos[0], pos[1]  # 起始位置
-radius = 7.0             # 圓半徑 4 公尺
+radius = 6.23             # 圓半徑 6.23 公尺
 
 # 計算當下相對原點的極角 (保證在 [0, 2pi) 範圍)
 current_angle = math.atan2(y0, x0)
