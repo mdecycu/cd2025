@@ -12,6 +12,8 @@ robot = Robot()
 
 # Get simulation time step
 timestep = int(robot.getBasicTimeStep())
+emitter = robot.getDevice("score_emitter")
+score_to_send = 2  # 每次加分2分，可依實際得分修改
 
 # Get the DistanceSensor device
 sensor = robot.getDevice('sensor')
@@ -92,6 +94,8 @@ while robot.step(timestep) != -1:
         score +=2
         print("得分")
         print(distance)
+        # 假設你偵測到某事件得分時才送出
+        emitter.send(str(score_to_send).encode('utf-8'))
 
 
     if key == ord('E') or key == ord('e'):

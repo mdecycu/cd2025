@@ -6,7 +6,7 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/kuka/youbot/protos/BodyMesh.proto"
 EXTERNPROTO "../protos/WheelMesh.proto"
 EXTERNPROTO "../protos/SubWheelMesh.proto"
-EXTERNPROTO "../protos/ThreeDigitSevenSegment.proto"
+EXTERNPROTO "../protos/counter.proto"
 
 WorldInfo {
   info [
@@ -42,8 +42,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.3325731041825233 0.33257465914537476 0.8824903548870879 1.6954832967598423
-  position -0.08952423009569954 -21.594541148003945 19.171111686395623
+  orientation -0.3212036030761455 0.32281364956200415 0.8902918583404891 1.6817737419483034
+  position -0.31847506712541485 -20.08835327273719 16.940536772352537
   follow "youBot"
 }
 TexturedBackground {
@@ -336,7 +336,7 @@ DEF youbot Robot {
       ]
       endPoint DEF WHEEL_SOLID Solid {
         translation -0.22831352559931442 0.1579993904908171 -0.05468568089420528
-        rotation -0.5868508392249004 -2.4419060282830165e-08 -0.8096950614280847 2.9802322387695313e-08
+        rotation -0.5868508392249003 -2.441906028283016e-08 -0.8096950614280845 2.9802322387695313e-08
         children [
           WheelMesh {
           }
@@ -662,7 +662,7 @@ DEF stand Robot {
       device [
         RotationalMotor {
           name "wheel5"
-          maxVelocity 100
+          maxVelocity 50
         }
         PositionSensor {
           name "wheel5sensor"
@@ -749,7 +749,7 @@ DEF stand Robot {
       device [
         RotationalMotor {
           name "wheel6"
-          maxVelocity 100
+          maxVelocity 50
         }
         PositionSensor {
           name "wheel6sensor"
@@ -836,7 +836,7 @@ DEF stand Robot {
       device [
         RotationalMotor {
           name "wheel7"
-          maxVelocity 100
+          maxVelocity 50
         }
         PositionSensor {
           name "wheel7sensor"
@@ -923,7 +923,7 @@ DEF stand Robot {
       device [
         RotationalMotor {
           name "wheel8"
-          maxVelocity 100
+          maxVelocity 50
         }
         PositionSensor {
           name "wheel8sensor"
@@ -1023,7 +1023,7 @@ DEF stand Robot {
                 "../cad/split_parts/basket_stand_small.obj"
               ]
             }
-            Pose {
+            DEF sensor_parent Pose {
               rotation 0 1 0 -1.57
               children [
                 DistanceSensor {
@@ -1063,9 +1063,14 @@ DEF stand Robot {
         mass 0.5
       }
     }
-    GPS {
+    counter {
+      translation -6.02 7.87076 0.93
+      rotation 1 0 0 0.523599
+      scale 4 4 4
     }
-    InertialUnit {
+    Emitter {
+      name "score_emitter"
+      channel 1
     }
   ]
   name "stand"
@@ -1102,18 +1107,19 @@ DEF stand Robot {
       0 0 0
     ]
   }
-  controller "stand_circular"
+  controller "stand_controller"
   controllerArgs [
     "demo"
   ]
 }
-DEF score_board Robot {
-  translation 0 7.87076 0.93
-  rotation 1 0 0 0.523599
+DEF counter_supervisor Robot {
   children [
-    ThreeDigitSevenSegment {
-      scale 4 4 4
+    Receiver {
+      name "score_receiver"
+      channel 1
     }
   ]
-  name "score_board"
+  name "counter_supervisor"
+  controller "counter_supervisor"
+  supervisor TRUE
 }

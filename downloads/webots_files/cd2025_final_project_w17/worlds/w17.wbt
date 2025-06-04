@@ -6,7 +6,6 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/kuka/youbot/protos/BodyMesh.proto"
 EXTERNPROTO "../protos/WheelMesh.proto"
 EXTERNPROTO "../protos/SubWheelMesh.proto"
-EXTERNPROTO "../protos/ThreeDigitSevenSegment.proto"
 
 WorldInfo {
   info [
@@ -42,8 +41,8 @@ WorldInfo {
   ]
 }
 Viewpoint {
-  orientation -0.3325731041825233 0.33257465914537476 0.8824903548870879 1.6954832967598423
-  position -0.08952423009569954 -21.594541148003945 19.171111686395623
+  orientation -0.3212036030761455 0.32281364956200415 0.8902918583404891 1.6817737419483034
+  position -0.34830632369845094 -26.054554868500944 21.889847768248714
   follow "youBot"
 }
 TexturedBackground {
@@ -336,7 +335,7 @@ DEF youbot Robot {
       ]
       endPoint DEF WHEEL_SOLID Solid {
         translation -0.22831352559931442 0.1579993904908171 -0.05468568089420528
-        rotation -0.5868508392249004 -2.4419060282830165e-08 -0.8096950614280847 2.9802322387695313e-08
+        rotation -0.5868508392249003 -2.441906028283016e-08 -0.8096950614280845 2.9802322387695313e-08
         children [
           WheelMesh {
           }
@@ -662,7 +661,7 @@ DEF stand Robot {
       device [
         RotationalMotor {
           name "wheel5"
-          maxVelocity 100
+          maxVelocity 50
         }
         PositionSensor {
           name "wheel5sensor"
@@ -749,7 +748,7 @@ DEF stand Robot {
       device [
         RotationalMotor {
           name "wheel6"
-          maxVelocity 100
+          maxVelocity 50
         }
         PositionSensor {
           name "wheel6sensor"
@@ -836,7 +835,7 @@ DEF stand Robot {
       device [
         RotationalMotor {
           name "wheel7"
-          maxVelocity 100
+          maxVelocity 50
         }
         PositionSensor {
           name "wheel7sensor"
@@ -923,7 +922,7 @@ DEF stand Robot {
       device [
         RotationalMotor {
           name "wheel8"
-          maxVelocity 100
+          maxVelocity 50
         }
         PositionSensor {
           name "wheel8sensor"
@@ -1023,7 +1022,7 @@ DEF stand Robot {
                 "../cad/split_parts/basket_stand_small.obj"
               ]
             }
-            Pose {
+            DEF sensor_parent Pose {
               rotation 0 1 0 -1.57
               children [
                 DistanceSensor {
@@ -1063,9 +1062,309 @@ DEF stand Robot {
         mass 0.5
       }
     }
-    GPS {
+    Transform {
+      translation -6.02 7.87076 0.93
+      rotation 1 0 0 0.523599
+      scale 4 4 4
+      children [
+        Pose {
+          translation 0 0.31 0
+          children [
+            Shape {
+              appearance Appearance {
+                material Material {
+                  diffuseColor 0 0 0
+                }
+              }
+              geometry Box {
+                size 1.3 0.8 0.02
+              }
+            }
+          ]
+        }
+        Pose {
+          translation 0.4 0 0
+          children [
+            Group {
+              children [
+                DEF a1 Shape {
+                  appearance Appearance {
+                    material DEF a1mat Material {
+                      diffuseColor 0 1 0
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/a.obj"
+                    ]
+                  }
+                }
+                DEF b1 Shape {
+                  appearance Appearance {
+                    material DEF b1mat Material {
+                      diffuseColor 0 1 0
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/b.obj"
+                    ]
+                  }
+                }
+                DEF c1 Shape {
+                  appearance Appearance {
+                    material DEF c1mat Material {
+                      diffuseColor 0 1 0
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/c.obj"
+                    ]
+                  }
+                }
+                DEF d1 Shape {
+                  appearance Appearance {
+                    material DEF d1mat Material {
+                      diffuseColor 0 1 0
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/d.obj"
+                    ]
+                  }
+                }
+                DEF e1 Shape {
+                  appearance Appearance {
+                    material DEF e1mat Material {
+                      diffuseColor 0 1 0
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/e.obj"
+                    ]
+                  }
+                }
+                DEF f1 Shape {
+                  appearance Appearance {
+                    material DEF f1mat Material {
+                      diffuseColor 0 1 0
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/f.obj"
+                    ]
+                  }
+                }
+                DEF g1 Shape {
+                  appearance Appearance {
+                    material DEF g1mat Material {
+                      diffuseColor 0.05 0.05 0.05
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/g.obj"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+        Pose {
+          children [
+            Group {
+              children [
+                DEF a2 Shape {
+                  appearance Appearance {
+                    material DEF a2mat Material {
+                      diffuseColor 0 1 0
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/a.obj"
+                    ]
+                  }
+                }
+                DEF b2 Shape {
+                  appearance Appearance {
+                    material DEF b2mat Material {
+                      diffuseColor 0 1 0
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/b.obj"
+                    ]
+                  }
+                }
+                DEF c2 Shape {
+                  appearance Appearance {
+                    material DEF c2mat Material {
+                      diffuseColor 0 1 0
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/c.obj"
+                    ]
+                  }
+                }
+                DEF d2 Shape {
+                  appearance Appearance {
+                    material DEF d2mat Material {
+                      diffuseColor 0 1 0
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/d.obj"
+                    ]
+                  }
+                }
+                DEF e2 Shape {
+                  appearance Appearance {
+                    material DEF e2mat Material {
+                      diffuseColor 0 1 0
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/e.obj"
+                    ]
+                  }
+                }
+                DEF f2 Shape {
+                  appearance Appearance {
+                    material DEF f2mat Material {
+                      diffuseColor 0 1 0
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/f.obj"
+                    ]
+                  }
+                }
+                DEF g2 Shape {
+                  appearance Appearance {
+                    material DEF g2mat Material {
+                      diffuseColor 0.05 0.05 0.05
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/g.obj"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+        Pose {
+          translation -0.4 0 0
+          children [
+            Group {
+              children [
+                DEF a3 Shape {
+                  appearance Appearance {
+                    material DEF a3mat Material {
+                      diffuseColor 0 1 0
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/a.obj"
+                    ]
+                  }
+                }
+                DEF b3 Shape {
+                  appearance Appearance {
+                    material DEF b3mat Material {
+                      diffuseColor 0 1 0
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/b.obj"
+                    ]
+                  }
+                }
+                DEF c3 Shape {
+                  appearance Appearance {
+                    material DEF c3mat Material {
+                      diffuseColor 0 1 0
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/c.obj"
+                    ]
+                  }
+                }
+                DEF d3 Shape {
+                  appearance Appearance {
+                    material DEF d3mat Material {
+                      diffuseColor 0 1 0
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/d.obj"
+                    ]
+                  }
+                }
+                DEF e3 Shape {
+                  appearance Appearance {
+                    material DEF e3mat Material {
+                      diffuseColor 0 1 0
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/e.obj"
+                    ]
+                  }
+                }
+                DEF f3 Shape {
+                  appearance Appearance {
+                    material DEF f3mat Material {
+                      diffuseColor 0 1 0
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/f.obj"
+                    ]
+                  }
+                }
+                DEF g3 Shape {
+                  appearance Appearance {
+                    material DEF g3mat Material {
+                      diffuseColor 0.05 0.05 0.05
+                    }
+                  }
+                  geometry Mesh {
+                    url [
+                      "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/g.obj"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
-    InertialUnit {
+    Emitter {
+      name "score_emitter"
+      channel 1
     }
   ]
   name "stand"
@@ -1102,18 +1401,19 @@ DEF stand Robot {
       0 0 0
     ]
   }
-  controller "stand_circular"
+  controller "stand_controller"
   controllerArgs [
     "demo"
   ]
 }
-DEF score_board Robot {
-  translation 0 7.87076 0.93
-  rotation 1 0 0 0.523599
+DEF counter_supervisor Robot {
   children [
-    ThreeDigitSevenSegment {
-      scale 4 4 4
+    Receiver {
+      name "score_receiver"
+      channel 1
     }
   ]
-  name "score_board"
+  name "counter_supervisor"
+  controller "counter_supervisor"
+  supervisor TRUE
 }
