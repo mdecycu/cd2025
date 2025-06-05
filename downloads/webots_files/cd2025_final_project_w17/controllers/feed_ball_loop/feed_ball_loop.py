@@ -44,7 +44,7 @@ def axis_angle_to_rotation_matrix(axis, angle):
     ])
 
 def generate_valid_def_name(base_name="Sphere"):
-    timestamp = int(supervisor.getTime() * 1000)
+    timestamp = int(float(supervisor.getTime() * 1000))
     return f"{base_name}_{timestamp}_{random.randint(0, 10000)}"
 
 def generate_random_color():

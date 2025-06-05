@@ -48,11 +48,12 @@ receiver.enable(timestep)
 while supervisor.step(timestep) != -1:
     while receiver.getQueueLength() > 0:
         data = receiver.getString()
-        try:
-            received_score = int(data)
-            score += received_score
-            print(f"收到得分訊息: +{received_score}, 總分: {score}")
-        except Exception as e:
-            print("訊息格式錯誤:", e)
+        if data.isdigit():
+            try:
+                received_score = int(data)
+                score += received_score
+                print(f"收到得分訊息: +{received_score}, 總分: {score}")
+            except Exception as e:
+                print("訊息格式錯誤:", e)
         receiver.nextPacket()
     set_display(supervisor, score)
