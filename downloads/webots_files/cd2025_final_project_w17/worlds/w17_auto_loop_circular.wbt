@@ -1168,7 +1168,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/a.obj"
+                  "../cad/score_counter/split_parts/a.obj"
                 ]
               }
             }
@@ -1180,7 +1180,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/b.obj"
+                  "../cad/score_counter/split_parts/b.obj"
                 ]
               }
             }
@@ -1192,7 +1192,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/c.obj"
+                  "../cad/score_counter/split_parts/c.obj"
                 ]
               }
             }
@@ -1204,7 +1204,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/d.obj"
+                  "../cad/score_counter/split_parts/d.obj"
                 ]
               }
             }
@@ -1216,7 +1216,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/e.obj"
+                  "../cad/score_counter/split_parts/e.obj"
                 ]
               }
             }
@@ -1228,7 +1228,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/f.obj"
+                  "../cad/score_counter/split_parts/f.obj"
                 ]
               }
             }
@@ -1240,7 +1240,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/g.obj"
+                  "../cad/score_counter/split_parts/g.obj"
                 ]
               }
             }
@@ -1260,7 +1260,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/a.obj"
+                  "../cad/score_counter/split_parts/a.obj"
                 ]
               }
             }
@@ -1272,7 +1272,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/b.obj"
+                  "../cad/score_counter/split_parts/b.obj"
                 ]
               }
             }
@@ -1284,7 +1284,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/c.obj"
+                  "../cad/score_counter/split_parts/c.obj"
                 ]
               }
             }
@@ -1296,7 +1296,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/d.obj"
+                  "../cad/score_counter/split_parts/d.obj"
                 ]
               }
             }
@@ -1308,7 +1308,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/e.obj"
+                  "../cad/score_counter/split_parts/e.obj"
                 ]
               }
             }
@@ -1320,7 +1320,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/f.obj"
+                  "../cad/score_counter/split_parts/f.obj"
                 ]
               }
             }
@@ -1332,7 +1332,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/g.obj"
+                  "../cad/score_counter/split_parts/g.obj"
                 ]
               }
             }
@@ -1353,7 +1353,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/a.obj"
+                  "../cad/score_counter/split_parts/a.obj"
                 ]
               }
             }
@@ -1365,7 +1365,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/b.obj"
+                  "../cad/score_counter/split_parts/b.obj"
                 ]
               }
             }
@@ -1377,7 +1377,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/c.obj"
+                  "../cad/score_counter/split_parts/c.obj"
                 ]
               }
             }
@@ -1389,7 +1389,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/d.obj"
+                  "../cad/score_counter/split_parts/d.obj"
                 ]
               }
             }
@@ -1401,7 +1401,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/e.obj"
+                  "../cad/score_counter/split_parts/e.obj"
                 ]
               }
             }
@@ -1413,7 +1413,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/f.obj"
+                  "../cad/score_counter/split_parts/f.obj"
                 ]
               }
             }
@@ -1425,7 +1425,7 @@ Transform {
               }
               geometry Mesh {
                 url [
-                  "C:/Users/pj2022/Downloads/cd2025_final_project_w17/cad/score_counter/split_parts/g.obj"
+                  "../cad/score_counter/split_parts/g.obj"
                 ]
               }
             }
