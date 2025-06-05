@@ -1169,7 +1169,74 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocola
 <p style="padding-left: 30px;"><a href="/downloads/cd2025_final_project_w16.7z">cd2025_final_project_w16.7z</a></p>
 <p style="padding-left: 30px;"><a href="/downloads/three_digit_counter_w16.7z">three_digit_counter_w16.7z</a></p>
 <p style="padding-left: 30px;"><a href="/downloads/cd2025_final_project_w17.7z">cd2025_final_project_w17.7z</a></p>
+<p>手動投球:</p>
+<p>w17.wbt</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/lVexZ3iMSiA?si=KV5K55jUTfHqh2ty" title="YouTube video player" width="560"></iframe></p>
+<p>自動投球:</p>
+<p>w17_auto_loop.wbt</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/OfjHYeXR5Ik?si=FMfd7bDFNGKu0tJ1" title="YouTube video player" width="560"></iframe></p>
+<p>counter_supervisor.py</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Supervisor
+
+SEGMENTS = [
+    [1,1,1,1,1,1,0], # 0
+    [0,1,1,0,0,0,0], # 1
+    [1,1,0,1,1,0,1], # 2
+    [1,1,1,1,0,0,1], # 3
+    [0,1,1,0,0,1,1], # 4
+    [1,0,1,1,0,1,1], # 5
+    [1,0,1,1,1,1,1], # 6
+    [1,1,1,0,0,0,0], # 7
+    [1,1,1,1,1,1,1], # 8
+    [1,1,1,1,0,1,1], # 9
+]
+DIGIT_MATERIALS = [
+    ['a3mat', 'b3mat', 'c3mat', 'd3mat', 'e3mat', 'f3mat', 'g3mat'], # 百
+    ['a2mat', 'b2mat', 'c2mat', 'd2mat', 'e2mat', 'f2mat', 'g2mat'], # 十
+    ['a1mat', 'b1mat', 'c1mat', 'd1mat', 'e1mat', 'f1mat', 'g1mat'], # 個
+]
+ON_COLOR = [0, 1, 0]
+OFF_COLOR = [0.05, 0.05, 0.05]
+
+def set_digit(supervisor, digit_index, value):
+    segs = SEGMENTS[value]
+    for i, seg_on in enumerate(segs):
+        mat_node = supervisor.getFromDef(DIGIT_MATERIALS[digit_index][i])
+        if mat_node:
+            mat_node.getField('diffuseColor').setSFColor(ON_COLOR if seg_on else OFF_COLOR)
+        else:
+            print(f"找不到 {DIGIT_MATERIALS[digit_index][i]} 這個DEF")
+
+def set_display(supervisor, value):
+    value = max(0, min(999, int(value)))
+    h = value // 100
+    t = (value // 10) % 10
+    u = value % 10
+    set_digit(supervisor, 0, h)
+    set_digit(supervisor, 1, t)
+    set_digit(supervisor, 2, u)
+
+supervisor = Supervisor()
+timestep = int(supervisor.getBasicTimeStep())
+
+score = 0
+receiver = supervisor.getDevice("score_receiver")
+receiver.enable(timestep)
+
+while supervisor.step(timestep) != -1:
+    while receiver.getQueueLength() &gt; 0:
+        data = receiver.getString()
+        # 目前 data 接受值包含字串(元) a, m, k 與數字received_score
+        # 只有接收到數字時才進行得分累加
+        if data.isdigit():
+            try:
+                received_score = int(data)
+                score += received_score
+                print(f"收到得分訊息: +{received_score}, 總分: {score}")
+            except Exception as e:
+                print("訊息格式錯誤:", e)
+        receiver.nextPacket()
+    set_display(supervisor, score)</pre>
 <hr/>
 <p><span><a href="https://cyberbotics.com/doc/reference/robot?tab-language=python">Robot</a> 與 <a href="https://cyberbotics.com/doc/reference/supervisor?tab-language=python">Supervisor</a> 節點的結合應用: <a href="https://mde.tw/cd2025/downloads/basketball_game_w13.7z">basketball_game_w13.7z</a> 中的 basketball_game.wbt 啟動後直接觸動投籃動作, 並在籃球通過籃框感測器時列出 "得分".</span></p>
 <p><span>send_command_from_emitter.wbt 啟動後, 由 supervisor 操縱的下列程式送出指令訊號, 交由場景中的 Robot 主體執行:</span></p>
@@ -1238,8 +1305,7 @@ if __name__ == "__main__":
     run_robot()</pre>
 <p>此一作法可以利用 supervisor 統整發球機制與投球機構的作動, 例如: 在發球機構啟動之前, 利用 supervisor 模式讓籃球停球在特定位置, 用來控制球拍打後的運動距離.</p>
 <p>一旦確定投球機構與球的起始位置之間關係後, 再調整投球機構的持球零件外型設計.</p>
-<p>另外, basketball_game_w13_supervisor.wbt 的設計方法, 則僅利用 supervisor 模式負責發球, 之後的擊球機構則完全由 Robot 的 controller 程式控制, 除了啟動場景模擬後的第一次擊球由程式直接控制外, 之後使用者按下 m 鍵機構會回復原始位置, 按下 k 鍵則觸動轉動特定轉角, 按下 a 鍵則由 supervisor 控制程式在特定位置發球.</p>
-<h2>Webots</h2>
+<p>另外, basketball_game_w13_supervisor.wbt 的設計方法, 則僅利用 supervisor 模式負責發球, 之後的擊球機構則完全由 Robot 的 controller 程式控制, 除了啟動場景模擬後的第一次擊球由程式直接控制外, 之後使用者按下 m 鍵機構會回復原始位置, 按下 k 鍵則觸動轉動特定轉角, 按下 a 鍵則由 supervisor 控制程式在特定位置發球.</p><h2>Webots</h2>
 <p>以下為 2025 Fall 協同產品設計實習期末報告的初始模擬示範檔案與影片。</p>
 <p style="padding-left: 30px;"><a href="/downloads/cd2025_final_project_w17.7z">cd2025_final_project_w17.7z</a></p>
 <p>接下來可以設法利用 <a href="https://www.emixa.com/events/webinar-whats-new-cad-nx-2506">Siemens NX2506</a> 中的 <a href="https://github.com/mdecycu/nxopen">NXOpen Python</a> 或 <a href="https://github.com/KmolYuan/python-solvespace">Solvespace Python</a> API 程式架構，將機電系統的組立檔案直接轉進 <a href="https://github.com/cyberbotics/webots">Webots</a>. 並將 <a href="https://cyberbotics.com/doc/reference/nodes-and-api-functions">Webots API</a> 各函式納入 <a href="https://websockets.readthedocs.io/en/stable/">WebSocket</a> 框架.</p>
@@ -2375,7 +2441,10 @@ if __name__ == "__main__":
 <p><a href="https://www.youtube.com/watch?v=xAqSddiK5MQ&amp;list=PLWNz5TggYhO1mMihPAIPvozJkNN828FaI">https://thenybble.de/posts/solvespace-mini-tutorial/ </a></p>
 <p><a href="https://www.youtube.com/watch?v=xAqSddiK5MQ&amp;list=PLWNz5TggYhO1mMihPAIPvozJkNN828FaI">Solvespace Tutorial</a></p>
 <p><a href="https://www.youtube.com/watch?v=ckkGfngoSaE&amp;list=PLGAjLwYQPgaBafzQTLA84IkTOptOdIsUX">Solvespace Challenge</a> (<a href="https://www.youtube.com/watch?v=PwBSwkW3oPo&amp;list=PLluslK6uBf4sUY_SgOZhBTb_5Vs-XMHZ6">2</a>)</p>
-<h2>Pyslvs-UI</h2>
+<h2>Mecanum</h2>
+<p><a href="https://www.generationrobots.com/media/Mecanum-wheel-application.pdf">https://www.generationrobots.com/media/Mecanum-wheel-application.pdf</a> (<a href="/downloads/Mecanum-wheel-application.pdf">Mecanum-wheel-application.pdf</a></p>
+<p><img caption="false" height="221" src="/images/mecanum_wheel_application.png" width="400"/></p>
+<p></p><h2>Pyslvs-UI</h2>
 <p><a href="https://github.com/KmolYuan/Pyslvs-UI">https://github.com/KmolYuan/Pyslvs-UI</a></p>
 <p><a href="https://github.com/KmolYuan/pyslvs">https://github.com/KmolYuan/pyslvs</a> (A no-GUI module of mechanism synthesis system and a 2D geometric constraint solver)</p>
 <p>開發 Pyslvs-UI: <a href="https://github.com/mdecycu/Pyslvs-UI">https://github.com/mdecycu/Pyslvs-UI</a></p>
@@ -2391,8 +2460,7 @@ c.recursiveImport(
 )</pre>
 <p>相關 AI 套件: <a href="https://github.com/mdecycu/LInK">https://github.com/mdecycu/LInK</a></p>
 <p style="padding-left: 30px;"><a href="https://arxiv.org/pdf/2405.20592">https://arxiv.org/pdf/2405.20592</a> (LInK: Learning Joint Representations of Design and Performance Spaces through Contrastive Learning for Mechanism Synthesis)</p>
-<p style="padding-left: 30px;"><a href="/downloads/pytorch_ex1.py">pytorch_ex1.py</a></p>
-<h2>PICSimLab</h2>
+<p style="padding-left: 30px;"><a href="/downloads/pytorch_ex1.py">pytorch_ex1.py</a></p><h2>PICSimLab</h2>
 <p><a href="https://github.com/lcgamboa/picsimlab">https://github.com/lcgamboa/picsimlab</a></p>
 <h2>Fossil SCM</h2>
 <p><a href="https://fossil-scm.org">https://fossil-scm.org</a></p>
