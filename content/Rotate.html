@@ -2,7 +2,7 @@
         <head>
         <title>cd2025</title>
         <meta charset="utf-8">
-<meta property="head" content="H3">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
@@ -142,33 +142,149 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Topic3 << <a href='Topic3.html'>Previous</a> <a href='boomer.html'>Next</a> >> boomer<br /><h1>Fourbar2</h1>
-<p>平面四連桿機構運動分析</p>
-<p>Reference: <a href="https://docs.sympy.org/latest/modules/physics/mechanics/examples/four_bar_linkage_example.html">1</a>, <a href="https://gist.github.com/mdecycu/c6401d697ddbb33fcd0eaed5b4da8d09">2</a>, <a href="https://homepages.math.uic.edu/~jan/phcpy_doc_html/fourbartut.html">3</a></p>
-<p><a href="./../downloads/cd2025_box_fourbar_w5.7z">cd2025_box_fourbar_w5.7z</a></p>
-<p><a href="./../downloads/fourbar_box_w5.7z">fourbar_box_w5.7z</a></p>
-<p><a href="./../downloads/basket_ball_shooter.7z">basket_ball_shooter.7z</a></p>
-<p><a href="./../downloads/basket_ball_shooter.7z">basket_ball_shooter.7z</a></p>
-<p><span style="background-color: #ffff00;">請注意, 所有 world 的存檔必須要將模擬時間轉為 0</span>, 否則所存的變數狀態將為該時間的模擬結果.</p>
-<p><a href="https://cyberbotics.com/doc/guide/tutorial-1-your-first-simulation-in-webots?tab-language=python">Tutorial 1</a> 重點摘要:</p>
-<p>將 <a href="http://229.cycu.org/Webots_2025a_web.7z">Webots_2025a_web.7z</a> 解開壓縮後放入可攜套件 (<a href="http://229.cycu.org/portable_wcm2025.7z">portable_wcm2025.7z</a>) 的 data 目錄中.</p>
-<p>因為 start.bat 中已經宣告 Python 所在位置, 並將執行 webotsw.exe 所在的目錄放入 Windows 的命令搜尋路徑變數中 (path).</p>
-<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">REM for Webots
-set PYTHON_PATH=%Disk%:\Python313
+    <div id="tipue_search_content">Webots << <a href='Webots.html'>Previous</a> <a href='Tutorial.html'>Next</a> >> Tutorial<br /><h1>Rotate</h1>
+<p>Youbot 平台車原地旋轉控制程式:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Robot, Keyboard  # 匯入 Webots 的 Robot 與 Keyboard 控制類別
+import math  # 匯入數學模組，用於三角函數和角度換算
 
-REM for webots
-set  path_webots=%Disk%:\Webots_2025a\msys64\mingw64\bin;%Disk%:\Webots_2025a\msys64\usr\bin</pre>
-<p>當起始一個 Webots project, 需要至少建立 worlds、controllers、protos 等三個目錄, 而且 Robot 的<span style="background-color: #ffff00;">控制器程式必須放入 controllers 目錄, 且控制程式檔名必須與子目錄相同</span>.</p>
-<p><a href="https://cyberbotics.com/doc/guide/tutorial-2-modification-of-the-environment?tab-language=python">Tutorial 2</a> 重點摘要:</p>
-<p><img alt="" height="329" src="./../images/simplest_rigit_body_object.png" width="400"/></p>
-<p>根據上圖, 在 <span style="background-color: #ffff00;">Webots 建立剛體物件, 必須使用 Solid 節點, 並從節點中的 children 建立 Shape 後宣告其 geometry 外形用於系統的運動方程式, 而其碰撞檢測的外形依據, 則從 Solid 節點的 boundingObject 中的 geometry 進行確認</span>.</p>
-<p>另外可從 View - Optional Rendering - Show coordinate system 選項, 要求系統列出目前視圖所依據的座標系統.</p>
-<p>當在 base 物件建立旋轉軸時, HingeJoint 物件的位階必須與 base 相同, 而且 link1 的 solid 物件必須接在 HingeJoint 的 endPoint 節點上, 且因為 link1 的最後位置並非位於其旋轉中心, 因此在建立 link1 solid 物件下的 shape 之前必須先使用 pose 物件, 以便在 solid 的 parent 座標系統之下, 建立一個屬於 shape 的局部座標轉換系統.</p>
-<p>另外 HingeJoint 的旋轉中心位置是由 jointParameters 物件下的 anchor 欄位決定, 而其旋轉軸則由 axis 欄位決定.</p>
-<p>由於 link1 最後需要透過碰撞檢測來與籃球互動, 因此除了 dynamic simulation 之外, 還需要設定 boundingObject, 才能界定 link1 的碰撞幾何外形, 但由於前面的 link1 並非在其 parent 座標系統的物件中心旋轉, 而是透過其局部座標轉換 (利用 pose 物件達成), 往局部 x 方向移動 0.2m, 因此 boundingObject 在引用其 shape 時, 也必須透過 pose 轉換到 link1 最終所在位置.</p>
-<p><span>上列流程所完成的 Webots 專案檔: </span><a href="./../downloads/w6_demo_project.7z">w6_demo_project.7z</a> (joint on link1)</p>
-<p><a href="./../downloads/w6_joint_on_base_project.7z">w6_joint_on_base_project.7z</a> (joint on base)</p>
-<p></p><br />Topic3 << <a href='Topic3.html'>Previous</a> <a href='boomer.html'>Next</a> >> boomer</div>
+deg = math.pi/180  # 一度轉換為弧度的係數（1 deg = π/180 rad）
+
+# 常數設定
+TIME_STEP = 16  # 模擬每個時間步長為 16 毫秒
+WHEEL_RADIUS = 0.05  # 輪子半徑為 5 公分（單位：公尺）
+L = 0.56  # 機器人長度（前後輪距，單位：公尺）
+W = 0.34  # 機器人寬度（左右輪距，單位：公尺）
+MAX_VELOCITY = 10.0  # 輪子的最大轉速
+
+# 初始化機器人實體
+robot = Robot()
+
+# 初始化鍵盤控制
+keyboard = Keyboard()
+keyboard.enable(TIME_STEP)  # 啟用鍵盤輸入，與模擬時間同步
+
+# 初始化 IMU 裝置（慣性測量單元，可回傳機器人轉向角度）
+imu = robot.getDevice("imu")
+imu.enable(TIME_STEP)  # 啟用 IMU 感測器
+
+# 取得四個輪子的馬達裝置
+wheel1 = robot.getDevice("wheel1")  # 右前輪
+wheel2 = robot.getDevice("wheel2")  # 左前輪
+wheel3 = robot.getDevice("wheel3")  # 右後輪
+wheel4 = robot.getDevice("wheel4")  # 左後輪
+
+# 設定輪子為速度控制模式（以速度驅動，而非位置）
+for wheel in [wheel1, wheel2, wheel3, wheel4]:
+    wheel.setPosition(float('inf'))  # 設為無限位置：啟用速度模式
+    wheel.setVelocity(0)  # 初始速度設為 0
+
+# 定義函數：設定四個輪子的速度
+def set_wheel_velocity(v1, v2, v3, v4):
+    """設定四個輪子的速度"""
+    wheel1.setVelocity(v1)
+    wheel2.setVelocity(v2)
+    wheel3.setVelocity(v3)
+    wheel4.setVelocity(v4)
+
+# 取得目前機器人的偏航角（z 軸旋轉角）
+def get_yaw():
+    return imu.getRollPitchYaw()[2]  # 回傳 [roll, pitch, yaw]，取第三項
+
+# 計算兩個角度之間的最短差值（避免角度超出 -π～π）
+def angle_diff(a, b):
+    """計算兩個角度之間的最短差值，結果限制在 [-π, π]"""
+    d = a - b
+    while d &gt; math.pi:
+        d -= 2 * math.pi
+    while d &lt; -math.pi:
+        d += 2 * math.pi
+    return d
+
+# 定義函數：使機器人旋轉指定角度（單位：度）
+def rotate_by_angle(target_angle_deg, fast_velocity=MAX_VELOCITY, slow_velocity=1.0, tolerance_deg=0.05):
+    start_yaw = get_yaw()  # 記錄開始角度
+    target_rad = math.radians(target_angle_deg)  # 將角度轉為弧度
+    slow_zone = math.radians(5)  # 當剩餘角度小於 5 度（弧度）時進入減速區
+    direction = -1 if target_angle_deg &gt; 0 else 1  # 判斷旋轉方向（正：順時針，負：逆時針）
+
+    # 初期使用快速旋轉
+    set_wheel_velocity(-direction*fast_velocity, direction*fast_velocity,
+                       -direction*fast_velocity, direction*fast_velocity)
+
+    while True:
+        robot.step(TIME_STEP)  # 模擬一步
+        now_yaw = get_yaw()  # 取得當前角度
+        turned = angle_diff(now_yaw, start_yaw)  # 計算已旋轉的角度
+        remain = abs(target_rad) - abs(turned)  # 計算剩餘旋轉角度
+
+        if remain &lt; slow_zone:
+            # 當剩下角度進入減速區時，降低轉速
+            set_wheel_velocity(-direction*slow_velocity, direction*slow_velocity,
+                               -direction*slow_velocity, direction*slow_velocity)
+
+        if remain &lt; math.radians(tolerance_deg):
+            # 若剩下角度小於容許誤差範圍，結束旋轉
+            break
+
+    # 停止所有輪子
+    set_wheel_velocity(0, 0, 0, 0)
+    print(f"Yaw changed by {math.degrees(turned):.2f} degrees")  # 印出實際旋轉角度
+
+# 顯示使用說明
+print("Use arrow keys to control youBot.")
+print("A: rotate +30 deg, Z: rotate -30 deg, Q: quit.")
+print("Up: Move forward, Down: Move backward, Left: Turn left, Right: Turn right.")
+
+# 主迴圈：持續監聽鍵盤事件
+while robot.step(TIME_STEP) != -1:
+    key = keyboard.getKey()  # 讀取目前按下的按鍵
+
+    if key == Keyboard.UP:
+        # ↑鍵：向前行駛
+        velocity = MAX_VELOCITY
+        set_wheel_velocity(velocity, velocity, velocity, velocity)
+
+    elif key == Keyboard.DOWN:
+        # ↓鍵：向後行駛
+        velocity = -MAX_VELOCITY
+        set_wheel_velocity(velocity, velocity, velocity, velocity)
+
+    elif key == Keyboard.RIGHT:
+        # →鍵：原地向右旋轉（順時針）
+        velocity = MAX_VELOCITY
+        set_wheel_velocity(-velocity, velocity, -velocity, velocity)
+
+    elif key == Keyboard.LEFT:
+        # ←鍵：原地向左旋轉（逆時針）
+        velocity = MAX_VELOCITY
+        set_wheel_velocity(velocity, -velocity, velocity, -velocity)
+
+    elif key == ord('A') or key == ord('a'):
+        # A 鍵：旋轉 +30 度（逆時針）
+        print("Rotating +30 degrees (clockwise)")
+        before_yaw = imu.getRollPitchYaw()[2]  # 旋轉前角度
+        print(before_yaw)
+        rotate_by_angle(30)  # 呼叫旋轉函數
+        after_yaw = imu.getRollPitchYaw()[2]  # 旋轉後角度
+        print(after_yaw)
+        delta_yaw_deg = (after_yaw - before_yaw)/deg
+        print(f"Yaw changed by {delta_yaw_deg:.2f} degrees")
+
+    elif key == ord('Z') or key == ord('z'):
+        # Z 鍵：旋轉 -30 度（順時針）
+        print("Rotating -30 degrees (counterclockwise)")
+        rotate_by_angle(-30)
+
+    elif key == ord('Q') or key == ord('q'):
+        # Q 鍵：退出程式
+        print("Exiting...")
+        break
+
+    else:
+        # 若無按鍵或非上述指令，則停止移動
+        set_wheel_velocity(0, 0, 0, 0)
+</pre>
+<p></p><br />Webots << <a href='Webots.html'>Previous</a> <a href='Tutorial.html'>Next</a> >> Tutorial</div>
         
     <!-- footer -->
       <div class="container">

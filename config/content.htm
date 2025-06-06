@@ -1310,7 +1310,150 @@ if __name__ == "__main__":
 <p>以下為 2025 Fall 協同產品設計實習期末報告的初始模擬示範檔案與影片。</p>
 <p style="padding-left: 30px;"><a href="/downloads/cd2025_final_project_w17.7z">cd2025_final_project_w17.7z</a></p>
 <p>接下來可以設法利用 <a href="https://www.emixa.com/events/webinar-whats-new-cad-nx-2506">Siemens NX2506</a> 中的 <a href="https://github.com/mdecycu/nxopen">NXOpen Python</a> 或 <a href="https://github.com/KmolYuan/python-solvespace">Solvespace Python</a> API 程式架構，將機電系統的組立檔案直接轉進 <a href="https://github.com/cyberbotics/webots">Webots</a>. 並將 <a href="https://cyberbotics.com/doc/reference/nodes-and-api-functions">Webots API</a> 各函式納入 <a href="https://websockets.readthedocs.io/en/stable/">WebSocket</a> 框架.</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/lVexZ3iMSiA?si=KV5K55jUTfHqh2ty" title="YouTube video player" width="560"></iframe></p><h1>Tutorial</h1>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/lVexZ3iMSiA?si=KV5K55jUTfHqh2ty" title="YouTube video player" width="560"></iframe></p>
+<h2>Rotate</h2>
+<p>Youbot 平台車原地旋轉控制程式:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from controller import Robot, Keyboard  # 匯入 Webots 的 Robot 與 Keyboard 控制類別
+import math  # 匯入數學模組，用於三角函數和角度換算
+
+deg = math.pi/180  # 一度轉換為弧度的係數（1 deg = π/180 rad）
+
+# 常數設定
+TIME_STEP = 16  # 模擬每個時間步長為 16 毫秒
+WHEEL_RADIUS = 0.05  # 輪子半徑為 5 公分（單位：公尺）
+L = 0.56  # 機器人長度（前後輪距，單位：公尺）
+W = 0.34  # 機器人寬度（左右輪距，單位：公尺）
+MAX_VELOCITY = 10.0  # 輪子的最大轉速
+
+# 初始化機器人實體
+robot = Robot()
+
+# 初始化鍵盤控制
+keyboard = Keyboard()
+keyboard.enable(TIME_STEP)  # 啟用鍵盤輸入，與模擬時間同步
+
+# 初始化 IMU 裝置（慣性測量單元，可回傳機器人轉向角度）
+imu = robot.getDevice("imu")
+imu.enable(TIME_STEP)  # 啟用 IMU 感測器
+
+# 取得四個輪子的馬達裝置
+wheel1 = robot.getDevice("wheel1")  # 右前輪
+wheel2 = robot.getDevice("wheel2")  # 左前輪
+wheel3 = robot.getDevice("wheel3")  # 右後輪
+wheel4 = robot.getDevice("wheel4")  # 左後輪
+
+# 設定輪子為速度控制模式（以速度驅動，而非位置）
+for wheel in [wheel1, wheel2, wheel3, wheel4]:
+    wheel.setPosition(float('inf'))  # 設為無限位置：啟用速度模式
+    wheel.setVelocity(0)  # 初始速度設為 0
+
+# 定義函數：設定四個輪子的速度
+def set_wheel_velocity(v1, v2, v3, v4):
+    """設定四個輪子的速度"""
+    wheel1.setVelocity(v1)
+    wheel2.setVelocity(v2)
+    wheel3.setVelocity(v3)
+    wheel4.setVelocity(v4)
+
+# 取得目前機器人的偏航角（z 軸旋轉角）
+def get_yaw():
+    return imu.getRollPitchYaw()[2]  # 回傳 [roll, pitch, yaw]，取第三項
+
+# 計算兩個角度之間的最短差值（避免角度超出 -π～π）
+def angle_diff(a, b):
+    """計算兩個角度之間的最短差值，結果限制在 [-π, π]"""
+    d = a - b
+    while d &gt; math.pi:
+        d -= 2 * math.pi
+    while d &lt; -math.pi:
+        d += 2 * math.pi
+    return d
+
+# 定義函數：使機器人旋轉指定角度（單位：度）
+def rotate_by_angle(target_angle_deg, fast_velocity=MAX_VELOCITY, slow_velocity=1.0, tolerance_deg=0.05):
+    start_yaw = get_yaw()  # 記錄開始角度
+    target_rad = math.radians(target_angle_deg)  # 將角度轉為弧度
+    slow_zone = math.radians(5)  # 當剩餘角度小於 5 度（弧度）時進入減速區
+    direction = -1 if target_angle_deg &gt; 0 else 1  # 判斷旋轉方向（正：順時針，負：逆時針）
+
+    # 初期使用快速旋轉
+    set_wheel_velocity(-direction*fast_velocity, direction*fast_velocity,
+                       -direction*fast_velocity, direction*fast_velocity)
+
+    while True:
+        robot.step(TIME_STEP)  # 模擬一步
+        now_yaw = get_yaw()  # 取得當前角度
+        turned = angle_diff(now_yaw, start_yaw)  # 計算已旋轉的角度
+        remain = abs(target_rad) - abs(turned)  # 計算剩餘旋轉角度
+
+        if remain &lt; slow_zone:
+            # 當剩下角度進入減速區時，降低轉速
+            set_wheel_velocity(-direction*slow_velocity, direction*slow_velocity,
+                               -direction*slow_velocity, direction*slow_velocity)
+
+        if remain &lt; math.radians(tolerance_deg):
+            # 若剩下角度小於容許誤差範圍，結束旋轉
+            break
+
+    # 停止所有輪子
+    set_wheel_velocity(0, 0, 0, 0)
+    print(f"Yaw changed by {math.degrees(turned):.2f} degrees")  # 印出實際旋轉角度
+
+# 顯示使用說明
+print("Use arrow keys to control youBot.")
+print("A: rotate +30 deg, Z: rotate -30 deg, Q: quit.")
+print("Up: Move forward, Down: Move backward, Left: Turn left, Right: Turn right.")
+
+# 主迴圈：持續監聽鍵盤事件
+while robot.step(TIME_STEP) != -1:
+    key = keyboard.getKey()  # 讀取目前按下的按鍵
+
+    if key == Keyboard.UP:
+        # ↑鍵：向前行駛
+        velocity = MAX_VELOCITY
+        set_wheel_velocity(velocity, velocity, velocity, velocity)
+
+    elif key == Keyboard.DOWN:
+        # ↓鍵：向後行駛
+        velocity = -MAX_VELOCITY
+        set_wheel_velocity(velocity, velocity, velocity, velocity)
+
+    elif key == Keyboard.RIGHT:
+        # →鍵：原地向右旋轉（順時針）
+        velocity = MAX_VELOCITY
+        set_wheel_velocity(-velocity, velocity, -velocity, velocity)
+
+    elif key == Keyboard.LEFT:
+        # ←鍵：原地向左旋轉（逆時針）
+        velocity = MAX_VELOCITY
+        set_wheel_velocity(velocity, -velocity, velocity, -velocity)
+
+    elif key == ord('A') or key == ord('a'):
+        # A 鍵：旋轉 +30 度（逆時針）
+        print("Rotating +30 degrees (clockwise)")
+        before_yaw = imu.getRollPitchYaw()[2]  # 旋轉前角度
+        print(before_yaw)
+        rotate_by_angle(30)  # 呼叫旋轉函數
+        after_yaw = imu.getRollPitchYaw()[2]  # 旋轉後角度
+        print(after_yaw)
+        delta_yaw_deg = (after_yaw - before_yaw)/deg
+        print(f"Yaw changed by {delta_yaw_deg:.2f} degrees")
+
+    elif key == ord('Z') or key == ord('z'):
+        # Z 鍵：旋轉 -30 度（順時針）
+        print("Rotating -30 degrees (counterclockwise)")
+        rotate_by_angle(-30)
+
+    elif key == ord('Q') or key == ord('q'):
+        # Q 鍵：退出程式
+        print("Exiting...")
+        break
+
+    else:
+        # 若無按鍵或非上述指令，則停止移動
+        set_wheel_velocity(0, 0, 0, 0)
+</pre>
+<p></p><h1>Tutorial</h1>
 <p>Webots R2025a 執行環境硬體需求:<br/><br/>2 GHz 4 核心以上 CPU, NVIDIA 或 AMD 支援 OpenGL 3.3 版, 帶有 512 MB 記憶體以上獨立顯示卡<br/><br/>操作系統:</p>
 <p style="padding-left: 30px;">Windows 10 或 11 64 位元操作系統</p>
 <p style="padding-left: 30px;">Ubuntu 24.04 以上版本</p>
