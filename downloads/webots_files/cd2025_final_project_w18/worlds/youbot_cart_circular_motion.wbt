@@ -1,0 +1,475 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/kuka/youbot/protos/BodyMesh.proto"
+EXTERNPROTO "../protos/WheelMesh.proto"
+EXTERNPROTO "../protos/SubWheelMesh.proto"
+
+WorldInfo {
+  info [
+    "Simulation of the KUKA youBot robot."
+    "This model includes an accurate and fast simulation of the Meccanum wheels."
+    "The robot can be equiped with various sensors (including the Microsoft Kinect) and configured with zero, one or two arms."
+  ]
+  title "KUKA youBot"
+  basicTimeStep 16
+  contactProperties [
+    ContactProperties {
+      material1 "InteriorWheelMat"
+      coulombFriction [
+        0, 2, 0
+      ]
+      frictionRotation -0.785398 0
+      bounce 0
+      forceDependentSlip [
+        10, 0
+      ]
+    }
+    ContactProperties {
+      material1 "ExteriorWheelMat"
+      coulombFriction [
+        0, 2, 0
+      ]
+      frictionRotation 0.785398 0
+      bounce 0
+      forceDependentSlip [
+        10, 0
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.2795167964100942 0.2795186033685722 0.9185530528475319 1.6556536073929893
+  position 1.829847583154296e-05 -13.82910206590719 9.426818222930883
+  follow "youBot"
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  tileSize 1 1
+}
+DEF supervisor Robot {
+  controller "move_to"
+  supervisor TRUE
+}
+DEF youBot Robot {
+  translation 0 0 0.102838
+  children [
+    BodyMesh {
+    }
+    DEF WHEEL1 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0.228 -0.158 -0.055
+      }
+      device [
+        RotationalMotor {
+          name "wheel1"
+          maxVelocity 100
+        }
+        PositionSensor {
+          name "wheel1sensor"
+        }
+      ]
+      endPoint DEF WHEEL_SOLID Solid {
+        translation 0.228 -0.158 -0.055
+        rotation 0 1 0 0
+        children [
+          WheelMesh {
+          }
+          Pose {
+            translation 0 0 0.036
+            rotation 0 0 1 0.785402
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+          Pose {
+            translation 0.0311 0 0.018
+            rotation 0.3189771814564413 0.7700744380719852 0.552484314291565 1.28666
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+          Pose {
+            translation 0.0311 0 -0.018
+            rotation 0.3736731193114172 0.9021222880418289 0.2157400688844127 2.18123
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+          Pose {
+            translation 0 0 -0.036
+            rotation 0.3826849586956666 0.9238789002829841 0 3.14159
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+          Pose {
+            translation -0.0311 0 -0.018
+            rotation 0.3736731193114172 0.9021222880418289 -0.2157400688844127 4.10195
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+          Pose {
+            translation -0.0311 0 0.018
+            rotation 0.3189771814564413 0.7700744380719852 -0.552484314291565 4.99652
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+        ]
+        name "wheel1"
+        contactMaterial "InteriorWheelMat"
+        boundingObject Pose {
+          rotation 1 0 0 -1.5708
+          children [
+            Cylinder {
+              height 0.072
+              radius 0.05
+              subdivision 24
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.4
+        }
+      }
+    }
+    DEF WHEEL2 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor 0.228 0.158 -0.055
+      }
+      device [
+        RotationalMotor {
+          name "wheel2"
+          maxVelocity 100
+        }
+        PositionSensor {
+          name "wheel2sensor"
+        }
+      ]
+      endPoint DEF WHEEL_SOLID Solid {
+        translation 0.228 0.158 -0.055
+        rotation 0 1 0 0
+        children [
+          WheelMesh {
+          }
+          Pose {
+            translation 0 0 0.036
+            rotation 0 0 -1 0.785402
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+          Pose {
+            translation 0.0311 0 0.018
+            rotation -0.3189771814564413 0.7700744380719852 -0.552484314291565 1.28666
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+          Pose {
+            translation 0.0311 0 -0.018
+            rotation -0.3736731193114172 0.9021222880418289 -0.2157400688844127 2.18123
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+          Pose {
+            translation 0 0 -0.036
+            rotation -0.3826849586956666 0.9238789002829841 0 3.14159
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+          Pose {
+            translation -0.0311 0 -0.018
+            rotation -0.3736731193114172 0.9021222880418289 0.2157400688844127 4.10195
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+          Pose {
+            translation -0.0311 0 0.018
+            rotation -0.3189771814564413 0.7700744380719852 0.552484314291565 4.99652
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+        ]
+        name "wheel2"
+        contactMaterial "ExteriorWheelMat"
+        boundingObject Pose {
+          rotation 1 0 0 -1.5708
+          children [
+            Cylinder {
+              height 0.072
+              radius 0.05
+              subdivision 24
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.4
+        }
+      }
+    }
+    DEF WHEEL3 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor -0.228 -0.158 -0.055
+      }
+      device [
+        RotationalMotor {
+          name "wheel3"
+          maxVelocity 100
+        }
+        PositionSensor {
+          name "wheel3sensor"
+        }
+      ]
+      endPoint DEF WHEEL_SOLID Solid {
+        translation -0.228 -0.158 -0.055
+        rotation 0 1 0 0
+        children [
+          WheelMesh {
+          }
+          Pose {
+            translation 0 0 0.036
+            rotation 0 0 -1 0.785402
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+          Pose {
+            translation 0.0311 0 0.018
+            rotation -0.3189771814564413 0.7700744380719852 -0.552484314291565 1.28666
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+          Pose {
+            translation 0.0311 0 -0.018
+            rotation -0.3736731193114172 0.9021222880418289 -0.2157400688844127 2.18123
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+          Pose {
+            translation 0 0 -0.036
+            rotation -0.3826849586956666 0.9238789002829841 0 3.14159
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+          Pose {
+            translation -0.0311 0 -0.018
+            rotation -0.3736731193114172 0.9021222880418289 0.2157400688844127 4.10195
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+          Pose {
+            translation -0.0311 0 0.018
+            rotation -0.3189771814564413 0.7700744380719852 0.552484314291565 4.99652
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+        ]
+        name "wheel3"
+        contactMaterial "ExteriorWheelMat"
+        boundingObject Pose {
+          rotation 1 0 0 -1.5708
+          children [
+            Cylinder {
+              height 0.072
+              radius 0.05
+              subdivision 24
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.4
+        }
+      }
+    }
+    DEF WHEEL4 HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor -0.228 0.158 -0.055
+      }
+      device [
+        RotationalMotor {
+          name "wheel4"
+          maxVelocity 100
+        }
+        PositionSensor {
+          name "wheel4sensor"
+        }
+      ]
+      endPoint DEF WHEEL_SOLID Solid {
+        translation -0.228 0.158 -0.055
+        rotation 0 1 0 0
+        children [
+          WheelMesh {
+          }
+          Pose {
+            translation 0 0 0.036
+            rotation 0 0 1 0.785402
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+          Pose {
+            translation 0.0311 0 0.018
+            rotation 0.3189771814564413 0.7700744380719852 0.552484314291565 1.28666
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+          Pose {
+            translation 0.0311 0 -0.018
+            rotation 0.3736731193114172 0.9021222880418289 0.2157400688844127 2.18123
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+          Pose {
+            translation 0 0 -0.036
+            rotation 0.3826849586956666 0.9238789002829841 0 3.14159
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+          Pose {
+            translation -0.0311 0 -0.018
+            rotation 0.3736731193114172 0.9021222880418289 -0.2157400688844127 4.10195
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+          Pose {
+            translation -0.0311 0 0.018
+            rotation 0.3189771814564413 0.7700744380719852 -0.552484314291565 4.99652
+            children [
+              SubWheelMesh {
+              }
+            ]
+          }
+        ]
+        name "wheel4"
+        contactMaterial "InteriorWheelMat"
+        boundingObject Pose {
+          rotation 1 0 0 -1.5708
+          children [
+            Cylinder {
+              height 0.072
+              radius 0.05
+              subdivision 24
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.4
+        }
+      }
+    }
+    DEF PLATE Solid {
+      translation 0 0 0.03
+      children [
+        DEF plate Shape {
+          appearance PBRAppearance {
+            baseColor 0.75 0.75 0.75
+            roughness 0.3
+          }
+          geometry Box {
+            size 0.5 0.3 0.02
+          }
+        }
+      ]
+      name "plate"
+      boundingObject USE plate
+      physics Physics {
+        density -1
+        mass 0.5
+      }
+    }
+    GPS {
+    }
+    InertialUnit {
+    }
+  ]
+  name "youBot"
+  model "KUKA youBot"
+  description "KUKA youBot"
+  boundingObject Group {
+    children [
+      Pose {
+        translation 0 0 -0.045
+        children [
+          Box {
+            size 0.34 0.34 0.09
+          }
+        ]
+      }
+      Pose {
+        translation 0 0 -0.045
+        children [
+          Box {
+            size 0.56 0.23 0.09
+          }
+        ]
+      }
+    ]
+  }
+  physics Physics {
+    density -1
+    mass 22
+    centerOfMass [
+      0 0 -0.045
+    ]
+    inertiaMatrix [
+      0.166204 0.418086 0.55459
+      0 0 0
+    ]
+  }
+  controller "circular_motion"
+  controllerArgs [
+    "demo"
+  ]
+}
