@@ -150,7 +150,99 @@ img.add_border {
 <li><span>請各組利用 <a href="https://mde.tw/cd2025/downloads/youbot_cart_w10_websocket.7z">youbot_cart_w10_websocket.7z</a> 中的 Youbot 底座平台, 由各組組長以 webotsw --stream 啟動後, 可在其餘組員的電腦中, 透過 Websocket 客戶端程式控制平台車的前進、後退與左右轉. 完成後請各學員將操作與設定說明過程拍成影片, 上傳至 Youtube, 影片標題: "<span style="background-color: #ffff00;">國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam3-3 - 學員學號</span>".</span></li>
 <li><span>上述機電模擬場景的協同設計, 請分別由各組組員將所完成的影片與心得整理在個人作業網站中的 Exam3 頁面後, 再逐一利用組員的帳號權限, 將個人心得與上述操作影片, 統一放入分組網站中的 Exam3 頁面中.</span></li>
 </ol>
-<br />Exam2 << <a href='Exam2.html'>Previous</a> <a href='Final.html'>Next</a> >> Final</div>
+<p><span>Exam3 相關提問:</span></p>
+<ol>
+<li><span>如何利用 webotsw --stream 啟動 Webots 模擬系統？</span></li>
+<li><span>為何要使用個人 IPv6 網址來啟動 Webots 伺服器？</span></li>
+<li><span>客戶端如何透過瀏覽器檢視啟動串流的 Webots 模擬？</span></li>
+<li><span>若要讓協同組員能觀看你的模擬，需注意哪些網路設定？</span></li>
+<li><span>七段顯示器（三位數 counter）場景是如何設計其顯示結構的？</span></li>
+<li><span>如何將學號（八位數）分割顯示在多個三位數七段顯示器上？</span></li>
+<li><span>Webots 場景檔案中 EXTERNPROTO 的作用是什麼？</span></li>
+<li><span>RectangleArena 在場景中扮演什麼角色？</span></li>
+<li><span>DEF 與 USE 在 Webots 場景設計中的用途？</span></li>
+<li><span>Mesh 幾何如何用於七段顯示器的設計？</span></li>
+<li><span>如何於 Webots 控制器中動態改變顯示數字？</span></li>
+<li><span>supervisor 屬性設為 TRUE 有何意義？</span></li>
+<li><span>如何安裝並執行 Webots websocket server 端的 Python 程式？</span></li>
+<li><span>Webots 機器人控制程式如何與 Websocket server 整合？</span></li>
+<li><span>Websocket server 端需如何正確設定 IPv6 地址與 port？</span></li>
+<li><span>Websocket client 端如何發送控制指令給 KUKA YouBot 平台車？</span></li>
+<li><span>server 端如何解析接收到的 JSON 指令？</span></li>
+<li><span>YouBot 四輪的馬達名稱在控制程式中如何對應？</span></li>
+<li><span>set_wheel_velocity 函數作用為何？</span></li>
+<li><span>如何利用鍵盤直接在串流伺服器電腦上控制 YouBot 平台車的移動？</span></li>
+<li><span>Webots websocket 架構如何支援多人協同操作？</span></li>
+<li><span>若要讓 Webots client 可跨平台遠端控制，需注意什麼？</span></li>
+<li><span>七段顯示器中的每個 segment 如何以程式切換其亮度？</span></li>
+<li><span>如何將學號依序顯示於七段顯示器上（八個位數）？</span></li>
+<li><span>若模擬串流畫面在瀏覽器無法正常顯示，可能的原因以及解決辦法為何？</span></li>
+<li><span>Webots 場景中 Material 的 diffuseColor 如何設定顯示顏色？</span></li>
+<li><span>Webots 伺服器啟動後，如何讓其他組員的電腦以 https 協定成功連線？</span></li>
+<li><span>當 Websocket server 收到無效資料時，會如何處理？</span></li>
+<li><span>若要錄製協同操作過程的影片，建議採用哪些工具？</span></li>
+<li><span>完成所有操作後，如何整理並上傳操作影片與心得到作業網站？</span></li>
+<li><span>如何確認 webotsw --stream 已成功啟動並可外部連線？</span></li>
+<li><span>若使用 IPv4，Webots stream 是否能正常協同運作？為什麼？</span></li>
+<li><span>如何在 Webots GUI 內檢查目前串流位址與 port？</span></li>
+<li><span>若 Webots stream 預設 port 被佔用，如何更換？</span></li>
+<li><span>該如何判斷自己的 Webots 模擬畫面已被協同組員成功觀看？</span></li>
+<li><span>七段顯示器 counter 場景中，如何快速切換不同數字字型或顏色？</span></li>
+<li><span>Webots 場景若需顯示多行學號，設計上應如何調整？</span></li>
+<li><span>若 counter 專案的 mesh 檔案損毀或缺漏，該如何處理？</span></li>
+<li><span>Webots 場景中的 Pose 節點有何進階應用？</span></li>
+<li><span>如何設計可動態調整顯示器間間距的三位數 counter？</span></li>
+<li><span>在 Webots 控制器中，該如何實作數字到七段顯示的對應表？</span></li>
+<li><span>為何 supervisor 設為 TRUE 可輔助協同模擬？</span></li>
+<li><span>若 Webots stream 畫面延遲不順，可能原因為何？如何改善？</span></li>
+<li><span>Webots 場景中 Material transparency 屬性應用於哪些場合？</span></li>
+<li><span>在 Webots 場景如何插入自訂 LOGO 或圖片？</span></li>
+<li><span>若需在 Webots stream 畫面同步顯示多位協同學員學號，該如何設計？</span></li>
+<li><span>Webots websocket server 的 thread 設計有何優缺點？</span></li>
+<li><span>Python server 端如何確保多 client 指令不互相衝突？</span></li>
+<li><span>Webots 控制器如何即時取得網路指令並反應於模擬中？</span></li>
+<li><span>若 websocket client 端與 server 端版本不合，會發生什麼現象？</span></li>
+<li><span>如何設計 client 按鍵防止抖動，並避免重複控制？</span></li>
+<li><span>YouBot 的四輪馬達如何實作橫向移動？</span></li>
+<li><span>若要在 Webots stream 畫面加上即時計時器，應如何設計？</span></li>
+<li><span>Webots 場景中如何設計物件碰撞事件的偵測與回報？</span></li>
+<li><span>若要實現 Webots stream 的多語系使用者介面，需調整哪些設定？</span></li>
+<li><span>如何管理並同步多組員的協同模擬操作紀錄？</span></li>
+<li><span>若七段顯示器需支援動態亮度調整，如何設計與實作？</span></li>
+<li><span>Webots websocket 架構下如何實現自訂訊息格式與指令集？</span></li>
+<li><span>若 KUKA youBot 需自動避障，Webots 場景與控制程式需如何修改？</span></li>
+<li><span>完成協同模擬後，如何設計自動產生操作報告或 log？</span></li>
+<li><span>Webots stream 支援哪些常見瀏覽器？</span></li>
+<li><span>如何設定 Webots stream 的密碼或存取權限？</span></li>
+<li><span>IPv6 網址與 IPv4 最大的差異為何，對協同模擬有何影響？</span></li>
+<li><span>若無法取得預分配的 IPv6 位址，該如何處理？</span></li>
+<li><span>Webots stream 預設的串流影像格式與壓縮方式為何？</span></li>
+<li><span>若多名協同組員同時連入一台 Webots stream server，系統負載會有何變化？</span></li>
+<li><span>Webots stream 是否支援聲音同步串流？如何測試？</span></li>
+<li><span>七段顯示器 counter 若要顯示負數，需修改哪些設計？</span></li>
+<li><span>如何於 Webots 控制器實現七段顯示器的動畫效果？</span></li>
+<li><span>若要讓顯示器自動根據資料自適應字型大小，應如何調整？</span></li>
+<li><span>Webots 場景如何支援動態生成新的七段顯示器（非預設個數）？</span></li>
+<li><span>Webots 場景與控制程式如何分工設計，便於多人協同開發？</span></li>
+<li><span>若 websocket server 在運行時異常中斷，如何讓 client 端自動重連？</span></li>
+<li><span>Webots 控制器可否同時接收多個資料來源（例如鍵盤與 websocket）？</span></li>
+<li><span>YouBot 的馬達速度上限與實際輪速不符時如何校正？</span></li>
+<li><span>如何於 Webots 場景中實現多車協同控制？</span></li>
+<li><span>自訂 Webots 場景需如何打包分享給他人？</span></li>
+<li><span>Webots stream 若需跨校協同，網路環境需符合哪些條件？</span></li>
+<li><span>若有組員無法觀看 stream，如何進行遠端協助排錯？</span></li>
+<li><span>Webots 控制器如何實現對協同事件的同步日誌記錄？</span></li>
+<li><span>Webots websocket 訊息傳輸時如何避免封包遺失？</span></li>
+<li><span>若 Webots stream 畫面出現黑屏，應從哪些層面排查？</span></li>
+<li><span>Webots 七段顯示器能否顯示英文字母？如何設計？</span></li>
+<li><span>如何改進 Webots 場景效能以支援高解析度及多用戶串流？</span></li>
+<li><span>Webots 控制器如何偵測與回應 websocket client 斷線事件？</span></li>
+<li><span>若需在 stream 畫面疊加即時文字訊息，可用哪些技術或結構？</span></li>
+<li><span>Webots 場景的 Version 區段有何用途？何時需調整？</span></li>
+<li><span>如何設計 Webots 控制器的多語系訊息顯示？</span></li>
+<li><span>若組員在不同時區，如何協調協同模擬的時間安排？</span></li>
+<li><span>完成協同作業後，如何進行模擬結果的量化評估？</span></li>
+</ol><br />Exam2 << <a href='Exam2.html'>Previous</a> <a href='Final.html'>Next</a> >> Final</div>
         
     <!-- footer -->
       <div class="container">
