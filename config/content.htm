@@ -1444,6 +1444,99 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocola
 <p style="padding-left: 30px;"><a href="/downloads/cd2025_w17_rotate_angle.7z">cd2025_w17_rotate_angle.7z</a> (按下 a 旋轉 -30 deg, 按下 z 旋轉 30 deg)</p>
 <p style="padding-left: 30px;"><a href="/downloads/cd2025_w17_move_and_face.7z">cd2025_w17_move_and_face.7z</a> (按下 m 先轉向 (3, 3), 前進至 (3, 3) 後面向 (0, 0))</p>
 <p style="padding-left: 30px;"><span><a href="/downloads/cd2025_w18_move_and_face.7z">cd2025_w18_move_and_face.7z</a> (按下 j 或 k 可側向移動)  </span></p>
+<p><span>期末報告提問:</span></p>
+<ol>
+<li><span>本協同專案的目標與主要功能為何？</span></li>
+<li><span>場景中包含哪幾個主要子系統或模組？</span></li>
+<li><span>如何在 Webots 中建立一個可移動的投籃輪車？</span></li>
+<li><span>籃框架的移動模式是如何設計與實現的？</span></li>
+<li><span>投籃輪車的移動控制與發射功能分別由哪些裝置組成？</span></li>
+<li><span>如何設定投籃輪車的初始位置與限制其活動範圍？</span></li>
+<li><span>籃球如何於場景中建立、數量如何設定？</span></li>
+<li><span>如何設計並實作籃球的補球或回收（送球）機構？</span></li>
+<li><span>投籃動作是如何由控制器程式觸發與執行的？</span></li>
+<li><span>操作者如何利用鍵盤控制輪車移動及投籃？</span></li>
+<li><span>投籃發射機構的關節與馬達如何配置與驅動？</span></li>
+<li><span>籃框架的隨機慢速移動是怎麼實現的？</span></li>
+<li><span>記分板的設計邏輯是什麼？如何判斷得分？</span></li>
+<li><span>籃球進框判斷使用了哪些感測器或演算法？</span></li>
+<li><span>投籃輪車與籃框架的碰撞設定如何調整？</span></li>
+<li><span>籃框架的位置與運動狀態如何被記錄或顯示？</span></li>
+<li><span>投籃次數與剩餘籃球數是如何統計與顯示的？</span></li>
+<li><span>投籃遊戲結束條件的判定方式為何？</span></li>
+<li><span>如何設計多台輪車或多名操作者協同投籃？</span></li>
+<li><span>場景中各組件的物理屬性（質量、摩擦等）如何調整？</span></li>
+<li><span>YouBot 機構的四輪配置與移動原理為何？</span></li>
+<li><span>投籃機構的多關節設計與驅動邏輯？</span></li>
+<li><span>如何實現籃球補球機構的自動偵測與動作觸發？</span></li>
+<li><span>如何在 Webots 場景中顯示即時計分與剩餘球數？</span></li>
+<li><span>投籃過程動畫與物理真實性的平衡關鍵為何？</span></li>
+<li><span>協同設計過程中，組員如何分工合作？</span></li>
+<li><span>專案過程的影片、簡報與 PDF 報告應包含哪些重點？</span></li>
+<li><span>如何將專案過程影片嵌入報告網頁？</span></li>
+<li><span>若協同操作過程中發生衝突，如何協調與解決？</span></li>
+<li><span>專案結束後，如何整理心得並反饋於課程平台？</span></li>
+<li>請描述 youBot 投籃輪車在場景中的初始座標與朝向？</li>
+<li>場景中的 youBot 投籃車和籃框架 stand 機器人各自的控制器名稱是什麼？</li>
+<li>如何在 Webots 場景檔案中正確設置每個 wheel 的 RotationalMotor 名稱？</li>
+<li>為什麼每個輪子旁邊都設有 PositionSensor？用途為何？</li>
+<li>該如何利用 IMU 和 GPS 完成 youBot 的定點移動與旋轉？</li>
+<li>如何設計 youBot 能夠精確側移指定距離？程式上如何判斷移動完成？</li>
+<li>是否試過讓 youBot 自動從起點移動到指定座標並朝向某點嗎？描述操作步驟。</li>
+<li>在控制器內，如何區分前進、後退、旋轉、側移等不同移動模式？</li>
+<li>在程式中 set_wheel_velocity 的四個參數順序分別對應哪四個輪子？</li>
+<li>YouBot 的 Keyboard 控制有哪些特定按鍵操作？（請舉例說明）</li>
+<li>投籃機構的多個 HingeJoint 關節是如何層層串接的？結構如何設計？</li>
+<li>如何觸發投籃發射動作？對應按鍵是什麼？程式流程為何？</li>
+<li>籃框架 stand 的移動演算法是否有隨機性？該如何實現？</li>
+<li>補球/送球機構自動補球的訊息傳遞流程是什麼？使用了哪些 Webots 裝置？</li>
+<li>Emitter/Receiver 在記分板與補球控制中扮演什麼角色？請詳細說明一個訊息傳遞範例。</li>
+<li>七段顯示器記分板的 segment 如何根據得分訊息動態變色？</li>
+<li>投籃得分是根據哪個感測器資料來判斷？感測器設置於何處？</li>
+<li>是否設計過球進框後自動加分的程式嗎？其邏輯為何？</li>
+<li>如何防止球體與場景物件發生非預期的穿透或異常彈跳？</li>
+<li>請說明如何設定與調整球體和機械部件的質量、摩擦等物理參數。</li>
+<li>是否試過多台 youBot 輪車同場協同投籃嗎？多機協同時，訊息或控制會有什麼衝突？</li>
+<li>補球流程中如何確保每次只會有一顆球被正確補給到輪車？</li>
+<li>若希望依據剩餘球數或投籃次數動態結束遊戲，程式該如何編寫？</li>
+<li>自動補球與自動投籃能否串接成完整循環？你如何設計流程與狀態管理？</li>
+<li>場景中 Viewpoint 設定有何作用？你試過調整攝影機角度觀察不同視角嗎？</li>
+<li>請描述該如何嵌入 YouTube 影片到個人或分組期末報告網頁？</li>
+<li>專案過程中曾遇到什麼協作或整合困難？如何解決？</li>
+<li>如何調整記分板七段顯示器 segment 的顏色及樣式？</li>
+<li>場景與控制器檔案如何在其他同組協同組員的電腦上執行？</li>
+<li>該如何驗證投籃流程、計分、補球、遊戲結束等每個功能都運作正常？</li>
+<li>請自行於 Webots 場景新增或刪除一顆籃球？操作步驟為何？</li>
+<li>如何在場景中設定籃球的尺寸、顏色與物理屬性？</li>
+<li>是否試過修改 youBot 或 stand 機構的質量或摩擦係數嗎？如何修改？</li>
+<li>若要限制 youBot 只能於指定區域活動，如何於控制器實作？</li>
+<li>該如何設定並驗證 youBot 的初始朝向與旋轉角度？</li>
+<li>場景中籃框（stand）如何設定隨機移動的範圍與方向？</li>
+<li>你試著讓投籃輪車自動對準並靠近籃框嗎？程式邏輯是什麼？</li>
+<li>當投球未命中籃框時，如何於程式中記錄「未得分」？</li>
+<li>你曾經手動重置全部籃球的位置嗎？操作流程為何？</li>
+<li>你是否嘗試過將計分板顯示改為兩位數或四位數？如何調整？</li>
+<li>如何讓記分板在遊戲結束後自動顯示「Game Over」或其他訊息？</li>
+<li>你是否有針對球體數量不足時自動補球？程式如何設計？</li>
+<li>如何於控制器中實現「投球冷卻時間」以防止連續發射？</li>
+<li>你能否讀取與顯示 youBot 的即時速度或移動路徑？</li>
+<li>你有測試過將投籃流程的控制訊息以文字訊息（如LOG）即時顯示在終端機嗎？</li>
+<li>場景中的 DistanceSensor 如何設定量測距離與靈敏度？</li>
+<li>是否有令籃框架進行非線性或加速度運動？如何實作？</li>
+<li>如何將 youBot 移動與投籃流程整合成一個自動化測試腳本？</li>
+<li>是否試過在同一場景下同時建立兩個以上的計分板嗎？操作方式為何？</li>
+<li>如何於 Webots 場景中加入倒數計時器或遊戲計時功能？</li>
+<li>能否於程式中偵測 youBot 是否卡住或發生碰撞？如何處理？</li>
+<li>當有多台 youBot 輪車時，如何區分各自的控制與訊息通道？</li>
+<li>若希望將補球機構設計為「多點補球」，該如何設計？</li>
+<li>是否測試過不同籃球質量對投籃飛行軌跡的影響？結果如何？</li>
+<li>如何於模擬中手動或自動錄製並回放投籃過程？</li>
+<li>是否能於控制器程式內同時整合多種鍵盤/滑鼠/自動控制模式？</li>
+<li>若曾遇到過場景載入出現 mesh 檔案遺失或錯誤，該如何排除？</li>
+<li>是否於專案過程中建立過專屬的 proto 或自訂場景物件？如何設計？</li>
+<li>如何批次測試多種投籃參數（如角度、力度）並記錄結果？</li>
+<li>當 Webots 更新版本或變更 API，該如何維護與修正原有專案？</li>
+</ol>
 <p>手動投球:</p>
 <p>w17.wbt</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/lVexZ3iMSiA?si=KV5K55jUTfHqh2ty" title="YouTube video player" width="560"></iframe></p>
